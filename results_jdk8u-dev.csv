@@ -1,2 +1,15 @@
-commit,build_after,test_after,build_before,test_before,regressions,fixes
-8867d017b18ad7cd8842b9324c5c031a44a58064,Success,Fail,Success,Fail,0,0
+commit,build_after,test_after,build_before,test_before,regressions,fixes,new_passes
+ddce2b5d39cb780c84d0c4d3bf01df2fe5d3d989,Success,Success,Success,Success,0,0,1
+8867d017b18ad7cd8842b9324c5c031a44a58064,Success,Fail,Success,Fail,0,0,1
+49425166c201e73dd954bd033ea6e33f4a9811b3,Success,Fail,Success,Fail,0,0,1
+da6b2652f5afb1270140d1bc680f2ef3d8f9c51a,Success,Fail,Success,Fail,0,0,1
+618917eb093243de2c5d7e83d4688bfe9ad04985,Success,Fail,Success,Fail,0,0,0
+10122b593165d6bcaf58abfe2721c3dcb407b593,Success,Fail,Success,Fail,0,1,1
+c2f7e61272996631585153c70d784e7690763f01,Success,Fail,Success,Fail,0,0,0
+88a7829f254415bbc0a2079e2828de1a0758a6a8,Success,Fail,Success,Fail,0,0,0
+24cade612fc3aac90ce78f040c369098cc76a50e,Success,Fail,Success,Fail,0,0,0
+55af9ec313d2f6eef4530e65d6540a12cf067471,Success,Fail,Success,Fail,1,0,1
+3d5cfe2ca6b107b2ff87a051664eed35da7df591,Success,Fail,Success,Fail,0,1,0
+5e59411bd3760a4c54bd52d301d882e4a9f5aab4,Success,Fail,Success,Fail,1,0,1
+656b3cfda2d349e8198ee4058d17352887d948f8,Success,Fail,Success,Fail,0,0,0
+73dca05a92e7751006622c33335540300bb2bb4d,Success,Crash/No Report,Success,Crash/No Report,0,0,0
