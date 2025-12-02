@@ -3,7 +3,7 @@
 set -e
 
 echo "--- Inside Docker: Running tests for ${COMMIT_SHA:0:7} ---"
-echo "Target: ${TEST_TARGETS}"
+echo "Target(s): ${TEST_TARGETS}"
 
 # 1. Define Build Directory
 BUILD_DIR_ABS="/repo/${BUILD_DIR_NAME}"
@@ -33,18 +33,43 @@ FINAL_EXIT_CODE=0
 # 3. Iterate and Run
 for TARGET in ${TEST_LIST}; do
     echo "--- Running target: ${TARGET} ---"
-    
+
     set +e
-    
-    # Run make test
-    # JTREG="VERBOSE=fail,error" keeps logs clean
-    make test TEST="${TARGET}" \
-         JOBS=$(nproc) \
-         JTREG="VERBOSE=fail,error"
-    
-    EXIT_CODE=$?
+
+    # Case 1: jtreg test directory/file
+    if [[ "${TARGET}" == test/* ]]; then
+        echo "Detected jtreg test directory/file. Running jtreg."
+
+        JTREG_BIN="${JTREG_HOME}/bin/jtreg"
+
+        if [ ! -x "${JTREG_BIN}" ]; then
+            echo "❌ jtreg executable not found at ${JTREG_BIN}"
+            FINAL_EXIT_CODE=1
+            continue
+        fi
+
+        TARGET_ABS="/repo/${TARGET}"
+
+        "${JTREG_BIN}" \
+            -verbose:fail,error \
+            -jdk:"${BUILD_DIR_ABS}/images/jdk" \
+            "${TARGET_ABS}"
+
+        EXIT_CODE=$?
+
+    # Case 2: tier group (tier1, tier2, etc.)
+    else
+        echo "Detected tier/group test. Using make test."
+
+        make test TEST="${TARGET}" \
+             JOBS=$(nproc) \
+             JTREG="VERBOSE=fail,error"
+
+        EXIT_CODE=$?
+    fi
+
     set -e
-    
+
     if [ ${EXIT_CODE} -ne 0 ]; then
         echo "❌ Target ${TARGET} FAILED"
         FINAL_EXIT_CODE=1
@@ -60,3 +85,4 @@ else
     echo "=== SOME TESTS FAILED ==="
     exit 1
 fi
+
