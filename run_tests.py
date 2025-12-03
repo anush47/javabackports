@@ -369,8 +369,15 @@ def main():
         try:
             res = subprocess.run(f"git rev-parse {commit_sha}^", shell=True, cwd=project_repo_dir, capture_output=True, text=True)
             parent_sha = res.stdout.strip()
+            
+            # Check file count
+            res_files = subprocess.run(f"git diff-tree --no-commit-id --name-only -r {commit_sha}", shell=True, cwd=project_repo_dir, capture_output=True, text=True)
+            changed_files = res_files.stdout.strip().splitlines()
+            if len(changed_files) > 10:
+                print(f"--- Skipping {commit_sha} (Too many changed files: {len(changed_files)}) ---")
+                continue
         except:
-            print("Error finding parent commit.")
+            print("Error finding parent commit or checking file count.")
             continue
 
         work_dir = os.path.join(toolkit_dir, "temp_work", commit_sha)
