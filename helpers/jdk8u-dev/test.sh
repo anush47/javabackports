@@ -5,8 +5,8 @@ set -e
 echo "--- Inside Docker: Running tests for ${COMMIT_SHA:0:7} ---"
 echo "Target: ${TEST_TARGETS}"
 
-# 1. Define Build Directory
-BUILD_DIR_ABS="/repo/${BUILD_DIR_NAME}"
+# 1. Define Build Directory (use shared build directory)
+BUILD_DIR_ABS="/repo/build_shared"
 
 if [ ! -d "${BUILD_DIR_ABS}" ]; then
     echo "❌ Error: Build directory not found at ${BUILD_DIR_ABS}"
@@ -36,20 +36,45 @@ for TARGET in ${TEST_LIST}; do
     
     set +e
     
-    # Check if it's a langtools make target or a generic test target
-    if [[ "${TARGET}" == "langtools_"* ]]; then
+    # Case 1: Individual test file (test/*.java)
+    if [[ "${TARGET}" == test/*.java ]] || [[ "${TARGET}" == */test/*.java ]]; then
+        echo "Detected individual test file. Running jtreg on file."
+        
+        JTREG_BIN="${JTREG_HOME}/bin/jtreg"
+        
+        if [ ! -x "${JTREG_BIN}" ]; then
+            echo "❌ jtreg executable not found at ${JTREG_BIN}"
+            FINAL_EXIT_CODE=1
+            continue
+        fi
+        
+        TARGET_ABS="/repo/${TARGET}"
+        
+        "${JTREG_BIN}" \
+            -verbose:fail,error \
+            -jdk:"${BUILD_DIR_ABS}/images/j2sdk-image" \
+            -xml:verify \
+            "${TARGET_ABS}"
+        
+        EXIT_CODE=$?
+    
+    # Case 2: langtools make target
+    elif [[ "${TARGET}" == "langtools_"* ]]; then
         make ${TARGET} JOBS=$(nproc)
+        EXIT_CODE=$?
+    
+    # Case 3: Standard test groups (jdk_core, hotspot_gc, etc.)
     else
-        # --- FIX: Added -xml:verify to JTREG options ---
+        # --- Added -xml:verify to JTREG options ---
         # This forces jtreg to generate the JUnit-style XML reports 
         # required by the parse_test_results python function.
         make test TEST=${TARGET} \
              JOBS=$(nproc) \
              JTREG="VERBOSE=fail,error -xml:verify" \
              IGNORE_INTERNAL_VM_WARNINGS=true
+        EXIT_CODE=$?
     fi
     
-    EXIT_CODE=$?
     set -e
     
     if [ ${EXIT_CODE} -ne 0 ]; then

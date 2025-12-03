@@ -12,43 +12,53 @@ echo "Using jtreg: ${JTREG_HOME}"
 echo "Checking out commit: ${COMMIT_SHA}"
 git checkout -f "${COMMIT_SHA}"
 
-# Define the build directory path (relative to /repo)
-export BUILD_DIR_ABS="/repo/${BUILD_DIR_NAME}"
-echo "--- Creating build directory: ${BUILD_DIR_ABS} ---"
-mkdir -p "${BUILD_DIR_ABS}"
+# Use a shared build directory to enable incremental builds
+export BUILD_DIR_ABS="/repo/build_shared"
+echo "--- Using shared build directory for incremental builds: ${BUILD_DIR_ABS} ---"
+
+# Check if we need to configure (only on first build or if configure changed)
+NEED_CONFIGURE=false
+if [ ! -f "${BUILD_DIR_ABS}/spec.gmk" ]; then
+    echo "--- No existing spec.gmk found, will configure ---"
+    NEED_CONFIGURE=true
+    mkdir -p "${BUILD_DIR_ABS}"
+fi
 
 # 'cd' into the build directory
 cd "${BUILD_DIR_ABS}"
 
-echo "--- Configuring build from outside source dir... ---"
-
-# Note: --disable-warnings-as-errors does NOT exist in JDK 8
-bash ../configure \
-    --with-boot-jdk="${BOOT_JDK}" \
-    --with-jtreg="${JTREG_HOME}" \
-    --enable-ccache \
-    --with-debug-level=release \
-    --with-native-debug-symbols=none \
-    --disable-zip-debug-info
-
-echo "--- Patching spec.gmk to disable warnings-as-errors... ---"
-# JDK 8's build system hardcodes -Werror in many places
-# We need to remove it from the generated spec.gmk file
-if [ -f spec.gmk ]; then
-    # Remove -Werror flags from all compiler flag variables
-    sed -i 's/-Werror[^ ]*//g' spec.gmk
-    sed -i 's/WARNINGS_ARE_ERRORS[[:space:]]*:=[[:space:]]*-Werror/WARNINGS_ARE_ERRORS :=/g' spec.gmk
-    echo "--- spec.gmk patched ---"
+if [ "${NEED_CONFIGURE}" = true ]; then
+    echo "--- Configuring build from outside source dir... ---"
+    
+    # Note: --disable-warnings-as-errors does NOT exist in JDK 8
+    bash ../configure \
+        --with-boot-jdk="${BOOT_JDK}" \
+        --with-jtreg="${JTREG_HOME}" \
+        --enable-ccache \
+        --with-debug-level=release \
+        --with-native-debug-symbols=none \
+        --disable-zip-debug-info
+    
+    echo "--- Patching spec.gmk to disable warnings-as-errors... ---"
+    # JDK 8's build system hardcodes -Werror in many places
+    # We need to remove it from the generated spec.gmk file
+    if [ -f spec.gmk ]; then
+        # Remove -Werror flags from all compiler flag variables
+        sed -i 's/-Werror[^ ]*//g' spec.gmk
+        sed -i 's/WARNINGS_ARE_ERRORS[[:space:]]*:=[[:space:]]*-Werror/WARNINGS_ARE_ERRORS :=/g' spec.gmk
+        echo "--- spec.gmk patched ---"
+    else
+        echo "--- Warning: spec.gmk not found, skipping patch ---"
+    fi
 else
-    echo "--- Warning: spec.gmk not found, skipping patch ---"
+    echo "--- Skipping configure (using existing configuration for incremental build) ---"
 fi
 
-# Build the JDK
-echo "--- Running make... (Output will be in ${BUILD_DIR_ABS}) ---"
+# Build the JDK incrementally
+echo "--- Running incremental make... (Output will be in ${BUILD_DIR_ABS}) ---"
 
-# Run 'make' from inside the build dir.
 # For JDK 8, use 'all' target instead of 'images'
-# Pass multiple flags to disable warnings-as-errors
+# Make will automatically detect what needs to be rebuilt
 if make JOBS="${MAKE_JOBS:-$(nproc)}" all \
     COMPILER_WARNINGS_FATAL=false \
     WARNINGS_ARE_ERRORS="" \
