@@ -25,15 +25,16 @@ git checkout -f ${COMMIT_SHA}
 # Create Maven cache volume (reuse across builds)
 docker volume create maven-repo 2>/dev/null || true
 
-echo "=== Running optimized Maven build (skipping tests, web-console, and checks) ==="
+echo "=== Running optimized Maven build (compile only) ==="
 
 # Run Maven build
+# Changed from 'install' to 'compile test-compile' for speed
 docker run --rm \
     -v "${PROJECT_DIR}:/repo" \
     -v "maven-repo:/root/.m2/repository" \
     -w /repo \
     ${BUILDER_IMAGE_TAG} \
-    bash -c "mvn clean install -DskipTests -Ddruid.console.skip=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C -pl '!:web-console,!:distribution'" \
+    bash -c "mvn clean compile test-compile -DskipTests -Ddruid.console.skip=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C -pl '!:web-console,!:distribution'" \
     || BUILD_EXIT_CODE=$?
 
 # Save build status

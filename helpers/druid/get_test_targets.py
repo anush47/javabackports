@@ -3,6 +3,7 @@ import argparse
 import subprocess
 import sys
 import os
+import json
 
 def main():
     parser = argparse.ArgumentParser()
@@ -10,47 +11,65 @@ def main():
     parser.add_argument("--commit", required=True, help="Commit hash to analyze")
     args = parser.parse_args()
 
-    # 1. Get list of changed files
-    cmd = ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", args.commit]
+    # 1. Get list of changed files with status
+    cmd = ["git", "diff-tree", "--no-commit-id", "--name-status", "-r", args.commit]
     try:
         output = subprocess.check_output(cmd, cwd=args.repo, text=True)
     except subprocess.CalledProcessError:
-        # Fallback to core modules if git fails
-        print("processing,server,core") 
+        print(json.dumps({"modified": [], "added": []}))
         return
 
-    changed_files = output.strip().splitlines()
-    modules = set()
+    modified_tests = set()
+    added_tests = set()
 
-    # 2. Map Files to Maven Modules
-    # Druid structure: [module_name]/src/...
-    # We just need to grab the top-level folder name.
-    
-    for f in changed_files:
-        parts = f.split("/")
-        if len(parts) > 1:
-            module = parts[0]
+    # 2. Analyze changes
+    for line in output.strip().splitlines():
+        parts = line.split('\t', 1)
+        if len(parts) != 2:
+            continue
             
-            # Skip the known broken/ignored modules
-            if module in ["web-console", "distribution"]:
+        status = parts[0]
+        f = parts[1]
+
+        # Strict filtering: Only process Test files
+        if not f.endswith("Test.java"):
+            continue
+            
+        path_parts = f.split("/")
+        if len(path_parts) > 1:
+            module = path_parts[0]
+            
+            # Skip ignored modules
+            if module in ["web-console", "distribution", "docs", "examples"]:
                 continue
             
-            # Check if it looks like a maven module (has a pom.xml)
-            if os.path.exists(os.path.join(args.repo, module, "pom.xml")):
-                modules.add(module)
-            
-            # Special case: Root pom.xml change -> Run core tests
-            elif f == "pom.xml":
-                modules.add("processing")
-                modules.add("server")
+            # Check if it's a maven module
+            if not os.path.exists(os.path.join(args.repo, module, "pom.xml")):
+                continue
 
-    # 3. Output formatted string
-    if not modules:
-        print("NONE")
-    else:
-        # Join unique modules with commas for the -pl flag
-        # Example output: processing,server,indexing-service
-        print(",".join(sorted(modules)))
+            # Extract class name
+            # Pattern: [module]/src/test/java/[package]/[Class]Test.java
+            if "src/test/java/" in f:
+                try:
+                    class_path = f.split("src/test/java/")[1]
+                    class_name = class_path.replace("/", ".").replace(".java", "")
+                    
+                    # Target format: module:class
+                    target = f"{module}:{class_name}"
+                    
+                    if status == 'A':
+                        added_tests.add(target)
+                    else:
+                        modified_tests.add(target)
+                except:
+                    continue
+
+    # 3. Output JSON
+    result = {
+        "modified": sorted(list(modified_tests)),
+        "added": sorted(list(added_tests))
+    }
+    print(json.dumps(result))
 
 if __name__ == "__main__":
     main()
