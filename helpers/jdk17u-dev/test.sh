@@ -5,8 +5,8 @@ set -e
 echo "--- Inside Docker: Running tests for ${COMMIT_SHA:0:7} ---"
 echo "Target(s): ${TEST_TARGETS}"
 
-# 1. Define Build Directory
-BUILD_DIR_ABS="/repo/${BUILD_DIR_NAME}"
+# 1. Define Build Directory (use shared build directory)
+BUILD_DIR_ABS="/repo/build_shared"
 
 if [ ! -d "${BUILD_DIR_ABS}" ]; then
     echo "❌ Error: Build directory not found at ${BUILD_DIR_ABS}"
@@ -36,9 +36,9 @@ for TARGET in ${TEST_LIST}; do
 
     set +e
 
-    # Case 1: jtreg test directory/file
-    if [[ "${TARGET}" == test/* ]]; then
-        echo "Detected jtreg test directory/file. Running jtreg."
+    # Case 1: jtreg test file (test/*.java)
+    if [[ "${TARGET}" == test/*.java ]]; then
+        echo "Detected jtreg test file. Running jtreg on individual file."
 
         JTREG_BIN="${JTREG_HOME}/bin/jtreg"
 
