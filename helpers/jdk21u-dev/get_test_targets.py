@@ -26,9 +26,8 @@ def main():
         
         # Check if it's a test file (contains "test/" in path and ends with .java)
         if "test/" in f and f.endswith(".java"):
-            # Add the immediate directory containing the test file
-            test_dir = os.path.dirname(f)
-            test_targets.add(test_dir)
+            # Add the individual test file instead of the directory
+            test_targets.add(f)
     
     # Output
     if not test_targets:
