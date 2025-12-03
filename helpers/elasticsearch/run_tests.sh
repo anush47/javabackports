@@ -33,6 +33,7 @@ echo "--- Executing: ${GRADLE_CMD} ---"
 # Note: The Dockerfile for ES already sets WORKDIR /repo and user 'gradle'
 if docker run --rm \
     --dns=8.8.8.8 \
+    -u 1000:1000 \
     -v "gradle-cache-es:/home/gradle/.gradle/caches" \
     -v "gradle-wrapper-es:/home/gradle/.gradle/wrapper" \
     -v "${BUILD_DIR}:/repo/build" \
