@@ -2540,5 +2540,74 @@
       "all_failures_after": [],
       "all_failures_before": []
     }
+  },
+  {
+    "index": 0,
+    "commit": "d4f2f3ace3171c2a27b9f6050206557733acfd04",
+    "parent": "e227f6aab16a4e4603723f66e8bce8f2c479f7fc",
+    "test_targets": "test/jdk/java/foreign/CompositeLookupTest.java test/jdk/java/foreign/LibraryLookupTest.java test/jdk/java/foreign/NativeTestHelper.java test/jdk/java/foreign/SafeFunctionAccessTest.java test/jdk/java/foreign/TestAddressDereference.java test/jdk/java/foreign/TestDowncallBase.java test/jdk/java/foreign/TestFallbackLookup.java test/jdk/java/foreign/TestFree.java test/jdk/java/foreign/TestFunctionDescriptor.java test/jdk/java/foreign/TestHeapAlignment.java test/jdk/java/foreign/TestIllegalLink.java test/jdk/java/foreign/TestIntrinsics.java test/jdk/java/foreign/TestLayouts.java test/jdk/java/foreign/TestMemoryAccess.java test/jdk/java/foreign/TestMemoryAccessInstance.java test/jdk/java/foreign/TestMemoryAlignment.java test/jdk/java/foreign/TestMemoryDereference.java test/jdk/java/foreign/TestMismatch.java test/jdk/java/foreign/TestNULLAddress.java test/jdk/java/foreign/TestNulls.java test/jdk/java/foreign/TestScopedOperations.java test/jdk/java/foreign/TestSegmentOffset.java test/jdk/java/foreign/TestSegmentOverlap.java test/jdk/java/foreign/TestSegments.java test/jdk/java/foreign/TestValueLayouts.java test/jdk/java/foreign/callarranger/platform/PlatformLayouts.java test/jdk/java/foreign/loaderLookup/TestLoaderLookupJNI.java test/jdk/java/foreign/stackwalk/TestAsyncStackWalk.java test/jdk/java/foreign/stackwalk/TestReentrantUpcalls.java test/jdk/java/foreign/stackwalk/TestStackWalk.java test/jdk/java/foreign/virtual/TestVirtualCalls.java",
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 36,
+      "after_fail_count": 13,
+      "before_pass_count": 36,
+      "before_fail_count": 13,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "jdk.java.foreign.TestAddressDereference.java",
+        "jdk.java.foreign.TestIntrinsics.java",
+        "jdk.java.foreign.stackwalk.TestReentrantUpcalls.java",
+        "jdk.java.foreign.loaderLookup.TestLoaderLookupJNI.java",
+        "jdk.java.foreign.callarranger.platform.PlatformLayouts.java",
+        "jdk.java.foreign.TestDowncallBase.java",
+        "jdk.java.foreign.LibraryLookupTest.java",
+        "jdk.java.foreign.TestNULLAddress.java",
+        "jdk.java.foreign.NativeTestHelper.java",
+        "jdk.java.foreign.stackwalk.TestAsyncStackWalk.java",
+        "jdk.java.foreign.virtual.TestVirtualCalls.java",
+        "jdk.java.foreign.SafeFunctionAccessTest.java",
+        "jdk.java.foreign.stackwalk.TestStackWalk.java"
+      ],
+      "all_failures_after": [
+        "jdk.java.foreign.TestAddressDereference.java",
+        "jdk.java.foreign.stackwalk.TestReentrantUpcalls.java",
+        "jdk.java.foreign.loaderLookup.TestLoaderLookupJNI.java",
+        "jdk.java.foreign.callarranger.platform.PlatformLayouts.java",
+        "jdk.java.foreign.TestDowncallBase.java",
+        "jdk.java.foreign.LibraryLookupTest.java",
+        "jdk.java.foreign.stackwalk.TestStackWalk.java",
+        "jdk.java.foreign.TestNULLAddress.java",
+        "jdk.java.foreign.NativeTestHelper.java",
+        "jdk.java.foreign.stackwalk.TestAsyncStackWalk.java",
+        "jdk.java.foreign.virtual.TestVirtualCalls.java",
+        "jdk.java.foreign.SafeFunctionAccessTest.java",
+        "jdk.java.foreign.TestIntrinsics.java"
+      ],
+      "all_failures_before": [
+        "jdk.java.foreign.TestAddressDereference.java",
+        "jdk.java.foreign.stackwalk.TestReentrantUpcalls.java",
+        "jdk.java.foreign.loaderLookup.TestLoaderLookupJNI.java",
+        "jdk.java.foreign.callarranger.platform.PlatformLayouts.java",
+        "jdk.java.foreign.TestDowncallBase.java",
+        "jdk.java.foreign.LibraryLookupTest.java",
+        "jdk.java.foreign.stackwalk.TestStackWalk.java",
+        "jdk.java.foreign.TestNULLAddress.java",
+        "jdk.java.foreign.NativeTestHelper.java",
+        "jdk.java.foreign.stackwalk.TestAsyncStackWalk.java",
+        "jdk.java.foreign.virtual.TestVirtualCalls.java",
+        "jdk.java.foreign.SafeFunctionAccessTest.java",
+        "jdk.java.foreign.TestIntrinsics.java"
+      ]
+    }
   }
 ]
