@@ -68,7 +68,13 @@ def main():
                 else:
                     task_name = "test"
                 
-                test_target = f"{module_path}:{task_name} --tests \"{class_name}\""
+                # Special handling for QA modules which might not have a 'test' task
+                # QA modules usually run via 'check' or custom tasks.
+                # Since 'test' is ambiguous or missing, we fallback to 'check' for the whole module.
+                if ":qa:" in module_path:
+                    test_target = f"{module_path}:check"
+                else:
+                    test_target = f"{module_path}:{task_name} --tests \"{class_name}\""
             else:
                 # Fallback
                 test_target = f"{module_path}:test"
