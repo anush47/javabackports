@@ -38,7 +38,9 @@ if docker run --rm \
     -v "gradle-wrapper-es:/home/gradle/.gradle/wrapper" \
     -v "${BUILD_DIR}:/repo/build" \
     "${IMAGE_TAG}" \
-    bash -c "${GRADLE_CMD}"; then
+    bash -c "${GRADLE_CMD}; \
+    mkdir -p /repo/build/all-test-results; \
+    find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;"; then
     
     echo "✅ Tests Passed"
     exit 0

@@ -189,13 +189,12 @@ def collect_test_reports(project_name, project_repo_dir, dest_dir):
                 print(f"Failed to copy {full_src_path}: {e}")
     else:
         # For self-building projects (like ES), source_dir is already the build directory
-        # So we need to adjust the pattern if it starts with "build/" or "target/"
-        search_pattern = PROJECT_CONFIG[project_name]["report_pattern"]
+        # We aggregated all results into 'all-test-results' in run_tests.sh
         if PROJECT_CONFIG[project_name]['build_system'] == 'self-building':
-             # Remove 'build/' or 'target/' prefix from pattern if present
-             search_pattern = re.sub(r"^(build|target)/", "", search_pattern)
+             full_pattern = os.path.join(project_repo_dir, "all-test-results", "*.xml")
+        else:
+             full_pattern = os.path.join(project_repo_dir, PROJECT_CONFIG[project_name]["report_pattern"])
         
-        full_pattern = os.path.join(project_repo_dir, search_pattern)
         print(f"--- Searching for reports with pattern: {full_pattern} ---")
         
         for file in glob.glob(full_pattern, recursive=True):
