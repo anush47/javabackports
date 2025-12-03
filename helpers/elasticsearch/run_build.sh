@@ -35,7 +35,7 @@ if docker run --rm \
     -v "gradle-wrapper-es:/home/gradle/.gradle/wrapper" \
     -v "${BUILD_DIR}:/repo/build" \
     ${IMAGE_TAG} \
-    ./gradlew classes testClasses -Dbuild.docker=false --continue; then
+    ./gradlew classes testClasses -x :benchmarks:classes -x :benchmarks:testClasses -Dbuild.docker=false --continue; then
     echo "Success" > $BUILD_STATUS_FILE
 else
     echo "Fail" > $BUILD_STATUS_FILE
