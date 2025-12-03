@@ -24,14 +24,17 @@ else
 fi
 
 # 3. Run Tests in Docker
-# We reuse the gradle-cache volume we created during the build
-docker volume create --name=gradle-cache || true
+# Create persistent Gradle cache volumes if they don't exist
+docker volume create gradle-cache-es 2>/dev/null || true
+docker volume create gradle-wrapper-es 2>/dev/null || true
 
 echo "--- Executing: ${GRADLE_CMD} ---"
 
 # Note: The Dockerfile for ES already sets WORKDIR /repo and user 'gradle'
 if docker run --rm \
-    -v "gradle-cache:/home/gradle/.gradle" \
+    --dns=8.8.8.8 \
+    -v "gradle-cache-es:/home/gradle/.gradle/caches" \
+    -v "gradle-wrapper-es:/home/gradle/.gradle/wrapper" \
     "${IMAGE_TAG}" \
     bash -c "${GRADLE_CMD}"; then
     

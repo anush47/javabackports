@@ -455,7 +455,12 @@ def main():
 
         print(f"--- Results saved for {commit_sha} ---")
 
-        if os.path.exists(work_dir): shutil.rmtree(work_dir)
+        if os.path.exists(work_dir):
+            try:
+                shutil.rmtree(work_dir)
+            except PermissionError:
+                # Docker-created files may have wrong permissions
+                run_command(f"sudo rm -rf {work_dir}", check=False, capture_output=True)
         if PROJECT_CONFIG[project_name]['build_system'] == 'make':
             run_command(f"sudo rm -rf {project_repo_dir}/build_*", check=False, capture_output=True)
         run_command("docker builder prune -a -f", check=False, capture_output=True)
