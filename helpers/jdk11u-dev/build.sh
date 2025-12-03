@@ -12,29 +12,39 @@ echo "Using jtreg: ${JTREG_HOME}"
 echo "Checking out commit: ${COMMIT_SHA}"
 git checkout -f "${COMMIT_SHA}"
 
-# Define the build directory path (relative to /repo)
-export BUILD_DIR_ABS="/repo/${BUILD_DIR_NAME}"
-echo "--- Creating build directory: ${BUILD_DIR_ABS} ---"
-mkdir -p "${BUILD_DIR_ABS}"
+# Use a shared build directory to enable incremental builds
+export BUILD_DIR_ABS="/repo/build_shared"
+echo "--- Using shared build directory for incremental builds: ${BUILD_DIR_ABS} ---"
+
+# Check if we need to configure (only on first build or if configure changed)
+NEED_CONFIGURE=false
+if [ ! -f "${BUILD_DIR_ABS}/Makefile" ]; then
+    echo "--- No existing Makefile found, will configure ---"
+    NEED_CONFIGURE=true
+    mkdir -p "${BUILD_DIR_ABS}"
+fi
 
 # 'cd' into the build directory
 cd "${BUILD_DIR_ABS}"
 
-echo "--- Configuring build from outside source dir... ---"
-# Call configure using a relative path and flags from reference script
-bash ../configure \
-    --with-boot-jdk="${BOOT_JDK}" \
-    --with-jtreg="${JTREG_HOME}" \
-    --enable-ccache \
-    --disable-warnings-as-errors \
-    --with-debug-level=release \
-    --with-native-debug-symbols=none
+if [ "${NEED_CONFIGURE}" = true ]; then
+    echo "--- Configuring build from outside source dir... ---"
+    bash ../configure \
+        --with-boot-jdk="${BOOT_JDK}" \
+        --with-jtreg="${JTREG_HOME}" \
+        --enable-ccache \
+        --disable-warnings-as-errors \
+        --with-debug-level=release \
+        --with-native-debug-symbols=none
+else
+    echo "--- Skipping configure (using existing configuration for incremental build) ---"
+fi
 
-# Build the JDK
-echo "--- Running make... (Output will be in ${BUILD_DIR_ABS}) ---"
+# Build the JDK incrementally
+echo "--- Running incremental make... (Output will be in ${BUILD_DIR_ABS}) ---"
     
 # Run 'make' from inside the build dir.
-# Add the COMPILER_WARNINGS_FATAL=false flag from reference script
+# Make will automatically detect what needs to be rebuilt
 make JOBS="${MAKE_JOBS:-$(nproc)}" images COMPILER_WARNINGS_FATAL=false
 
 echo "=== Build OK ==="
