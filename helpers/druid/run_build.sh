@@ -34,7 +34,7 @@ docker run --rm \
     -v "maven-repo:/root/.m2/repository" \
     -w /repo \
     ${BUILDER_IMAGE_TAG} \
-    bash -c "mvn clean install -DskipTests -Dweb.console.skip=true -Dskip.npm -Dskip.installnodenpm -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C -pl '!:distribution'" \
+    bash -c "sed -i 's|<artifactId>frontend-maven-plugin</artifactId>|<artifactId>frontend-maven-plugin</artifactId><configuration><skip>true</skip></configuration>|' web-console/pom.xml && mvn clean install -DskipTests -Dweb.console.skip=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C -pl '!:distribution'" \
     || BUILD_EXIT_CODE=$?
 
 # Save build status
