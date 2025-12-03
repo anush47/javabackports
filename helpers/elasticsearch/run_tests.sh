@@ -39,8 +39,10 @@ if docker run --rm \
     -v "${BUILD_DIR}:/repo/build" \
     "${IMAGE_TAG}" \
     bash -c "${GRADLE_CMD}; \
+    GRADLE_EXIT_CODE=\$?; \
     mkdir -p /repo/build/all-test-results; \
-    find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;"; then
+    find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;; \
+    exit \$GRADLE_EXIT_CODE"; then
     
     echo "✅ Tests Passed"
     exit 0

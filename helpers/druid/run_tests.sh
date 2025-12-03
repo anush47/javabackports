@@ -61,8 +61,10 @@ if docker run --rm \
     "${BUILDER_IMAGE_TAG}" \
     bash -c "git checkout -f ${COMMIT_SHA} && \
              mvn test ${MAVEN_ARGS} -DfailIfNoTests=false -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true; \
+             MVN_EXIT_CODE=\$?; \
              mkdir -p /repo/build/all-test-results; \
-             find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;"; then
+             find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;; \
+             exit \$MVN_EXIT_CODE"; then
     
     echo "✅ Tests Passed"
     exit 0
