@@ -35,34 +35,42 @@ def main():
         if not f.endswith("Test.java"):
             continue
             
-        path_parts = f.split("/")
-        if len(path_parts) > 1:
-            module = path_parts[0]
-            
-            # Skip ignored modules
-            if module in ["web-console", "distribution", "docs", "examples"]:
-                continue
-            
-            # Check if it's a maven module
-            if not os.path.exists(os.path.join(args.repo, module, "pom.xml")):
-                continue
+        # Find the Maven module for this file by walking up the tree
+        head = f
+        module_path = ""
+        while head:
+            head, tail = os.path.split(head)
+            if os.path.exists(os.path.join(args.repo, head, "pom.xml")):
+                if head == "":
+                    module_path = "" # Root module? Unlikely for tests usually
+                else:
+                    module_path = head
+                break
+        
+        # If no module found, skip
+        if module_path == "":
+            continue
 
-            # Extract class name
-            # Pattern: [module]/src/test/java/[package]/[Class]Test.java
-            if "src/test/java/" in f:
-                try:
-                    class_path = f.split("src/test/java/")[1]
-                    class_name = class_path.replace("/", ".").replace(".java", "")
-                    
-                    # Target format: module:class
-                    target = f"{module}:{class_name}"
-                    
-                    if status == 'A':
-                        added_tests.add(target)
-                    else:
-                        modified_tests.add(target)
-                except:
-                    continue
+        # Skip ignored modules
+        if module_path in ["web-console", "distribution", "docs", "examples"]:
+            continue
+
+        # Extract class name
+        # Pattern: [module]/src/test/java/[package]/[Class]Test.java
+        if "src/test/java/" in f:
+            try:
+                class_path = f.split("src/test/java/")[1]
+                class_name = class_path.replace("/", ".").replace(".java", "")
+                
+                # Target format: module:class
+                target = f"{module_path}:{class_name}"
+                
+                if status == 'A':
+                    added_tests.add(target)
+                else:
+                    modified_tests.add(target)
+            except:
+                continue
 
     # 3. Output JSON
     result = {
