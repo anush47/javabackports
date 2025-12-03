@@ -2583,5 +2583,86 @@
       "all_failures_after": [],
       "all_failures_before": []
     }
+  },
+  {
+    "index": 0,
+    "commit": "fbc6005986cc94dbdaa3a13b4eb5af169a69f6e9",
+    "parent": "ec4e75d81a3661df3dbf43610cba69c453099082",
+    "test_targets": "test/jdk/tools/jar/InputFilesTest.java",
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 1,
+    "commit": "e55aac2bf7846663529209f3b12aac82710b0501",
+    "parent": "bcfabe3ce20f9ba39501030957d6e5a96847d70c",
+    "test_targets": "test/jdk/javax/xml/crypto/dsig/GenerationTests.java",
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 2,
+    "commit": "888837a1411b72d92c86a75100614fa6c453307b",
+    "parent": "93d1dc760a5cbbfa77a143823e2112c573845f16",
+    "test_targets": "test/jdk/sun/security/x509/X509CRLImpl/UnexpectedNPE.java",
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
   }
 ]
