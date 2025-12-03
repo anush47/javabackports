@@ -288,7 +288,10 @@ def execute_lifecycle(project_name, commit_sha, state, toolkit_dir, project_repo
         print(f"Error running tests: {e}")
         test_status = "Error"
 
-    collect_test_reports(project_name, project_repo_dir, test_output_dir)
+    source_dir = project_repo_dir
+    if config['build_system'] == 'self-building':
+        source_dir = build_output_dir
+    collect_test_reports(project_name, source_dir, test_output_dir)
     passed, failed = parse_test_results(test_output_dir)
 
     if len(passed) == 0 and len(failed) == 0:
@@ -365,7 +368,11 @@ def main():
             continue
 
         work_dir = os.path.join(toolkit_dir, "temp_work", commit_sha)
-        if os.path.exists(work_dir): shutil.rmtree(work_dir)
+        if os.path.exists(work_dir):
+            try:
+                shutil.rmtree(work_dir)
+            except PermissionError:
+                run_command(f"sudo rm -rf {work_dir}", check=False, capture_output=True)
         os.makedirs(work_dir)
 
         print(f"--- Calculating Test Targets for {commit_sha}... ---")

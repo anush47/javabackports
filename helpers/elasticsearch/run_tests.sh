@@ -35,6 +35,7 @@ if docker run --rm \
     --dns=8.8.8.8 \
     -v "gradle-cache-es:/home/gradle/.gradle/caches" \
     -v "gradle-wrapper-es:/home/gradle/.gradle/wrapper" \
+    -v "${BUILD_DIR}:/repo/build" \
     "${IMAGE_TAG}" \
     bash -c "${GRADLE_CMD}"; then
     
