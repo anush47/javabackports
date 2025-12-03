@@ -13,3 +13,12 @@ c2f7e61272996631585153c70d784e7690763f01,Success,Fail,Success,Fail,0,0,0
 5e59411bd3760a4c54bd52d301d882e4a9f5aab4,Success,Fail,Success,Fail,1,0,1
 656b3cfda2d349e8198ee4058d17352887d948f8,Success,Fail,Success,Fail,0,0,0
 73dca05a92e7751006622c33335540300bb2bb4d,Success,Crash/No Report,Success,Crash/No Report,0,0,0
+a0715ab4bc71642203324a2c06774aacee35fda7,Fail,Skipped,Skipped,Skipped (Only New Tests),0,0,0
+d0d9a152d14fb3e056d5534ab7e6b0bde3870c14,Fail,Skipped,Skipped,Skipped (Only New Tests),0,0,0
+039fb8aaca7ab87c6dc886838fffc8ccf1ffacfe,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+6ba9f583aa5a2695fa71d55f7785c30bb1a4c574,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+1fad52dc04938f9aae3fa372632011bcaf80b265,Success,Success,Success,Success,0,0,0
+f05ea98800fb761099ab90b32b608c553687bbd2,Success,Fail,Skipped,Skipped (Only New Tests),0,0,0
+dce530003ca50a94e2305dfb10653304863f799a,Success,Fail,Success,Fail,0,0,0
+818c53ec4621c9afe3a2435ea9378e9e28f1cda8,Success,Success,Success,Success,0,0,0
+e7ede49e54a7899dcdfe076bf2f45a3fb4c1ff25,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
