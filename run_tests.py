@@ -132,15 +132,38 @@ def parse_test_results(results_dir):
 def get_smart_test_targets(toolkit_dir, project_dir, commit_sha, project_name):
     resolver_script = os.path.join(toolkit_dir, "helpers", project_name, "get_test_targets.py")
     if not os.path.exists(resolver_script):
-        return "ALL"
+        return {"modified": [], "added": [], "all_targets": "ALL"}
     try:
         result = subprocess.run(
             f"python3 {resolver_script} --repo {project_dir} --commit {commit_sha}",
             shell=True, capture_output=True, text=True, check=True
         )
-        return result.stdout.strip() or "NONE"
+        output = result.stdout.strip()
+        if not output:
+            return {"modified": [], "added": [], "all_targets": "NONE"}
+        
+        # Try to parse as JSON (new format)
+        try:
+            data = json.loads(output)
+            modified = data.get("modified", [])
+            added = data.get("added", [])
+            
+            # Determine all_targets string for backward compatibility
+            if not modified and not added:
+                all_targets = "NONE"
+            else:
+                all_targets = " ".join(modified + added)
+            
+            return {
+                "modified": modified,
+                "added": added,
+                "all_targets": all_targets
+            }
+        except json.JSONDecodeError:
+            # Fallback for old format (space-separated list)
+            return {"modified": [], "added": [], "all_targets": output}
     except:
-        return "ALL"
+        return {"modified": [], "added": [], "all_targets": "ALL"}
 
 def collect_test_reports(project_name, project_repo_dir, dest_dir):
     print(f"--- Scanning {project_repo_dir} for test reports... ---")
@@ -346,14 +369,30 @@ def main():
         os.makedirs(work_dir)
 
         print(f"--- Calculating Test Targets for {commit_sha}... ---")
-        test_targets = get_smart_test_targets(toolkit_dir, project_repo_dir, commit_sha, project_name)
-        print(f"--- Targets: {test_targets} ---")
+        test_targets_data = get_smart_test_targets(toolkit_dir, project_repo_dir, commit_sha, project_name)
+        modified_tests = test_targets_data["modified"]
+        added_tests = test_targets_data["added"]
+        all_targets = test_targets_data["all_targets"]
+        
+        print(f"--- Modified tests: {modified_tests or 'None'} ---")
+        print(f"--- Added tests: {added_tests or 'None'} ---")
+        
+        # Decide if we need to test buggy version
+        skip_buggy = (len(modified_tests) == 0 and len(added_tests) > 0)
+        
+        if skip_buggy:
+            print(f"--- Only new tests detected. Skipping buggy build and running tests only on patched version. ---")
 
-        after_res = execute_lifecycle(project_name, commit_sha, "fixed", toolkit_dir, project_repo_dir, work_dir, test_targets)
-        if after_res["build"] == "Success":
-            before_res = execute_lifecycle(project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, test_targets)
+        # Run patched version
+        patched_test_targets = " ".join(modified_tests + added_tests) if (modified_tests or added_tests) else all_targets
+        after_res = execute_lifecycle(project_name, commit_sha, "fixed", toolkit_dir, project_repo_dir, work_dir, patched_test_targets)
+        
+        # Run buggy version only if needed
+        if after_res["build"] == "Success" and not skip_buggy:
+            buggy_test_targets = " ".join(modified_tests) if modified_tests else "NONE"
+            before_res = execute_lifecycle(project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, buggy_test_targets)
         else:
-            before_res = {"build": "Skipped", "test": "Skipped", "passed": set(), "failed": set()}
+            before_res = {"build": "Skipped", "test": "Skipped (Only New Tests)", "passed": set(), "failed": set()}
 
         fixes = list(before_res["failed"].intersection(after_res["passed"]))
         regressions = list(before_res["passed"].intersection(after_res["failed"]))
@@ -365,7 +404,11 @@ def main():
             "index": idx,
             "commit": commit_sha,
             "parent": parent_sha,
-            "test_targets": test_targets,
+            "test_targets": {
+                "modified": modified_tests,
+                "added": added_tests,
+                "all": all_targets
+            },
             "build_status_after": after_res["build"],
             "test_status_after": after_res["test"],
             "build_status_before": before_res["build"],
