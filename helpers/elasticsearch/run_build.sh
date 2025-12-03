@@ -26,14 +26,14 @@ docker run --rm -u root \
     ${IMAGE_TAG} \
     chown -R 1000:1000 /home/gradle/.gradle/caches /home/gradle/.gradle/wrapper
 
-echo "--- Compiling (classes compilation only)... ---"
+echo "--- Compiling and preparing for tests... ---"
 if docker run --rm \
     --dns=8.8.8.8 \
     -v "gradle-cache-es:/home/gradle/.gradle/caches" \
     -v "gradle-wrapper-es:/home/gradle/.gradle/wrapper" \
     -v "${BUILD_DIR}:/repo/build" \
     ${IMAGE_TAG} \
-    ./gradlew classes testClasses -Dbuild.docker=false --continue; then
+    ./gradlew assemble testClasses -Dbuild.docker=false --continue; then
     echo "Success" > $BUILD_STATUS_FILE
 else
     echo "Fail" > $BUILD_STATUS_FILE
