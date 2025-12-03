@@ -2998,5 +2998,32 @@
       "all_failures_after": [],
       "all_failures_before": []
     }
+  },
+  {
+    "index": 0,
+    "commit": "3cd75dd53435b56134ad228f4e9a6b48a56258c0",
+    "parent": "53f0a288f0f3ffc2ff9eca51dac9b9ffbd2d8dea",
+    "test_targets": "test/jdk/java/util/Currency/CurrencyTest.java",
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
   }
 ]
