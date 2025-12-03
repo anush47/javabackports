@@ -188,20 +188,27 @@ def collect_test_reports(project_name, project_repo_dir, dest_dir):
             except Exception as e:
                 print(f"Failed to copy {full_src_path}: {e}")
     else:
-        for root, dirs, files in os.walk(project_repo_dir):
-            if ".git" in dirs:
-                dirs.remove(".git")
-            for file in files:
-                if file.endswith(".xml") and file.startswith("TEST-"):
-                    full_src_path = os.path.join(root, file)
-                    rel_path = os.path.relpath(full_src_path, project_repo_dir)
-                    dest_path = os.path.join(dest_dir, rel_path)
-                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                    try:
-                        shutil.copy2(full_src_path, dest_path)
-                        count += 1
-                    except:
-                        continue
+        # For self-building projects (like ES), source_dir is already the build directory
+        # So we need to adjust the pattern if it starts with "build/" or "target/"
+        search_pattern = PROJECT_CONFIG[project_name]["report_pattern"]
+        if PROJECT_CONFIG[project_name]['build_system'] == 'self-building':
+             # Remove 'build/' or 'target/' prefix from pattern if present
+             search_pattern = re.sub(r"^(build|target)/", "", search_pattern)
+        
+        full_pattern = os.path.join(project_repo_dir, search_pattern)
+        print(f"--- Searching for reports with pattern: {full_pattern} ---")
+        
+        for file in glob.glob(full_pattern, recursive=True):
+             if file.endswith(".xml"):
+                full_src_path = file
+                rel_path = os.path.relpath(full_src_path, project_repo_dir)
+                dest_path = os.path.join(dest_dir, rel_path)
+                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                try:
+                    shutil.copy2(full_src_path, dest_path)
+                    count += 1
+                except:
+                    continue
     print(f"--- Collected {count} test report files. ---")
     if count > 0:
         print(f"--- Sample of collected files: ---")
