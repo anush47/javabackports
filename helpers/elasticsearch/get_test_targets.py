@@ -50,15 +50,27 @@ def main():
         if module_path == "" and "build.gradle" not in f:
             continue
         
-        # Extract test class name
+        # Extract test class name and determine task
         try:
-            if "src/test/java/" in f:
-                class_path = f.split("src/test/java/")[1]
-                class_name = class_path.replace("/", ".").replace(".java", "")
-                test_target = f"{module_path}:test --tests \"{class_name}\""
-            elif "src/yamlRestTest/java/" in f:
-                test_target = f"{module_path}:test"
+            if "/java/" in f:
+                # Split path to separate source set from class package
+                parts = f.split("/java/")
+                pre_java = parts[0] # e.g. .../src/test or .../src/yamlRestTest
+                class_part = parts[1] # e.g. org/elasticsearch/FooTests.java
+                
+                class_name = class_part.replace("/", ".").replace(".java", "")
+                
+                # Determine task name from source set folder
+                # e.g. src/test -> test
+                # e.g. src/yamlRestTest -> yamlRestTest
+                if "/src/" in pre_java:
+                    task_name = pre_java.split("/src/")[-1]
+                else:
+                    task_name = "test"
+                
+                test_target = f"{module_path}:{task_name} --tests \"{class_name}\""
             else:
+                # Fallback
                 test_target = f"{module_path}:test"
             
             # Categorize by status
