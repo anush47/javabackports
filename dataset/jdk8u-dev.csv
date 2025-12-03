@@ -1,15 +1,21 @@
-Project,Original Version,Original Commit,Backport Version,Backport Commit,Backport Date,Type
-jdk8u-dev,jdk,33412c102ce799ff2de3512df77e6e07d76acd36,jdk8u-dev,ddce2b5d39cb780c84d0c4d3bf01df2fe5d3d989,2024-07-08 19:19:20+00:00,TYPE-V
-jdk8u-dev,jdk,1e9ed54d362b8c57be5fbbac2de5afbd0f05435f,jdk8u-dev,8867d017b18ad7cd8842b9324c5c031a44a58064,2024-08-21 10:47:31+00:00,TYPE-IV
-jdk8u-dev,jdk,ff0b0927a2df8b36f8fd6ed41bd4e20e71a5b653,jdk8u-dev,49425166c201e73dd954bd033ea6e33f4a9811b3,2024-08-26 10:28:45+00:00,TYPE-IV
-jdk8u-dev,jdk,7765942aeee25cbeb5fd932a93b3d8f9d4ca3655,jdk8u-dev,da6b2652f5afb1270140d1bc680f2ef3d8f9c51a,2024-10-05 00:53:51+00:00,TYPE-IV
-jdk8u-dev,jdk,f554c3ffce7599fdb535b03db4a6ea96870b3c2d,jdk8u-dev,618917eb093243de2c5d7e83d4688bfe9ad04985,2024-10-05 01:14:08+00:00,TYPE-II
-jdk8u-dev,jdk,83bce94cc8a7fb45b0604598411fbecc62000dfd,jdk8u-dev,10122b593165d6bcaf58abfe2721c3dcb407b593,2024-12-03 00:06:06+00:00,TYPE-IV
-jdk8u-dev,jdk,158b93d19a518d2b9d3d185e2d4c4dbff9c82aab,jdk8u-dev,c2f7e61272996631585153c70d784e7690763f01,2025-01-11 20:43:15+00:00,TYPE-V
-jdk8u-dev,jdk,86a2f9c7dcb6585cabf03c0940511d11560e85b7,jdk8u-dev,88a7829f254415bbc0a2079e2828de1a0758a6a8,2025-02-20 10:54:25+00:00,TYPE-IV
-jdk8u-dev,jdk,1bc13a1c10a580f84f1b7686c95344ec2633f611,jdk8u-dev,24cade612fc3aac90ce78f040c369098cc76a50e,2025-02-26 10:47:14+00:00,TYPE-II
-jdk8u-dev,jdk,bdfb41f977258831e4b0ceaef5d016d095ab6e7f,jdk8u-dev,55af9ec313d2f6eef4530e65d6540a12cf067471,2025-04-08 17:15:26+00:00,TYPE-V
-jdk8u-dev,jdk,8fce5275fc94ebc404a6a37f5ea0407140de63c1,jdk8u-dev,3d5cfe2ca6b107b2ff87a051664eed35da7df591,2025-04-08 17:25:31+00:00,TYPE-V
-jdk8u-dev,jdk,55f5542ca2104df91e14693534cc7b3c36e81953,jdk8u-dev,5e59411bd3760a4c54bd52d301d882e4a9f5aab4,2025-05-08 10:06:42+00:00,TYPE-IV
-jdk8u-dev,jdk,0c9f8e472f1d452e97b3cbd50b9e5d700fffcd15,jdk8u-dev,656b3cfda2d349e8198ee4058d17352887d948f8,2025-05-16 18:11:02+00:00,TYPE-IV
-jdk8u-dev,jdk,bb95dda0ac5032e4df582f2903dcbbbbaef9e8c4,jdk8u-dev,73dca05a92e7751006622c33335540300bb2bb4d,2025-05-20 02:08:02+00:00,TYPE-II
+unique_id,repo,key,scope,complexity,Backport Commit,date,message
+jdk8u-dev_73dca05a92e7751006622c33335540300bb2bb4d,jdk8u-dev,73dca05a92e7751006622c33335540300bb2bb4d,S3,C3,73dca05a92e7751006622c33335540300bb2bb4d,2025-05-20 02:08:02+00:00,8248001: javadoc generates invalid HTML pages whose ftp:// links are broken
+jdk8u-dev_656b3cfda2d349e8198ee4058d17352887d948f8,jdk8u-dev,656b3cfda2d349e8198ee4058d17352887d948f8,S3,C4,656b3cfda2d349e8198ee4058d17352887d948f8,2025-05-16 18:11:02+00:00,8186143: keytool -ext option doesn't accept wildcards for DNS subject alternative names
+jdk8u-dev_55af9ec313d2f6eef4530e65d6540a12cf067471,jdk8u-dev,55af9ec313d2f6eef4530e65d6540a12cf067471,S3,C5,55af9ec313d2f6eef4530e65d6540a12cf067471,2025-04-08 17:15:26+00:00,8309841: Jarsigner should print a warning if an entry is removed
+jdk8u-dev_88a7829f254415bbc0a2079e2828de1a0758a6a8,jdk8u-dev,88a7829f254415bbc0a2079e2828de1a0758a6a8,S3,C4,88a7829f254415bbc0a2079e2828de1a0758a6a8,2025-02-20 10:54:25+00:00,8339644: Improve parsing of Day/Month in tzdata rules
+jdk8u-dev_c2f7e61272996631585153c70d784e7690763f01,jdk8u-dev,c2f7e61272996631585153c70d784e7690763f01,S3,C5,c2f7e61272996631585153c70d784e7690763f01,2025-01-11 20:43:15+00:00,8335912: Add an operation mode to the jar command when extracting to not overwriting existing files
+jdk8u-dev_10122b593165d6bcaf58abfe2721c3dcb407b593,jdk8u-dev,10122b593165d6bcaf58abfe2721c3dcb407b593,S3,C4,10122b593165d6bcaf58abfe2721c3dcb407b593,2024-12-03 00:06:06+00:00,8268457: XML Transformer outputs Unicode supplementary character incorrectly to HTML
+jdk8u-dev_618917eb093243de2c5d7e83d4688bfe9ad04985,jdk8u-dev,618917eb093243de2c5d7e83d4688bfe9ad04985,S3,C3,618917eb093243de2c5d7e83d4688bfe9ad04985,2024-10-05 01:14:08+00:00,"8341059: Change Entrust TLS distrust date to November 12, 2024"
+jdk8u-dev_da6b2652f5afb1270140d1bc680f2ef3d8f9c51a,jdk8u-dev,da6b2652f5afb1270140d1bc680f2ef3d8f9c51a,S3,C4,da6b2652f5afb1270140d1bc680f2ef3d8f9c51a,2024-10-05 00:53:51+00:00,8290367: Update default value and extend the scope of com.sun.jndi.ldap.object.trustSerialData system property
+jdk8u-dev_49425166c201e73dd954bd033ea6e33f4a9811b3,jdk8u-dev,49425166c201e73dd954bd033ea6e33f4a9811b3,S3,C4,49425166c201e73dd954bd033ea6e33f4a9811b3,2024-08-26 10:28:45+00:00,"8278794: Infinite loop in DeflaterOutputStream.finish() 8284771: java/util/zip/CloseInflaterDeflaterTest.java failed with ""AssertionError: Expected IOException to be thrown, but nothing was thrown"""
+jdk8u-dev_8867d017b18ad7cd8842b9324c5c031a44a58064,jdk8u-dev,8867d017b18ad7cd8842b9324c5c031a44a58064,S3,C4,8867d017b18ad7cd8842b9324c5c031a44a58064,2024-08-21 10:47:31+00:00,8193682: Infinite loop in ZipOutputStream.close()
+jdk8u-dev_ddce2b5d39cb780c84d0c4d3bf01df2fe5d3d989,jdk8u-dev,ddce2b5d39cb780c84d0c4d3bf01df2fe5d3d989,S3,C5,ddce2b5d39cb780c84d0c4d3bf01df2fe5d3d989,2024-07-08 19:19:20+00:00,8299677: Formatter.format might take a long time to format an integer or floating-point
+jdk8u-dev_a0715ab4bc71642203324a2c06774aacee35fda7,jdk8u-dev,a0715ab4bc71642203324a2c06774aacee35fda7,S3,C3,a0715ab4bc71642203324a2c06774aacee35fda7,2024-06-27 13:52:33+00:00,8238274: (sctp) JDK-7118373 is not fixed for SctpChannel
+jdk8u-dev_d0d9a152d14fb3e056d5534ab7e6b0bde3870c14,jdk8u-dev,d0d9a152d14fb3e056d5534ab7e6b0bde3870c14,S3,C5,d0d9a152d14fb3e056d5534ab7e6b0bde3870c14,2024-04-08 15:48:39+00:00,8291638: Keep-Alive timeout of 0 should close connection immediately
+jdk8u-dev_039fb8aaca7ab87c6dc886838fffc8ccf1ffacfe,jdk8u-dev,039fb8aaca7ab87c6dc886838fffc8ccf1ffacfe,S3,C3,039fb8aaca7ab87c6dc886838fffc8ccf1ffacfe,2024-03-26 09:13:54+00:00,8291637: HttpClient default keep alive timeout not followed if server sends invalid value
+jdk8u-dev_6ba9f583aa5a2695fa71d55f7785c30bb1a4c574,jdk8u-dev,6ba9f583aa5a2695fa71d55f7785c30bb1a4c574,S3,C4,6ba9f583aa5a2695fa71d55f7785c30bb1a4c574,2024-03-19 16:28:18+00:00,8278067: Make HttpURLConnection default keep alive timeout configurable
+jdk8u-dev_1fad52dc04938f9aae3fa372632011bcaf80b265,jdk8u-dev,1fad52dc04938f9aae3fa372632011bcaf80b265,S3,C4,1fad52dc04938f9aae3fa372632011bcaf80b265,2024-02-26 23:01:24+00:00,8304074: [JMX] Add an approximation of total bytes allocated on the Java heap by the JVM
+jdk8u-dev_f05ea98800fb761099ab90b32b608c553687bbd2,jdk8u-dev,f05ea98800fb761099ab90b32b608c553687bbd2,S3,C4,f05ea98800fb761099ab90b32b608c553687bbd2,2024-02-26 12:11:50+00:00,8240756: [macos] SwingSet2:TableDemo:Printed Japanese characters were garbled
+jdk8u-dev_dce530003ca50a94e2305dfb10653304863f799a,jdk8u-dev,dce530003ca50a94e2305dfb10653304863f799a,S3,C5,dce530003ca50a94e2305dfb10653304863f799a,2024-02-15 13:56:15+00:00,8168518: rcache interop with krb5-1.15
+jdk8u-dev_818c53ec4621c9afe3a2435ea9378e9e28f1cda8,jdk8u-dev,818c53ec4621c9afe3a2435ea9378e9e28f1cda8,S3,C3,818c53ec4621c9afe3a2435ea9378e9e28f1cda8,2024-02-08 00:56:12+00:00,8315042: NPE in PKCS7.parseOldSignedData
+jdk8u-dev_e7ede49e54a7899dcdfe076bf2f45a3fb4c1ff25,jdk8u-dev,e7ede49e54a7899dcdfe076bf2f45a3fb4c1ff25,S3,C5,e7ede49e54a7899dcdfe076bf2f45a3fb4c1ff25,2024-01-11 00:43:03+00:00,8320597: RSA signature verification fails on signed data that does not encode params correctly
