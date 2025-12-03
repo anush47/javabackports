@@ -23,8 +23,9 @@ echo "--- Setting cache permissions... ---"
 docker run --rm -u root \
     -v "gradle-cache-es:/home/gradle/.gradle/caches" \
     -v "gradle-wrapper-es:/home/gradle/.gradle/wrapper" \
+    -v "${BUILD_DIR}:/repo/build" \
     ${IMAGE_TAG} \
-    chown -R 1000:1000 /home/gradle/.gradle/caches /home/gradle/.gradle/wrapper
+    chown -R 1000:1000 /home/gradle/.gradle/caches /home/gradle/.gradle/wrapper /repo/build
 
 echo "--- Compiling and preparing for tests... ---"
 if docker run --rm \
