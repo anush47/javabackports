@@ -67,6 +67,11 @@ def main():
                 else:
                     task_name = "test"
                 
+                # Special handling for ITs in src/test
+                # The 'test' task usually excludes *IT.class, so we use 'integTest'
+                if task_name == "test" and f.endswith("IT.java"):
+                    task_name = "integTest"
+                
                 test_target = f"{module_path}:{task_name} --tests \"{class_name}\""
             else:
                 # Fallback
