@@ -28,7 +28,7 @@ PROJECT_CONFIG = {
         "repo_dir": "hadoop",
         "report_pattern": "**/target/surefire-reports/*.xml",
         "builder_tag": "hadoop-builder:latest",
-        "build_system": "maven"
+        "build_system": "self-building"
     },
     "druid": {
         "repo_dir": "druid",

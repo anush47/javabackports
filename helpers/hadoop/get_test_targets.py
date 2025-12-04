@@ -3,6 +3,7 @@ import argparse
 import subprocess
 import sys
 import os
+import json
 
 # Modules known to be broken/require complex envs that we want to skip
 BLACKLIST_MODULES = [
@@ -25,52 +26,56 @@ def main():
     parser.add_argument("--commit", required=True, help="Commit hash to analyze")
     args = parser.parse_args()
 
-    # 1. Get list of changed files
-    cmd = ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", args.commit]
+    # 1. Get list of changed files with status
+    cmd = ["git", "diff-tree", "--no-commit-id", "--name-status", "-r", args.commit]
     try:
         output = subprocess.check_output(cmd, cwd=args.repo, text=True)
     except subprocess.CalledProcessError:
         # Fallback: test core modules if git fails
-        print("hadoop-common-project/hadoop-common,hadoop-hdfs-project/hadoop-hdfs") 
+        print(json.dumps({"modified": ["hadoop-common-project/hadoop-common", "hadoop-hdfs-project/hadoop-hdfs"], "added": []}))
         return
 
-    changed_files = output.strip().splitlines()
-    modules = set()
+    modified_modules = set()
+    added_modules = set()
 
-    # 2. Map Files to Maven Modules
-    # Hadoop structure is nested. We walk up from the file until we find a pom.xml.
-    
-    for f in changed_files:
-        # 'f' is a relative path like 'hadoop-common-project/hadoop-common/src/main/java/...'
+    for line in output.strip().splitlines():
+        parts = line.split('\t', 1)
+        if len(parts) != 2:
+            continue
+        
+        status = parts[0]
+        f = parts[1]
+        
+        # Map file to module
         current_dir = os.path.dirname(f)
-        found_module = False
+        found_module = None
         
         while current_dir:
             pom_path = os.path.join(args.repo, current_dir, "pom.xml")
             if os.path.exists(pom_path):
-                # Found the module!
                 if not is_blacklisted(current_dir):
-                    modules.add(current_dir)
-                found_module = True
+                    found_module = current_dir
                 break
             
-            # Move up one level
-            # If current_dir is "a/b", dirname is "a". If "a", dirname is "" (loop ends)
             parent = os.path.dirname(current_dir)
-            if parent == current_dir: break # Safety break
+            if parent == current_dir: break
             current_dir = parent
         
         if not found_module and f == "pom.xml":
-            # Root POM changed? This usually means we should test everything (or at least core)
-            modules.add("hadoop-common-project/hadoop-common")
-            modules.add("hadoop-hdfs-project/hadoop-hdfs")
+             # Root POM changed?
+             found_module = "hadoop-common-project/hadoop-common" # Fallback to core
+        
+        if found_module:
+            if status == 'A':
+                added_modules.add(found_module)
+            else:
+                modified_modules.add(found_module)
 
-    # 3. Output formatted string
-    if not modules:
-        print("NONE")
-    else:
-        # Join unique modules with commas for the -pl flag
-        print(",".join(sorted(modules)))
+    # Output as JSON
+    print(json.dumps({
+        "modified": sorted(list(modified_modules)),
+        "added": sorted(list(added_modules))
+    }))
 
 if __name__ == "__main__":
     main()
