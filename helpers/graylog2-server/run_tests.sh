@@ -52,6 +52,7 @@ docker volume create maven-repo 2>/dev/null || true
 if docker run --rm \
     -v "${PROJECT_DIR}:/repo" \
     -v "maven-repo:/root/.m2/repository" \
+    -v "/var/run/docker.sock:/var/run/docker.sock" \
     -w /repo \
     "${BUILDER_IMAGE_TAG}" \
     bash -c "git checkout -f ${COMMIT_SHA} && \
