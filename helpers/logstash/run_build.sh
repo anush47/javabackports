@@ -8,6 +8,7 @@ echo "--- Changing directory to ${PROJECT_DIR} ---"
 cd "${PROJECT_DIR}"
 
 echo "--- Checking out commit... ---"
+git config --global --add safe.directory "${PROJECT_DIR}"
 git checkout ${COMMIT_SHA}
 
 # Create persistent Gradle cache volumes if they don't exist
