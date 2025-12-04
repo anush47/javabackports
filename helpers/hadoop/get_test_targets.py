@@ -74,11 +74,14 @@ def main():
         
         status = parts[0]
         filepath = parts[1]
+        filename = os.path.basename(filepath)
         
         # Only process test files
+        # Fixed logic to include files starting with 'Test'
         is_test_file = (
             "/src/test/java/" in filepath and 
-            (filepath.endswith("Test.java") or filepath.endswith("IT.java"))
+            filepath.endswith(".java") and
+            (filename.startswith("Test") or filename.endswith("Test.java") or filename.endswith("Tests.java") or filename.endswith("IT.java"))
         )
         
         if not is_test_file:
