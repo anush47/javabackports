@@ -9,16 +9,43 @@ import json
 BLACKLIST_MODULES = [
     "hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-catalog/hadoop-yarn-applications-catalog-webapp",
     "hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-catalog/hadoop-yarn-applications-catalog-docker",
-    "hadoop-yarn-project" # Aggregator that often fails if children fail
 ]
 
 def is_blacklisted(module_path):
     for bad in BLACKLIST_MODULES:
-        if module_path.startswith(bad) or bad.startswith(module_path):
-             # If exact match or if the module path is a parent of a bad module? 
-             # Actually, simpler: just skip if it *is* one of the bad ones.
-             if module_path == bad: return True
+        if module_path == bad or module_path.startswith(bad + "/"):
+            return True
     return False
+
+def find_module_for_file(repo, filepath):
+    """Find the Maven module (directory with pom.xml) for a given file."""
+    current_dir = os.path.dirname(filepath) if filepath else ""
+    
+    while current_dir:
+        pom_path = os.path.join(repo, current_dir, "pom.xml")
+        if os.path.exists(pom_path):
+            if not is_blacklisted(current_dir):
+                return current_dir
+            else:
+                return None  # Blacklisted module
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir:
+            break
+        current_dir = parent
+    
+    return None
+
+def extract_test_class(filepath):
+    """Extract the fully qualified test class name from a test file path."""
+    if "/src/test/java/" not in filepath:
+        return None
+    
+    try:
+        class_part = filepath.split("/src/test/java/")[1]
+        class_name = class_part.replace("/", ".").replace(".java", "")
+        return class_name
+    except:
+        return None
 
 def main():
     parser = argparse.ArgumentParser()
@@ -31,84 +58,57 @@ def main():
     try:
         output = subprocess.check_output(cmd, cwd=args.repo, text=True)
     except subprocess.CalledProcessError:
-        # Fallback: test core modules if git fails
-        print(json.dumps({"modified": ["hadoop-common-project/hadoop-common", "hadoop-hdfs-project/hadoop-hdfs"], "added": []}))
+        print(json.dumps({"modified": [], "added": []}))
         return
 
-    modified_items = set()
-    added_items = set()
-    
-    # Track if we see any non-test files
-    only_test_changes = True
-    affected_modules = set()
+    modified_tests = set()
+    added_tests = set()
 
     lines = output.strip().splitlines()
-    for line in lines:
-        parts = line.split('\t', 1)
-        if len(parts) != 2:
-            continue
-        f = parts[1]
-        
-        # Check if it's a test file
-        is_test = False
-        if "/src/test/java/" in f and (f.endswith("Test.java") or f.endswith("IT.java")):
-            is_test = True
-        
-        if not is_test:
-            only_test_changes = False
     
-    # Second pass to collect targets
+    # Process ALL files, but only extract test files
     for line in lines:
         parts = line.split('\t', 1)
         if len(parts) != 2:
             continue
+        
         status = parts[0]
-        f = parts[1]
+        filepath = parts[1]
         
-        # Map file to module
-        current_dir = os.path.dirname(f)
-        found_module = None
+        # Only process test files
+        is_test_file = (
+            "/src/test/java/" in filepath and 
+            (filepath.endswith("Test.java") or filepath.endswith("IT.java"))
+        )
         
-        while current_dir:
-            pom_path = os.path.join(args.repo, current_dir, "pom.xml")
-            if os.path.exists(pom_path):
-                if not is_blacklisted(current_dir):
-                    found_module = current_dir
-                break
-            parent = os.path.dirname(current_dir)
-            if parent == current_dir: break
-            current_dir = parent
+        if not is_test_file:
+            continue
             
-        if not found_module and f == "pom.xml":
-             found_module = "hadoop-common-project/hadoop-common"
-
-        if found_module:
-            if only_test_changes:
-                # Granular mode: Extract class name
-                # Path: .../src/test/java/org/apache/hadoop/foo/TestBar.java
-                if "/src/test/java/" in f:
-                    try:
-                        class_part = f.split("/src/test/java/")[1]
-                        class_name = class_part.replace("/", ".").replace(".java", "")
-                        target = f"{found_module}:{class_name}"
-                        
-                        if status == 'A':
-                            added_items.add(target)
-                        else:
-                            modified_items.add(target)
-                    except:
-                        # Fallback to module if parsing fails
-                        modified_items.add(found_module)
-            else:
-                # Module mode: Just add the module
-                # We treat all as modified to ensure full coverage when source changes
-                modified_items.add(found_module)
-
-    # Output as JSON
-    print(json.dumps({
-        "modified": sorted(list(modified_items)),
-        "added": sorted(list(added_items))
-    }))
+        # Find module for this test file
+        module = find_module_for_file(args.repo, filepath)
+        if not module:
+            continue
+        
+        # Extract test class name
+        test_class = extract_test_class(filepath)
+        if not test_class:
+            continue
+        
+        # Create target in format: module:fully.qualified.TestClass
+        target = f"{module}:{test_class}"
+        
+        if status == 'A':
+            added_tests.add(target)
+        else:
+            modified_tests.add(target)
+    
+    # Return only the test files that were modified or added
+    result = {
+        "modified": sorted(list(modified_tests)),
+        "added": sorted(list(added_tests))
+    }
+    
+    print(json.dumps(result))
 
 if __name__ == "__main__":
     main()
