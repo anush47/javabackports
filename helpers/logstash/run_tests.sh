@@ -11,7 +11,8 @@ echo "--- Using Docker Image: ${IMAGE_TAG} ---"
 
 # 2. Configure Test Command
 if [ "${TEST_TARGETS}" == "ALL" ]; then
-    GRADLE_CMD="./gradlew test"
+    # Per documentation, javaTests runs the subset of tests covering the Java codebase only
+    GRADLE_CMD="./gradlew javaTests"
 elif [ "${TEST_TARGETS}" == "NONE" ]; then
     echo "No relevant source code changes found. Skipping tests."
     exit 0
