@@ -1,21 +1,44 @@
-# Use the official Temurin 11 image
-FROM eclipse-temurin:11-jdk
+# Use a standard, trusted Java 21 (JDK) image
+# Kafka 3.7+ supports Java 21. For older versions, we might need 17 or 11.
+# Starting with 21 as default for modern Kafka.
+FROM eclipse-temurin:21-jdk-jammy
 
-# ---- system packages --------------------------------------------------
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install basic tools (git, python3) needed for build scripts
+RUN apt-get update && apt-get install -y \
     git \
-    git-lfs \
+    python3 \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# ---- Boot JDK setup -------------------------------------------------
-ENV BOOT_JDK=/opt/java/openjdk
-RUN echo "Boot JDK is at ${BOOT_JDK}" && ${BOOT_JDK}/bin/java -version
+# Create a non-root user 'gradle'
+RUN groupadd --gid 1000 gradle && \
+    useradd --uid 1000 --gid 1000 --shell /bin/bash --create-home gradle
 
-# --- Switch to root user to fix all permission errors ---
+# Create the global .gradle directory
+RUN mkdir -p /home/gradle/.gradle
+
+# Create our global gradle.properties file with optimization settings
+RUN echo "org.gradle.daemon=true" >> /home/gradle/.gradle/gradle.properties && \
+    echo "org.gradle.parallel=true" >> /home/gradle/.gradle/gradle.properties && \
+    echo "org.gradle.workers.max=6" >> /home/gradle/.gradle/gradle.properties && \
+    echo "org.gradle.caching=true" >> /home/gradle/.gradle/gradle.properties
+
+# Set ownership for the .gradle dir
+RUN chown -R gradle:gradle /home/gradle/.gradle
+
+# Create the /repo dir and give the gradle user ownership
+RUN mkdir /repo
+RUN chown gradle:gradle /repo
+
+# Set up a working directory inside the container
 WORKDIR /repo
 
-# Add the repo directory as a "safe directory" for Git
-RUN git config --global --add safe.directory /repo
+# Copy files *AS* the gradle user
+COPY --chown=gradle:gradle gradlew .
+COPY --chown=gradle:gradle gradle gradle
 
-# ---- Git LFS setup ----------------------------------------------------
-RUN git lfs install --system
+# Download the dependencies.
+RUN ./gradlew --version || true
+
+# Copy all files *AS* the gradle user.
+COPY --chown=gradle:gradle . .

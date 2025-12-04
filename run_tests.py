@@ -22,7 +22,7 @@ PROJECT_CONFIG = {
         "repo_dir": "kafka",
         "report_pattern": "**/build/test-results/**/*.xml",
         "builder_tag": "kafka-builder:latest",
-        "build_system": "gradle"
+        "build_system": "self-building"
     },
     "hadoop": {
         "repo_dir": "hadoop",

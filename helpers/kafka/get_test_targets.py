@@ -3,6 +3,7 @@ import argparse
 import subprocess
 import sys
 import os
+import json
 
 def main():
     parser = argparse.ArgumentParser()
@@ -10,78 +11,98 @@ def main():
     parser.add_argument("--commit", required=True, help="Commit hash to analyze")
     args = parser.parse_args()
 
-    # 1. Get list of changed files
-    cmd = ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", args.commit]
+    # 1. Get list of changed files with status
+    cmd = ["git", "diff-tree", "--no-commit-id", "--name-status", "-r", args.commit]
     try:
         output = subprocess.check_output(cmd, cwd=args.repo, text=True)
     except subprocess.CalledProcessError:
-        # Fallback if git fails
-        print("test") 
+        print(json.dumps({"modified": [], "added": []}))
         return
 
-    changed_files = output.strip().splitlines()
-    gradle_tasks = set()
+    modified_tests = set()
+    added_tests = set()
 
-    for f in changed_files:
-        # Kafka structure: [module]/src/...
-        # e.g. clients/src/main/java/org/apache/kafka/clients/producer/KafkaProducer.java
-        
-        parts = f.split("/")
-        if len(parts) < 2:
+    lines = output.strip().splitlines()
+    
+    for line in lines:
+        parts = line.split('\t')
+        if not parts:
             continue
             
-        module = parts[0]
+        status = parts[0]
+        
+        # Handle Renames (R) and Copies (C) which have 3 parts: status, old_path, new_path
+        if status.startswith('R') or status.startswith('C'):
+            if len(parts) >= 3:
+                filepath = parts[2]
+            else:
+                continue
+        else:
+            if len(parts) >= 2:
+                filepath = parts[1]
+            else:
+                continue
+        
+        # Kafka structure: [module]/src/...
+        # e.g. clients/src/test/java/org/apache/kafka/clients/producer/KafkaProducerTest.java
+        
+        # Only process test files
+        filename = os.path.basename(filepath)
+        is_test_file = (
+            "/src/test/" in filepath and 
+            (filepath.endswith(".java") or filepath.endswith(".scala")) and
+            (filename.startswith("Test") or filename.endswith("Test.java") or filename.endswith("Tests.java") or filename.endswith("Test.scala") or filename.endswith("Tests.scala"))
+        )
+        
+        if not is_test_file:
+            continue
+            
+        parts_path = filepath.split("/")
+        if len(parts_path) < 2:
+            continue
+            
+        module = parts_path[0]
         
         # Verify it is a real module (has build.gradle)
         if not os.path.exists(os.path.join(args.repo, module, "build.gradle")):
-            # Maybe it's a root file like build.gradle?
-            if f == "build.gradle" or f == "gradle.properties":
-                print("ALL") # Core build config changed, run everything (or specific subset)
-                return
             continue
 
-        # --- MAPPING LOGIC ---
+        test_target = ""
         
-        # 1. If it is a Test file, run ONLY that test class
-        if "/src/test/" in f and f.endswith(".java") or f.endswith(".scala"):
-            try:
-                # Extract class name. 
-                # Path: clients/src/test/java/org/apache/kafka/clients/MyTest.java
-                # Want: org.apache.kafka.clients.MyTest
-                
-                # Find where package structure starts (after java/ or scala/)
-                if "/java/" in f:
-                    rel_path = f.split("/java/")[1]
-                elif "/scala/" in f:
-                    rel_path = f.split("/scala/")[1]
-                else:
-                    # Weird path, fall back to module
-                    gradle_tasks.add(f":{module}:test")
-                    continue
-
-                class_name = rel_path.replace("/", ".").rsplit(".", 1)[0]
-                
-                # Gradle syntax for single test
-                gradle_tasks.add(f":{module}:test --tests \"{class_name}\"")
-            except IndexError:
-                # Fallback
-                gradle_tasks.add(f":{module}:test")
-
-        # 2. If it is a Source file, run the whole module's tests
-        elif "/src/main/" in f:
-            gradle_tasks.add(f":{module}:test")
+        try:
+            # Extract class name. 
+            # Path: clients/src/test/java/org/apache/kafka/clients/MyTest.java
+            # Want: org.apache.kafka.clients.MyTest
             
-        # 3. Any other file in the module (resources, etc.)
-        else:
-            gradle_tasks.add(f":{module}:test")
+            # Find where package structure starts (after java/ or scala/)
+            if "/java/" in filepath:
+                rel_path = filepath.split("/java/")[1]
+            elif "/scala/" in filepath:
+                rel_path = filepath.split("/scala/")[1]
+            else:
+                # Weird path, fall back to module
+                test_target = f":{module}:test"
+            
+            if not test_target:
+                class_name = rel_path.replace("/", ".").rsplit(".", 1)[0]
+                # Gradle syntax for single test
+                test_target = f":{module}:test --tests \"{class_name}\""
+        except IndexError:
+            # Fallback
+            test_target = f":{module}:test"
 
-    # 3. Output
-    if not gradle_tasks:
-        print("NONE")
-    else:
-        # Join all tasks. Gradle handles multiple tasks well.
-        # e.g. :clients:test :core:test --tests "kafka.server.ReplicaManagerTest"
-        print(" ".join(sorted(gradle_tasks)))
+        if test_target:
+            if status == 'A':
+                added_tests.add(test_target)
+            else:
+                modified_tests.add(test_target)
+
+    # Output as JSON
+    result = {
+        "modified": sorted(list(modified_tests)),
+        "added": sorted(list(added_tests))
+    }
+    print(json.dumps(result))
 
 if __name__ == "__main__":
     main()
