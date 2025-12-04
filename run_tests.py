@@ -73,6 +73,12 @@ PROJECT_CONFIG = {
         "build_system": "make",
         "boot_jdk": "/opt/java/openjdk",
         "jtreg_home": "/opt/jtreg"
+    },
+    "sql": {
+        "repo_dir": "sql",
+        "report_pattern": "**/build/test-results/**/*.xml",
+        "builder_tag": "sql-builder:latest",
+        "build_system": "self-building"
     }
 }
 
