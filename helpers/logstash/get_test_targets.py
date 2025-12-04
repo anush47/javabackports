@@ -108,7 +108,8 @@ def main():
                 task_name = "test"
                 
                 # Gradle syntax for single test
-                test_target = f"{module_path}:{task_name} --tests \"{class_name}\""
+                # We remove quotes to avoid bash quoting issues in run_tests.sh
+                test_target = f"{module_path}:{task_name} --tests {class_name}"
             else:
                 # Fallback to module test if we can't parse the class path
                 test_target = f"{module_path}:test"
