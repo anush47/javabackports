@@ -4,6 +4,7 @@ __pycache__/
 
 # Local results and build artifacts
 build_results/
+temp_work/
 builder_backup.tar
 
 # Local cache folders
