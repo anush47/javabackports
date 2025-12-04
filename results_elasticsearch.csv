@@ -1,0 +1,74 @@
+commit,build_after,test_after,build_before,test_before,regressions,fixes,new_passes
+56e19e28bd098337f57e5b49f45ae14137fd3e72,Success,Success,Success,Success,0,0,1
+77313160bfa6ff8d17d90392aa55a1ee7d0267ad,Success,Success,Success,Success,0,0,0
+3068341b1dc99ae9cb3f123fbac43121d7fb4994,Success,Success,Success,Success,0,0,4
+ea90bdb1836acd73d3df155f44ad2f6e61e9f6eb,Fail,Skipped,Skipped,Skipped (Only New Tests),0,0,0
+56e19e28bd098337f57e5b49f45ae14137fd3e72,Success,Success,Success,Success,0,0,1
+77313160bfa6ff8d17d90392aa55a1ee7d0267ad,Success,Success,Success,Success,0,0,0
+56e19e28bd098337f57e5b49f45ae14137fd3e72,Fail,Skipped,Skipped,Skipped (Only New Tests),0,0,0
+77313160bfa6ff8d17d90392aa55a1ee7d0267ad,Fail,Skipped,Skipped,Skipped (Only New Tests),0,0,0
+efeaa7694f63c73755b4044d9305003c77a24098,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+2aa011d594ee87cefbae255310afe75afc6a00e1,Success,Success,Success,Success,0,0,3
+3068341b1dc99ae9cb3f123fbac43121d7fb4994,Success,Success,Success,Success,0,0,4
+0850345d1390dc696a1afbd11ab7a2a8684eeed5,Success,Skipped (No Targets),Success,Skipped (No Targets),0,0,0
+a32611c375b33f5a6409a546b725769c972fdf80,Success,Success,Success,Success,0,0,9
+7727dffe093564b0e004967387d374db635c250b,Success,Skipped (No Targets),Success,Skipped (No Targets),0,0,0
+c0ce37d129b605da91462bf89231a0109aa417d8,Success,Success,Success,Success,0,0,0
+5842b3dd17b93131001933751824c43f7789b4b4,Success,Success,Success,Success,0,0,1
+26059b7342eaf8e3a035b6b699ee041c76b9cfc8,Success,Skipped (No Targets),Success,Skipped (No Targets),0,0,0
+4a9093d8a5e798500a1460a543b299a612a407f2,Success,Success,Skipped,Skipped (Only New Tests),0,0,6
+17661318ce30e279774a0af7a265eb596cb76957,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+09a64e625e8bb9d02a368a910b54b4326e36d058,Success,Skipped (No Targets),Success,Skipped (No Targets),0,0,0
+e0dac2e855638823a93f0b7d39cb99fed284138d,Success,Success,Success,Success,0,0,3
+3053ed2adb0cd0c9aa9ece31cd958fc151b058fb,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+1e858b134fb4a2089b50f7a339f567f1fd7f9471,Success,Success,Success,Success,0,0,4
+5b6bef571ee80b78a5641a89cb890094abcca955,Success,Success,Success,Success,0,0,0
+b3940507d1f98f6902ff2d1945c2310e56a4a4f4,Success,Success,Skipped,Skipped (Only New Tests),0,0,4
+52a6ae0c2ce371923689e141160a7cfc735ea2af,Success,Success,Success,Success,0,0,1
+bb9ee7653662afe60f55e9a9b623f272fd310d58,Success,Success,Skipped,Skipped (Only New Tests),0,0,6
+1f4e7b320948c86bda0f44a24fa0307f77cb84eb,Success,Success,Skipped,Skipped (Only New Tests),0,0,4
+0ab35853565b6c1d85b4976bb6ac2989c362dec2,Success,Success,Skipped,Skipped (Only New Tests),0,0,4
+41b311170ee892d8c9121399df72ee24e8e42f26,Success,Success,Success,Success,0,0,1
+ddd0ffa8a14d27839a2497d6595c46c84cf70099,Success,Success,Success,Success,0,0,9
+dc3aaf1dc10d0c22ae867f118a51209555908055,Success,Success,Success,Success,0,0,8
+4eabb4c5afcedf30fc1b39770512dc3d5c43a255,Success,Success,Skipped,Skipped (Only New Tests),0,0,7
+054308ba17a331c5ec8c2c47ed7cc38d9e4af611,Success,Success,Success,Success,0,0,10
+d4d5b1cc4f53ec4f57e8e5cccc243b41b9223efe,Success,Success,Success,Success,0,0,10
+edfdd079abc5696da9179168c09f318c007e8fac,Success,Success,Skipped,Skipped (Only New Tests),0,0,6
+4c63481b732ff90d2249e0004f70b325b5210f93,Success,Success,Skipped,Skipped (Only New Tests),0,0,32
+ae92ed1a24a20bfaad5162caaf55a59ad36bef6d,Success,Skipped (No Targets),Success,Skipped (No Targets),0,0,0
+da55d6c2709ecb448d1bf9b53f53bdbd2f2a40fc,Success,Success,Success,Success,0,0,1
+f281ba9287ac634c4813a01e3512e720ca65f4ad,Success,Success,Success,Success,0,0,9
+2ae5911b27a29bc1cb5bcfac188b46fd64441240,Success,Success,Success,Success,0,0,2
+10531dfe23d925fffedcf84f468f0c0045c9303f,Success,Success,Skipped,Skipped (Only New Tests),0,0,9
+0e78cbc3dc3a7fabdc788f2cb5ca6d476c6518a9,Success,Success,Success,Success,0,0,6
+7954d9119d30dde4a7215f1ed8d5cf0f1b16eea0,Success,Success,Skipped,Skipped (Only New Tests),0,0,15
+ddb9413699f3c5d8c36fd7f4830c1942cfb6619b,Success,Success,Success,Success,0,0,45
+494cae96ab04e34ef6399c17514477ec397e0ecb,Success,Success,Success,Success,0,0,5
+afd8d8411b2a28db8ff8ff3640fe677b1cf073f2,Success,Success,Skipped,Skipped (Only New Tests),0,0,5
+d08c26bca87e89a3a085a8a6f41cd720506ff9b6,Success,Success,Skipped,Skipped (Only New Tests),0,0,4
+516688a36b213a4b4ca27b61941982d6f4c10bb3,Success,Success,Success,Success,0,0,1
+4bd6449dffd32ec15c48da35874de05698f2ca0e,Success,Success,Success,Success,0,0,7
+9b5926043e1ef7d158753c7b46f52a1dffe9ca80,Success,Success,Success,Success,0,0,7
+c1b98422d7254302fcd94a8167832cfc20053c93,Success,Success,Success,Success,0,0,1
+52318d4bebc50a771fd59a3d8c0fee163c64d21f,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+b9940e02ee32122ea8b24c8e60857a1e3cc53936,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+3f5251e13fc1a52a65504460315987d45aed7ab1,Success,Success,Success,Success,0,0,1
+f9a1561c8827db7b8f396535ef6f7529e74195d9,Success,Success,Success,Success,0,0,7
+2bfbb4282dcc3b86e125fed583504bfdce22dd06,Success,Success,Success,Success,0,0,1
+e9072e9bc418c36f03fc501584915538b03a00c7,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+e7ac7c3c960e38fb06aabdc09efc3e635424732b,Success,Success,Success,Success,0,0,2
+63b4d76c3384ded1efe317478ff04c8d2c90c48b,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+ffcf87ce1dbd769b5d12df18b48653a9ede8b5c3,Success,Success,Success,Success,0,0,3
+9689ea2dd1eb414f4320f8e99052871c901c6d38,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+6ec7a3439df6c25868b7b773bb6b39191060f4ee,Success,Success,Skipped,Skipped (Only New Tests),0,0,1
+3ee06081ce34bfeba441aee7e886fad724188759,Success,Success,Success,Success,0,0,5
+945aaa2a8794f58fdb39225e53096178560ba49c,Success,Success,Success,Success,0,0,5
+ea90bdb1836acd73d3df155f44ad2f6e61e9f6eb,Success,Success,Success,Success,0,0,3
+cc3caa228def0974e5d8299e5321b0a6987f9e6e,Success,Success,Success,Success,0,0,9
+2a94927fbc9554a6c30bd6bdc48048099394d786,Success,Success,Success,Success,0,0,8
+1bffbfe4156d3899685359ddd83443c95447cf83,Success,Success,Skipped,Skipped (Only New Tests),0,0,6
+7463b775fa88298ae249f7dda02672a72ebaeb3c,Success,Success,Success,Success,0,0,3
+0473b82c7380093185bf12f23b6280ab0c65680a,Success,Skipped (No Targets),Success,Skipped (No Targets),0,0,0
+02a308be09f9f93f9591916405b413d77c247cbc,Success,Success,Skipped,Skipped (Only New Tests),0,0,2
+55677728b447a88a5af858843cd93fac64036472,Success,Success,Skipped,Skipped (Only New Tests),0,0,0
