@@ -15,10 +15,43 @@ elif [ "${TEST_TARGETS}" == "NONE" ]; then
     echo "No relevant source code changes found. Skipping tests."
     exit 0
 else
-    # Run tests ONLY for the affected modules
-    # Replace spaces with commas for Maven -pl flag
-    COMMA_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
-    MAVEN_ARGS="-pl ${COMMA_TARGETS} -am"
+    # Check if we are in Granular Mode (targets contain ':')
+    if [[ "${TEST_TARGETS}" == *":"* ]]; then
+        echo "--- Detected Granular Test Targets ---"
+        MODULES=""
+        CLASSES=""
+        
+        # Split by space
+        for target in ${TEST_TARGETS}; do
+            # Format: module:class
+            if [[ "$target" == *":"* ]]; then
+                MOD=$(echo "$target" | cut -d':' -f1)
+                CLS=$(echo "$target" | cut -d':' -f2)
+                
+                MODULES="${MODULES},${MOD}"
+                CLASSES="${CLASSES},${CLS}"
+            else
+                # Fallback if mixed (shouldn't happen with current logic but safe to handle)
+                MODULES="${MODULES},${target}"
+            fi
+        done
+        
+        # Clean up leading commas
+        MODULES=$(echo "${MODULES}" | sed 's/^,//')
+        CLASSES=$(echo "${CLASSES}" | sed 's/^,//')
+        
+        # Deduplicate modules (Maven doesn't like duplicates in -pl sometimes?)
+        # Actually tr/sort/uniq is easier
+        MODULES=$(echo "${MODULES}" | tr ',' '\n' | sort -u | tr '\n' ',' | sed 's/,$//')
+        
+        MAVEN_ARGS="-pl ${MODULES} -Dtest=${CLASSES} -am"
+    else
+        echo "--- Detected Module-Level Targets ---"
+        # Run tests ONLY for the affected modules
+        # Replace spaces with commas for Maven -pl flag
+        COMMA_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
+        MAVEN_ARGS="-pl ${COMMA_TARGETS} -am"
+    fi
 fi
 
 echo "--- Starting Test Execution ---"
