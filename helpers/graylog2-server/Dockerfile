@@ -7,8 +7,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git \
     git-lfs \
-    docker.io \
     && rm -rf /var/lib/apt/lists/*
+
+# --- Install Docker CLI (Latest Static Binary) ---
+ENV DOCKER_VERSION=26.1.3
+RUN curl -fsSL -o /tmp/docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
+    && tar -xzf /tmp/docker.tgz -C /tmp \
+    && mv /tmp/docker/docker /usr/bin/docker \
+    && rm -rf /tmp/docker /tmp/docker.tgz
 
 # --- Install Maven 3.9.9 ---
 ENV MAVEN_VERSION=3.9.9
