@@ -30,7 +30,7 @@ docker run --rm \
     -v "maven-repo:/root/.m2/repository" \
     -w /repo \
     ${BUILDER_IMAGE_TAG} \
-    bash -c "mvn clean install -DskipTests -Dskip.yarn -Dskip.npm -Dskip.installnodenpm -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C" \
+    bash -c "mvn clean install -DskipTests -Dskip.yarn -Dskip.npm -Dskip.installnodenpm -Dmaven.antrun.skip=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C" \
     || BUILD_EXIT_CODE=$?
 
 # Save build status
