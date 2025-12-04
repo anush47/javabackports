@@ -22,15 +22,26 @@ else
     GRADLE_CMD="./gradlew ${TEST_TARGETS}"
 fi
 
+# Determine if we need sudo for docker
+DOCKER_CMD="docker"
+if ! docker info > /dev/null 2>&1; then
+    if sudo docker info > /dev/null 2>&1; then
+        echo "Docker requires sudo. Using 'sudo docker'."
+        DOCKER_CMD="sudo docker"
+    else
+        echo "Warning: Docker command failed and sudo check failed. Continuing with 'docker' but expect errors."
+    fi
+fi
+
 # 3. Run Tests in Docker
 # Create persistent Gradle cache volumes if they don't exist
-docker volume create gradle-cache-sql 2>/dev/null || true
-docker volume create gradle-wrapper-sql 2>/dev/null || true
+${DOCKER_CMD} volume create gradle-cache-sql 2>/dev/null || true
+${DOCKER_CMD} volume create gradle-wrapper-sql 2>/dev/null || true
 
 echo "--- Executing: ${GRADLE_CMD} ---"
 
 # Note: The Dockerfile for SQL already sets WORKDIR /repo and user 'gradle'
-if docker run --rm \
+if ${DOCKER_CMD} run --rm \
     --dns=8.8.8.8 \
     -u 1000:1000 \
     -v "gradle-cache-sql:/home/gradle/.gradle/caches" \
