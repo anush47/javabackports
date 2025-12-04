@@ -68,12 +68,24 @@ def main():
     
     # Process ALL files, but only extract test files
     for line in lines:
-        parts = line.split('\t', 1)
-        if len(parts) != 2:
+        parts = line.split('\t')
+        if not parts:
             continue
-        
+            
         status = parts[0]
-        filepath = parts[1]
+        
+        # Handle Renames (R) and Copies (C) which have 3 parts: status, old_path, new_path
+        if status.startswith('R') or status.startswith('C'):
+            if len(parts) >= 3:
+                filepath = parts[2]
+            else:
+                continue
+        else:
+            if len(parts) >= 2:
+                filepath = parts[1]
+            else:
+                continue
+        
         filename = os.path.basename(filepath)
         
         # Only process test files
