@@ -1,0 +1,1281 @@
+[
+  {
+    "index": 11,
+    "commit": "8aa0ffc48dbf21e507b17a004f68da5f1f57e8b0",
+    "parent": "40c594444bae769b17539c3f4d09e6ad563ffac0",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 21,
+      "after_fail_count": 0,
+      "before_pass_count": 14,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 7
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT.testEscapeSequence_noMatchLiteral",
+        "org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT.testEscapeSequence_literalAsterisk",
+        "org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT.testWildcardReplace_prefixMatch",
+        "org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT.testEscapeSequence_mixedEscapeAndWildcard",
+        "org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT.testWildcardReplace_symmetryMismatch_shouldFail",
+        "org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT.testWildcardReplace_multipleWildcards",
+        "org.opensearch.sql.calcite.remote.CalciteReplaceCommandIT.testWildcardReplace_suffixMatch"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 12,
+    "commit": "d20b4dbbda99da816b27c065a29158ea3c2d243f",
+    "parent": "d7603d305a62ac0cc970de221deff1306b30e1b2",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteGeoIpFunctionsIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteGeoIpFunctionsIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 6,
+      "after_fail_count": 0,
+      "before_pass_count": 5,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteGeoIpFunctionsIT.testGeoIpInAggregation"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 15,
+    "commit": "ba5d3b1b9d5dc56ff337426d36af865c7d805fa4",
+    "parent": "dc72a154dc1a77ff3017916f12adb47a5d0d06df",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteBinCommandIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteBinCommandIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 49,
+      "after_fail_count": 0,
+      "before_pass_count": 43,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 6
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteBinCommandIT.testBinWithSpanOnNonNumericField",
+        "org.opensearch.sql.calcite.remote.CalciteBinCommandIT.testBinLogSpanOnNonNumericField",
+        "org.opensearch.sql.calcite.remote.CalciteBinCommandIT.testBinWithBinsOnNonNumericField",
+        "org.opensearch.sql.calcite.remote.CalciteBinCommandIT.testBinDefaultOnNonNumericField",
+        "org.opensearch.sql.calcite.remote.CalciteBinCommandIT.testBinWithStartEndOnNonNumericField",
+        "org.opensearch.sql.calcite.remote.CalciteBinCommandIT.testBinWithMinspanOnNonNumericField"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 19,
+    "commit": "ec5d429b881b3de8722bc0cb793d03cef1d4bbd6",
+    "parent": "8a0e9c22e0b523c91f65971898adf7ed33bacbd6",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.standalone.CalcitePPLDateTimeBuiltinFunctionIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.standalone.CalcitePPLDateTimeBuiltinFunctionIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 51,
+      "after_fail_count": 0,
+      "before_pass_count": 50,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.standalone.CalcitePPLDateTimeBuiltinFunctionIT.testComparisonWithIso8601DateLiteral"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 22,
+    "commit": "b19c967cea14cbc120cb8f808f3dc52c2474f94b",
+    "parent": "f0767c2fd6b10d8f7916406fc51f457151ffedba",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteGeoIpFunctionsIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.ppl.GeoIpFunctionsIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteGeoIpFunctionsIT\" :integ-test:integTest --tests \"org.opensearch.sql.ppl.GeoIpFunctionsIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 4,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 23,
+    "commit": "0b446472de77ab33bb56f2fd0a5ba63e8bc78678",
+    "parent": "2fa3845cdfe4876592c190e68d29bb3b88ca360c",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 28,
+    "commit": "e7caf5909820b732b09a2576963945ec86eb29ef",
+    "parent": "6d8f78e81739c8a153ec8ae8859ae5dac93b52cb",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 121,
+      "after_fail_count": 0,
+      "before_pass_count": 120,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.testPushDownMinOrMaxAggOnDerivedField"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 30,
+    "commit": "104f7f0ec0c80f9e5af1dac3c2806b965eadb906",
+    "parent": "6b8f420f2d2830a4dc9f511f96628d0f786287c8",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLStringBuiltinFunctionIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLStringBuiltinFunctionIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 27,
+      "after_fail_count": 0,
+      "before_pass_count": 21,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 6
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalcitePPLStringBuiltinFunctionIT.testReplaceWithCharacterClasses",
+        "org.opensearch.sql.calcite.remote.CalcitePPLStringBuiltinFunctionIT.testReplaceWithAnchors",
+        "org.opensearch.sql.calcite.remote.CalcitePPLStringBuiltinFunctionIT.testReplaceWithEmailDomainReplacement",
+        "org.opensearch.sql.calcite.remote.CalcitePPLStringBuiltinFunctionIT.testReplaceWithRegexPattern",
+        "org.opensearch.sql.calcite.remote.CalcitePPLStringBuiltinFunctionIT.testReplaceWithInvalidRegexPattern",
+        "org.opensearch.sql.calcite.remote.CalcitePPLStringBuiltinFunctionIT.testReplaceWithCaptureGroups"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 31,
+    "commit": "480d0bee45121c6564705dacfb06c2ef15686f1d",
+    "parent": "f3b8fb0c783dfdb75ec135bf7ff8ecd7da23c62e",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 120,
+      "after_fail_count": 0,
+      "before_pass_count": 119,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.testJoinWithPushdownSortIntoAgg"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 33,
+    "commit": "095e8cf6b916902e5e0c4a94e3f1eededc3629da",
+    "parent": "abd5bd3337af63892ff8ee762ad3c5902fa87b2a",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 36,
+    "commit": "79c6fa25356273de94999f4ac2816f86b2148c49",
+    "parent": "ee53a79b0d08eb75de544f11fdcd12540c12d23a",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLBasicIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLRenameIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteQueryAnalysisIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLBasicIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLRenameIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteQueryAnalysisIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 41,
+    "commit": "3be90bf10718f7d3117d473cbc651c5240982c78",
+    "parent": "028de0b2edf8a11ba2b06e7daa22ea19756f9fbf",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLPatternsIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLPatternsIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 43,
+    "commit": "901535afa4a77ea3be36f137c427600cb54017a9",
+    "parent": "aacc8b29a0c28e562308ddd15b346986d0bb3f25",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLAggregationIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLAggregationIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 45,
+    "commit": "8f3245cf7e671ec789293dc59c5df53d4010b5cb",
+    "parent": "2a6a12b010fbb076e77ed360f45bf88cbbeab2bf",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteBinCommandIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteBinCommandIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 46,
+    "commit": "2a6a12b010fbb076e77ed360f45bf88cbbeab2bf",
+    "parent": "d7156ad968ff8adaef16ab955b9357eacc493cc4",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 48,
+    "commit": "ddfa7584eef1da89928ae00b90751fb5ae2df90b",
+    "parent": "9ac572f85f01a4893452e505839b24f3369aac00",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteGeoPointFormatsIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.ppl.GeoPointFormatsIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteGeoPointFormatsIT\" :integ-test:integTest --tests \"org.opensearch.sql.ppl.GeoPointFormatsIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 58,
+    "commit": "784c303c8e1da4d9e495dd76625ecd6aaaef372b",
+    "parent": "e3080fbda2a39339383621eab9aa889ef0a63bee",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 61,
+    "commit": "9de859315defcd7229c6444b63e3428032e4be6a",
+    "parent": "e7e3abd0fe5a6aba87a835ad5e075545afbcdedc",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLEventstatsIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLEventstatsIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 63,
+    "commit": "0591243c5ff276dd2bbd2b71c57b676e2b697ca3",
+    "parent": "087f22f85086a3db865965da0bb58c2e8965acf7",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLConditionBuiltinFunctionIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLConditionBuiltinFunctionIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 19,
+      "after_fail_count": 0,
+      "before_pass_count": 15,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 4
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalcitePPLConditionBuiltinFunctionIT.testIsNotNullWithStruct",
+        "org.opensearch.sql.calcite.remote.CalcitePPLConditionBuiltinFunctionIT.testIsNullWithNested",
+        "org.opensearch.sql.calcite.remote.CalcitePPLConditionBuiltinFunctionIT.testIsNullWithStruct",
+        "org.opensearch.sql.calcite.remote.CalcitePPLConditionBuiltinFunctionIT.testIsNotNullWithNested"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 65,
+    "commit": "f10ffd50a08f0b167b4d684798456bf7d0b419d9",
+    "parent": "d2caa6f1019e02739fe1e56bbd07ac8dbdfc9a87",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 57,
+      "after_fail_count": 0,
+      "before_pass_count": 53,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 4
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.testExplainIsBlank",
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.testExplainIsNullOrOthers",
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.testExplainIsEmpty",
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.testExplainIsEmptyOrOthers"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 68,
+    "commit": "ab211df6d617d501d5d1fae90a232bc689de169f",
+    "parent": "c5ac72e23c5b3acbe2cb6657338ee2abb9174769",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.ppl.CastFunctionIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.ppl.CastFunctionIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 16,
+      "after_fail_count": 0,
+      "before_pass_count": 14,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.ppl.CastFunctionIT.testCastDecimal",
+        "org.opensearch.sql.ppl.CastFunctionIT.testCastDoubleAsString"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 69,
+    "commit": "54f12871626ed311ce201dd13d0ebc9c8a262a2b",
+    "parent": "d4101e942b461443b205d4a411281a609139e548",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 70,
+    "commit": "d682985dd17eb32347308118062e4b227e431bd6",
+    "parent": "0fc6d2d9e20e79da2764e5de594c237db9138c3e",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 47,
+      "after_fail_count": 0,
+      "before_pass_count": 46,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.testSkipScriptEncodingOnExtendedFormat"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 73,
+    "commit": "4bd23cfafcc13d92a798489658cd6319f4dc776e",
+    "parent": "1899e917f04322cfad2c48fb219471e131377577",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLAggregationIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalcitePPLAggregationIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 39,
+      "after_fail_count": 0,
+      "before_pass_count": 38,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalcitePPLAggregationIT.testAggByByteNumberWithScript"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 78,
+    "commit": "b98c7f6c656b8cc96197e5065f134bb4cb055c4f",
+    "parent": "cc0b66d4e42190e3f3e4a4967884200cd01bf0c9",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.ppl.WhereCommandIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.ppl.WhereCommandIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 12,
+      "after_fail_count": 0,
+      "before_pass_count": 12,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 79,
+    "commit": "c2a2844f6a4baa54d89482fd725ca83e4e40202a",
+    "parent": "243cb99b66d91cc85ccdf49c87bfee364fd9cba3",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteRelevanceFunctionIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteRelevanceFunctionIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 11,
+      "after_fail_count": 0,
+      "before_pass_count": 11,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 81,
+    "commit": "fe5eb74fccc74ccf20bfd3507eb13ac8fa28c632",
+    "parent": "5e36b3868bd4b86ad99ed35663b94b37e867f6e5",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.CalciteNoPushdownIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.CalciteNoPushdownIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 1209,
+      "after_fail_count": 0,
+      "before_pass_count": 1203,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 6
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteIPComparisonIT.test_equal",
+        "org.opensearch.sql.calcite.remote.CalciteIPComparisonIT.test_greater_than_or_equal_to",
+        "org.opensearch.sql.calcite.remote.CalciteIPComparisonIT.test_greater_than",
+        "org.opensearch.sql.calcite.remote.CalciteIPComparisonIT.test_not_equal",
+        "org.opensearch.sql.calcite.remote.CalciteIPComparisonIT.test_less_than_or_equal_to",
+        "org.opensearch.sql.calcite.remote.CalciteIPComparisonIT.test_less_than"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 83,
+    "commit": "52e5b9680551c1d09a17260b5283ed4bc8eba92f",
+    "parent": "6030a2e1283caeaf849cdc04d4a5638b2c748594",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteExplainIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 30,
+      "after_fail_count": 0,
+      "before_pass_count": 27,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 3
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.supportSearchSargPushDown_timeRange",
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.supportSearchSargPushDown_singleRange",
+        "org.opensearch.sql.calcite.remote.CalciteExplainIT.supportSearchSargPushDown_multiRange"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 86,
+    "commit": "8647ec0f6e263fc607e2c9ed1965fcd4bbf9c3a9",
+    "parent": "2963f3546f462e46160ec51950d38e30551015bf",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.standalone.CalcitePPLBasicIT\""
+      ],
+      "added": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteNewAddedCommandsIT\"",
+        ":integ-test:integTest --tests \"org.opensearch.sql.ppl.NewAddedCommandsIT\""
+      ],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.calcite.standalone.CalcitePPLBasicIT\" :integ-test:integTest --tests \"org.opensearch.sql.calcite.remote.CalciteNewAddedCommandsIT\" :integ-test:integTest --tests \"org.opensearch.sql.ppl.NewAddedCommandsIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 38,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 3
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.opensearch.sql.ppl.NewAddedCommandsIT.testJoin",
+        "org.opensearch.sql.ppl.NewAddedCommandsIT.testSubsearch",
+        "org.opensearch.sql.ppl.NewAddedCommandsIT.testLookup"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 87,
+    "commit": "d451079ecd9e7206ed9effd21e0810c853ea50e5",
+    "parent": "6fd731b54728fdb093c70906579867201cbf3487",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 88,
+    "commit": "95a16436a43ae474ca06aa1011081e3f3fc62ee9",
+    "parent": "cfe38d7d6678dfbd5597f1098a1a47e29f84a708",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 89,
+    "commit": "1be7b30b2a820f59ce690937ca4def596345b846",
+    "parent": "30a2072711fdf384bf83567724b61e8399be0348",
+    "test_targets": {
+      "modified": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.ppl.DateTimeImplementationIT\""
+      ],
+      "added": [],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.ppl.DateTimeImplementationIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 90,
+    "commit": "81e835bc85b4f7c31dd2cb1aaaa955527b5be1cd",
+    "parent": "81577dfc8035a1baf0751e87e3ac98736021c5dd",
+    "test_targets": {
+      "modified": [],
+      "added": [
+        ":integ-test:integTest --tests \"org.opensearch.sql.legacy.MalformedQueryIT\""
+      ],
+      "all": ":integ-test:integTest --tests \"org.opensearch.sql.legacy.MalformedQueryIT\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 91,
+    "commit": "d50a141d62589e2ac772903b2e8b792093dcda07",
+    "parent": "4730dfd528657d2a850b6020d9878785406b97df",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 94,
+    "commit": "f1523d51245f391787a72bc765974618a8efd18e",
+    "parent": "c475d5d3ec761efbcf3b8992dc6d5eb4db795df3",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 99,
+    "commit": "14154a9b33da75ce7034078f3e38a94f6734b5f1",
+    "parent": "703d3d8559851f503233a7a72aedb222c9520eae",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 100,
+    "commit": "4d540788dd70850a08427aa0c651e5021e0eec78",
+    "parent": "8875a03605b90efb7bda9f781c2c24f78aebb63d",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  }
+]
