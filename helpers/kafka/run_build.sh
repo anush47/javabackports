@@ -8,7 +8,8 @@ echo "--- Changing directory to ${PROJECT_DIR} ---"
 cd "${PROJECT_DIR}"
 
 echo "--- Checking out commit... ---"
-git checkout ${COMMIT_SHA}
+git checkout -f ${COMMIT_SHA}
+git clean -fd
 
 # Create persistent Gradle cache volumes if they don't exist
 # Determine if we need sudo for docker
