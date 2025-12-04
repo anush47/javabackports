@@ -3025,5 +3025,290 @@
       "all_failures_after": [],
       "all_failures_before": []
     }
+  },
+  {
+    "index": 1,
+    "commit": "d9fa9cf83979d91845f238e19dc3438972be59ee",
+    "parent": "78c4c3a9a3243aa320d39c72bc0ca3bb0340bc63",
+    "test_targets": {
+      "modified": [
+        "test/jdk/java/util/Random/T8282144.java"
+      ],
+      "added": [],
+      "all": "test/jdk/java/util/Random/T8282144.java"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 3,
+    "commit": "d542d473238b54a3f0185680218e1114d5a9f04e",
+    "parent": "6cf00cc741cb55c9d8207bc1011cc45e4937e6ec",
+    "test_targets": {
+      "modified": [
+        "test/hotspot/jtreg/resourcehogs/compiler/intrinsics/string/TestStringIntrinsics2LargeArray.java",
+        "test/jdk/java/beans/Introspector/8159696/UnloadClassBeanInfo.java",
+        "test/jdk/java/beans/Introspector/Test5102804.java",
+        "test/jdk/java/beans/Introspector/Test8027905.java",
+        "test/jdk/java/beans/XMLEncoder/Test4646747.java",
+        "test/jdk/java/lang/ref/SoftReference/Pin.java",
+        "test/jdk/java/nio/Buffer/Chew.java",
+        "test/jdk/tools/jimage/JImageToolTest.java"
+      ],
+      "added": [],
+      "all": "test/hotspot/jtreg/resourcehogs/compiler/intrinsics/string/TestStringIntrinsics2LargeArray.java test/jdk/java/beans/Introspector/8159696/UnloadClassBeanInfo.java test/jdk/java/beans/Introspector/Test5102804.java test/jdk/java/beans/Introspector/Test8027905.java test/jdk/java/beans/XMLEncoder/Test4646747.java test/jdk/java/lang/ref/SoftReference/Pin.java test/jdk/java/nio/Buffer/Chew.java test/jdk/tools/jimage/JImageToolTest.java"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 16,
+      "after_fail_count": 0,
+      "before_pass_count": 16,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 5,
+    "commit": "ffa7dd58711fc711d71c94753bcfdfdcaaaed752",
+    "parent": "c53cae6a0b510201f0dd62236c273b85820693c6",
+    "test_targets": {
+      "modified": [
+        "test/jdk/java/net/httpclient/AsyncExecutorShutdown.java"
+      ],
+      "added": [],
+      "all": "test/jdk/java/net/httpclient/AsyncExecutorShutdown.java"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 6,
+    "commit": "c53cae6a0b510201f0dd62236c273b85820693c6",
+    "parent": "ee991b7607b8011599e6d6d0334afb4199f42328",
+    "test_targets": {
+      "modified": [
+        "test/jdk/java/net/httpclient/CancelRequestTest.java"
+      ],
+      "added": [],
+      "all": "test/jdk/java/net/httpclient/CancelRequestTest.java"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 7,
+    "commit": "6317de858def824ab1c2d1150f750fa6e27560a2",
+    "parent": "faaa691dfdd823e0d49b24eb51eb8d6ef90ed696",
+    "test_targets": {
+      "modified": [
+        "test/jdk/java/net/httpclient/http2/NoBodyTest.java"
+      ],
+      "added": [],
+      "all": "test/jdk/java/net/httpclient/http2/NoBodyTest.java"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 8,
+    "commit": "01ed3d2334f7be9a2dd5207f585ad61c51b2436e",
+    "parent": "9f988b5ce867b3fc373c8902ae2dcd2d0968e81e",
+    "test_targets": {
+      "modified": [
+        "test/jdk/java/awt/Desktop/DesktopEventsExceptions/DesktopEventsExceptions.java",
+        "test/jdk/java/awt/regtesthelpers/process/ProcessCommunicator.java"
+      ],
+      "added": [],
+      "all": "test/jdk/java/awt/Desktop/DesktopEventsExceptions/DesktopEventsExceptions.java test/jdk/java/awt/regtesthelpers/process/ProcessCommunicator.java"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 1,
+      "before_pass_count": 2,
+      "before_fail_count": 1,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "jdk.java.awt.regtesthelpers.process.ProcessCommunicator.java"
+      ],
+      "all_failures_after": [
+        "jdk.java.awt.regtesthelpers.process.ProcessCommunicator.java"
+      ],
+      "all_failures_before": [
+        "jdk.java.awt.regtesthelpers.process.ProcessCommunicator.java"
+      ]
+    }
+  },
+  {
+    "index": 10,
+    "commit": "8e1ab5ec71fa44b8f6fd2cf3897c9ec4a9bfbeaf",
+    "parent": "93ae31e9308781122841374b2a2f150cb3a255f2",
+    "test_targets": {
+      "modified": [
+        "test/jdk/java/net/httpclient/CancelRequestTest.java"
+      ],
+      "added": [],
+      "all": "test/jdk/java/net/httpclient/CancelRequestTest.java"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 11,
+    "commit": "93ae31e9308781122841374b2a2f150cb3a255f2",
+    "parent": "cd08601f2036d92427caec7eac96cea16ddcbbba",
+    "test_targets": {
+      "modified": [
+        "test/jdk/java/net/httpclient/ReferenceTracker.java",
+        "test/jdk/java/net/httpclient/SpecialHeadersTest.java"
+      ],
+      "added": [],
+      "all": "test/jdk/java/net/httpclient/ReferenceTracker.java test/jdk/java/net/httpclient/SpecialHeadersTest.java"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 1,
+      "before_pass_count": 2,
+      "before_fail_count": 1,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "jdk.java.net.httpclient.ReferenceTracker.java"
+      ],
+      "all_failures_after": [
+        "jdk.java.net.httpclient.ReferenceTracker.java"
+      ],
+      "all_failures_before": [
+        "jdk.java.net.httpclient.ReferenceTracker.java"
+      ]
+    }
   }
 ]

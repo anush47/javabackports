@@ -1,21 +1,25 @@
-Project,Original Version,Original Commit,Backport Version,Backport Commit,Backport Date,Type
-hadoop,trunk,ba7faf90c80476c79e6bfc7c02749dfc031337eb,branch-3.3,a222330e8483ec50cc58789ebce3df1c07250661,2024-04-10 11:11:06+00:00,TYPE-V
-hadoop,trunk,a386ac1f5632949bc49a9d09195073ba5f980b5c,branch-3.3,efc53d87252af3b2455d4c38df08d8d850d1879f,2024-04-23 00:14:03+00:00,TYPE-II
-hadoop,trunk,ecf665c6facf89d3b87b6e3cc684274b8155ca60,branch-3.3,75ad60ba99bdb4bd044879af20cab4f368866613,2024-04-27 12:32:28+00:00,TYPE-IV
-hadoop,trunk,c9270600b7ea6089c1bb7f3c96a6c92935f3de03,branch-3.3,1025c442b99f9940bce5a9bf76ccbba2448c390e,2024-05-15 15:24:50+00:00,TYPE-V
-hadoop,trunk,2fbbfe3cc93574818690373a26e1c3e0f88c560a,branch-3.3,745afa8ceb5dc88ce97d89d24c2236bd2ecb9e98,2024-06-26 16:52:07+00:00,TYPE-V
-hadoop,trunk,a5806a9e7bc6d018de84e6511f10c359f110f78c,branch-3.4,414c4a2529a6725888eea2b6740ca7bbbc8a6f1d,2024-07-29 15:06:30+00:00,TYPE-II
-hadoop,trunk,1655acc5e2d5fe27e01f46ea02bd5a7dea44fe12,branch-3.4,ea4137b0100a2f0b9ee7f5e2d3e691ea89f7c60d,2024-09-14 05:30:43+00:00,TYPE-V
-hadoop,trunk,ea6e0f7cd58d0129897dfc7870aee188be80a904,branch-3.4.1,97abdb447aa46a436c6bc9d031827a8742fbacf2,2024-09-16 11:17:21+00:00,TYPE-II
-hadoop,trunk,dc56fc385a400b648386e9b7aa8dcb899197bfc7,branch-3.4,db00daabbacddccadc88161cfbefa98be63d1103,2024-10-08 17:39:40+00:00,TYPE-II
-hadoop,trunk,eec9cd299707d7f34a1bbf340f5f4a6cf479f66a,branch-3.4,af0b841c85d1104c8829a374300c1c371e9abf85,2024-10-09 12:56:26+00:00,TYPE-II
-hadoop,trunk,7999db55da49e469b5abc15efeee18ac438e9173,branch-3.4,b5b5e3f9c229d5c367f759f12e08977b2c2882e1,2024-11-15 11:56:55+00:00,TYPE-II
-hadoop,trunk,7543f3aadab19a7dd1dd016ddec7aa29705ac1ec,branch-3.3,203b94414fdc67d1b77006dc05402d373c4f74d1,2024-11-25 19:02:59+00:00,TYPE-V
-hadoop,trunk,626455653f50b6eb408696a794d05601c450ba6e,branch-3.4,0cd6ab59390190d27eae58d349dd453b22cc858e,2024-12-25 08:36:30+00:00,TYPE-II
-hadoop,trunk,d168d3ffeee15ea71786263d7eaa60dc92c4d3a0,branch-3.4,07fdc1a48fa94c8f17da49809e9d8ada12b25f0c,2025-01-21 06:14:58+00:00,TYPE-V
-hadoop,trunk,2273278d0b0e9f83f9376afad36e6b2d790a69f2,branch-3.4,e76699bca2d2359504cabe3d529b4cf9954406b2,2025-02-20 11:02:13+00:00,TYPE-II
-hadoop,trunk,5067082dcda5d2f835f96eb6e7f2439826584fd3,branch-3.4,382b347635bb63b3695ee046ce349d07f274056b,2025-02-20 18:37:58+00:00,TYPE-V
-hadoop,trunk,b79b06b127ae4826340b19511e2be499eb1e73d1,branch-3.4,8d353d562764d68dda7d745658bf62637ed677fe,2025-04-14 04:41:11+00:00,TYPE-V
-hadoop,trunk,9a743bd17f55245841db3de5d1c785282306d408,branch-3.4,c239f617a784857081b4687b205146ef9b92cf34,2025-04-21 14:32:47+00:00,TYPE-II
-hadoop,trunk,b949ca64a1558cfd551ea0ff9dcc89a1e29a0355,branch-3.4,8194b823e92445c962d89c1dcbb0837ff183a237,2025-05-01 10:52:58+00:00,TYPE-II
-hadoop,trunk,81e4848a7e77b5d827709b449ad187b77e5fb2db,branch-3.4,e6cf6e6d10bb2e8e4963e9e78d9c3ade3f0bf161,2025-05-19 14:26:06+00:00,TYPE-V
+unique_id,repo,key,scope,complexity,Backport Commit,date,message
+hadoop_7683_branch-3.4,hadoop,7683_branch-3.4,S3,C5,e6cf6e6d10bb2e8e4963e9e78d9c3ade3f0bf161,2025-05-19 14:26:06+00:00,HADOOP-19554. LocalDirAllocator still doesn't always recover from directory deletion (#7683) (#7685)
+hadoop_7662_branch-3.4,hadoop,7662_branch-3.4,S3,C3,8194b823e92445c962d89c1dcbb0837ff183a237,2025-05-01 10:52:58+00:00,HADOOP-19557. S3A: S3ABlockOutputStream to never log/reject hflush() calls (#7662)
+hadoop_7128_branch-3.4,hadoop,7128_branch-3.4,S3,C3,c239f617a784857081b4687b205146ef9b92cf34,2025-04-21 14:32:47+00:00,HADOOP-19315. Upgrade Apache Avro to 1.11.4 (#7128) (#7615)
+hadoop_7461_branch-3.4,hadoop,7461_branch-3.4,S3,C5,8d353d562764d68dda7d745658bf62637ed677fe,2025-04-14 04:41:11+00:00,HADOOP-19471. [ABFS] Support Fixed SAS Token at Container Level (#7461) (#7597)
+hadoop_7214_branch-3.4,hadoop,7214_branch-3.4,S3,C5,382b347635bb63b3695ee046ce349d07f274056b,2025-02-20 18:37:58+00:00,HADOOP-19354. S3A: S3AInputStream to be created by factory under S3AStore (#7214)
+hadoop_6884_branch-3.4,hadoop,6884_branch-3.4,S3,C3,e76699bca2d2359504cabe3d529b4cf9954406b2,2025-02-20 11:02:13+00:00,HADOOP-18708: S3A: Support S3 Client Side Encryption(CSE) (#6884)
+hadoop_6314_branch-3.4,hadoop,6314_branch-3.4,S3,C5,07fdc1a48fa94c8f17da49809e9d8ada12b25f0c,2025-01-21 06:14:58+00:00,HADOOP-18325: ABFS: Add correlated metric support for ABFS operations (#6314) (#7303)
+hadoop_7134_branch-3.3,hadoop,7134_branch-3.3,S3,C5,203b94414fdc67d1b77006dc05402d373c4f74d1,2024-11-25 19:02:59+00:00,HADOOP-19317. S3A: fs.s3a.connection.expect.continue controls 100 CONTINUE behavior (#7134) (#7178)
+hadoop_7151_branch-3.4,hadoop,7151_branch-3.4,S3,C3,b5b5e3f9c229d5c367f759f12e08977b2c2882e1,2024-11-15 11:56:55+00:00,HADOOP-19330. S3A: Add LeakReporter; use in S3AInputStream (#7151) (#7160)
+hadoop_6629_branch-3.4,hadoop,6629_branch-3.4,S3,C3,af0b841c85d1104c8829a374300c1c371e9abf85,2024-10-09 12:56:26+00:00,HADOOP-19107. Drop support for HBase v1 timeline service & upgrade HBase v2 (#6629). (#7017)
+hadoop_7089_branch-3.4,hadoop,7089_branch-3.4,S3,C3,db00daabbacddccadc88161cfbefa98be63d1103,2024-10-08 17:39:40+00:00,HADOOP-19295. S3A: large uploads can timeout over slow links (#7089) (#7100)
+hadoop_6961_branch-3.4,hadoop,6961_branch-3.4,S3,C1,d56e7153b11b1e5a5116f67e8af380136e57aabe,2024-08-03 06:12:33+00:00,HADOOP-19237. Upgrade to dnsjava 3.6.1 due to CVEs (#6961) (#6971)
+hadoop_6789_branch-3.4,hadoop,6789_branch-3.4,S3,C3,414c4a2529a6725888eea2b6740ca7bbbc8a6f1d,2024-07-29 15:06:30+00:00,"HADOOP-19161. S3A: option ""fs.s3a.performance.flags"" to take list of performance flags (#6789) (#6966)"
+hadoop_6873_branch-3.3,hadoop,6873_branch-3.3,S3,C5,745afa8ceb5dc88ce97d89d24c2236bd2ecb9e98,2024-06-26 16:52:07+00:00,HDFS-17546. Implementing HostsFileReader timeout (#6873) (#6891)
+hadoop_6716_branch-3.3,hadoop,6716_branch-3.3,S3,C5,1025c442b99f9940bce5a9bf76ccbba2448c390e,2024-05-15 15:24:50+00:00,MAPREDUCE-7474. Improve Manifest committer resilience (#6716) (#6825)
+hadoop_6596_trunk,hadoop,6596_trunk,S3,C5,c9270600b7ea6089c1bb7f3c96a6c92935f3de03,2024-05-13 20:12:34+00:00,MAPREDUCE-7474. Improve Manifest committer resilience (#6716)
+hadoop_6732_branch-3.3,hadoop,6732_branch-3.3,S3,C4,75ad60ba99bdb4bd044879af20cab4f368866613,2024-04-27 12:32:28+00:00,YARN-11191. Fix potentional deadlock in GlobalScheduler refreshQueues (#6732) (#6769) Contributed by Tamas Domok
+hadoop_6725_branch-3.3,hadoop,6725_branch-3.3,S3,C3,efc53d87252af3b2455d4c38df08d8d850d1879f,2024-04-23 00:14:03+00:00,YARN-11684. Fix general contract violation in PriorityQueueComparator. (#6754) Contributed by Tamas Domok.
+hadoop_6701_branch-3.3,hadoop,6701_branch-3.3,S3,C5,a222330e8483ec50cc58789ebce3df1c07250661,2024-04-10 11:11:06+00:00,HADOOP-19098. Vector IO: Specify and validate ranges consistently. #6604
+hadoop_6406_branch-3.4,hadoop,6406_branch-3.4,S3,C3,e40f696c448dcf9cf7ab33ab94d06812fb7df09b,2024-02-09 14:29:40+00:00,HADOOP-18980. S3A credential provider remapping: make extensible (#6406)
+hadoop_6301_branch-3.4,hadoop,6301_branch-3.4,S3,C3,56f3bd998b1fd4ed5c1c1e60b9f5e7f7c32a176a,2024-02-07 14:30:19+00:00,HADOOP-18993. Add option fs.s3a.classloader.isolation (#6301)
+hadoop_6479_branch-3.4,hadoop,6479_branch-3.4,S3,C3,45eca9e107a316816f394d9a17e7454a0ea8e829,2024-02-03 14:44:23+00:00,HADOOP-19044. S3A: AWS SDK V2 - Update region logic (#6479)
+hadoop_6240_branch-3.3,hadoop,6240_branch-3.3,S3,C3,585f9667e4b36c6347ec70d646d9ae4f216cfabb,2024-01-21 03:53:55+00:00,HADOOP-18959. Use builder for prefetch CachingBlockManager. (#6240) (#6302) Contributed by Viraj Jasani.
+hadoop_6221_branch-3.3,hadoop,6221_branch-3.3,S3,C5,c57f9323fa6fc9974fbc637f2a8f68835e7543d9,2024-01-03 12:53:02+00:00,HADOOP-17912. ABFS: Support for Encryption Context (#6221)
