@@ -36,6 +36,12 @@ PROJECT_CONFIG = {
         "builder_tag": "druid-builder:latest",
         "build_system": "maven"
     },
+    "graylog2-server": {
+        "repo_dir": "graylog2-server",
+        "report_pattern": "**/target/surefire-reports/*.xml",
+        "builder_tag": "graylog-builder:latest",
+        "build_system": "maven"
+    },
     "jdk8u-dev": {
         "repo_dir": "jdk8u-dev",
         "report_pattern": "**/JTwork/**/*.xml",

@@ -1,0 +1,24 @@
+unique_id,repo,key,scope,complexity,Backport ommit,date,message
+graylog2-server_24240_6.3,graylog2-server,24240_6.3,S3,C1,90d6e92dea97979bbbf4e6514da8d554b4fffce9,2025-11-21 09:15:36+00:00,Fetch fields index by index (#24240) (#24276)
+graylog2-server_24150_7.0,graylog2-server,24150_7.0,S3,C3,dca3e8475c353d3a40867abd6b6d27bc2af04515,2025-11-07 22:50:41+00:00,Validate ObjectId of StreamEntity before searching Mongo (`7.0`) (#24167)
+graylog2-server_23955_7.0,graylog2-server,23955_7.0,S3,C1,f6cf8288626191ac2d58485aa004526e669c023e,2025-10-23 14:27:03+00:00,add role assign permission (#23955) (#24005)
+graylog2-server_23667_6.3,graylog2-server,23667_6.3,S3,C1,54e07d6403b20710811b87f16cf5915d77ee1c33,2025-09-26 14:24:59+00:00,Fix broken `--dump-default-config` server option (#23667) (#23768)
+graylog2-server_23152_6.3,graylog2-server,23152_6.3,S3,C1,5a71329a6992d3dac49a89a16446b7e5afd8fe7e,2025-07-21 09:58:02+00:00,Run command to create automation token (#23152) (#23233)
+graylog2-server_22656_6.2,graylog2-server,22656_6.2,S3,C1,bd48c9b192691db0a8c29f9abbc616250427640e,2025-07-16 08:39:58+00:00,add node name to datanode certificate SAN (#22656) (#22815)
+graylog2-server_22622_6.2,graylog2-server,22622_6.2,S3,C1,d87a76f69cff0e6dd744b71e8ad4b700fbc7ce3a,2025-05-21 06:06:20+00:00,Using correct class when casting alerts histogram result on ES7 (#22622) (#22631)
+graylog2-server_22413_6.2,graylog2-server,22413_6.2,S3,C1,4c38fd5b6afb832ff448aa6919eb2cbd23ede8f4,2025-05-20 19:22:57+00:00,Add support for range queries in MoreSearchAdapter (#22413) (#22433)
+graylog2-server_8488_master,graylog2-server,8488_master,S3,C5,e0aca0cad79cf2e0317a830a69037235b83929b7,2025-04-25 12:49:46+00:00,Fix sorting in events overview widget based on `timestamp` field. (#22221)
+graylog2-server_21858_6.1,graylog2-server,21858_6.1,S3,C1,4cd923d895206ee54aaaae04584dc422b75e55e6,2025-03-13 07:05:00+00:00,Merge pull request #21945 from Graylog2/backport/ca-cert-chain-validation
+graylog2-server_21429_6.1,graylog2-server,21429_6.1,S3,C5,4d5b0a70fc4854c345e39d2b2eb0b4a0289e5783,2025-02-20 10:01:42+00:00,Backport Normalize timestamps in ingested messages to current time if in the future  (#21676)
+graylog2-server_21474_6.0,graylog2-server,21474_6.0,S3,C1,701686d1d4c0de57bcc1557bb52f35b822b207c1,2025-02-18 16:20:15+00:00,Adds new CIDRPatriciaTrie data structure for CIDR lookup tables (#21474) (#21610)
+graylog2-server_21313_6.0,graylog2-server,21313_6.0,S3,C3,8b8e673adb6c7c77a3cbf25ee554064ded814147,2025-02-18 10:07:06+00:00,Retry individual messages/requests when failing with `429`/`Data too large`. (#21313) (#21677)
+graylog2-server_18974_master,graylog2-server,18974_master,S3,C5,e6560825583cd054b09da189abe9f23d3e89ca46,2025-02-03 09:12:38+00:00,Bump com.google.protobuf:protobuf-bom from 3.25.5 to 3.25.6 (#21446)
+graylog2-server_21031_6.1,graylog2-server,21031_6.1,S3,C5,f739bd7e9399a23951136714470836599990b1c3,2024-12-04 09:43:10+00:00,Backport: Unified snapshots configuration for datanode  (#21098)
+graylog2-server_9288_6.1,graylog2-server,9288_6.1,S3,C5,336b0f1ddfa78a51f062bca4ac200a8f0cf16f08,2024-11-29 10:16:33+00:00,implement option to get and apply index settings (#21054) (#21072)
+graylog2-server_20918_6.0,graylog2-server,20918_6.0,S3,C5,9e766d2634b22f731e9c7c43ad72e879b3fe3ef2,2024-11-19 12:42:37+00:00,Sorting pivot values numerically when field is numeric. (`6.0`) (#20982)
+graylog2-server_20656_6.1,graylog2-server,20656_6.1,S3,C1,74c3e5042bbd549e1412bb3e2f9b7f1391078913,2024-10-14 06:14:08+00:00,"Explicit type for JwtSecret data, password handling (#20656) (#20685)"
+graylog2-server_20318_6.0,graylog2-server,20318_6.0,S3,C3,b3c68c15e5ed18915d6fd4354fdffd1cff20cc15,2024-09-03 13:42:18+00:00,"Escape double quotes in all strings, not just top level model strings (#20318) (#20319)"
+graylog2-server_19983_5.2,graylog2-server,19983_5.2,S3,C3,d52773f26739ef2dab06b0f64ba4aa731c892178,2024-08-26 18:52:11+00:00,Backport 5.2: Add new TeamsEventNotificationV2 supporting Microsoft Workflows (#20029)
+graylog2-server_17604_5.2,graylog2-server,17604_5.2,S3,C5,e36d5ca4a69346501d38430301032c564cdd7e03,2024-02-16 10:14:28+00:00,Backport of #17604 (#18259)
+graylog2-server_18165_5.1,graylog2-server,18165_5.1,S3,C3,75ef2b8d60e7d67f859b79fe712c8ae7b2e861d8,2024-02-06 16:38:16+00:00,Restrict classes allowed for cluster config and event types (#18165) (#18179)
+graylog2-server_18095_5.2,graylog2-server,18095_5.2,S3,C4,2dc6a070ad87a0f9b0acc4bc095fb4f66a233c2a,2024-02-01 13:13:41+00:00,Field value suggestions are configurable (#18095) (#18123)
