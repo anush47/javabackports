@@ -1,0 +1,3117 @@
+=== Running Tests for 57c0a50 ===
+Target: :qa:full-cluster-restart:check :x-pack:plugin:downsample:qa:mixed-cluster:check
+--- Using Docker Image: elasticsearch-buggy-57c0a50 ---
+gradle-cache-es
+gradle-wrapper-es
+--- Executing: ./gradlew :qa:full-cluster-restart:check :x-pack:plugin:downsample:qa:mixed-cluster:check ---
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :build-conventions:compileJava FROM-CACHE
+> Task :build-conventions:pluginDescriptors
+> Task :build-conventions:processResources
+> Task :build-conventions:classes
+> Task :build-conventions:jar
+> Task :build-tools:reaper:compileJava FROM-CACHE
+> Task :build-tools-internal:extractPluginRequests FROM-CACHE
+> Task :build-tools:reaper:processResources NO-SOURCE
+> Task :build-tools:reaper:classes UP-TO-DATE
+> Task :build-tools-internal:generatePluginAdapters FROM-CACHE
+> Task :build-tools:reaper:jar
+> Task :build-tools-internal:pluginDescriptors
+> Task :build-tools:compileJava FROM-CACHE
+> Task :build-tools:compileGroovy NO-SOURCE
+> Task :build-tools:generateVersionProperties FROM-CACHE
+> Task :build-tools-internal:processResources
+> Task :build-tools:pluginDescriptors
+> Task :build-tools:processResources
+> Task :build-tools:classes
+> Task :build-tools:jar
+> Task :build-tools-internal:compileJava FROM-CACHE
+> Task :build-tools-internal:compileGroovy FROM-CACHE
+> Task :build-tools-internal:compileGroovyPlugins FROM-CACHE
+> Task :build-tools-internal:classes
+> Task :build-tools-internal:jar
+=======================================
+Elasticsearch Build Hamster says Hello!
+  Gradle Version        : 8.13
+  OS Info               : Linux 6.8.0-1039-oracle (amd64)
+  JDK Version           : 21.0.9+10-LTS (Eclipse Temurin)
+  JAVA_HOME             : /opt/java/openjdk
+  Random Testing Seed   : AEC6D6B9722ED6C1
+  In FIPS 140 mode      : false
+=======================================
+> Task :libs:secure-sm:compileJava FROM-CACHE
+> Task :libs:plugin-api:compileJava FROM-CACHE
+> Task :libs:logging:compileJava FROM-CACHE
+> Task :libs:grok:compileJava FROM-CACHE
+> Task :libs:entitlement:bridge:compileJava FROM-CACHE
+> Task :qa:full-cluster-restart:processJavaRestTestResources NO-SOURCE
+> Task :libs:geo:compileJava FROM-CACHE
+> Task :spotlessInternalRegisterDependencies
+> Task :libs:plugin-analysis-api:compileJava FROM-CACHE
+> Task :libs:cli:processResources NO-SOURCE
+> Task :libs:entitlement:asm-provider:processResources
+> Task :libs:entitlement:processResources NO-SOURCE
+> Task :client:rest:compileJava FROM-CACHE
+> Task :libs:entitlement:bridge:processResources NO-SOURCE
+> Task :libs:entitlement:bridge:classes UP-TO-DATE
+> Task :server:processResources
+> Task :libs:core:compileJava FROM-CACHE
+> Task :server:generateModulesList
+> Task :libs:entitlement:bridge:compileMain19Java FROM-CACHE
+> Task :test:test-clusters:compileJava FROM-CACHE
+> Task :client:sniffer:compileJava FROM-CACHE
+> Task :libs:lz4:compileJava FROM-CACHE
+> Task :libs:native:compileJava FROM-CACHE
+> Task :libs:cli:compileJava FROM-CACHE
+> Task :libs:cli:classes UP-TO-DATE
+> Task :server:generatePluginsList
+> Task :libs:tdigest:compileJava FROM-CACHE
+> Task :libs:entitlement:bridge:processMain19Resources NO-SOURCE
+> Task :libs:entitlement:bridge:main19Classes UP-TO-DATE
+> Task :libs:core:processResources NO-SOURCE
+> Task :libs:core:classes UP-TO-DATE
+> Task :libs:x-content:compileJava FROM-CACHE
+> Task :libs:entitlement:bridge:java19Jar
+> Task :libs:entitlement:bridge:compileMain20Java FROM-CACHE
+> Task :libs:entitlement:bridge:processMain20Resources NO-SOURCE
+> Task :libs:entitlement:bridge:main20Classes UP-TO-DATE
+> Task :libs:cli:jar
+> Task :libs:simdvec:compileJava FROM-CACHE
+> Task :libs:entitlement:bridge:java20Jar
+> Task :libs:geo:processResources NO-SOURCE
+> Task :libs:geo:classes UP-TO-DATE
+> Task :libs:entitlement:bridge:compileMain21Java FROM-CACHE
+> Task :libs:entitlement:bridge:processMain21Resources NO-SOURCE
+> Task :libs:core:jar
+> Task :libs:entitlement:bridge:main21Classes UP-TO-DATE
+> Task :libs:logging:processResources NO-SOURCE
+> Task :libs:logging:classes UP-TO-DATE
+> Task :libs:entitlement:bridge:java21Jar
+> Task :libs:entitlement:bridge:compileMain22Java FROM-CACHE
+> Task :libs:geo:jar
+> Task :libs:entitlement:bridge:processMain22Resources NO-SOURCE
+> Task :libs:entitlement:bridge:main22Classes UP-TO-DATE
+> Task :libs:lz4:processResources NO-SOURCE
+> Task :libs:lz4:classes UP-TO-DATE
+> Task :libs:logging:jar
+> Task :libs:entitlement:bridge:java22Jar
+> Task :libs:entitlement:bridge:compileMain23Java FROM-CACHE
+> Task :libs:lz4:jar
+> Task :libs:entitlement:bridge:processMain23Resources NO-SOURCE
+> Task :libs:entitlement:bridge:main23Classes UP-TO-DATE
+> Task :libs:native:processResources NO-SOURCE
+> Task :libs:grok:processResources
+> Task :libs:grok:classes
+> Task :libs:native:processMain20Resources NO-SOURCE
+> Task :libs:native:processMain21Resources NO-SOURCE
+> Task :libs:native:jna:compileJava FROM-CACHE
+> Task :libs:native:processMain22Resources NO-SOURCE
+> Task :libs:native:jna:processResources
+> Task :libs:entitlement:bridge:java23Jar
+> Task :libs:native:jna:classes
+> Task :libs:plugin-analysis-api:processResources NO-SOURCE
+> Task :libs:plugin-analysis-api:classes UP-TO-DATE
+> Task :libs:plugin-api:processResources NO-SOURCE
+> Task :libs:plugin-api:classes UP-TO-DATE
+> Task :libs:entitlement:compileJava FROM-CACHE
+> Task :libs:grok:jar
+> Task :libs:plugin-analysis-api:jar
+> Task :libs:native:jna:jar
+> Task :libs:entitlement:processMain19Resources NO-SOURCE
+> Task :libs:entitlement:processMain20Resources NO-SOURCE
+> Task :libs:plugin-api:jar
+> Task :libs:entitlement:processMain21Resources NO-SOURCE
+> Task :libs:entitlement:processMain22Resources NO-SOURCE
+> Task :libs:entitlement:processMain23Resources NO-SOURCE
+> Task :libs:secure-sm:processResources NO-SOURCE
+> Task :libs:secure-sm:classes UP-TO-DATE
+> Task :libs:entitlement:asm-provider:compileJava FROM-CACHE
+> Task :libs:ssl-config:compileJava FROM-CACHE
+> Task :libs:entitlement:asm-provider:classes
+> Task :libs:simdvec:processResources NO-SOURCE
+> Task :libs:simdvec:classes UP-TO-DATE
+> Task :libs:native:generateJnaProviderManifest
+> Task :libs:simdvec:compileMain21Java FROM-CACHE
+> Task :libs:simdvec:processMain21Resources NO-SOURCE
+> Task :libs:simdvec:main21Classes UP-TO-DATE
+> Task :libs:simdvec:compileMain22Java FROM-CACHE
+> Task :libs:simdvec:processMain22Resources NO-SOURCE
+> Task :libs:simdvec:main22Classes UP-TO-DATE
+> Task :libs:native:generateJnaProviderImpl
+> Task :libs:native:classes
+> Task :libs:native:compileMain20Java FROM-CACHE
+> Task :libs:native:main20Classes UP-TO-DATE
+> Task :libs:native:compileMain21Java FROM-CACHE
+> Task :libs:native:main21Classes UP-TO-DATE
+> Task :libs:native:compileMain22Java FROM-CACHE
+> Task :libs:native:main22Classes UP-TO-DATE
+> Task :libs:secure-sm:jar
+> Task :libs:entitlement:asm-provider:jar
+> Task :libs:tdigest:processResources NO-SOURCE
+> Task :libs:tdigest:classes UP-TO-DATE
+> Task :libs:simdvec:jar
+> Task :libs:tdigest:jar
+> Task :libs:x-content:processResources NO-SOURCE
+> Task :test:metadata-extractor:processResources NO-SOURCE
+> Task :libs:entitlement:generateAsm-providerProviderManifest
+> Task :libs:x-content:impl:compileJava FROM-CACHE
+> Task :libs:x-content:impl:processResources
+> Task :libs:x-content:impl:classes
+> Task :libs:entitlement:generateAsm-providerProviderImpl
+> Task :libs:entitlement:classes
+> Task :libs:x-content:impl:jar
+> Task :libs:entitlement:compileMain19Java FROM-CACHE
+> Task :libs:entitlement:main19Classes UP-TO-DATE
+> Task :libs:entitlement:compileMain20Java FROM-CACHE
+> Task :libs:entitlement:main20Classes UP-TO-DATE
+> Task :libs:entitlement:compileMain21Java FROM-CACHE
+> Task :libs:entitlement:main21Classes UP-TO-DATE
+> Task :libs:entitlement:compileMain22Java FROM-CACHE
+> Task :libs:entitlement:main22Classes UP-TO-DATE
+> Task :libs:entitlement:compileMain23Java FROM-CACHE
+> Task :libs:entitlement:main23Classes UP-TO-DATE
+> Task :libs:x-content:generateImplProviderManifest
+> Task :libs:entitlement:jar
+> Task :client:sniffer:processResources NO-SOURCE
+> Task :client:sniffer:classes UP-TO-DATE
+> Task :client:sniffer:jar
+> Task :libs:entitlement:bridge:jar
+> Task :libs:native:jar
+> Task :modules:aggregations:processResources
+> Task :modules:analysis-common:processResources
+> Task :modules:apm:processResources NO-SOURCE
+> Task :modules:dot-prefix-validation:processResources NO-SOURCE
+> Task :modules:health-shards-availability:processResources NO-SOURCE
+> Task :modules:ingest-attachment:processResources NO-SOURCE
+> Task :modules:data-streams:processResources
+> Task :modules:ingest-common:processResources
+> Task :modules:ingest-geoip:processResources NO-SOURCE
+> Task :libs:dissect:compileJava FROM-CACHE
+> Task :libs:dissect:processResources NO-SOURCE
+> Task :libs:dissect:classes UP-TO-DATE
+> Task :modules:ingest-user-agent:processResources
+> Task :modules:kibana:processResources NO-SOURCE
+> Task :modules:lang-expression:processResources NO-SOURCE
+> Task :modules:lang-mustache:processResources NO-SOURCE
+> Task :libs:dissect:jar
+> Task :modules:lang-painless:spi:processResources NO-SOURCE
+> Task :modules:legacy-geo:processResources NO-SOURCE
+> Task :modules:mapper-extras:processResources NO-SOURCE
+> Task :modules:parent-join:processResources NO-SOURCE
+> Task :modules:percolator:processResources NO-SOURCE
+> Task :modules:rank-eval:processResources
+> Task :libs:ssl-config:processResources NO-SOURCE
+> Task :libs:ssl-config:classes UP-TO-DATE
+> Task :libs:ssl-config:jar
+> Task :modules:lang-painless:processResources
+> Task :modules:reindex:processResources NO-SOURCE
+> Task :modules:repository-azure:processResources NO-SOURCE
+> Task :modules:transport-netty4:processResources NO-SOURCE
+> Task :modules:repository-gcs:processResources NO-SOURCE
+> Task :modules:repository-s3:processResources NO-SOURCE
+> Task :modules:repository-url:processResources NO-SOURCE
+> Task :modules:rest-root:processResources NO-SOURCE
+> Task :modules:runtime-fields-common:processResources
+> Task :x-pack:plugin:core:template-resources:compileJava FROM-CACHE
+> Task :x-pack:plugin:apm-data:generateNotice FROM-CACHE
+> Task :x-pack:plugin:analytics:generateNotice FROM-CACHE
+> Task :x-pack:plugin:analytics:processResources NO-SOURCE
+> Task :qa:full-cluster-restart:spotlessJava
+> Task :qa:full-cluster-restart:spotlessJavaCheck
+> Task :x-pack:plugin:async:generateNotice FROM-CACHE
+> Task :x-pack:plugin:async:processResources NO-SOURCE
+> Task :x-pack:plugin:async-search:generateNotice FROM-CACHE
+> Task :x-pack:plugin:async-search:processResources NO-SOURCE
+> Task :x-pack:plugin:autoscaling:generateNotice FROM-CACHE
+> Task :x-pack:plugin:autoscaling:processResources
+> Task :x-pack:plugin:blob-cache:generateNotice FROM-CACHE
+> Task :x-pack:plugin:blob-cache:processResources NO-SOURCE
+> Task :x-pack:plugin:ccr:generateNotice FROM-CACHE
+> Task :x-pack:plugin:ccr:processResources NO-SOURCE
+> Task :client:rest:processResources
+> Task :client:rest:classes
+> Task :x-pack:plugin:apm-data:processResources
+> Task :x-pack:plugin:deprecation:generateNotice FROM-CACHE
+> Task :x-pack:plugin:deprecation:processResources NO-SOURCE
+> Task :client:rest:jar
+> Task :x-pack:plugin:enrich:generateNotice FROM-CACHE
+> Task :x-pack:plugin:enrich:processResources NO-SOURCE
+> Task :libs:x-content:generateImplProviderImpl
+> Task :libs:x-content:classes
+> Task :x-pack:plugin:core:template-resources:processResources
+> Task :x-pack:plugin:core:template-resources:classes
+> Task :x-pack:plugin:ent-search:generateNotice FROM-CACHE
+> Task :x-pack:plugin:ent-search:processResources
+> Task :x-pack:plugin:core:template-resources:jar
+> Task :x-pack:plugin:search-business-rules:processResources NO-SOURCE
+> Task :x-pack:plugin:eql:generateNotice FROM-CACHE
+> Task :x-pack:plugin:eql:processResources
+> Task :libs:x-content:jar
+> Task :x-pack:plugin:esql:compute:ann:compileJava FROM-CACHE
+> Task :x-pack:plugin:esql:compute:ann:processResources NO-SOURCE
+> Task :x-pack:plugin:esql:compute:ann:classes UP-TO-DATE
+> Task :x-pack:plugin:esql:compute:ann:jar
+> Task :x-pack:plugin:esql:compute:gen:compileJava FROM-CACHE
+> Task :x-pack:plugin:esql:compute:gen:processResources
+> Task :x-pack:plugin:esql:compute:gen:classes
+> Task :x-pack:plugin:esql:compute:gen:jar
+> Task :x-pack:plugin:kql:processResources NO-SOURCE
+> Task :x-pack:plugin:esql:arrow:processResources NO-SOURCE
+> Task :x-pack:plugin:core:generateNotice FROM-CACHE
+> Task :x-pack:plugin:downsample:generateNotice FROM-CACHE
+> Task :x-pack:plugin:downsample:processResources NO-SOURCE
+> Task :x-pack:plugin:esql-core:generateNotice FROM-CACHE
+> Task :x-pack:plugin:esql-core:processResources
+> Task :x-pack:plugin:mapper-version:processResources
+> Task :x-pack:plugin:core:processResources
+> Task :x-pack:plugin:fleet:generateNotice FROM-CACHE
+> Task :x-pack:plugin:fleet:processResources NO-SOURCE
+> Task :x-pack:plugin:frozen-indices:generateNotice FROM-CACHE
+> Task :x-pack:plugin:geoip-enterprise-downloader:generateNotice FROM-CACHE
+> Task :x-pack:plugin:frozen-indices:processResources NO-SOURCE
+> Task :x-pack:plugin:geoip-enterprise-downloader:processResources NO-SOURCE
+> Task :x-pack:plugin:graph:generateNotice FROM-CACHE
+> Task :x-pack:plugin:graph:processResources NO-SOURCE
+> Task :x-pack:libs:es-opensaml-security-api:compileJava FROM-CACHE
+> Task :x-pack:plugin:ilm:generateNotice FROM-CACHE
+> Task :x-pack:libs:es-opensaml-security-api:processResources
+> Task :x-pack:libs:es-opensaml-security-api:classes
+> Task :x-pack:plugin:identity-provider:generateNotice FROM-CACHE
+> Task :x-pack:plugin:ilm:processResources
+> Task :x-pack:plugin:identity-provider:processResources
+> Task :x-pack:plugin:kql:generateNotice FROM-CACHE
+> Task :x-pack:plugin:logsdb:generateNotice FROM-CACHE
+> Task :x-pack:plugin:logsdb:processResources NO-SOURCE
+
+> Task :x-pack:plugin:esql:stringTemplates
+context [anonymous] 169:8 attribute NanosMillis isn't defined
+context [anonymous] 169:8 attribute NanosMillis isn't defined
+context [anonymous] 169:8 attribute NanosMillis isn't defined
+context [anonymous] 169:8 attribute NanosMillis isn't defined
+context [anonymous] 169:8 attribute NanosMillis isn't defined
+
+> Task :x-pack:plugin:inference:generateNotice FROM-CACHE
+> Task :x-pack:plugin:logstash:generateNotice FROM-CACHE
+> Task :x-pack:plugin:logstash:processResources NO-SOURCE
+> Task :x-pack:plugin:inference:processResources
+> Task :x-pack:plugin:mapper-aggregate-metric:generateNotice FROM-CACHE
+> Task :x-pack:plugin:mapper-aggregate-metric:processResources NO-SOURCE
+> Task :x-pack:plugin:mapper-constant-keyword:generateNotice FROM-CACHE
+> Task :x-pack:plugin:mapper-constant-keyword:processResources
+> Task :x-pack:plugin:mapper-counted-keyword:generateNotice FROM-CACHE
+> Task :x-pack:plugin:mapper-counted-keyword:processResources NO-SOURCE
+> Task :x-pack:plugin:esql:generateNotice FROM-CACHE
+> Task :x-pack:plugin:mapper-version:generateNotice FROM-CACHE
+> Task :x-pack:plugin:esql:processResources
+> Task :x-pack:plugin:mapper-unsigned-long:generateNotice FROM-CACHE
+> Task :x-pack:plugin:mapper-unsigned-long:processResources
+> Task :x-pack:plugin:migrate:generateNotice FROM-CACHE
+> Task :x-pack:plugin:migrate:processResources NO-SOURCE
+> Task :x-pack:plugin:ml-package-loader:generateNotice FROM-CACHE
+> Task :x-pack:plugin:ml-package-loader:processResources NO-SOURCE
+> Task :x-pack:plugin:esql:compute:stringTemplates
+> Task :x-pack:plugin:esql:compute:processResources NO-SOURCE
+> Task :x-pack:plugin:monitoring:generateNotice FROM-CACHE
+> Task :x-pack:plugin:otel-data:generateNotice FROM-CACHE
+> Task :x-pack:plugin:monitoring:processResources
+> Task :x-pack:plugin:old-lucene-versions:generateNotice FROM-CACHE
+> Task :x-pack:plugin:old-lucene-versions:processResources
+> Task :x-pack:plugin:otel-data:processResources
+> Task :x-pack:plugin:profiling:generateNotice FROM-CACHE
+> Task :x-pack:plugin:rank-rrf:generateNotice FROM-CACHE
+> Task :x-pack:plugin:profiling:processResources
+> Task :x-pack:plugin:rank-rrf:processResources
+> Task :x-pack:plugin:rank-vectors:generateNotice FROM-CACHE
+> Task :x-pack:plugin:redact:generateNotice FROM-CACHE
+> Task :x-pack:plugin:redact:processResources NO-SOURCE
+> Task :x-pack:plugin:rank-vectors:processResources
+> Task :x-pack:plugin:repositories-metering-api:generateNotice FROM-CACHE
+> Task :x-pack:plugin:repositories-metering-api:processResources NO-SOURCE
+> Task :x-pack:plugin:rollup:generateNotice FROM-CACHE
+> Task :x-pack:plugin:rollup:processResources NO-SOURCE
+> Task :x-pack:plugin:search-business-rules:generateNotice FROM-CACHE
+> Task :x-pack:plugin:ml:extractNativeLicenses
+> Task :x-pack:plugin:searchable-snapshots:generateNotice FROM-CACHE
+> Task :x-pack:plugin:searchable-snapshots:processResources NO-SOURCE
+> Task :x-pack:plugin:ql:generateNotice FROM-CACHE
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:compileJava NO-SOURCE
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:processResources NO-SOURCE
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:classes UP-TO-DATE
+> Task :x-pack:plugin:ql:processResources
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:processResources NO-SOURCE
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:processResources NO-SOURCE
+> Task :x-pack:libs:es-opensaml-security-api:shadowJar
+> Task :x-pack:plugin:shutdown:generateNotice FROM-CACHE
+> Task :x-pack:plugin:shutdown:processResources NO-SOURCE
+> Task :x-pack:plugin:snapshot-based-recoveries:generateNotice FROM-CACHE
+> Task :x-pack:plugin:slm:generateNotice FROM-CACHE
+> Task :x-pack:plugin:snapshot-based-recoveries:processResources NO-SOURCE
+> Task :x-pack:plugin:slm:processResources
+> Task :x-pack:plugin:snapshot-repo-test-kit:generateNotice FROM-CACHE
+> Task :x-pack:plugin:snapshot-repo-test-kit:processResources
+> Task :libs:h3:compileJava FROM-CACHE
+> Task :libs:h3:processResources NO-SOURCE
+> Task :libs:h3:classes UP-TO-DATE
+> Task :x-pack:plugin:spatial:generateNotice FROM-CACHE
+> Task :x-pack:plugin:spatial:processResources
+> Task :libs:h3:jar
+> Task :x-pack:plugin:security:generateNotice FROM-CACHE
+> Task :x-pack:plugin:security:processResources
+> Task :x-pack:plugin:sql:sql-action:processResources NO-SOURCE
+> Task :x-pack:plugin:sql:sql-cli:processResources
+> Task :x-pack:plugin:sql:sql-client:processResources NO-SOURCE
+> Task :x-pack:plugin:stack:generateNotice FROM-CACHE
+> Task :x-pack:plugin:stack:processResources
+> Task :x-pack:plugin:sql:sql-proto:compileJava FROM-CACHE
+> Task :x-pack:plugin:text-structure:generateNotice FROM-CACHE
+> Task :x-pack:plugin:sql:sql-proto:processResources NO-SOURCE
+> Task :x-pack:plugin:sql:sql-proto:classes UP-TO-DATE
+> Task :x-pack:plugin:sql:sql-proto:jar
+> Task :x-pack:plugin:sql:sql-client:compileJava FROM-CACHE
+> Task :x-pack:plugin:text-structure:processResources NO-SOURCE
+> Task :x-pack:plugin:sql:sql-client:classes UP-TO-DATE
+> Task :x-pack:plugin:sql:sql-client:jar
+> Task :x-pack:plugin:ml:generateNotice FROM-CACHE
+> Task :x-pack:plugin:ml:processResources
+> Task :x-pack:plugin:sql:sql-cli:compileJava FROM-CACHE
+> Task :x-pack:plugin:sql:sql-cli:classes
+> Task :x-pack:plugin:sql:generateNotice FROM-CACHE
+> Task :x-pack:plugin:vector-tile:generateNotice FROM-CACHE
+> Task :x-pack:plugin:sql:processResources
+> Task :x-pack:plugin:vector-tile:processResources
+> Task :x-pack:plugin:transform:generateNotice FROM-CACHE
+> Task :x-pack:plugin:transform:processResources NO-SOURCE
+> Task :x-pack:plugin:voting-only-node:generateNotice FROM-CACHE
+> Task :x-pack:plugin:voting-only-node:processResources NO-SOURCE
+> Task :x-pack:plugin:wildcard:generateNotice FROM-CACHE
+> Task :x-pack:plugin:write-load-forecaster:generateNotice FROM-CACHE
+> Task :x-pack:plugin:write-load-forecaster:processResources NO-SOURCE
+> Task :x-pack:plugin:wildcard:processResources
+> Task :distribution:archives:createJvmOptionsDir
+> Task :distribution:archives:createLogsDir
+> Task :distribution:archives:createPluginsDir
+> Task :distribution:buildServerNotice FROM-CACHE
+> Task :x-pack:plugin:watcher:generateNotice FROM-CACHE
+> Task :libs:plugin-scanner:compileJava FROM-CACHE
+> Task :libs:plugin-scanner:processResources NO-SOURCE
+> Task :libs:plugin-scanner:classes UP-TO-DATE
+> Task :x-pack:plugin:watcher:processResources
+> Task :distribution:tools:ansi-console:processResources NO-SOURCE
+> Task :distribution:tools:cli-launcher:processResources NO-SOURCE
+> Task :distribution:tools:geoip-cli:processResources
+> Task :libs:plugin-scanner:jar
+> Task :distribution:tools:keystore-cli:processResources
+> Task :distribution:tools:java-version-checker:compileJava FROM-CACHE
+> Task :distribution:tools:java-version-checker:processResources NO-SOURCE
+> Task :distribution:tools:java-version-checker:classes UP-TO-DATE
+> Task :distribution:tools:plugin-cli:processResources
+> Task :distribution:tools:java-version-checker:jar
+> Task :distribution:tools:server-cli:processResources
+> Task :distribution:tools:windows-service-cli:processResources
+> Task :libs:entitlement:agent:compileJava FROM-CACHE
+> Task :libs:entitlement:agent:processResources NO-SOURCE
+> Task :libs:entitlement:agent:classes UP-TO-DATE
+> Task :libs:entitlement:agent:jar
+> Task :x-pack:plugin:security:cli:processResources
+> Task :libs:native:native-libraries:extractLibs
+> Task :test:external-modules:test-apm-integration:processResources NO-SOURCE
+> Task :test:external-modules:test-delayed-aggs:processResources NO-SOURCE
+> Task :test:external-modules:test-die-with-dignity:processResources NO-SOURCE
+> Task :test:external-modules:test-error-query:processResources NO-SOURCE
+> Task :test:external-modules:test-esql-heap-attack:processResources NO-SOURCE
+> Task :test:external-modules:test-jvm-crash:processResources NO-SOURCE
+> Task :test:external-modules:test-latency-simulating-directory:processResources NO-SOURCE
+> Task :test:framework:processResources
+> Task :libs:log4j:patchLog4j
+> Task :test:yaml-rest-runner:processResources NO-SOURCE
+> Task :test:test-clusters:processResources
+> Task :test:test-clusters:classes
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:shadowJar
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:compileJava NO-SOURCE
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:classes UP-TO-DATE
+> Task :test:test-clusters:jar
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:shadowJar
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:compileJava FROM-CACHE
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:classes UP-TO-DATE
+> Task :distribution:buildDefaultNotice FROM-CACHE
+> Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:shadowJar
+> Task :x-pack:plugin:sql:sql-cli:shadowJar
+> Task :qa:full-cluster-restart:spotlessCheck
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:spotlessJava
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:spotlessJavaCheck
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:compileTestJava NO-SOURCE
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:copyYamlTestsTask NO-SOURCE
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:copyRestApiSpecsTask
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:processTestResources NO-SOURCE
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:testClasses
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:processYamlRestTestResources
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:spotlessCheck
+> Task :server:compileJava FROM-CACHE
+> Task :server:classes
+> Task :modules:transport-netty4:compileJava FROM-CACHE
+> Task :server:jar
+> Task :test:metadata-extractor:compileJava FROM-CACHE
+> Task :test:metadata-extractor:classes UP-TO-DATE
+> Task :test:metadata-extractor:jar
+> Task :test:framework:compileJava FROM-CACHE
+> Task :test:yaml-rest-runner:compileJava FROM-CACHE
+> Task :server:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:lang-painless:spi:compileJava FROM-CACHE
+> Task :modules:aggregations:compileJava FROM-CACHE
+> Task :modules:aggregations:classes
+> Task :modules:aggregations:jar
+> Task :modules:aggregations:pluginProperties
+> Task :modules:aggregations:explodedBundlePlugin
+> Task :modules:analysis-common:compileJava FROM-CACHE
+> Task :modules:analysis-common:classes
+> Task :modules:analysis-common:jar
+> Task :modules:analysis-common:pluginProperties
+> Task :modules:analysis-common:explodedBundlePlugin
+> Task :modules:apm:compileJava FROM-CACHE
+> Task :modules:apm:classes UP-TO-DATE
+> Task :modules:apm:jar
+> Task :modules:apm:pluginProperties
+> Task :modules:apm:explodedBundlePlugin
+> Task :modules:data-streams:compileJava FROM-CACHE
+> Task :modules:data-streams:classes
+> Task :modules:data-streams:jar
+> Task :modules:data-streams:pluginProperties
+> Task :modules:data-streams:explodedBundlePlugin
+> Task :modules:dot-prefix-validation:compileJava FROM-CACHE
+> Task :modules:dot-prefix-validation:classes UP-TO-DATE
+> Task :modules:dot-prefix-validation:jar
+> Task :modules:dot-prefix-validation:pluginProperties
+> Task :modules:dot-prefix-validation:explodedBundlePlugin
+> Task :modules:health-shards-availability:compileJava FROM-CACHE
+> Task :modules:health-shards-availability:classes UP-TO-DATE
+> Task :modules:health-shards-availability:jar
+> Task :modules:health-shards-availability:pluginProperties
+> Task :modules:health-shards-availability:explodedBundlePlugin
+> Task :modules:ingest-attachment:compileJava FROM-CACHE
+> Task :modules:ingest-attachment:classes UP-TO-DATE
+> Task :modules:ingest-attachment:jar
+> Task :modules:ingest-attachment:pluginProperties
+> Task :modules:ingest-attachment:explodedBundlePlugin
+> Task :modules:ingest-common:compileJava FROM-CACHE
+> Task :modules:ingest-common:classes
+> Task :modules:ingest-common:jar
+> Task :modules:ingest-common:pluginProperties
+> Task :modules:ingest-common:explodedBundlePlugin
+> Task :modules:ingest-geoip:compileJava FROM-CACHE
+> Task :modules:ingest-geoip:classes UP-TO-DATE
+> Task :modules:ingest-geoip:jar
+> Task :modules:ingest-geoip:pluginProperties
+> Task :modules:ingest-geoip:explodedBundlePlugin
+> Task :modules:ingest-user-agent:compileJava FROM-CACHE
+> Task :modules:ingest-user-agent:classes
+> Task :modules:ingest-user-agent:jar
+> Task :modules:ingest-user-agent:pluginProperties
+> Task :modules:ingest-user-agent:explodedBundlePlugin
+> Task :modules:kibana:compileJava FROM-CACHE
+> Task :modules:kibana:classes UP-TO-DATE
+> Task :modules:kibana:jar
+> Task :modules:kibana:pluginProperties
+> Task :modules:kibana:explodedBundlePlugin
+> Task :modules:lang-expression:compileJava FROM-CACHE
+> Task :modules:lang-expression:classes UP-TO-DATE
+> Task :modules:lang-expression:jar
+> Task :modules:lang-expression:pluginProperties
+> Task :modules:lang-expression:explodedBundlePlugin
+> Task :modules:lang-mustache:compileJava FROM-CACHE
+> Task :modules:lang-mustache:classes UP-TO-DATE
+> Task :modules:lang-mustache:jar
+> Task :modules:lang-mustache:pluginProperties
+> Task :modules:lang-mustache:explodedBundlePlugin
+> Task :modules:lang-painless:compileJava FROM-CACHE
+> Task :modules:lang-painless:classes
+> Task :modules:lang-painless:jar
+> Task :modules:lang-painless:pluginProperties
+> Task :modules:lang-painless:spi:classes UP-TO-DATE
+> Task :modules:lang-painless:spi:jar
+> Task :modules:lang-painless:explodedBundlePlugin
+> Task :modules:legacy-geo:compileJava FROM-CACHE
+> Task :modules:legacy-geo:classes UP-TO-DATE
+> Task :modules:legacy-geo:jar
+> Task :modules:legacy-geo:pluginProperties
+> Task :modules:legacy-geo:explodedBundlePlugin
+
+> Task :qa:full-cluster-restart:compileJavaRestTestJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :modules:mapper-extras:compileJava FROM-CACHE
+> Task :modules:mapper-extras:classes UP-TO-DATE
+> Task :modules:mapper-extras:jar
+> Task :modules:mapper-extras:pluginProperties
+> Task :modules:mapper-extras:explodedBundlePlugin
+> Task :modules:parent-join:compileJava FROM-CACHE
+> Task :modules:parent-join:classes UP-TO-DATE
+> Task :modules:parent-join:jar
+> Task :modules:parent-join:pluginProperties
+> Task :modules:parent-join:explodedBundlePlugin
+> Task :modules:percolator:compileJava FROM-CACHE
+> Task :modules:percolator:classes UP-TO-DATE
+> Task :modules:percolator:jar
+> Task :qa:full-cluster-restart:javaRestTestClasses
+> Task :qa:full-cluster-restart:precommit
+> Task :modules:percolator:pluginProperties
+> Task :modules:percolator:explodedBundlePlugin
+> Task :modules:rank-eval:compileJava FROM-CACHE
+> Task :modules:rank-eval:classes
+> Task :modules:rank-eval:jar
+> Task :modules:reindex:compileJava FROM-CACHE
+> Task :modules:reindex:classes UP-TO-DATE
+> Task :modules:rank-eval:pluginProperties
+> Task :modules:rank-eval:explodedBundlePlugin
+> Task :modules:reindex:jar
+> Task :modules:reindex:pluginProperties
+> Task :modules:reindex:explodedBundlePlugin
+> Task :modules:transport-netty4:classes UP-TO-DATE
+> Task :modules:repository-azure:compileJava FROM-CACHE
+> Task :modules:repository-azure:classes UP-TO-DATE
+> Task :modules:transport-netty4:jar
+> Task :modules:repository-azure:jar
+> Task :modules:repository-azure:pluginProperties
+> Task :modules:repository-gcs:compileJava FROM-CACHE
+> Task :modules:repository-gcs:classes UP-TO-DATE
+> Task :modules:repository-gcs:jar
+> Task :modules:repository-gcs:pluginProperties
+> Task :modules:repository-azure:explodedBundlePlugin
+> Task :modules:repository-gcs:explodedBundlePlugin
+> Task :modules:repository-url:compileJava FROM-CACHE
+> Task :modules:repository-url:classes UP-TO-DATE
+> Task :modules:repository-s3:compileJava FROM-CACHE
+> Task :modules:repository-s3:classes UP-TO-DATE
+> Task :modules:repository-url:jar
+> Task :modules:repository-s3:jar
+> Task :modules:repository-url:pluginProperties
+> Task :modules:repository-url:explodedBundlePlugin
+> Task :modules:repository-s3:pluginProperties
+> Task :modules:rest-root:compileJava FROM-CACHE
+> Task :modules:rest-root:classes UP-TO-DATE
+> Task :modules:repository-s3:explodedBundlePlugin
+> Task :modules:rest-root:jar
+> Task :modules:runtime-fields-common:compileJava FROM-CACHE
+> Task :modules:runtime-fields-common:classes
+> Task :modules:rest-root:pluginProperties
+> Task :modules:rest-root:explodedBundlePlugin
+> Task :modules:runtime-fields-common:jar
+> Task :modules:transport-netty4:pluginProperties
+> Task :modules:transport-netty4:explodedBundlePlugin
+> Task :modules:runtime-fields-common:pluginProperties
+> Task :modules:runtime-fields-common:explodedBundlePlugin
+> Task :x-pack:plugin:blob-cache:compileJava FROM-CACHE
+> Task :x-pack:plugin:blob-cache:classes UP-TO-DATE
+> Task :x-pack:plugin:blob-cache:jar
+> Task :x-pack:plugin:blob-cache:pluginProperties
+> Task :x-pack:plugin:blob-cache:explodedBundlePlugin
+> Task :distribution:tools:ansi-console:compileJava FROM-CACHE
+> Task :distribution:tools:ansi-console:classes UP-TO-DATE
+> Task :distribution:tools:ansi-console:jar
+> Task :distribution:tools:cli-launcher:compileJava FROM-CACHE
+> Task :distribution:tools:cli-launcher:classes UP-TO-DATE
+> Task :distribution:tools:cli-launcher:jar
+> Task :distribution:tools:geoip-cli:compileJava FROM-CACHE
+> Task :distribution:tools:geoip-cli:classes
+> Task :distribution:tools:geoip-cli:jar
+> Task :distribution:tools:keystore-cli:compileJava FROM-CACHE
+> Task :distribution:tools:keystore-cli:classes
+> Task :distribution:tools:keystore-cli:jar
+> Task :distribution:tools:plugin-cli:compileJava FROM-CACHE
+> Task :distribution:tools:plugin-cli:classes
+> Task :distribution:tools:plugin-cli:jar
+> Task :distribution:tools:server-cli:compileJava FROM-CACHE
+> Task :distribution:tools:server-cli:classes
+> Task :distribution:tools:server-cli:jar
+> Task :distribution:tools:windows-service-cli:compileJava FROM-CACHE
+> Task :distribution:tools:windows-service-cli:classes
+> Task :distribution:tools:windows-service-cli:jar
+> Task :test:external-modules:test-apm-integration:compileJava FROM-CACHE
+> Task :test:external-modules:test-apm-integration:classes UP-TO-DATE
+> Task :test:external-modules:test-apm-integration:jar
+> Task :test:external-modules:test-apm-integration:pluginProperties
+> Task :test:external-modules:test-apm-integration:explodedBundlePlugin
+> Task :test:external-modules:test-delayed-aggs:compileJava FROM-CACHE
+> Task :test:external-modules:test-delayed-aggs:classes UP-TO-DATE
+> Task :test:external-modules:test-delayed-aggs:jar
+> Task :test:external-modules:test-delayed-aggs:pluginProperties
+> Task :test:external-modules:test-delayed-aggs:explodedBundlePlugin
+> Task :test:external-modules:test-die-with-dignity:compileJava FROM-CACHE
+> Task :test:external-modules:test-die-with-dignity:classes UP-TO-DATE
+> Task :test:external-modules:test-die-with-dignity:jar
+> Task :test:external-modules:test-die-with-dignity:pluginProperties
+> Task :test:external-modules:test-die-with-dignity:explodedBundlePlugin
+> Task :test:external-modules:test-error-query:compileJava FROM-CACHE
+> Task :test:external-modules:test-error-query:classes UP-TO-DATE
+> Task :test:external-modules:test-error-query:jar
+> Task :test:external-modules:test-error-query:pluginProperties
+> Task :test:external-modules:test-error-query:explodedBundlePlugin
+> Task :x-pack:plugin:core:compileJava FROM-CACHE
+> Task :test:external-modules:test-esql-heap-attack:compileJava FROM-CACHE
+> Task :x-pack:plugin:apm-data:compileJava FROM-CACHE
+> Task :x-pack:plugin:apm-data:classes
+> Task :x-pack:plugin:analytics:compileJava FROM-CACHE
+> Task :x-pack:plugin:analytics:classes UP-TO-DATE
+> Task :x-pack:plugin:apm-data:jar
+> Task :x-pack:plugin:apm-data:pluginProperties
+> Task :x-pack:plugin:apm-data:explodedBundlePlugin
+> Task :x-pack:plugin:analytics:jar
+> Task :x-pack:plugin:async:compileJava FROM-CACHE
+> Task :x-pack:plugin:async:classes UP-TO-DATE
+> Task :x-pack:plugin:analytics:pluginProperties
+> Task :x-pack:plugin:async:jar
+> Task :x-pack:plugin:analytics:explodedBundlePlugin
+> Task :x-pack:plugin:async:pluginProperties
+> Task :x-pack:plugin:async:explodedBundlePlugin
+> Task :x-pack:plugin:async-search:compileJava FROM-CACHE
+> Task :x-pack:plugin:async-search:classes UP-TO-DATE
+> Task :x-pack:plugin:async-search:jar
+> Task :x-pack:plugin:autoscaling:compileJava FROM-CACHE
+> Task :x-pack:plugin:autoscaling:classes
+> Task :x-pack:plugin:async-search:pluginProperties
+> Task :x-pack:plugin:async-search:explodedBundlePlugin
+> Task :x-pack:plugin:autoscaling:jar
+> Task :x-pack:plugin:autoscaling:pluginProperties
+> Task :x-pack:plugin:autoscaling:explodedBundlePlugin
+> Task :x-pack:plugin:core:classes
+> Task :distribution:bwc:staged:createClone
+> Task :distribution:bwc:maintenance:createClone
+> Task :x-pack:plugin:ccr:compileJava FROM-CACHE
+> Task :x-pack:plugin:ccr:classes UP-TO-DATE
+> Task :x-pack:plugin:deprecation:compileJava FROM-CACHE
+> Task :x-pack:plugin:deprecation:classes UP-TO-DATE
+> Task :x-pack:plugin:mapper-aggregate-metric:compileJava FROM-CACHE
+> Task :x-pack:plugin:ccr:jar
+> Task :x-pack:plugin:deprecation:jar
+> Task :x-pack:plugin:ccr:pluginProperties
+> Task :x-pack:plugin:ccr:explodedBundlePlugin
+> Task :x-pack:plugin:deprecation:pluginProperties
+> Task :distribution:bwc:bugfix2:createClone
+> Task :x-pack:plugin:deprecation:explodedBundlePlugin
+> Task :distribution:bwc:bugfix:createClone
+> Task :x-pack:plugin:downsample:compileJava FROM-CACHE
+> Task :x-pack:plugin:downsample:classes UP-TO-DATE
+> Task :x-pack:plugin:search-business-rules:compileJava FROM-CACHE
+> Task :x-pack:plugin:mapper-version:compileJava FROM-CACHE
+> Task :x-pack:plugin:search-business-rules:classes UP-TO-DATE
+> Task :x-pack:plugin:downsample:jar
+> Task :x-pack:plugin:enrich:compileJava FROM-CACHE
+> Task :x-pack:plugin:enrich:classes UP-TO-DATE
+> Task :x-pack:plugin:search-business-rules:jar
+> Task :x-pack:plugin:downsample:pluginProperties
+> Task :x-pack:plugin:kql:compileJava FROM-CACHE
+> Task :x-pack:plugin:downsample:explodedBundlePlugin
+> Task :x-pack:plugin:enrich:jar
+> Task :x-pack:plugin:enrich:pluginProperties
+> Task :x-pack:plugin:enrich:explodedBundlePlugin
+> Task :x-pack:plugin:kql:classes UP-TO-DATE
+> Task :x-pack:plugin:ml-package-loader:compileJava FROM-CACHE
+> Task :x-pack:plugin:kql:jar
+> Task :x-pack:plugin:mapper-version:classes
+> Task :x-pack:plugin:mapper-version:jar
+> Task :x-pack:plugin:esql-core:compileJava FROM-CACHE
+> Task :x-pack:plugin:esql-core:classes
+> Task :x-pack:plugin:esql-core:jar
+> Task :x-pack:plugin:ilm:compileJava FROM-CACHE
+> Task :x-pack:plugin:esql-core:pluginProperties
+> Task :x-pack:plugin:ql:compileJava FROM-CACHE
+> Task :x-pack:plugin:ent-search:compileJava FROM-CACHE
+> Task :x-pack:plugin:ent-search:classes
+> Task :x-pack:plugin:esql-core:explodedBundlePlugin
+> Task :x-pack:plugin:fleet:compileJava FROM-CACHE
+> Task :x-pack:plugin:fleet:classes UP-TO-DATE
+> Task :x-pack:plugin:frozen-indices:compileJava FROM-CACHE
+> Task :x-pack:plugin:frozen-indices:classes UP-TO-DATE
+> Task :x-pack:plugin:fleet:jar
+> Task :x-pack:plugin:frozen-indices:jar
+> Task :x-pack:plugin:fleet:pluginProperties
+> Task :x-pack:plugin:fleet:explodedBundlePlugin
+> Task :x-pack:plugin:frozen-indices:pluginProperties
+> Task :x-pack:plugin:frozen-indices:explodedBundlePlugin
+> Task :x-pack:plugin:geoip-enterprise-downloader:compileJava FROM-CACHE
+> Task :x-pack:plugin:geoip-enterprise-downloader:classes UP-TO-DATE
+> Task :x-pack:plugin:ent-search:jar
+> Task :x-pack:plugin:geoip-enterprise-downloader:jar
+> Task :x-pack:plugin:ent-search:pluginProperties
+> Task :x-pack:plugin:geoip-enterprise-downloader:pluginProperties
+> Task :x-pack:plugin:geoip-enterprise-downloader:explodedBundlePlugin
+> Task :x-pack:plugin:graph:compileJava FROM-CACHE
+> Task :x-pack:plugin:graph:classes UP-TO-DATE
+> Task :x-pack:plugin:ent-search:explodedBundlePlugin
+> Task :x-pack:plugin:ilm:classes
+> Task :x-pack:plugin:graph:jar
+> Task :x-pack:plugin:core:jar
+> Task :x-pack:plugin:ilm:jar
+> Task :x-pack:plugin:graph:pluginProperties
+> Task :x-pack:plugin:core:pluginProperties
+> Task :x-pack:plugin:graph:explodedBundlePlugin
+> Task :x-pack:plugin:ilm:pluginProperties
+> Task :x-pack:plugin:ilm:explodedBundlePlugin
+> Task :x-pack:plugin:eql:compileJava FROM-CACHE
+> Task :x-pack:plugin:eql:classes
+> Task :x-pack:plugin:kql:pluginProperties
+> Task :x-pack:plugin:kql:explodedBundlePlugin
+> Task :x-pack:plugin:identity-provider:compileJava FROM-CACHE
+> Task :x-pack:plugin:identity-provider:classes
+> Task :x-pack:plugin:core:explodedBundlePlugin
+> Task :x-pack:plugin:logsdb:compileJava FROM-CACHE
+> Task :x-pack:plugin:identity-provider:jar
+> Task :x-pack:plugin:logsdb:classes UP-TO-DATE
+> Task :x-pack:plugin:logstash:compileJava FROM-CACHE
+> Task :x-pack:plugin:logstash:classes UP-TO-DATE
+> Task :x-pack:plugin:logsdb:jar
+> Task :x-pack:plugin:eql:jar
+> Task :x-pack:plugin:identity-provider:pluginProperties
+> Task :x-pack:plugin:logstash:jar
+> Task :x-pack:plugin:logsdb:pluginProperties
+> Task :x-pack:plugin:eql:pluginProperties
+> Task :x-pack:plugin:logsdb:explodedBundlePlugin
+> Task :x-pack:plugin:eql:explodedBundlePlugin
+> Task :x-pack:plugin:mapper-aggregate-metric:classes UP-TO-DATE
+> Task :x-pack:plugin:logstash:pluginProperties
+> Task :x-pack:plugin:logstash:explodedBundlePlugin
+> Task :x-pack:plugin:identity-provider:explodedBundlePlugin
+> Task :x-pack:plugin:mapper-aggregate-metric:jar
+> Task :x-pack:plugin:mapper-aggregate-metric:pluginProperties
+> Task :x-pack:plugin:mapper-constant-keyword:compileJava FROM-CACHE
+> Task :x-pack:plugin:mapper-constant-keyword:classes
+> Task :x-pack:plugin:mapper-aggregate-metric:explodedBundlePlugin
+> Task :x-pack:plugin:mapper-counted-keyword:compileJava FROM-CACHE
+> Task :x-pack:plugin:mapper-counted-keyword:classes UP-TO-DATE
+> Task :x-pack:plugin:mapper-constant-keyword:jar
+> Task :x-pack:plugin:mapper-version:pluginProperties
+> Task :x-pack:plugin:mapper-unsigned-long:compileJava FROM-CACHE
+> Task :x-pack:plugin:mapper-unsigned-long:classes
+> Task :x-pack:plugin:mapper-counted-keyword:jar
+> Task :x-pack:plugin:ml:compileJava FROM-CACHE
+> Task :x-pack:plugin:mapper-constant-keyword:pluginProperties
+> Task :x-pack:plugin:mapper-version:explodedBundlePlugin
+> Task :x-pack:plugin:mapper-counted-keyword:pluginProperties
+> Task :x-pack:plugin:mapper-constant-keyword:explodedBundlePlugin
+> Task :x-pack:plugin:ml:classes
+> Task :x-pack:plugin:mapper-unsigned-long:jar
+> Task :x-pack:plugin:mapper-counted-keyword:explodedBundlePlugin
+> Task :x-pack:plugin:ml-package-loader:classes UP-TO-DATE
+> Task :x-pack:plugin:ml-package-loader:jar
+> Task :x-pack:plugin:mapper-unsigned-long:pluginProperties
+> Task :x-pack:plugin:mapper-unsigned-long:explodedBundlePlugin
+> Task :x-pack:plugin:ml-package-loader:pluginProperties
+> Task :x-pack:plugin:ml-package-loader:explodedBundlePlugin
+> Task :x-pack:plugin:migrate:compileJava FROM-CACHE
+> Task :x-pack:plugin:migrate:classes UP-TO-DATE
+> Task :x-pack:plugin:monitoring:compileJava FROM-CACHE
+> Task :x-pack:plugin:monitoring:classes
+> Task :x-pack:plugin:migrate:jar
+> Task :x-pack:plugin:old-lucene-versions:compileJava FROM-CACHE
+> Task :x-pack:plugin:old-lucene-versions:classes
+> Task :x-pack:plugin:migrate:pluginProperties
+> Task :x-pack:plugin:monitoring:jar
+> Task :x-pack:plugin:migrate:explodedBundlePlugin
+> Task :x-pack:plugin:monitoring:pluginProperties
+> Task :x-pack:plugin:monitoring:explodedBundlePlugin
+> Task :x-pack:plugin:inference:compileJava FROM-CACHE
+> Task :x-pack:plugin:inference:classes
+> Task :x-pack:plugin:old-lucene-versions:jar
+> Task :x-pack:plugin:otel-data:compileJava FROM-CACHE
+> Task :x-pack:plugin:otel-data:classes
+> Task :x-pack:plugin:otel-data:jar
+> Task :x-pack:plugin:profiling:compileJava FROM-CACHE
+> Task :x-pack:plugin:profiling:classes
+> Task :x-pack:plugin:otel-data:pluginProperties
+> Task :x-pack:plugin:old-lucene-versions:pluginProperties
+> Task :x-pack:plugin:otel-data:explodedBundlePlugin
+> Task :x-pack:plugin:ql:classes
+> Task :x-pack:plugin:old-lucene-versions:explodedBundlePlugin
+> Task :x-pack:plugin:profiling:jar
+> Task :x-pack:plugin:profiling:pluginProperties
+> Task :x-pack:plugin:rank-rrf:compileJava FROM-CACHE
+> Task :x-pack:plugin:rank-rrf:classes
+> Task :x-pack:plugin:profiling:explodedBundlePlugin
+> Task :x-pack:plugin:rank-rrf:jar
+> Task :x-pack:plugin:rank-rrf:pluginProperties
+> Task :x-pack:plugin:rank-vectors:compileJava FROM-CACHE
+> Task :x-pack:plugin:rank-vectors:classes
+> Task :x-pack:plugin:ql:jar
+> Task :x-pack:plugin:rank-rrf:explodedBundlePlugin
+> Task :x-pack:plugin:rank-vectors:jar
+> Task :x-pack:plugin:ql:pluginProperties
+> Task :x-pack:plugin:ql:explodedBundlePlugin
+> Task :x-pack:plugin:inference:jar
+> Task :x-pack:plugin:rank-vectors:pluginProperties
+> Task :x-pack:plugin:inference:pluginProperties
+> Task :x-pack:plugin:rank-vectors:explodedBundlePlugin
+> Task :x-pack:plugin:redact:compileJava FROM-CACHE
+> Task :x-pack:plugin:redact:classes UP-TO-DATE
+> Task :x-pack:plugin:repositories-metering-api:compileJava FROM-CACHE
+> Task :x-pack:plugin:repositories-metering-api:classes UP-TO-DATE
+> Task :x-pack:plugin:redact:jar
+> Task :x-pack:plugin:redact:pluginProperties
+> Task :x-pack:plugin:repositories-metering-api:jar
+> Task :x-pack:plugin:redact:explodedBundlePlugin
+> Task :x-pack:plugin:rollup:compileJava FROM-CACHE
+> Task :x-pack:plugin:rollup:classes UP-TO-DATE
+> Task :x-pack:plugin:repositories-metering-api:pluginProperties
+> Task :x-pack:plugin:ml:jar
+> Task :x-pack:plugin:search-business-rules:pluginProperties
+> Task :x-pack:plugin:rollup:jar
+> Task :x-pack:plugin:ml:pluginProperties
+> Task :x-pack:plugin:rollup:pluginProperties
+> Task :x-pack:plugin:inference:explodedBundlePlugin
+> Task :x-pack:plugin:repositories-metering-api:explodedBundlePlugin
+> Task :x-pack:plugin:search-business-rules:explodedBundlePlugin
+> Task :x-pack:plugin:rollup:explodedBundlePlugin
+> Task :x-pack:plugin:shutdown:compileJava FROM-CACHE
+> Task :x-pack:plugin:shutdown:classes UP-TO-DATE
+> Task :x-pack:plugin:esql:compute:compileJava FROM-CACHE
+> Task :x-pack:plugin:slm:compileJava FROM-CACHE
+> Task :x-pack:plugin:esql:compute:classes UP-TO-DATE
+> Task :x-pack:plugin:shutdown:jar
+> Task :x-pack:plugin:shutdown:pluginProperties
+> Task :x-pack:plugin:searchable-snapshots:compileJava FROM-CACHE
+> Task :x-pack:plugin:searchable-snapshots:classes UP-TO-DATE
+> Task :x-pack:plugin:shutdown:explodedBundlePlugin
+> Task :x-pack:plugin:slm:classes
+> Task :x-pack:plugin:slm:jar
+> Task :x-pack:plugin:slm:pluginProperties
+> Task :x-pack:plugin:searchable-snapshots:jar
+> Task :x-pack:plugin:slm:explodedBundlePlugin
+> Task :x-pack:plugin:searchable-snapshots:pluginProperties
+> Task :x-pack:plugin:searchable-snapshots:explodedBundlePlugin
+> Task :x-pack:plugin:snapshot-based-recoveries:compileJava FROM-CACHE
+> Task :x-pack:plugin:snapshot-based-recoveries:classes UP-TO-DATE
+> Task :x-pack:plugin:snapshot-based-recoveries:jar
+> Task :x-pack:plugin:snapshot-based-recoveries:pluginProperties
+> Task :x-pack:plugin:snapshot-based-recoveries:explodedBundlePlugin
+> Task :x-pack:plugin:snapshot-repo-test-kit:compileJava FROM-CACHE
+> Task :x-pack:plugin:snapshot-repo-test-kit:classes
+> Task :x-pack:plugin:snapshot-repo-test-kit:jar
+> Task :x-pack:plugin:esql:compute:jar
+> Task :x-pack:plugin:snapshot-repo-test-kit:pluginProperties
+> Task :x-pack:plugin:snapshot-repo-test-kit:explodedBundlePlugin
+> Task :x-pack:plugin:esql:arrow:compileJava FROM-CACHE
+> Task :x-pack:plugin:stack:compileJava FROM-CACHE
+> Task :x-pack:plugin:esql:arrow:classes UP-TO-DATE
+> Task :x-pack:plugin:sql:sql-action:compileJava FROM-CACHE
+> Task :x-pack:plugin:security:compileJava FROM-CACHE
+> Task :x-pack:plugin:security:classes
+> Task :x-pack:plugin:spatial:compileJava FROM-CACHE
+> Task :x-pack:plugin:spatial:classes
+> Task :x-pack:plugin:esql:arrow:jar
+> Task :x-pack:plugin:sql:sql-action:classes UP-TO-DATE
+> Task :x-pack:plugin:sql:sql-action:jar
+> Task :x-pack:plugin:stack:classes
+> Task :x-pack:plugin:stack:jar
+> Task :x-pack:plugin:stack:pluginProperties
+> Task :x-pack:plugin:stack:explodedBundlePlugin
+> Task :x-pack:plugin:spatial:jar
+> Task :x-pack:plugin:spatial:pluginProperties
+> Task :x-pack:plugin:spatial:explodedBundlePlugin
+> Task :x-pack:plugin:text-structure:compileJava FROM-CACHE
+> Task :x-pack:plugin:text-structure:classes UP-TO-DATE
+> Task :x-pack:plugin:text-structure:jar
+> Task :x-pack:plugin:security:jar
+> Task :x-pack:plugin:text-structure:pluginProperties
+> Task :x-pack:plugin:security:pluginProperties
+> Task :x-pack:plugin:transform:compileJava FROM-CACHE
+> Task :x-pack:plugin:transform:classes UP-TO-DATE
+> Task :x-pack:plugin:text-structure:explodedBundlePlugin
+> Task :x-pack:plugin:sql:compileJava FROM-CACHE
+> Task :x-pack:plugin:sql:classes
+> Task :x-pack:plugin:transform:jar
+> Task :x-pack:plugin:transform:pluginProperties
+> Task :x-pack:plugin:security:explodedBundlePlugin
+> Task :x-pack:plugin:transform:explodedBundlePlugin
+> Task :x-pack:plugin:vector-tile:compileJava FROM-CACHE
+> Task :x-pack:plugin:vector-tile:classes
+> Task :x-pack:plugin:voting-only-node:compileJava FROM-CACHE
+> Task :x-pack:plugin:voting-only-node:classes UP-TO-DATE
+> Task :x-pack:plugin:vector-tile:jar
+> Task :x-pack:plugin:voting-only-node:jar
+> Task :x-pack:plugin:vector-tile:pluginProperties
+> Task :x-pack:plugin:vector-tile:explodedBundlePlugin
+> Task :x-pack:plugin:voting-only-node:pluginProperties
+> Task :x-pack:plugin:voting-only-node:explodedBundlePlugin
+> Task :x-pack:plugin:sql:jar
+> Task :x-pack:plugin:wildcard:compileJava FROM-CACHE
+> Task :x-pack:plugin:wildcard:classes
+> Task :x-pack:plugin:sql:pluginProperties
+> Task :x-pack:plugin:write-load-forecaster:compileJava FROM-CACHE
+> Task :x-pack:plugin:write-load-forecaster:classes UP-TO-DATE
+> Task :x-pack:plugin:wildcard:jar
+> Task :x-pack:plugin:write-load-forecaster:jar
+> Task :x-pack:plugin:sql:explodedBundlePlugin
+> Task :x-pack:plugin:wildcard:pluginProperties
+> Task :x-pack:plugin:write-load-forecaster:pluginProperties
+> Task :x-pack:plugin:write-load-forecaster:explodedBundlePlugin
+> Task :x-pack:plugin:wildcard:explodedBundlePlugin
+> Task :test:external-modules:test-esql-heap-attack:classes UP-TO-DATE
+> Task :test:external-modules:test-esql-heap-attack:jar
+> Task :test:external-modules:test-esql-heap-attack:pluginProperties
+> Task :x-pack:plugin:watcher:compileJava FROM-CACHE
+> Task :x-pack:plugin:watcher:classes
+> Task :test:external-modules:test-esql-heap-attack:explodedBundlePlugin
+> Task :x-pack:plugin:security:cli:compileJava FROM-CACHE
+> Task :x-pack:plugin:security:cli:classes
+> Task :test:external-modules:test-jvm-crash:compileJava FROM-CACHE
+> Task :test:external-modules:test-jvm-crash:classes UP-TO-DATE
+> Task :test:external-modules:test-jvm-crash:jar
+> Task :x-pack:plugin:security:cli:jar
+> Task :test:external-modules:test-jvm-crash:pluginProperties
+> Task :distribution:processIntegTestOutputs
+> Task :distribution:buildIntegTestModules
+> Task :modules:aggregations:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :test:external-modules:test-jvm-crash:explodedBundlePlugin
+> Task :x-pack:plugin:esql:compileJava FROM-CACHE
+> Task :x-pack:plugin:esql:classes
+> Task :x-pack:plugin:watcher:jar
+> Task :modules:analysis-common:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:apm:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:data-streams:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:dot-prefix-validation:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:ingest-attachment:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:health-shards-availability:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:ingest-geoip:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:ingest-common:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :test:external-modules:test-latency-simulating-directory:compileJava FROM-CACHE
+> Task :x-pack:plugin:watcher:pluginProperties
+> Task :test:external-modules:test-latency-simulating-directory:classes UP-TO-DATE
+> Task :modules:ingest-user-agent:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:kibana:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:lang-expression:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:lang-mustache:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:lang-painless:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:legacy-geo:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:mapper-extras:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:parent-join:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:percolator:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:rank-eval:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:watcher:explodedBundlePlugin
+> Task :test:external-modules:test-latency-simulating-directory:jar
+> Task :modules:reindex:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:repository-azure:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:repository-s3:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:repository-url:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:rest-root:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :modules:repository-gcs:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :test:framework:classes
+> Task :modules:runtime-fields-common:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :test:yaml-rest-runner:classes UP-TO-DATE
+> Task :test:external-modules:test-latency-simulating-directory:pluginProperties
+> Task :modules:transport-netty4:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :test:external-modules:test-latency-simulating-directory:explodedBundlePlugin
+> Task :distribution:bwc:maintenance:findRemote
+> Task :distribution:processExternalTestOutputs
+> Task :distribution:buildExternalTestModules
+> Task :distribution:bwc:maintenance:addRemote
+> Task :test:yaml-rest-runner:jar
+> Task :x-pack:plugin:analytics:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:apm-data:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:async-search:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:async:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:blob-cache:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:autoscaling:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:ccr:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:deprecation:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:core:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:downsample:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:enrich:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:ent-search:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:esql-core:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:fleet:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:frozen-indices:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:geoip-enterprise-downloader:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:graph:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:eql:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:ilm:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:identity-provider:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:inference:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:kql:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:logsdb:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:logstash:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:mapper-aggregate-metric:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:mapper-counted-keyword:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:mapper-constant-keyword:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:mapper-unsigned-long:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:migrate:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:mapper-version:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:ml-package-loader:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:old-lucene-versions:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:monitoring:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:otel-data:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:profiling:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:ql:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:rank-rrf:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:redact:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:rank-vectors:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:rollup:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:repositories-metering-api:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:search-business-rules:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:searchable-snapshots:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:shutdown:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:slm:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:snapshot-based-recoveries:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:snapshot-repo-test-kit:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:spatial:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:security:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:stack:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:sql:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:text-structure:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:transform:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:voting-only-node:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :test:framework:jar
+> Task :x-pack:plugin:watcher:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:write-load-forecaster:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:wildcard:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:vector-tile:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :distribution:bwc:staged:findRemote
+> Task :distribution:bwc:bugfix:findRemote
+> Task :distribution:bwc:bugfix2:findRemote
+> Task :distribution:bwc:bugfix:addRemote
+> Task :distribution:bwc:staged:addRemote
+> Task :distribution:bwc:bugfix2:addRemote
+> Task :x-pack:plugin:esql:jar
+> Task :x-pack:plugin:esql:pluginProperties
+> Task :x-pack:plugin:esql:explodedBundlePlugin
+> Task :x-pack:plugin:esql:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:compileYamlRestTestJava
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:yamlRestTestClasses
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:precommit
+> Task :x-pack:plugin:ml:explodedBundlePlugin
+> Task :x-pack:plugin:ml:generateHistoricalFeaturesMetadata FROM-CACHE
+> Task :distribution:processDefaultOutputs
+> Task :distribution:buildDefaultLog4jConfig
+> Task :distribution:archives:buildIntegTest
+> Task :x-pack:plugin:downsample:qa:mixed-cluster:yamlRestTest SKIPPED
+> Task :distribution:archives:buildLinux
+> Task :distribution:bwc:bugfix:fetchLatest
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.elasticsearch.nativeaccess.lib.LoaderHelper in an unnamed module (file:/repo/libs/native/build/distributions/elasticsearch-native-8.19.0-SNAPSHOT.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+> Task :distribution:bwc:bugfix2:fetchLatest
+> Task :distribution:bwc:staged:fetchLatest
+> Task :distribution:bwc:maintenance:fetchLatest
+
+> Task :distribution:bwc:bugfix:checkoutBwcBranch
+Performing checkout of elastic/8.17...
+Checkout hash for :distribution:bwc:bugfix is bfad1a8cd7e966c2d7f523fdf9f8a34284f6b930
+
+> Task :distribution:bwc:bugfix:setupGradleUserHome
+
+> Task :distribution:bwc:bugfix2:checkoutBwcBranch
+Performing checkout of elastic/8.16...
+
+> Task :distribution:bwc:staged:checkoutBwcBranch
+Performing checkout of elastic/8.18...
+Checkout hash for :distribution:bwc:staged is 13804a8e6f93196603aae816a72c7538b4224422
+
+> Task :distribution:bwc:staged:setupGradleUserHome
+
+> Task :distribution:bwc:maintenance:checkoutBwcBranch
+Performing checkout of elastic/7.17...
+
+> Task :distribution:bwc:bugfix2:checkoutBwcBranch
+Checkout hash for :distribution:bwc:bugfix2 is be4299da0e75669e0ff7d21246ee967b2160797b
+
+> Task :distribution:bwc:bugfix2:setupGradleUserHome
+
+> Task :distribution:bwc:bugfix:buildBwcLinuxTar
+Downloading https://services.gradle.org/distributions/gradle-8.14.2-all.zip
+ [8.17.4] .....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+
+> Task :distribution:bwc:maintenance:checkoutBwcBranch
+Checkout hash for :distribution:bwc:maintenance is 5464b9226f8bb3b9e5b074f99e98043c9b006d2b
+
+> Task :distribution:bwc:maintenance:setupGradleUserHome
+
+> Task :distribution:bwc:staged:buildBwcLinuxTar
+Downloading https://services.gradle.org/distributions/gradle-9.1.0-all.zip
+ [8.18.0] ......................10%......................20%......................30%......................40%......................50%.......................60%......................70%......................80%......................90%......................100%
+ [8.18.0] Starting a Gradle Daemon (subsequent builds will be faster)
+ [8.18.0] Daemon JVM discovery is an incubating feature.
+
+> Task :qa:full-cluster-restart:v8.19.0#bwcTest
+
+> Task :distribution:bwc:bugfix2:buildBwcLinuxTar
+Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+ [8.16.6] ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+ [8.16.6] Starting a Gradle Daemon (subsequent builds will be faster)
+ [8.16.6] Daemon JVM discovery is an incubating feature.
+
+> Task :distribution:bwc:bugfix:buildBwcLinuxTar
+ [8.17.4] Starting a Gradle Daemon (subsequent builds will be faster)
+ [8.17.4] Daemon JVM discovery is an incubating feature.
+
+> Task :distribution:bwc:maintenance:buildBwcLinuxTar
+Downloading https://services.gradle.org/distributions/gradle-8.10.2-all.zip
+ [7.17.29] .....................10%......................20%......................30%.....................40%......................50%......................60%......................70%.....................80%......................90%......................100%
+ [7.17.29] Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Task :distribution:bwc:bugfix:buildBwcLinuxTar
+Note: Some input files use or override a deprecated API.
+ [8.17.4] Note: Recompile with -Xlint:deprecation for details.
+ [8.17.4] 
+ [8.17.4] > Task :build-conventions:compileJava
+ [8.17.4] Note: /repo/distribution/bwc/bugfix/build/bwc/checkout-8.17/build-conventions/src/main/java/org/elasticsearch/gradle/internal/conventions/LicensingPlugin.java uses unchecked or unsafe operations.
+ [8.17.4] Note: Recompile with -Xlint:unchecked for details.
+
+> Task :distribution:bwc:bugfix2:buildBwcLinuxTar
+ [8.16.6] 
+ [8.16.6] > Task :build-conventions:compileJava
+Note: Some input files use or override a deprecated API.
+ [8.16.6] Note: Recompile with -Xlint:deprecation for details.
+ [8.16.6] Note: /repo/distribution/bwc/bugfix2/build/bwc/checkout-8.16/build-conventions/src/main/java/org/elasticsearch/gradle/internal/conventions/LicensingPlugin.java uses unchecked or unsafe operations.
+ [8.16.6] Note: Recompile with -Xlint:unchecked for details.
+
+> Task :distribution:bwc:staged:buildBwcLinuxTar
+ [8.18.0] 
+Note: /repo/distribution/bwc/staged/build/bwc/checkout-8.18/build-conventions/src/main/java/org/elasticsearch/gradle/internal/conventions/BuildToolsConventionsPlugin.java uses or overrides a deprecated API.
+ [8.18.0] Note: Recompile with -Xlint:deprecation for details.
+ [8.18.0] Note: /repo/distribution/bwc/staged/build/bwc/checkout-8.18/build-conventions/src/main/java/org/elasticsearch/gradle/internal/conventions/LicensingPlugin.java uses unchecked or unsafe operations.
+ [8.18.0] Note: Recompile with -Xlint:unchecked for details.
+ [8.18.0] > Task :build-conventions:compileJava
+
+> Task :distribution:bwc:maintenance:buildBwcLinuxTar
+ [7.17.29] 
+ [7.17.29] > Task :build-conventions:compileJava
+Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :build-conventions:pluginDescriptors
+ [7.17.29] > Task :build-conventions:processResources
+ [7.17.29] > Task :build-conventions:classes
+ [7.17.29] > Task :build-conventions:jar
+
+> Task :distribution:bwc:bugfix:buildBwcLinuxTar
+ [8.17.4] 
+ [8.17.4] > Task :build-conventions:pluginDescriptors
+ [8.17.4] > Task :build-conventions:processResources
+ [8.17.4] > Task :build-conventions:classes
+ [8.17.4] > Task :build-conventions:jar
+ [8.17.4] > Task :build-tools:reaper:compileJava
+ [8.17.4] > Task :build-tools:reaper:processResources NO-SOURCE
+ [8.17.4] > Task :build-tools:reaper:classes
+ [8.17.4] > Task :build-tools:reaper:jar
+ [8.17.4] > Task :build-tools-internal:extractPluginRequests
+ [8.17.4] > Task :build-tools-internal:generatePluginAdapters
+ [8.17.4] > Task :build-tools-internal:pluginDescriptors
+ [8.17.4] 
+ [8.17.4] > Task :build-tools:compileJava
+ [8.17.4] Note: Some input files use or override a deprecated API.
+ [8.17.4] Note: Recompile with -Xlint:deprecation for details.
+ [8.17.4] Note: Some input files use unchecked or unsafe operations.
+ [8.17.4] Note: Recompile with -Xlint:unchecked for details.
+ [8.17.4] 
+ [8.17.4] > Task :build-tools-internal:processResources
+ [8.17.4] > Task :build-tools:compileGroovy NO-SOURCE
+ [8.17.4] > Task :build-tools:generateVersionProperties
+ [8.17.4] > Task :build-tools:pluginDescriptors
+
+> Task :distribution:bwc:bugfix2:buildBwcLinuxTar
+ [8.16.6] 
+ [8.16.6] > Task :build-conventions:pluginDescriptors
+ [8.16.6] > Task :build-conventions:processResources
+ [8.16.6] > Task :build-conventions:classes
+ [8.16.6] > Task :build-conventions:jar
+ [8.16.6] > Task :build-tools:reaper:compileJava
+ [8.16.6] > Task :build-tools:reaper:processResources NO-SOURCE
+ [8.16.6] > Task :build-tools:reaper:classes
+ [8.16.6] > Task :build-tools:reaper:jar
+
+> Task :distribution:bwc:staged:buildBwcLinuxTar
+ [8.18.0] 
+ [8.18.0] > Task :build-conventions:pluginDescriptors
+ [8.18.0] > Task :build-conventions:processResources
+ [8.18.0] > Task :build-conventions:classes
+ [8.18.0] > Task :build-conventions:jar
+ [8.18.0] > Task :build-tools:reaper:compileJava
+ [8.18.0] > Task :build-tools:reaper:processResources NO-SOURCE
+ [8.18.0] > Task :build-tools:reaper:classes
+ [8.18.0] > Task :build-tools:reaper:jar
+ [8.18.0] > Task :build-tools-internal:extractPluginRequests
+ [8.18.0] > Task :build-tools-internal:generatePluginAdapters
+ [8.18.0] > Task :build-tools-internal:pluginDescriptors
+ [8.18.0] > Task :build-tools-internal:processResources
+ [8.18.0] Note: Some input files use or override a deprecated API.
+ [8.18.0] Note: Recompile with -Xlint:deprecation for details.
+ [8.18.0] Note: Some input files use unchecked or unsafe operations.
+ [8.18.0] Note: Recompile with -Xlint:unchecked for details.
+ [8.18.0] 
+ [8.18.0] > Task :build-tools:compileJava
+ [8.18.0] 
+ [8.18.0] > Task :build-tools:compileGroovy NO-SOURCE
+ [8.18.0] > Task :build-tools:generateVersionProperties
+ [8.18.0] > Task :build-tools:pluginDescriptors
+ [8.18.0] > Task :build-tools:processResources
+ [8.18.0] > Task :build-tools:classes
+ [8.18.0] > Task :build-tools:jar
+ [8.18.0] Note: Some input files use or override a deprecated API.
+ [8.18.0] Note: Recompile with -Xlint:deprecation for details.
+ [8.18.0] 
+ [8.18.0] > Task :build-tools-internal:compileJava
+ [8.18.0] Note: Some input files use unchecked or unsafe operations.
+ [8.18.0] Note: Recompile with -Xlint:unchecked for details.
+
+> Task :distribution:bwc:maintenance:buildBwcLinuxTar
+ [7.17.29] > Task :build-tools:reaper:compileJava
+ [7.17.29] > Task :build-tools:reaper:processResources NO-SOURCE
+ [7.17.29] > Task :build-tools:reaper:classes
+ [7.17.29] > Task :build-tools:reaper:jar
+ [7.17.29] > Task :build-tools-internal:extractPluginRequests
+ [7.17.29] > Task :build-tools-internal:generatePluginAdapters
+ [7.17.29] > Task :build-tools-internal:pluginDescriptors
+ [7.17.29] > Task :build-tools-internal:processResources
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] 
+ [7.17.29] > Task :build-tools:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] Note: Some input files use unchecked or unsafe operations.
+ [7.17.29] Note: Recompile with -Xlint:unchecked for details.
+ [7.17.29] 
+ [7.17.29] > Task :build-tools:compileGroovy NO-SOURCE
+ [7.17.29] > Task :build-tools:generateVersionProperties
+ [7.17.29] > Task :build-tools:pluginDescriptors
+ [7.17.29] > Task :build-tools:processResources
+ [7.17.29] > Task :build-tools:classes
+ [7.17.29] > Task :build-tools:jar
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/build-tools-internal/src/main/java/org/elasticsearch/gradle/internal/snyk/SnykDependencyGraph.java uses unchecked or unsafe operations.
+ [7.17.29] Note: Recompile with -Xlint:unchecked for details.
+ [7.17.29] 
+ [7.17.29] > Task :build-tools-internal:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :build-tools-internal:compileGroovy
+ [7.17.29] > Task :build-tools-internal:compileGroovyPlugins
+ [7.17.29] > Task :build-tools-internal:classes
+ [7.17.29] > Task :build-tools-internal:jar
+
+> Task :distribution:bwc:bugfix:buildBwcLinuxTar
+ [8.17.4] > Task :build-tools:processResources
+ [8.17.4] > Task :build-tools:classes
+ [8.17.4] > Task :build-tools:jar
+ [8.17.4] 
+ [8.17.4] > Task :build-tools-internal:compileJava
+ [8.17.4] Note: Some input files use or override a deprecated API.
+ [8.17.4] Note: Recompile with -Xlint:deprecation for details.
+ [8.17.4] Note: Some input files use unchecked or unsafe operations.
+ [8.17.4] Note: Recompile with -Xlint:unchecked for details.
+ [8.17.4] 
+ [8.17.4] > Task :build-tools-internal:compileGroovy
+ [8.17.4] > Task :build-tools-internal:compileGroovyPlugins
+ [8.17.4] > Task :build-tools-internal:classes
+ [8.17.4] > Task :build-tools-internal:jar
+
+> Task :distribution:bwc:bugfix2:buildBwcLinuxTar
+ [8.16.6] > Task :build-tools-internal:extractPluginRequests
+ [8.16.6] > Task :build-tools-internal:generatePluginAdapters
+ [8.16.6] > Task :build-tools-internal:pluginDescriptors
+ [8.16.6] > Task :build-tools-internal:processResources
+ [8.16.6] 
+ [8.16.6] > Task :build-tools:compileJava
+ [8.16.6] Note: Some input files use or override a deprecated API.
+ [8.16.6] Note: Recompile with -Xlint:deprecation for details.
+ [8.16.6] Note: Some input files use unchecked or unsafe operations.
+ [8.16.6] Note: Recompile with -Xlint:unchecked for details.
+ [8.16.6] 
+ [8.16.6] > Task :build-tools:compileGroovy NO-SOURCE
+ [8.16.6] > Task :build-tools:generateVersionProperties
+ [8.16.6] > Task :build-tools:pluginDescriptors
+ [8.16.6] > Task :build-tools:processResources
+ [8.16.6] > Task :build-tools:classes
+ [8.16.6] > Task :build-tools:jar
+ [8.16.6] 
+ [8.16.6] > Task :build-tools-internal:compileJava
+ [8.16.6] Note: Some input files use or override a deprecated API.
+ [8.16.6] Note: Recompile with -Xlint:deprecation for details.
+ [8.16.6] Note: Some input files use unchecked or unsafe operations.
+ [8.16.6] Note: Recompile with -Xlint:unchecked for details.
+ [8.16.6] 
+ [8.16.6] > Task :build-tools-internal:compileGroovy
+ [8.16.6] > Task :build-tools-internal:compileGroovyPlugins
+ [8.16.6] > Task :build-tools-internal:classes
+ [8.16.6] > Task :build-tools-internal:jar
+
+> Task :distribution:bwc:staged:buildBwcLinuxTar
+ [8.18.0] 
+ [8.18.0] > Task :build-tools-internal:compileGroovy
+ [8.18.0] > Task :build-tools-internal:compileGroovyPlugins
+ [8.18.0] > Task :build-tools-internal:classes
+ [8.18.0] > Task :build-tools-internal:jar
+
+> Task :distribution:bwc:maintenance:buildBwcLinuxTar
+ [7.17.29] =======================================
+ [7.17.29] Elasticsearch Build Hamster says Hello!
+ [7.17.29]   Gradle Version        : 8.10.2
+ [7.17.29]   OS Info               : Linux 6.8.0-1039-oracle (amd64)
+ [7.17.29]   JDK Version           : 17.0.17+10 (Eclipse Temurin)
+ [7.17.29]   JAVA_HOME             : /home/gradle/.gradle/jdks/eclipse_adoptium-17-amd64-linux.2
+ [7.17.29]   Random Testing Seed   : 323FE3B550154F9B
+ [7.17.29]   In FIPS 140 mode      : false
+ [7.17.29] =======================================
+ [7.17.29] > Task :modules:aggs-matrix-stats:processResources
+ [7.17.29] > Task :modules:analysis-common:processResources
+ [7.17.29] > Task :modules:aggs-matrix-stats:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:analysis-common:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:aggs-matrix-stats:pluginProperties
+ [7.17.29] > Task :modules:analysis-common:pluginProperties
+ [7.17.29] > Task :libs:elasticsearch-plugin-classloader:compileJava
+ [7.17.29] > Task :modules:ingest-common:processResources
+ [7.17.29] > Task :modules:ingest-common:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:ingest-common:pluginProperties
+ [7.17.29] > Task :libs:elasticsearch-secure-sm:compileJava
+ [7.17.29] > Task :modules:ingest-user-agent:processResources
+ [7.17.29] > Task :modules:ingest-user-agent:copyPluginPropertiesTemplate
+ [7.17.29] > Task :libs:elasticsearch-dissect:compileJava
+ [7.17.29] > Task :libs:elasticsearch-dissect:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-dissect:classes
+ [7.17.29] > Task :modules:ingest-user-agent:pluginProperties
+ [7.17.29] > Task :libs:elasticsearch-dissect:jar
+ [7.17.29] > Task :libs:elasticsearch-ssl-config:processResources NO-SOURCE
+ [7.17.29] > Task :modules:kibana:processResources NO-SOURCE
+ [7.17.29] > Task :modules:kibana:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:kibana:pluginProperties
+ [7.17.29] > Task :modules:reindex:processResources NO-SOURCE
+ [7.17.29] > Task :modules:lang-expression:processResources NO-SOURCE
+ [7.17.29] > Task :modules:lang-expression:copyPluginPropertiesTemplate
+ [7.17.29] > Task :libs:elasticsearch-geo:compileJava
+ [7.17.29] > Task :modules:lang-mustache:processResources NO-SOURCE
+ [7.17.29] > Task :modules:lang-expression:pluginProperties
+ [7.17.29] > Task :modules:lang-mustache:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:lang-mustache:pluginProperties
+ [7.17.29] > Task :modules:lang-painless:spi:processResources NO-SOURCE
+ [7.17.29] > Task :modules:legacy-geo:processResources NO-SOURCE
+ [7.17.29] > Task :modules:lang-painless:processResources
+ [7.17.29] > Task :modules:lang-painless:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:legacy-geo:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:lang-painless:pluginProperties
+ [7.17.29] > Task :modules:mapper-extras:processResources NO-SOURCE
+ [7.17.29] > Task :modules:legacy-geo:pluginProperties
+ [7.17.29] > Task :modules:mapper-extras:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:parent-join:processResources
+ [7.17.29] > Task :modules:parent-join:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:mapper-extras:pluginProperties
+ [7.17.29] > Task :modules:percolator:processResources NO-SOURCE
+ [7.17.29] > Task :modules:percolator:copyPluginPropertiesTemplate
+ [7.17.29] > Task :libs:elasticsearch-core:compileJava
+ [7.17.29] > Task :modules:percolator:pluginProperties
+ [7.17.29] > Task :modules:parent-join:pluginProperties
+ [7.17.29] > Task :libs:elasticsearch-grok:compileJava
+ [7.17.29] > Task :libs:elasticsearch-grok:processResources
+ [7.17.29] > Task :libs:elasticsearch-grok:classes
+ [7.17.29] > Task :libs:elasticsearch-grok:jar
+ [7.17.29] > Task :libs:elasticsearch-core:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-lz4:compileJava
+ [7.17.29] > Task :libs:elasticsearch-core:classes
+ [7.17.29] > Task :libs:elasticsearch-cli:compileJava
+ [7.17.29] > Task :modules:rank-eval:processResources
+ [7.17.29] > Task :modules:rank-eval:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:rank-eval:pluginProperties
+ [7.17.29] > Task :modules:reindex:copyPluginPropertiesTemplate
+ [7.17.29] > Task :libs:elasticsearch-core:compileJava11Java
+ [7.17.29] > Task :libs:elasticsearch-core:processJava11Resources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-core:java11Classes
+ [7.17.29] > Task :modules:reindex:pluginProperties
+ [7.17.29] > Task :modules:repository-url:processResources NO-SOURCE
+ [7.17.29] > Task :modules:repository-url:copyPluginPropertiesTemplate
+ [7.17.29] > Task :libs:elasticsearch-core:jar
+ [7.17.29] > Task :modules:runtime-fields-common:processResources
+ [7.17.29] > Task :modules:runtime-fields-common:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:repository-url:pluginProperties
+ [7.17.29] > Task :modules:transport-netty4:processResources NO-SOURCE
+ [7.17.29] > Task :modules:transport-netty4:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:runtime-fields-common:pluginProperties
+ [7.17.29] > Task :modules:transport-netty4:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:analytics:generateNotice
+ [7.17.29] > Task :x-pack:plugin:analytics:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:analytics:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:analytics:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:async:generateNotice
+ [7.17.29] > Task :x-pack:plugin:async:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:async:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:ingest-geoip:copyDefaultGeoIp2DatabaseFiles
+ [7.17.29] > Task :modules:ingest-geoip:processResources NO-SOURCE
+ [7.17.29] > Task :modules:ingest-geoip:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:async:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:async-search:generateNotice
+ [7.17.29] > Task :x-pack:plugin:async-search:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:async-search:copyPluginPropertiesTemplate
+ [7.17.29] > Task :modules:ingest-geoip:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:autoscaling:generateNotice
+ [7.17.29] > Task :x-pack:plugin:autoscaling:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:async-search:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:autoscaling:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:autoscaling:pluginProperties
+ [7.17.29] > Task :plugins:transport-nio:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:ccr:generateNotice
+ [7.17.29] > Task :x-pack:plugin:ccr:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:ccr:copyPluginPropertiesTemplate
+ [7.17.29] > Task :client:rest:compileJava
+ [7.17.29] > Task :libs:elasticsearch-ssl-config:compileJava
+ [7.17.29] > Task :libs:elasticsearch-ssl-config:classes
+ [7.17.29] > Task :client:rest:processResources
+ [7.17.29] > Task :client:rest:classes
+ [7.17.29] > Task :x-pack:plugin:ccr:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:data-streams:generateNotice
+ [7.17.29] > Task :x-pack:plugin:data-streams:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-ssl-config:jar
+ [7.17.29] > Task :x-pack:plugin:data-streams:copyPluginPropertiesTemplate
+ [7.17.29] > Task :client:rest:jar
+ [7.17.29] > Task :x-pack:plugin:data-streams:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:deprecation:generateNotice
+ [7.17.29] > Task :x-pack:plugin:deprecation:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:deprecation:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:monitoring:processResources
+ [7.17.29] > Task :x-pack:plugin:deprecation:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:enrich:generateNotice
+ [7.17.29] > Task :x-pack:plugin:enrich:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:enrich:copyPluginPropertiesTemplate
+ [7.17.29] > Task :libs:elasticsearch-nio:compileJava
+ [7.17.29] > Task :libs:elasticsearch-nio:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-nio:classes
+ [7.17.29] > Task :x-pack:plugin:enrich:pluginProperties
+ [7.17.29] > Task :libs:elasticsearch-nio:jar
+ [7.17.29] > Task :x-pack:plugin:fleet:generateNotice
+ [7.17.29] > Task :x-pack:plugin:fleet:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:fleet:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:fleet:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:eql:generateNotice
+ [7.17.29] > Task :x-pack:plugin:graph:generateNotice
+ [7.17.29] > Task :x-pack:plugin:graph:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:eql:processResources
+ [7.17.29] > Task :x-pack:plugin:graph:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:eql:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:graph:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:eql:pluginProperties
+ [7.17.29] > Task :client:sniffer:compileJava
+ [7.17.29] > Task :client:sniffer:processResources NO-SOURCE
+ [7.17.29] > Task :client:sniffer:classes
+ [7.17.29] > Task :client:sniffer:jar
+ [7.17.29] > Task :x-pack:plugin:ilm:generateNotice
+ [7.17.29] > Task :x-pack:plugin:ilm:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:ilm:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:identity-provider:generateNotice
+ [7.17.29] > Task :x-pack:plugin:logstash:generateNotice
+ [7.17.29] > Task :x-pack:plugin:logstash:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:logstash:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:identity-provider:processResources
+ [7.17.29] > Task :x-pack:plugin:identity-provider:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:ilm:pluginProperties
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:logstash:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:identity-provider:pluginProperties
+ [7.17.29] 
+ [7.17.29] > Task :libs:elasticsearch-x-content:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:frozen-indices:generateNotice
+ [7.17.29] > Task :x-pack:plugin:mapper-constant-keyword:generateNotice
+ [7.17.29] > Task :x-pack:plugin:mapper-aggregate-metric:generateNotice
+ [7.17.29] > Task :x-pack:plugin:frozen-indices:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:mapper-aggregate-metric:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:mapper-constant-keyword:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:mapper-unsigned-long:generateNotice
+ [7.17.29] > Task :x-pack:plugin:frozen-indices:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:mapper-aggregate-metric:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:mapper-constant-keyword:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:mapper-unsigned-long:processResources
+ [7.17.29] > Task :x-pack:plugin:mapper-unsigned-long:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:frozen-indices:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:mapper-aggregate-metric:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:mapper-constant-keyword:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:mapper-unsigned-long:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:mapper-version:generateNotice
+ [7.17.29] > Task :x-pack:plugin:mapper-version:processResources
+ [7.17.29] > Task :x-pack:plugin:mapper-version:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:monitoring:generateNotice
+ [7.17.29] > Task :x-pack:plugin:monitoring:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:mapper-version:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:repositories-metering-api:generateNotice
+ [7.17.29] > Task :x-pack:plugin:repositories-metering-api:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:repositories-metering-api:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:monitoring:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:repository-encrypted:generateNotice
+ [7.17.29] > Task :x-pack:plugin:repositories-metering-api:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:repository-encrypted:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:repository-encrypted:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:core:generateNotice
+ [7.17.29] > Task :x-pack:plugin:repository-encrypted:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:rollup:generateNotice
+ [7.17.29] > Task :x-pack:plugin:rollup:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:rollup:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:search-business-rules:generateNotice
+ [7.17.29] > Task :x-pack:plugin:search-business-rules:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:ml:extractNativeLicenses
+ [7.17.29] > Task :x-pack:plugin:search-business-rules:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:ql:generateNotice
+ [7.17.29] > Task :x-pack:plugin:ql:processResources
+ [7.17.29] > Task :x-pack:plugin:rollup:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:ql:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:search-business-rules:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:preallocate:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:ql:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:generateNotice
+ [7.17.29] > Task :x-pack:plugin:shutdown:generateNotice
+ [7.17.29] > Task :x-pack:plugin:shutdown:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:shutdown:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:shutdown:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:snapshot-repo-test-kit:generateNotice
+ [7.17.29] > Task :x-pack:plugin:snapshot-repo-test-kit:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:snapshot-repo-test-kit:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:snapshot-repo-test-kit:pluginProperties
+ [7.17.29] > Task :libs:elasticsearch-x-content:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-x-content:classes
+ [7.17.29] > Task :x-pack:plugin:spatial:generateNotice
+ [7.17.29] > Task :x-pack:plugin:spatial:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:spatial:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:spatial:pluginProperties
+ [7.17.29] > Task :libs:elasticsearch-x-content:jar
+ [7.17.29] > Task :x-pack:plugin:core:processResources
+ [7.17.29] > Task :x-pack:plugin:core:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:security:generateNotice
+ [7.17.29] > Task :x-pack:plugin:security:processResources
+ [7.17.29] > Task :x-pack:plugin:security:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:core:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:sql:sql-action:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-cli:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-cli:classes
+ [7.17.29] > Task :x-pack:plugin:ml:generateNotice
+ [7.17.29] > Task :libs:elasticsearch-cli:jar
+ [7.17.29] > Task :x-pack:plugin:security:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:sql:sql-client:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:sql:sql-cli:processResources
+ [7.17.29] > Task :x-pack:plugin:stack:generateNotice
+ [7.17.29] > Task :x-pack:plugin:ml:processResources
+ [7.17.29] > Task :x-pack:plugin:ml:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:stack:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:text-structure:generateNotice
+ [7.17.29] > Task :x-pack:plugin:text-structure:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:stack:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:text-structure:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:ml:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:stack:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:text-structure:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:vectors:generateNotice
+ [7.17.29] > Task :x-pack:plugin:vector-tile:generateNotice
+ [7.17.29] > Task :x-pack:plugin:vector-tile:processResources
+ [7.17.29] > Task :x-pack:plugin:vector-tile:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:vectors:processResources
+ [7.17.29] > Task :x-pack:plugin:vectors:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:transform:generateNotice
+ [7.17.29] > Task :x-pack:plugin:transform:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:transform:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:vector-tile:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:vectors:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:voting-only-node:generateNotice
+ [7.17.29] > Task :x-pack:plugin:voting-only-node:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:voting-only-node:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:transform:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:wildcard:generateNotice
+ [7.17.29] > Task :x-pack:plugin:wildcard:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:voting-only-node:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:wildcard:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:sql:generateNotice
+ [7.17.29] > Task :x-pack:plugin:sql:processResources
+ [7.17.29] > Task :x-pack:plugin:sql:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:wildcard:pluginProperties
+ [7.17.29] > Task :test:external-modules:test-delayed-aggs:processResources NO-SOURCE
+ [7.17.29] > Task :test:external-modules:test-delayed-aggs:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:sql:pluginProperties
+ [7.17.29] > Task :test:external-modules:test-die-with-dignity:processResources NO-SOURCE
+ [7.17.29] > Task :test:external-modules:test-die-with-dignity:copyPluginPropertiesTemplate
+ [7.17.29] > Task :test:external-modules:test-delayed-aggs:pluginProperties
+ [7.17.29] > Task :test:external-modules:test-error-query:processResources NO-SOURCE
+ [7.17.29] > Task :test:external-modules:test-error-query:copyPluginPropertiesTemplate
+ [7.17.29] > Task :x-pack:plugin:watcher:generateNotice
+ [7.17.29] > Task :test:external-modules:test-die-with-dignity:pluginProperties
+ [7.17.29] > Task :distribution:archives:createJvmOptionsDir
+ [7.17.29] > Task :distribution:archives:createLogsDir
+ [7.17.29] > Task :x-pack:plugin:watcher:processResources
+ [7.17.29] > Task :distribution:archives:createPluginsDir
+ [7.17.29] > Task :libs:elasticsearch-geo:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:watcher:copyPluginPropertiesTemplate
+ [7.17.29] > Task :libs:elasticsearch-geo:classes
+ [7.17.29] > Task :test:external-modules:test-error-query:pluginProperties
+ [7.17.29] > Task :x-pack:plugin:watcher:pluginProperties
+ [7.17.29] > Task :libs:elasticsearch-lz4:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-lz4:classes
+ [7.17.29] > Task :libs:elasticsearch-geo:jar
+ [7.17.29] > Task :libs:elasticsearch-plugin-classloader:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-plugin-classloader:classes
+ [7.17.29] > Task :x-pack:plugin:sql:sql-proto:compileJava
+ [7.17.29] > Task :libs:elasticsearch-plugin-classloader:jar
+ [7.17.29] > Task :x-pack:plugin:sql:sql-proto:processResources NO-SOURCE
+ [7.17.29] > Task :x-pack:plugin:sql:sql-proto:classes
+ [7.17.29] > Task :x-pack:plugin:sql:sql-proto:jar
+ [7.17.29] > Task :libs:elasticsearch-secure-sm:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-secure-sm:classes
+ [7.17.29] > Task :libs:elasticsearch-secure-sm:jar
+ [7.17.29] > Task :distribution:tools:geoip-cli:processResources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-lz4:compileJava9Java
+ [7.17.29] > Task :libs:elasticsearch-lz4:processJava9Resources NO-SOURCE
+ [7.17.29] > Task :libs:elasticsearch-lz4:java9Classes
+ [7.17.29] > Task :libs:elasticsearch-lz4:jar
+ [7.17.29] > Task :distribution:tools:keystore-cli:processResources NO-SOURCE
+ [7.17.29] > Task :distribution:tools:launchers:processResources NO-SOURCE
+ [7.17.29] > Task :distribution:tools:java-version-checker:compileJava
+ [7.17.29] > Task :distribution:tools:java-version-checker:processResources NO-SOURCE
+ [7.17.29] > Task :distribution:tools:java-version-checker:classes
+ [7.17.29] > Task :distribution:tools:plugin-cli:processResources
+ [7.17.29] > Task :distribution:tools:java-version-checker:jar
+ [7.17.29] > Task :x-pack:plugin:security:cli:processResources
+ [7.17.29] > Task :libs:elasticsearch-log4j:patchLog4j
+ [7.17.29] 
+ [7.17.29] > Task :distribution:tools:launchers:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :distribution:tools:launchers:classes
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:sql:sql-client:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:sql:sql-client:classes
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/distribution/tools/launchers/src/main/java/org/elasticsearch/tools/launchers/MachineDependentHeap.java uses or overrides a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/x-pack/plugin/sql/sql-client/src/main/java/org/elasticsearch/xpack/sql/client/RemoteFailure.java uses or overrides a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :distribution:tools:launchers:jar
+ [7.17.29] > Task :x-pack:plugin:sql:sql-client:jar
+ [7.17.29] > Task :x-pack:plugin:sql:sql-cli:compileJava
+ [7.17.29] > Task :x-pack:plugin:sql:sql-cli:classes
+ [7.17.29] > Task :distribution:buildDefaultNotice
+ [7.17.29] > Task :x-pack:plugin:sql:sql-cli:shadowJar
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] > Task :server:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] > Task :modules:lang-expression:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :modules:lang-painless:spi:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :modules:aggs-matrix-stats:compileJava
+ [7.17.29] 
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/modules/aggs-matrix-stats/src/main/java/org/elasticsearch/search/aggregations/matrix/MatrixAggregationPlugin.java uses or overrides a deprecated API.
+ [7.17.29] > Task :modules:ingest-user-agent:compileJava
+ [7.17.29] > Task :modules:aggs-matrix-stats:classes
+ [7.17.29] > Task :modules:ingest-user-agent:classes
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :modules:aggs-matrix-stats:jar
+ [7.17.29] > Task :modules:ingest-user-agent:jar
+ [7.17.29] > Task :modules:lang-expression:classes
+ [7.17.29] > Task :modules:aggs-matrix-stats:bundlePlugin
+ [7.17.29] > Task :modules:ingest-user-agent:bundlePlugin
+ [7.17.29] > Task :modules:lang-painless:spi:classes
+ [7.17.29] 
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/modules/ingest-geoip/src/main/java/org/elasticsearch/ingest/geoip/GeoIpDownloader.java uses or overrides a deprecated API.
+ [7.17.29] > Task :modules:ingest-geoip:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :modules:lang-expression:jar
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] > Task :modules:lang-painless:spi:jar
+ [7.17.29] 
+ [7.17.29] > Task :modules:reindex:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :modules:ingest-geoip:classes
+ [7.17.29] > Task :modules:lang-expression:bundlePlugin
+ [7.17.29] > Task :modules:reindex:classes
+ [7.17.29] > Task :modules:ingest-geoip:jar
+ [7.17.29] > Task :modules:reindex:jar
+ [7.17.29] > Task :modules:kibana:compileJava
+ [7.17.29] > Task :modules:kibana:classes
+ [7.17.29] > Task :modules:kibana:jar
+ [7.17.29] 
+ [7.17.29] > Task :modules:lang-mustache:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :modules:lang-mustache:classes
+ [7.17.29] > Task :modules:kibana:bundlePlugin
+ [7.17.29] > Task :modules:lang-mustache:jar
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :modules:lang-mustache:bundlePlugin
+ [7.17.29] 
+ [7.17.29] > Task :modules:mapper-extras:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :modules:mapper-extras:classes
+ [7.17.29] > Task :modules:mapper-extras:jar
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/modules/mapper-extras/src/main/java/org/elasticsearch/index/query/SourceConfirmedTextQuery.java uses or overrides a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :modules:mapper-extras:bundlePlugin
+ [7.17.29] 
+ [7.17.29] > Task :modules:parent-join:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :modules:parent-join:classes
+ [7.17.29] 
+ [7.17.29] > Task :modules:percolator:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :modules:percolator:classes
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/modules/parent-join/src/main/java/org/elasticsearch/join/ParentJoinPlugin.java uses or overrides a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :modules:parent-join:jar
+ [7.17.29] > Task :modules:parent-join:bundlePlugin
+ [7.17.29] > Task :modules:percolator:jar
+ [7.17.29] > Task :modules:percolator:bundlePlugin
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] > Task :modules:legacy-geo:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :modules:legacy-geo:classes
+ [7.17.29] > Task :modules:reindex:bundlePlugin
+ [7.17.29] > Task :modules:legacy-geo:jar
+ [7.17.29] > Task :modules:rank-eval:compileJava
+ [7.17.29] > Task :modules:rank-eval:classes
+ [7.17.29] > Task :modules:rank-eval:jar
+ [7.17.29] > Task :modules:rank-eval:bundlePlugin
+ [7.17.29] > Task :modules:legacy-geo:bundlePlugin
+ [7.17.29] > Task :modules:runtime-fields-common:compileJava
+ [7.17.29] > Task :modules:runtime-fields-common:classes
+ [7.17.29] > Task :modules:runtime-fields-common:jar
+ [7.17.29] > Task :modules:runtime-fields-common:bundlePlugin
+ [7.17.29] > Task :modules:repository-url:compileJava
+ [7.17.29] > Task :modules:repository-url:classes
+ [7.17.29] > Task :modules:repository-url:jar
+ [7.17.29] > Task :modules:repository-url:bundlePlugin
+ [7.17.29] > Task :server:generateModulesList
+ [7.17.29] > Task :server:generatePluginsList
+ [7.17.29] > Task :server:processResources
+ [7.17.29] > Task :server:classes
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:preallocate:compileJava
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:preallocate:classes
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:preallocate:jar
+ [7.17.29] > Task :server:compileJava11Java
+ [7.17.29] > Task :server:processJava11Resources NO-SOURCE
+ [7.17.29] > Task :server:java11Classes
+ [7.17.29] > Task :test:external-modules:test-delayed-aggs:compileJava
+ [7.17.29] > Task :test:external-modules:test-delayed-aggs:classes
+ [7.17.29] > Task :test:external-modules:test-delayed-aggs:jar
+ [7.17.29] > Task :test:external-modules:test-delayed-aggs:bundlePlugin
+ [7.17.29] > Task :test:external-modules:test-die-with-dignity:compileJava
+ [7.17.29] > Task :test:external-modules:test-die-with-dignity:classes
+ [7.17.29] > Task :test:external-modules:test-die-with-dignity:jar
+ [7.17.29] > Task :test:external-modules:test-die-with-dignity:bundlePlugin
+ [7.17.29] 
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/plugins/transport-nio/src/main/java/org/elasticsearch/http/nio/HttpReadWriteHandler.java uses or overrides a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :plugins:transport-nio:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :plugins:transport-nio:classes
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :modules:transport-netty4:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :modules:transport-netty4:classes
+ [7.17.29] > Task :plugins:transport-nio:jar
+ [7.17.29] > Task :modules:transport-netty4:jar
+ [7.17.29] > Task :modules:lang-painless:compileJava
+ [7.17.29] > Task :test:external-modules:test-error-query:compileJava
+ [7.17.29] > Task :modules:transport-netty4:bundlePlugin
+ [7.17.29] > Task :modules:lang-painless:classes
+ [7.17.29] > Task :modules:lang-painless:jar
+ [7.17.29] > Task :modules:lang-painless:bundlePlugin
+ [7.17.29] > Task :test:external-modules:test-error-query:classes
+ [7.17.29] > Task :test:external-modules:test-error-query:jar
+ [7.17.29] > Task :test:external-modules:test-error-query:bundlePlugin
+ [7.17.29] > Task :distribution:processExternalTestOutputs
+ [7.17.29] > Task :distribution:buildExternalTestModules
+ [7.17.29] > Task :distribution:tools:geoip-cli:compileJava
+ [7.17.29] > Task :distribution:tools:geoip-cli:classes
+ [7.17.29] > Task :distribution:tools:geoip-cli:jar
+ [7.17.29] > Task :distribution:tools:keystore-cli:compileJava
+ [7.17.29] > Task :distribution:tools:keystore-cli:classes
+ [7.17.29] > Task :distribution:tools:keystore-cli:jar
+ [7.17.29] > Task :modules:ingest-common:compileJava
+ [7.17.29] > Task :modules:ingest-common:classes
+ [7.17.29] > Task :modules:ingest-common:jar
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :modules:analysis-common:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :modules:analysis-common:classes
+ [7.17.29] > Task :modules:ingest-common:bundlePlugin
+ [7.17.29] > Task :modules:analysis-common:jar
+ [7.17.29] > Task :modules:analysis-common:bundlePlugin
+ [7.17.29] > Task :server:jar
+ [7.17.29] > Task :distribution:tools:plugin-cli:compileJava
+ [7.17.29] > Task :distribution:tools:plugin-cli:classes
+ [7.17.29] > Task :distribution:tools:plugin-cli:jar
+ [7.17.29] > Task :modules:ingest-geoip:bundlePlugin
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] > Task :x-pack:plugin:core:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:core:classes
+ [7.17.29] > Task :x-pack:plugin:core:jar
+ [7.17.29] > Task :x-pack:plugin:async:compileJava
+ [7.17.29] > Task :x-pack:plugin:async:classes
+ [7.17.29] > Task :x-pack:plugin:async:jar
+ [7.17.29] > Task :x-pack:plugin:async:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:async-search:compileJava
+ [7.17.29] > Task :x-pack:plugin:async-search:classes
+ [7.17.29] > Task :x-pack:plugin:async-search:jar
+ [7.17.29] > Task :x-pack:plugin:async-search:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:core:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:autoscaling:compileJava
+ [7.17.29] > Task :x-pack:plugin:autoscaling:classes
+ [7.17.29] > Task :x-pack:plugin:autoscaling:jar
+ [7.17.29] > Task :x-pack:plugin:autoscaling:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:data-streams:compileJava
+ [7.17.29] > Task :x-pack:plugin:data-streams:classes
+ [7.17.29] > Task :x-pack:plugin:data-streams:jar
+ [7.17.29] > Task :x-pack:plugin:data-streams:bundlePlugin
+ [7.17.29] 
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/x-pack/plugin/analytics/src/main/java/org/elasticsearch/xpack/analytics/cumulativecardinality/CumulativeCardinalityPipelineAggregator.java uses or overrides a deprecated API.
+ [7.17.29] > Task :x-pack:plugin:analytics:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:ccr:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:ccr:classes
+ [7.17.29] > Task :x-pack:plugin:ccr:jar
+ [7.17.29] > Task :x-pack:plugin:ccr:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:fleet:compileJava
+ [7.17.29] > Task :x-pack:plugin:fleet:classes
+ [7.17.29] > Task :x-pack:plugin:fleet:jar
+ [7.17.29] > Task :x-pack:plugin:fleet:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:enrich:compileJava
+ [7.17.29] > Task :x-pack:plugin:enrich:classes
+ [7.17.29] > Task :x-pack:plugin:enrich:jar
+ [7.17.29] > Task :x-pack:plugin:enrich:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:analytics:classes
+ [7.17.29] > Task :x-pack:plugin:analytics:jar
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:monitoring:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:analytics:bundlePlugin
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] > Task :x-pack:plugin:graph:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:graph:classes
+ [7.17.29] > Task :x-pack:plugin:frozen-indices:compileJava
+ [7.17.29] > Task :x-pack:plugin:frozen-indices:classes
+ [7.17.29] > Task :x-pack:plugin:frozen-indices:jar
+ [7.17.29] > Task :x-pack:plugin:monitoring:classes
+ [7.17.29] > Task :x-pack:plugin:graph:jar
+ [7.17.29] > Task :x-pack:plugin:frozen-indices:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:graph:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:monitoring:jar
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:ql:compileJava
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:mapper-aggregate-metric:compileJava
+ [7.17.29] > Task :x-pack:plugin:mapper-aggregate-metric:classes
+ [7.17.29] > Task :x-pack:plugin:mapper-aggregate-metric:jar
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/x-pack/plugin/logstash/src/main/java/org/elasticsearch/xpack/logstash/action/GetPipelineResponse.java uses or overrides a deprecated API.
+ [7.17.29] 
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:logstash:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:logstash:classes
+ [7.17.29] > Task :x-pack:plugin:mapper-aggregate-metric:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:logstash:jar
+ [7.17.29] > Task :x-pack:plugin:logstash:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:mapper-constant-keyword:compileJava
+ [7.17.29] > Task :x-pack:plugin:mapper-constant-keyword:classes
+ [7.17.29] > Task :x-pack:plugin:mapper-constant-keyword:jar
+ [7.17.29] > Task :x-pack:plugin:mapper-constant-keyword:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:ilm:compileJava
+ [7.17.29] > Task :x-pack:plugin:ilm:classes
+ [7.17.29] > Task :x-pack:plugin:ilm:jar
+ [7.17.29] > Task :x-pack:plugin:ilm:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:mapper-unsigned-long:compileJava
+ [7.17.29] > Task :x-pack:plugin:mapper-unsigned-long:classes
+ [7.17.29] > Task :x-pack:plugin:mapper-unsigned-long:jar
+ [7.17.29] > Task :x-pack:plugin:mapper-unsigned-long:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:monitoring:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:ql:classes
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] > Task :x-pack:plugin:deprecation:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:deprecation:classes
+ [7.17.29] > Task :x-pack:plugin:deprecation:jar
+ [7.17.29] > Task :x-pack:plugin:ql:jar
+ [7.17.29] > Task :x-pack:plugin:deprecation:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:ql:bundlePlugin
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/x-pack/plugin/mapper-version/src/main/java/org/elasticsearch/xpack/versionfield/VersionEncoder.java uses or overrides a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:mapper-version:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:mapper-version:classes
+ [7.17.29] > Task :x-pack:plugin:mapper-version:jar
+ [7.17.29] > Task :x-pack:plugin:mapper-version:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:repository-encrypted:compileJava
+ [7.17.29] > Task :x-pack:plugin:repository-encrypted:classes
+ [7.17.29] > Task :x-pack:plugin:repository-encrypted:jar
+ [7.17.29] > Task :x-pack:plugin:repository-encrypted:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:repositories-metering-api:compileJava
+ [7.17.29] > Task :x-pack:plugin:repositories-metering-api:classes
+ [7.17.29] > Task :x-pack:plugin:repositories-metering-api:jar
+ [7.17.29] > Task :x-pack:plugin:repositories-metering-api:bundlePlugin
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:search-business-rules:compileJava
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/x-pack/plugin/search-business-rules/src/main/java/org/elasticsearch/xpack/searchbusinessrules/CappedScoreWeight.java uses or overrides a deprecated API.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:search-business-rules:classes
+ [7.17.29] > Task :x-pack:plugin:search-business-rules:jar
+ [7.17.29] > Task :x-pack:plugin:search-business-rules:bundlePlugin
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:identity-provider:compileJava
+ [7.17.29] > Task :x-pack:plugin:identity-provider:classes
+ [7.17.29] > Task :x-pack:plugin:identity-provider:jar
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:rollup:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:rollup:classes
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:eql:compileJava
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:rollup:jar
+ [7.17.29] > Task :x-pack:plugin:rollup:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:eql:classes
+ [7.17.29] > Task :x-pack:plugin:identity-provider:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:eql:jar
+ [7.17.29] > Task :x-pack:plugin:eql:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:shutdown:compileJava
+ [7.17.29] > Task :x-pack:plugin:shutdown:classes
+ [7.17.29] > Task :x-pack:plugin:shutdown:jar
+ [7.17.29] > Task :x-pack:plugin:shutdown:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:snapshot-repo-test-kit:compileJava
+ [7.17.29] > Task :x-pack:plugin:snapshot-repo-test-kit:classes
+ [7.17.29] > Task :x-pack:plugin:snapshot-repo-test-kit:jar
+ [7.17.29] > Task :x-pack:plugin:sql:sql-action:compileJava
+ [7.17.29] > Task :x-pack:plugin:snapshot-repo-test-kit:bundlePlugin
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:sql:sql-action:classes
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:classes
+ [7.17.29] > Task :x-pack:plugin:sql:sql-action:jar
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:jar
+ [7.17.29] > Task :x-pack:plugin:searchable-snapshots:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:stack:compileJava
+ [7.17.29] > Task :x-pack:plugin:stack:classes
+ [7.17.29] > Task :x-pack:plugin:stack:jar
+ [7.17.29] > Task :x-pack:plugin:stack:bundlePlugin
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:spatial:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:spatial:classes
+ [7.17.29] > Task :x-pack:plugin:spatial:jar
+ [7.17.29] > Task :x-pack:plugin:spatial:bundlePlugin
+ [7.17.29] 
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/x-pack/plugin/vector-tile/src/main/java/org/elasticsearch/xpack/vectortile/feature/PatchedJtsAdapter.java uses or overrides a deprecated API.
+ [7.17.29] > Task :x-pack:plugin:vector-tile:compileJava
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:vector-tile:classes
+ [7.17.29] > Task :x-pack:plugin:vector-tile:jar
+ [7.17.29] > Task :x-pack:plugin:vector-tile:bundlePlugin
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/x-pack/plugin/transform/src/main/java/org/elasticsearch/xpack/transform/notifications/TransformAuditor.java uses or overrides a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:text-structure:compileJava
+ [7.17.29] > Task :x-pack:plugin:text-structure:classes
+ [7.17.29] > Task :x-pack:plugin:text-structure:jar
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:transform:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:transform:classes
+ [7.17.29] > Task :x-pack:plugin:transform:jar
+ [7.17.29] > Task :x-pack:plugin:transform:bundlePlugin
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] 
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:vectors:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:vectors:classes
+ [7.17.29] > Task :x-pack:plugin:vectors:jar
+ [7.17.29] > Task :x-pack:plugin:vectors:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:voting-only-node:compileJava
+ [7.17.29] > Task :x-pack:plugin:voting-only-node:classes
+ [7.17.29] > Task :x-pack:plugin:voting-only-node:jar
+ [7.17.29] > Task :x-pack:plugin:voting-only-node:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:text-structure:bundlePlugin
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:ml:compileJava
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:wildcard:compileJava
+ [7.17.29] > Task :x-pack:plugin:wildcard:classes
+ [7.17.29] > Task :x-pack:plugin:wildcard:jar
+ [7.17.29] > Task :x-pack:plugin:wildcard:bundlePlugin
+ [7.17.29] 
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:security:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:ml:classes
+ [7.17.29] Note: /repo/distribution/bwc/maintenance/build/bwc/checkout-7.17/x-pack/plugin/sql/src/main/java/org/elasticsearch/xpack/sql/parser/SqlParser.java uses or overrides a deprecated API.
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:sql:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:ml:jar
+ [7.17.29] > Task :x-pack:plugin:sql:classes
+ [7.17.29] > Task :x-pack:plugin:sql:jar
+ [7.17.29] > Task :x-pack:plugin:sql:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:security:classes
+ [7.17.29] Note: Some input files use or override a deprecated API.
+ [7.17.29] 
+ [7.17.29] Note: Recompile with -Xlint:deprecation for details.
+ [7.17.29] > Task :x-pack:plugin:watcher:compileJava
+ [7.17.29] 
+ [7.17.29] > Task :x-pack:plugin:security:jar
+ [7.17.29] > Task :x-pack:plugin:watcher:classes
+ [7.17.29] > Task :x-pack:plugin:watcher:jar
+ [7.17.29] > Task :x-pack:plugin:security:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:watcher:bundlePlugin
+ [7.17.29] > Task :x-pack:plugin:security:cli:compileJava
+ [7.17.29] > Task :x-pack:plugin:security:cli:classes
+ [7.17.29] > Task :x-pack:plugin:security:cli:jar
+
+> Task :distribution:bwc:bugfix2:buildBwcLinuxTar
+ [8.16.6] =======================================
+ [8.16.6] Elasticsearch Build Hamster says Hello!
+ [8.16.6]   Gradle Version        : 8.13
+ [8.16.6]   OS Info               : Linux 6.8.0-1039-oracle (amd64)
+ [8.16.6]   JDK Version           : 21.0.7+6-LTS (Eclipse Temurin)
+ [8.16.6]   JAVA_HOME             : /home/gradle/.gradle-bugfix2/jdks/eclipse_adoptium-21-amd64-linux.2
+ [8.16.6]   Random Testing Seed   : 35F6F59EBAC77462
+ [8.16.6]   In FIPS 140 mode      : false
+ [8.16.6] =======================================
+ [8.16.6] > Task :modules:aggregations:processResources
+ [8.16.6] > Task :modules:analysis-common:processResources
+ [8.16.6] > Task :modules:apm:processResources NO-SOURCE
+ [8.16.6] > Task :modules:data-streams:processResources
+ [8.16.6] > Task :modules:dot-prefix-validation:processResources NO-SOURCE
+ [8.16.6] > Task :modules:health-shards-availability:processResources NO-SOURCE
+ [8.16.6] > Task :modules:ingest-attachment:processResources NO-SOURCE
+
+> Task :distribution:bwc:bugfix:buildBwcLinuxTar
+ [8.17.4] =======================================
+ [8.17.4] Elasticsearch Build Hamster says Hello!
+ [8.17.4]   Gradle Version        : 8.14.2
+ [8.17.4]   OS Info               : Linux 6.8.0-1039-oracle (amd64)
+ [8.17.4]   JDK Version           : 21.0.7+6-LTS (Eclipse Temurin)
+ [8.17.4]   JAVA_HOME             : /home/gradle/.gradle-bugfix/jdks/eclipse_adoptium-21-amd64-linux.2
+ [8.17.4]   Random Testing Seed   : 4A8802AF135EDB0
+ [8.17.4]   In FIPS 140 mode      : false
+ [8.17.4] =======================================
+ [8.17.4] > Task :libs:plugin-api:compileJava
+ [8.17.4] > Task :libs:entitlement:bridge:compileJava
+ [8.17.4] > Task :modules:aggregations:processResources
+ [8.17.4] 
+ [8.17.4] > Task :libs:secure-sm:compileJava
+ [8.17.4] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.17.4] Note: Recompile with -Xlint:removal for details.
+ [8.17.4] 
+ [8.17.4] > Task :modules:analysis-common:processResources
+ [8.17.4] > Task :modules:apm:processResources NO-SOURCE
+ [8.17.4] > Task :modules:data-streams:processResources
+ [8.17.4] > Task :modules:health-shards-availability:processResources NO-SOURCE
+ [8.17.4] > Task :modules:dot-prefix-validation:processResources NO-SOURCE
+ [8.17.4] > Task :modules:ingest-attachment:processResources NO-SOURCE
+ [8.17.4] > Task :modules:ingest-common:processResources
+ [8.17.4] > Task :modules:ingest-geoip:processResources NO-SOURCE
+ [8.17.4] > Task :modules:ingest-user-agent:processResources
+ [8.17.4] > Task :modules:kibana:processResources NO-SOURCE
+ [8.17.4] > Task :modules:lang-expression:processResources NO-SOURCE
+ [8.17.4] > Task :modules:lang-mustache:processResources NO-SOURCE
+ [8.17.4] > Task :modules:lang-painless:processResources
+ [8.17.4] > Task :modules:lang-painless:spi:processResources NO-SOURCE
+ [8.17.4] > Task :modules:legacy-geo:processResources NO-SOURCE
+ [8.17.4] > Task :modules:mapper-extras:processResources NO-SOURCE
+ [8.17.4] > Task :modules:parent-join:processResources NO-SOURCE
+ [8.17.4] > Task :modules:percolator:processResources NO-SOURCE
+ [8.17.4] > Task :modules:rank-eval:processResources
+ [8.17.4] > Task :libs:logging:compileJava
+ [8.17.4] > Task :libs:dissect:compileJava
+ [8.17.4] > Task :libs:dissect:processResources NO-SOURCE
+ [8.17.4] > Task :libs:dissect:classes
+ [8.17.4] > Task :libs:dissect:jar
+ [8.17.4] > Task :libs:ssl-config:processResources NO-SOURCE
+ [8.17.4] > Task :modules:reindex:processResources NO-SOURCE
+ [8.17.4] > Task :modules:repository-azure:processResources NO-SOURCE
+ [8.17.4] > Task :modules:transport-netty4:processResources NO-SOURCE
+ [8.17.4] > Task :modules:repository-gcs:processResources NO-SOURCE
+ [8.17.4] > Task :modules:repository-s3:processResources NO-SOURCE
+ [8.17.4] > Task :modules:repository-url:processResources NO-SOURCE
+ [8.17.4] > Task :modules:rest-root:processResources NO-SOURCE
+ [8.17.4] > Task :modules:runtime-fields-common:processResources
+ [8.17.4] > Task :x-pack:plugin:analytics:generateNotice
+ [8.17.4] > Task :libs:grok:compileJava
+ [8.17.4] > Task :libs:grok:processResources
+ [8.17.4] > Task :libs:grok:classes
+ [8.17.4] > Task :libs:grok:jar
+ [8.17.4] > Task :x-pack:plugin:analytics:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:apm-data:generateNotice
+ [8.17.4] > Task :x-pack:plugin:core:template-resources:compileJava
+ [8.17.4] > Task :x-pack:plugin:async:generateNotice
+ [8.17.4] > Task :x-pack:plugin:apm-data:processResources
+ [8.17.4] > Task :x-pack:plugin:async:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:async-search:generateNotice
+ [8.17.4] > Task :x-pack:plugin:async-search:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:autoscaling:generateNotice
+ [8.17.4] > Task :x-pack:plugin:autoscaling:processResources
+ [8.17.4] > Task :x-pack:plugin:blob-cache:generateNotice
+ [8.17.4] > Task :x-pack:plugin:blob-cache:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:ccr:generateNotice
+ [8.17.4] > Task :x-pack:plugin:ccr:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:core:template-resources:processResources
+ [8.17.4] > Task :x-pack:plugin:core:template-resources:classes
+ [8.17.4] > Task :x-pack:plugin:core:template-resources:jar
+ [8.17.4] > Task :x-pack:plugin:deprecation:generateNotice
+ [8.17.4] > Task :x-pack:plugin:deprecation:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:downsample:generateNotice
+ [8.17.4] > Task :x-pack:plugin:downsample:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:enrich:generateNotice
+ [8.17.4] > Task :x-pack:plugin:enrich:processResources NO-SOURCE
+ [8.17.4] > Task :libs:plugin-analysis-api:compileJava
+ [8.17.4] > Task :x-pack:plugin:search-business-rules:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:ent-search:generateNotice
+ [8.17.4] > Task :x-pack:plugin:ent-search:processResources
+ [8.17.4] > Task :x-pack:plugin:eql:generateNotice
+ [8.17.4] > Task :x-pack:plugin:eql:processResources
+ [8.17.4] > Task :libs:geo:compileJava
+ [8.17.4] > Task :x-pack:plugin:core:generateNotice
+ [8.17.4] > Task :x-pack:plugin:esql:stringTemplates
+ [8.17.4] > Task :x-pack:plugin:core:processResources
+ [8.17.4] > Task :x-pack:plugin:esql:compute:gen:processResources
+ [8.17.4] > Task :x-pack:plugin:esql:arrow:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:esql-core:generateNotice
+ [8.17.4] > Task :x-pack:plugin:esql-core:processResources
+ [8.17.4] > Task :x-pack:plugin:mapper-version:processResources
+ [8.17.4] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.17.4] Note: Recompile with -Xlint:removal for details.
+ [8.17.4] > Task :x-pack:plugin:fleet:generateNotice
+ [8.17.4] > Task :x-pack:plugin:fleet:processResources NO-SOURCE
+ [8.17.4] 
+ [8.17.4] > Task :libs:core:compileJava
+ [8.17.4] 
+ [8.17.4] > Task :x-pack:plugin:frozen-indices:generateNotice
+ [8.17.4] > Task :x-pack:plugin:frozen-indices:processResources NO-SOURCE
+ [8.17.4] > Task :client:rest:compileJava
+ [8.17.4] > Task :x-pack:plugin:geoip-enterprise-downloader:generateNotice
+ [8.17.4] > Task :x-pack:plugin:geoip-enterprise-downloader:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:esql:compute:ann:compileJava
+ [8.17.4] > Task :x-pack:plugin:esql:compute:ann:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:esql:compute:ann:classes
+ [8.17.4] > Task :x-pack:plugin:graph:generateNotice
+ [8.17.4] > Task :x-pack:plugin:esql:compute:ann:jar
+ [8.17.4] > Task :x-pack:plugin:graph:processResources NO-SOURCE
+ [8.17.4] > Task :client:rest:processResources
+ [8.17.4] > Task :x-pack:plugin:esql:generateNotice
+ [8.17.4] > Task :client:rest:classes
+ [8.17.4] > Task :x-pack:plugin:esql:processResources
+ [8.17.4] > Task :client:rest:jar
+ [8.17.4] > Task :x-pack:plugin:identity-provider:generateNotice
+ [8.17.4] > Task :x-pack:plugin:esql:compute:stringTemplates
+ [8.17.4] > Task :libs:lz4:compileJava
+
+> Task :distribution:bwc:staged:buildBwcLinuxTar
+ [8.18.0] =======================================
+ [8.18.0] Elasticsearch Build Hamster says Hello!
+ [8.18.0]   Gradle Version        : 9.1.0
+ [8.18.0]   OS Info               : Linux 6.8.0-1039-oracle (amd64)
+ [8.18.0]   JDK Version           : 21.0.7+6-LTS (Eclipse Temurin)
+ [8.18.0]   JAVA_HOME             : /home/gradle/.gradle-staged/jdks/eclipse_adoptium-21-amd64-linux.2
+ [8.18.0]   Random Testing Seed   : 4979243F2149CED4
+ [8.18.0]   In FIPS 140 mode      : false
+ [8.18.0] =======================================
+
+> Task :distribution:bwc:maintenance:buildBwcLinuxTar
+ [7.17.29] > Task :x-pack:plugin:ml:bundlePlugin
+ [7.17.29] > Task :distribution:processDefaultOutputs
+ [7.17.29] > Task :distribution:buildDefaultLog4jConfig
+
+> Task :distribution:bwc:bugfix2:buildBwcLinuxTar
+ [8.16.6] > Task :libs:elasticsearch-plugin-api:compileJava
+ [8.16.6] > Task :libs:elasticsearch-logging:compileJava
+ [8.16.6] 
+ [8.16.6] > Task :libs:elasticsearch-secure-sm:compileJava
+ [8.16.6] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.16.6] Note: Recompile with -Xlint:removal for details.
+ [8.16.6] 
+ [8.16.6] > Task :modules:ingest-common:processResources
+ [8.16.6] > Task :modules:ingest-geoip:processResources NO-SOURCE
+ [8.16.6] > Task :modules:ingest-user-agent:processResources
+ [8.16.6] > Task :modules:kibana:processResources NO-SOURCE
+ [8.16.6] > Task :modules:lang-expression:processResources NO-SOURCE
+ [8.16.6] > Task :modules:lang-mustache:processResources NO-SOURCE
+ [8.16.6] > Task :modules:lang-painless:processResources
+ [8.16.6] > Task :modules:lang-painless:spi:processResources NO-SOURCE
+ [8.16.6] > Task :modules:legacy-geo:processResources NO-SOURCE
+ [8.16.6] > Task :modules:mapper-extras:processResources NO-SOURCE
+ [8.16.6] > Task :modules:parent-join:processResources NO-SOURCE
+ [8.16.6] > Task :modules:percolator:processResources NO-SOURCE
+ [8.16.6] > Task :modules:rank-eval:processResources
+ [8.16.6] > Task :libs:elasticsearch-dissect:compileJava
+ [8.16.6] > Task :libs:elasticsearch-dissect:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-dissect:classes
+ [8.16.6] > Task :libs:elasticsearch-dissect:jar
+ [8.16.6] > Task :libs:elasticsearch-ssl-config:processResources NO-SOURCE
+ [8.16.6] > Task :modules:reindex:processResources NO-SOURCE
+ [8.16.6] > Task :modules:repository-azure:processResources NO-SOURCE
+ [8.16.6] > Task :modules:transport-netty4:processResources NO-SOURCE
+ [8.16.6] > Task :modules:repository-gcs:processResources NO-SOURCE
+ [8.16.6] > Task :modules:repository-s3:processResources NO-SOURCE
+ [8.16.6] > Task :modules:repository-url:processResources NO-SOURCE
+ [8.16.6] > Task :modules:rest-root:processResources NO-SOURCE
+ [8.16.6] > Task :modules:runtime-fields-common:processResources
+ [8.16.6] > Task :x-pack:plugin:analytics:generateNotice
+ [8.16.6] > Task :x-pack:plugin:core:template-resources:compileJava
+ [8.16.6] > Task :x-pack:plugin:analytics:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:apm-data:generateNotice
+ [8.16.6] > Task :x-pack:plugin:apm-data:processResources
+ [8.16.6] > Task :x-pack:plugin:async:generateNotice
+ [8.16.6] > Task :x-pack:plugin:async:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:async-search:generateNotice
+ [8.16.6] > Task :x-pack:plugin:async-search:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:autoscaling:generateNotice
+ [8.16.6] > Task :x-pack:plugin:autoscaling:processResources
+ [8.16.6] > Task :x-pack:plugin:blob-cache:generateNotice
+ [8.16.6] > Task :x-pack:plugin:blob-cache:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:ccr:generateNotice
+ [8.16.6] > Task :x-pack:plugin:ccr:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-grok:compileJava
+ [8.16.6] > Task :libs:elasticsearch-grok:processResources
+ [8.16.6] > Task :libs:elasticsearch-grok:classes
+ [8.16.6] > Task :libs:elasticsearch-grok:jar
+ [8.16.6] > Task :x-pack:plugin:core:template-resources:processResources
+ [8.16.6] > Task :x-pack:plugin:core:template-resources:classes
+ [8.16.6] > Task :x-pack:plugin:core:template-resources:jar
+ [8.16.6] > Task :x-pack:plugin:deprecation:generateNotice
+ [8.16.6] > Task :x-pack:plugin:deprecation:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:downsample:generateNotice
+ [8.16.6] > Task :x-pack:plugin:downsample:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-plugin-analysis-api:compileJava
+ [8.16.6] > Task :x-pack:plugin:enrich:generateNotice
+ [8.16.6] > Task :x-pack:plugin:enrich:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:search-business-rules:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:eql:generateNotice
+ [8.16.6] > Task :x-pack:plugin:ent-search:generateNotice
+ [8.16.6] > Task :x-pack:plugin:ent-search:processResources
+ [8.16.6] > Task :x-pack:plugin:eql:processResources
+ [8.16.6] > Task :x-pack:plugin:core:generateNotice
+ [8.16.6] > Task :x-pack:plugin:core:processResources
+ [8.16.6] > Task :libs:elasticsearch-geo:compileJava
+ [8.16.6] > Task :x-pack:plugin:esql:compute:gen:processResources
+ [8.16.6] > Task :x-pack:plugin:esql:arrow:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:esql:stringTemplates
+ [8.16.6] > Task :x-pack:plugin:esql:compute:ann:compileJava
+ [8.16.6] > Task :x-pack:plugin:esql:compute:ann:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:esql:compute:ann:classes
+ [8.16.6] > Task :x-pack:plugin:esql:compute:ann:jar
+ [8.16.6] > Task :x-pack:plugin:esql-core:generateNotice
+ [8.16.6] > Task :x-pack:plugin:esql-core:processResources
+ [8.16.6] > Task :x-pack:plugin:mapper-version:processResources
+ [8.16.6] > Task :x-pack:plugin:esql:generateNotice
+ [8.16.6] > Task :x-pack:plugin:esql:processResources
+ [8.16.6] > Task :x-pack:plugin:fleet:generateNotice
+ [8.16.6] > Task :x-pack:plugin:fleet:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:frozen-indices:generateNotice
+ [8.16.6] > Task :x-pack:plugin:geoip-enterprise-downloader:generateNotice
+ [8.16.6] > Task :x-pack:plugin:frozen-indices:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:geoip-enterprise-downloader:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:graph:generateNotice
+ [8.16.6] > Task :x-pack:plugin:graph:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:esql:compute:stringTemplates
+ [8.16.6] > Task :x-pack:plugin:esql:compute:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:ilm:generateNotice
+ [8.16.6] > Task :x-pack:plugin:ilm:processResources
+ [8.16.6] > Task :x-pack:plugin:identity-provider:generateNotice
+ [8.16.6] > Task :libs:elasticsearch-logging:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-logging:classes
+ [8.16.6] > Task :client:rest:compileJava
+ [8.16.6] > Task :x-pack:plugin:identity-provider:processResources
+ [8.16.6] > Task :libs:elasticsearch-logging:jar
+ [8.16.6] > Task :x-pack:plugin:logsdb:generateNotice
+ [8.16.6] > Task :x-pack:plugin:logsdb:processResources NO-SOURCE
+ [8.16.6] > Task :client:rest:processResources
+ [8.16.6] > Task :client:rest:classes
+ [8.16.6] > Task :x-pack:plugin:logstash:generateNotice
+ [8.16.6] > Task :x-pack:plugin:logstash:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:mapper-aggregate-metric:generateNotice
+ [8.16.6] > Task :x-pack:plugin:mapper-aggregate-metric:processResources NO-SOURCE
+ [8.16.6] > Task :client:rest:jar
+ [8.16.6] > Task :x-pack:plugin:mapper-constant-keyword:generateNotice
+ [8.16.6] > Task :x-pack:plugin:mapper-counted-keyword:generateNotice
+ [8.16.6] > Task :x-pack:plugin:mapper-counted-keyword:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:mapper-constant-keyword:processResources
+ [8.16.6] > Task :x-pack:plugin:mapper-unsigned-long:generateNotice
+ [8.16.6] > Task :x-pack:plugin:mapper-version:generateNotice
+ [8.16.6] > Task :x-pack:plugin:mapper-unsigned-long:processResources
+ [8.16.6] > Task :x-pack:plugin:ml-package-loader:generateNotice
+ [8.16.6] > Task :x-pack:plugin:ml-package-loader:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:inference:generateNotice
+ [8.16.6] > Task :x-pack:plugin:inference:processResources
+ [8.16.6] > Task :x-pack:plugin:monitoring:generateNotice
+ [8.16.6] 
+ [8.16.6] > Task :libs:elasticsearch-core:compileJava
+ [8.16.6] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.16.6] Note: Recompile with -Xlint:removal for details.
+ [8.16.6] 
+ [8.16.6] > Task :x-pack:plugin:monitoring:processResources
+ [8.16.6] > Task :x-pack:plugin:old-lucene-versions:generateNotice
+ [8.16.6] > Task :x-pack:plugin:old-lucene-versions:processResources
+ [8.16.6] > Task :x-pack:libs:es-opensaml-security-api:compileJava
+ [8.16.6] > Task :client:sniffer:compileJava
+ [8.16.6] > Task :x-pack:plugin:otel-data:generateNotice
+ [8.16.6] > Task :x-pack:plugin:ml:extractNativeLicenses
+ [8.16.6] > Task :libs:elasticsearch-lz4:compileJava
+ [8.16.6] > Task :libs:elasticsearch-core:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-core:classes
+ [8.16.6] > Task :libs:elasticsearch-core:jar
+ [8.16.6] > Task :libs:elasticsearch-cli:compileJava
+ [8.16.6] > Task :x-pack:libs:es-opensaml-security-api:processResources
+ [8.16.6] > Task :x-pack:libs:es-opensaml-security-api:classes
+ [8.16.6] > Task :libs:elasticsearch-native:compileJava
+ [8.16.6] > Task :x-pack:plugin:esql:compute:gen:compileJava
+ [8.16.6] > Task :x-pack:plugin:esql:compute:gen:classes
+ [8.16.6] > Task :x-pack:plugin:esql:compute:gen:jar
+ [8.16.6] > Task :x-pack:libs:es-opensaml-security-api:shadowJar
+ [8.16.6] > Task :client:sniffer:processResources NO-SOURCE
+ [8.16.6] > Task :client:sniffer:classes
+ [8.16.6] > Task :client:sniffer:jar
+ [8.16.6] > Task :libs:elasticsearch-tdigest:compileJava
+ [8.16.6] > Task :x-pack:plugin:otel-data:processResources
+ [8.16.6] > Task :x-pack:plugin:profiling:generateNotice
+ [8.16.6] > Task :x-pack:plugin:profiling:processResources
+ [8.16.6] > Task :x-pack:plugin:rank-rrf:generateNotice
+ [8.16.6] > Task :x-pack:plugin:rank-rrf:processResources
+ [8.16.6] > Task :libs:elasticsearch-simdvec:compileJava
+ [8.16.6] > Task :x-pack:plugin:redact:generateNotice
+ [8.16.6] > Task :x-pack:plugin:redact:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:repositories-metering-api:generateNotice
+ [8.16.6] > Task :x-pack:plugin:repositories-metering-api:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:search-business-rules:generateNotice
+ [8.16.6] > Task :x-pack:plugin:rollup:generateNotice
+ [8.16.6] > Task :x-pack:plugin:rollup:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:searchable-snapshots:generateNotice
+ [8.16.6] > Task :x-pack:plugin:searchable-snapshots:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:ql:generateNotice
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:compileJava NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:classes UP-TO-DATE
+ [8.16.6] > Task :x-pack:plugin:ql:processResources
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:shutdown:generateNotice
+ [8.16.6] > Task :x-pack:plugin:shutdown:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:slm:generateNotice
+ [8.16.6] > Task :x-pack:plugin:slm:processResources
+ [8.16.6] > Task :x-pack:plugin:snapshot-based-recoveries:generateNotice
+ [8.16.6] > Task :x-pack:plugin:snapshot-based-recoveries:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:snapshot-repo-test-kit:generateNotice
+ [8.16.6] > Task :x-pack:plugin:snapshot-repo-test-kit:processResources
+ [8.16.6] > Task :x-pack:plugin:security:generateNotice
+ [8.16.6] > Task :x-pack:plugin:security:processResources
+ [8.16.6] > Task :x-pack:plugin:ml:generateNotice
+ [8.16.6] 
+ [8.16.6] > Task :libs:elasticsearch-ssl-config:compileJava
+ [8.16.6] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.16.6] Note: Recompile with -Xlint:removal for details.
+ [8.16.6] 
+ [8.16.6] > Task :x-pack:plugin:ml:processResources
+ [8.16.6] > Task :x-pack:plugin:spatial:generateNotice
+ [8.16.6] > Task :x-pack:plugin:spatial:processResources
+ [8.16.6] > Task :server:processResources
+ [8.16.6] > Task :libs:elasticsearch-ssl-config:classes
+ [8.16.6] > Task :libs:elasticsearch-x-content:impl:processResources
+ [8.16.6] > Task :server:generateModulesList
+ [8.16.6] > Task :server:generatePluginsList
+ [8.16.6] > Task :libs:elasticsearch-ssl-config:jar
+ [8.16.6] > Task :x-pack:plugin:sql:sql-action:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-cli:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-cli:classes
+ [8.16.6] > Task :libs:elasticsearch-cli:jar
+ [8.16.6] > Task :x-pack:plugin:sql:sql-cli:processResources
+ [8.16.6] > Task :x-pack:plugin:sql:sql-client:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:stack:generateNotice
+ [8.16.6] > Task :x-pack:plugin:stack:processResources
+ [8.16.6] > Task :x-pack:plugin:text-structure:generateNotice
+ [8.16.6] > Task :x-pack:plugin:text-structure:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:transform:generateNotice
+ [8.16.6] > Task :x-pack:plugin:transform:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:vector-tile:generateNotice
+ [8.16.6] > Task :x-pack:plugin:vector-tile:processResources
+ [8.16.6] > Task :x-pack:plugin:voting-only-node:generateNotice
+ [8.16.6] > Task :x-pack:plugin:voting-only-node:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-h3:compileJava
+ [8.16.6] > Task :libs:elasticsearch-h3:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-h3:classes
+ [8.16.6] > Task :x-pack:plugin:sql:generateNotice
+ [8.16.6] > Task :libs:elasticsearch-h3:jar
+ [8.16.6] > Task :x-pack:plugin:sql:processResources
+ [8.16.6] > Task :x-pack:plugin:write-load-forecaster:generateNotice
+ [8.16.6] > Task :x-pack:plugin:write-load-forecaster:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:wildcard:generateNotice
+ [8.16.6] > Task :x-pack:plugin:wildcard:processResources
+ [8.16.6] > Task :test:external-modules:test-apm-integration:processResources NO-SOURCE
+ [8.16.6] > Task :test:external-modules:test-delayed-aggs:processResources NO-SOURCE
+ [8.16.6] > Task :test:external-modules:test-die-with-dignity:processResources NO-SOURCE
+ [8.16.6] > Task :test:external-modules:test-error-query:processResources NO-SOURCE
+ [8.16.6] > Task :test:external-modules:test-esql-heap-attack:processResources NO-SOURCE
+ [8.16.6] > Task :test:external-modules:test-jvm-crash:processResources NO-SOURCE
+ [8.16.6] > Task :test:external-modules:test-latency-simulating-directory:processResources NO-SOURCE
+ [8.16.6] > Task :distribution:archives:createJvmOptionsDir
+ [8.16.6] > Task :distribution:archives:createLogsDir
+ [8.16.6] > Task :distribution:archives:createPluginsDir
+ [8.16.6] > Task :libs:elasticsearch-geo:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-geo:classes
+ [8.16.6] > Task :x-pack:plugin:watcher:generateNotice
+ [8.16.6] > Task :x-pack:plugin:watcher:processResources
+ [8.16.6] > Task :libs:elasticsearch-geo:jar
+ [8.16.6] > Task :libs:elasticsearch-lz4:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-lz4:classes
+ [8.16.6] > Task :libs:elasticsearch-lz4:jar
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:shadowJar
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:compileJava NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:classes UP-TO-DATE
+ [8.16.6] > Task :libs:elasticsearch-log4j:patchLog4j
+ [8.16.6] > Task :libs:elasticsearch-native:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-native:processMain21Resources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-native:processMain22Resources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-plugin-analysis-api:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-plugin-analysis-api:classes
+ [8.16.6] > Task :libs:elasticsearch-plugin-analysis-api:jar
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:shadowJar
+ [8.16.6] > Task :libs:elasticsearch-plugin-api:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-plugin-api:classes
+ [8.16.6] > Task :libs:elasticsearch-plugin-api:jar
+ [8.16.6] > Task :libs:elasticsearch-plugin-scanner:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-secure-sm:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-secure-sm:classes
+ [8.16.6] > Task :libs:elasticsearch-secure-sm:jar
+ [8.16.6] > Task :libs:elasticsearch-simdvec:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-simdvec:classes
+ [8.16.6] > Task :libs:elasticsearch-x-content:compileJava
+ [8.16.6] Note: Some input files use or override a deprecated API.
+ [8.16.6] Note: Recompile with -Xlint:deprecation for details.
+ [8.16.6] > Task :libs:elasticsearch-native:jna:compileJava
+ [8.16.6] 
+ [8.16.6] > Task :x-pack:plugin:sql:sql-proto:compileJava
+ [8.16.6] 
+ [8.16.6] > Task :libs:elasticsearch-x-content:processResources NO-SOURCE
+ [8.16.6] 
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:compileJava
+ [8.16.6] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.16.6] Note: Recompile with -Xlint:removal for details.
+ [8.16.6] warning: using incubating module(s): jdk.incubator.vector
+ [8.16.6] Note: Some input files use preview features of Java SE 21.
+ [8.16.6] Note: Recompile with -Xlint:preview for details.
+ [8.16.6] 1 warning
+ [8.16.6] 
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:classes
+ [8.16.6] 
+ [8.16.6] > Task :libs:elasticsearch-simdvec:compileMain21Java
+ [8.16.6] 
+ [8.16.6] > Task :x-pack:plugin:sql:sql-proto:processResources NO-SOURCE
+ [8.16.6] > Task :x-pack:plugin:sql:sql-proto:classes
+ [8.16.6] > Task :x-pack:plugin:sql:sql-proto:jar
+ [8.16.6] > Task :libs:elasticsearch-native:jna:processResources
+ [8.16.6] > Task :libs:elasticsearch-native:jna:classes
+ [8.16.6] > Task :libs:elasticsearch-native:jna:jar
+ [8.16.6] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:shadowJar
+ [8.16.6] > Task :libs:elasticsearch-native:generateJnaProviderManifest
+ [8.16.6] Note: Some input files use or override a deprecated API.
+ [8.16.6] Note: Recompile with -Xlint:deprecation for details.
+ [8.16.6] 
+ [8.16.6] > Task :libs:elasticsearch-x-content:impl:compileJava
+ [8.16.6] Note: /repo/distribution/bwc/bugfix2/build/bwc/checkout-8.16/x-pack/plugin/sql/sql-client/src/main/java/org/elasticsearch/xpack/sql/client/RemoteFailure.java uses or overrides a deprecated API.
+ [8.16.6] Note: Recompile with -Xlint:deprecation for details.
+ [8.16.6] 
+ [8.16.6] > Task :x-pack:plugin:sql:sql-client:compileJava
+ [8.16.6] 
+ [8.16.6] > Task :libs:elasticsearch-x-content:impl:classes
+ [8.16.6] > Task :libs:elasticsearch-native:generateJnaProviderImpl
+ [8.16.6] > Task :x-pack:plugin:sql:sql-client:classes
+ [8.16.6] > Task :libs:elasticsearch-x-content:impl:jar
+ [8.16.6] > Task :x-pack:plugin:sql:sql-client:jar
+ [8.16.6] > Task :libs:elasticsearch-native:classes
+ [8.16.6] > Task :libs:elasticsearch-plugin-scanner:compileJava
+ [8.16.6] > Task :libs:elasticsearch-plugin-scanner:classes
+ [8.16.6] > Task :libs:elasticsearch-plugin-scanner:jar
+ [8.16.6] > Task :libs:elasticsearch-simdvec:processMain21Resources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-simdvec:main21Classes
+ [8.16.6] > Task :libs:elasticsearch-x-content:generateImplProviderManifest
+ [8.16.6] 
+ [8.16.6] > Task :libs:elasticsearch-native:compileMain21Java
+ [8.16.6] Note: Some input files use preview features of Java SE 21.
+ [8.16.6] Note: Recompile with -Xlint:preview for details.
+ [8.16.6] 
+ [8.16.6] > Task :x-pack:plugin:sql:sql-cli:compileJava
+ [8.16.6] > Task :x-pack:plugin:sql:sql-cli:classes
+ [8.16.6] > Task :libs:elasticsearch-native:main21Classes
+ [8.16.6] > Task :libs:elasticsearch-x-content:generateImplProviderImpl
+ [8.16.6] > Task :libs:elasticsearch-x-content:classes
+ [8.16.6] > Task :libs:elasticsearch-x-content:jar
+ [8.16.6] > Task :libs:elasticsearch-tdigest:processResources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-tdigest:classes
+ [8.16.6] > Task :libs:elasticsearch-tdigest:jar
+ [8.16.6] > Task :distribution:tools:ansi-console:processResources NO-SOURCE
+ [8.16.6] > Task :distribution:tools:cli-launcher:processResources NO-SOURCE
+ [8.16.6] > Task :distribution:tools:geoip-cli:processResources
+ [8.16.6] > Task :distribution:tools:java-version-checker:compileJava
+ [8.16.6] > Task :distribution:tools:java-version-checker:processResources NO-SOURCE
+ [8.16.6] > Task :distribution:tools:java-version-checker:classes
+ [8.16.6] > Task :distribution:tools:java-version-checker:jar
+ [8.16.6] > Task :distribution:tools:keystore-cli:processResources
+ [8.16.6] > Task :distribution:tools:plugin-cli:processResources
+ [8.16.6] > Task :distribution:tools:server-cli:processResources
+ [8.16.6] > Task :distribution:tools:windows-service-cli:processResources
+ [8.16.6] > Task :x-pack:plugin:sql:sql-cli:shadowJar
+ [8.16.6] > Task :x-pack:plugin:security:cli:processResources
+ [8.16.6] > Task :distribution:buildDefaultNotice
+ [8.16.6] > Task :libs:elasticsearch-native:elasticsearch-native-libraries:extractLibs
+ [8.16.6] > Task :libs:elasticsearch-simdvec:compileMain22Java
+ [8.16.6] > Task :libs:elasticsearch-simdvec:processMain22Resources NO-SOURCE
+ [8.16.6] > Task :libs:elasticsearch-simdvec:main22Classes
+ [8.16.6] > Task :libs:elasticsearch-native:compileMain22Java
+ [8.16.6] > Task :libs:elasticsearch-native:main22Classes
+ [8.16.6] > Task :libs:elasticsearch-simdvec:jar
+ [8.16.6] > Task :libs:elasticsearch-native:jar
+
+> Task :distribution:bwc:bugfix:buildBwcLinuxTar
+ [8.17.4] > Task :x-pack:libs:es-opensaml-security-api:compileJava
+ [8.17.4] > Task :libs:core:processResources NO-SOURCE
+ [8.17.4] > Task :libs:core:classes
+ [8.17.4] > Task :libs:core:jar
+ [8.17.4] > Task :libs:cli:compileJava
+ [8.17.4] > Task :x-pack:plugin:esql:compute:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:libs:es-opensaml-security-api:processResources
+ [8.17.4] > Task :x-pack:libs:es-opensaml-security-api:classes
+ [8.17.4] > Task :libs:native:compileJava
+ [8.17.4] > Task :libs:tdigest:compileJava
+ [8.17.4] > Task :x-pack:plugin:identity-provider:processResources
+ [8.17.4] > Task :x-pack:plugin:ilm:generateNotice
+ [8.17.4] > Task :x-pack:plugin:ilm:processResources
+ [8.17.4] > Task :libs:logging:processResources NO-SOURCE
+ [8.17.4] > Task :libs:logging:classes
+ [8.17.4] > Task :libs:simdvec:compileJava
+ [8.17.4] > Task :libs:logging:jar
+ [8.17.4] > Task :x-pack:plugin:kql:generateNotice
+ [8.17.4] > Task :x-pack:plugin:kql:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:logsdb:generateNotice
+ [8.17.4] > Task :x-pack:plugin:logsdb:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:logstash:generateNotice
+ [8.17.4] > Task :x-pack:plugin:logstash:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:mapper-aggregate-metric:generateNotice
+ [8.17.4] > Task :x-pack:plugin:mapper-aggregate-metric:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:mapper-constant-keyword:generateNotice
+ [8.17.4] > Task :x-pack:plugin:mapper-constant-keyword:processResources
+ [8.17.4] > Task :x-pack:plugin:mapper-counted-keyword:generateNotice
+ [8.17.4] > Task :x-pack:plugin:mapper-counted-keyword:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:mapper-unsigned-long:generateNotice
+ [8.17.4] > Task :x-pack:libs:es-opensaml-security-api:shadowJar
+ [8.17.4] > Task :x-pack:plugin:mapper-unsigned-long:processResources
+ [8.17.4] > Task :x-pack:plugin:mapper-version:generateNotice
+ [8.17.4] > Task :x-pack:plugin:ml-package-loader:generateNotice
+ [8.17.4] > Task :x-pack:plugin:ml-package-loader:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:esql:compute:gen:compileJava
+ [8.17.4] > Task :x-pack:plugin:esql:compute:gen:classes
+ [8.17.4] 
+ [8.17.4] > Task :libs:ssl-config:compileJava
+ [8.17.4] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.17.4] Note: Recompile with -Xlint:removal for details.
+ [8.17.4] 
+ [8.17.4] > Task :x-pack:plugin:esql:compute:gen:jar
+ [8.17.4] > Task :x-pack:plugin:inference:generateNotice
+ [8.17.4] > Task :x-pack:plugin:inference:processResources
+ [8.17.4] > Task :x-pack:plugin:monitoring:generateNotice
+ [8.17.4] > Task :libs:ssl-config:classes
+ [8.17.4] > Task :x-pack:plugin:monitoring:processResources
+ [8.17.4] > Task :x-pack:plugin:otel-data:generateNotice
+ [8.17.4] > Task :x-pack:plugin:otel-data:processResources
+ [8.17.4] > Task :x-pack:plugin:profiling:generateNotice
+ [8.17.4] > Task :x-pack:plugin:profiling:processResources
+ [8.17.4] > Task :client:sniffer:compileJava
+ [8.17.4] > Task :client:sniffer:processResources NO-SOURCE
+ [8.17.4] > Task :client:sniffer:classes
+ [8.17.4] > Task :x-pack:plugin:ql:generateNotice
+ [8.17.4] > Task :x-pack:plugin:ql:processResources
+ [8.17.4] > Task :client:sniffer:jar
+ [8.17.4] > Task :libs:x-content:compileJava
+ [8.17.4] > Task :x-pack:plugin:redact:generateNotice
+ [8.17.4] > Task :x-pack:plugin:redact:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:rank-rrf:generateNotice
+ [8.17.4] > Task :x-pack:plugin:rank-rrf:processResources
+ [8.17.4] > Task :x-pack:plugin:repositories-metering-api:generateNotice
+ [8.17.4] > Task :x-pack:plugin:repositories-metering-api:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:rollup:generateNotice
+ [8.17.4] > Task :x-pack:plugin:rollup:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:search-business-rules:generateNotice
+ [8.17.4] > Task :x-pack:plugin:searchable-snapshots:generateNotice
+ [8.17.4] > Task :x-pack:plugin:searchable-snapshots:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:compileJava NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:classes UP-TO-DATE
+ [8.17.4] > Task :x-pack:plugin:security:generateNotice
+ [8.17.4] > Task :libs:ssl-config:jar
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:old-lucene-versions:generateNotice
+ [8.17.4] > Task :x-pack:plugin:security:processResources
+ [8.17.4] > Task :x-pack:plugin:shutdown:generateNotice
+ [8.17.4] > Task :x-pack:plugin:shutdown:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:old-lucene-versions:processResources
+ [8.17.4] > Task :x-pack:plugin:snapshot-based-recoveries:generateNotice
+ [8.17.4] > Task :x-pack:plugin:snapshot-based-recoveries:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:slm:generateNotice
+ [8.17.4] > Task :x-pack:plugin:snapshot-repo-test-kit:generateNotice
+ [8.17.4] > Task :x-pack:plugin:slm:processResources
+ [8.17.4] > Task :x-pack:plugin:snapshot-repo-test-kit:processResources
+ [8.17.4] > Task :x-pack:plugin:ml:extractNativeLicenses
+ [8.17.4] > Task :server:processResources
+ [8.17.4] > Task :server:generateModulesList
+ [8.17.4] > Task :server:generatePluginsList
+ [8.17.4] > Task :x-pack:plugin:spatial:generateNotice
+ [8.17.4] > Task :x-pack:plugin:spatial:processResources
+ [8.17.4] > Task :libs:x-content:processResources NO-SOURCE
+ [8.17.4] > Task :libs:entitlement:compileJava
+ [8.17.4] > Task :x-pack:plugin:sql:generateNotice
+ [8.17.4] > Task :x-pack:plugin:ml:generateNotice
+ [8.17.4] > Task :x-pack:plugin:ml:processResources
+ [8.17.4] > Task :x-pack:plugin:sql:processResources
+ [8.17.4] > Task :x-pack:plugin:sql:sql-action:processResources NO-SOURCE
+ [8.17.4] > Task :libs:cli:processResources NO-SOURCE
+ [8.17.4] > Task :libs:cli:classes
+ [8.17.4] > Task :libs:cli:jar
+ [8.17.4] > Task :x-pack:plugin:sql:sql-cli:processResources
+ [8.17.4] > Task :x-pack:plugin:sql:sql-client:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:stack:generateNotice
+ [8.17.4] > Task :x-pack:plugin:stack:processResources
+ [8.17.4] > Task :x-pack:plugin:text-structure:generateNotice
+ [8.17.4] > Task :x-pack:plugin:text-structure:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:transform:generateNotice
+ [8.17.4] > Task :x-pack:plugin:transform:processResources NO-SOURCE
+ [8.17.4] 
+ [8.17.4] > Task :libs:x-content:impl:compileJava
+ [8.17.4] Note: Some input files use or override a deprecated API.
+ [8.17.4] Note: Recompile with -Xlint:deprecation for details.
+ [8.17.4] 
+ [8.17.4] > Task :x-pack:plugin:vector-tile:generateNotice
+ [8.17.4] > Task :x-pack:plugin:vector-tile:processResources
+ [8.17.4] > Task :x-pack:plugin:voting-only-node:generateNotice
+ [8.17.4] > Task :x-pack:plugin:voting-only-node:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:watcher:generateNotice
+ [8.17.4] > Task :x-pack:plugin:watcher:processResources
+ [8.17.4] > Task :x-pack:plugin:wildcard:generateNotice
+ [8.17.4] > Task :x-pack:plugin:wildcard:processResources
+ [8.17.4] > Task :x-pack:plugin:write-load-forecaster:generateNotice
+ [8.17.4] > Task :x-pack:plugin:write-load-forecaster:processResources NO-SOURCE
+ [8.17.4] > Task :libs:x-content:impl:processResources
+ [8.17.4] > Task :libs:x-content:impl:classes
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part1:shadowJar
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:compileJava NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:classes UP-TO-DATE
+ [8.17.4] > Task :libs:x-content:impl:jar
+ [8.17.4] > Task :libs:h3:compileJava
+ [8.17.4] > Task :libs:h3:processResources NO-SOURCE
+ [8.17.4] > Task :libs:h3:classes
+ [8.17.4] > Task :libs:h3:jar
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified-part2:shadowJar
+ [8.17.4] > Task :test:external-modules:test-apm-integration:processResources NO-SOURCE
+ [8.17.4] > Task :test:external-modules:test-delayed-aggs:processResources NO-SOURCE
+ [8.17.4] > Task :test:external-modules:test-die-with-dignity:processResources NO-SOURCE
+ [8.17.4] > Task :test:external-modules:test-error-query:processResources NO-SOURCE
+ [8.17.4] > Task :test:external-modules:test-esql-heap-attack:processResources NO-SOURCE
+ [8.17.4] > Task :test:external-modules:test-jvm-crash:processResources NO-SOURCE
+ [8.17.4] > Task :test:external-modules:test-latency-simulating-directory:processResources NO-SOURCE
+ [8.17.4] > Task :distribution:archives:createJvmOptionsDir
+ [8.17.4] > Task :distribution:archives:createLogsDir
+ [8.17.4] > Task :distribution:archives:createPluginsDir
+ [8.17.4] Note: Some input files use or override a deprecated API.
+ [8.17.4] Note: Recompile with -Xlint:deprecation for details.
+ [8.17.4] 
+ [8.17.4] > Task :x-pack:plugin:sql:sql-proto:compileJava
+ [8.17.4] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.17.4] Note: Recompile with -Xlint:removal for details.
+ [8.17.4] 
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:compileJava
+ [8.17.4] 
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:classes
+ [8.17.4] > Task :libs:entitlement:asm-provider:compileJava
+ [8.17.4] > Task :x-pack:plugin:sql:sql-proto:processResources NO-SOURCE
+ [8.17.4] > Task :x-pack:plugin:sql:sql-proto:classes
+ [8.17.4] > Task :libs:x-content:generateImplProviderManifest
+ [8.17.4] > Task :x-pack:plugin:sql:sql-proto:jar
+ [8.17.4] > Task :libs:entitlement:asm-provider:processResources
+ [8.17.4] > Task :libs:entitlement:asm-provider:classes
+ [8.17.4] > Task :libs:entitlement:asm-provider:jar
+ [8.17.4] > Task :x-pack:plugin:security:lib:nimbus-jose-jwt-modified:shadowJar
+ [8.17.4] > Task :libs:geo:processResources NO-SOURCE
+ [8.17.4] > Task :libs:geo:classes
+ [8.17.4] > Task :libs:entitlement:generateAsm-providerProviderManifest
+ [8.17.4] Note: /repo/distribution/bwc/bugfix/build/bwc/checkout-8.17/x-pack/plugin/sql/sql-client/src/main/java/org/elasticsearch/xpack/sql/client/RemoteFailure.java uses or overrides a deprecated API.
+ [8.17.4] Note: Recompile with -Xlint:deprecation for details.
+ [8.17.4] > Task :libs:geo:jar
+ [8.17.4] 
+ [8.17.4] > Task :x-pack:plugin:sql:sql-client:compileJava
+ [8.17.4] 
+ [8.17.4] > Task :libs:entitlement:generateAsm-providerProviderImpl
+ [8.17.4] > Task :libs:entitlement:processResources NO-SOURCE
+ [8.17.4] > Task :libs:entitlement:classes
+ [8.17.4] > Task :libs:entitlement:jar
+ [8.17.4] > Task :x-pack:plugin:sql:sql-client:classes
+ [8.17.4] > Task :x-pack:plugin:sql:sql-client:jar
+ [8.17.4] > Task :libs:lz4:processResources NO-SOURCE
+ [8.17.4] > Task :libs:lz4:classes
+ [8.17.4] > Task :libs:lz4:jar
+ [8.17.4] > Task :libs:log4j:patchLog4j
+ [8.17.4] > Task :libs:native:processResources NO-SOURCE
+ [8.17.4] > Task :libs:native:processMain21Resources NO-SOURCE
+ [8.17.4] > Task :libs:native:processMain22Resources NO-SOURCE
+ [8.17.4] > Task :libs:plugin-analysis-api:processResources NO-SOURCE
+ [8.17.4] > Task :libs:plugin-analysis-api:classes
+ [8.17.4] > Task :libs:plugin-analysis-api:jar
+ [8.17.4] > Task :libs:plugin-api:processResources NO-SOURCE
+ [8.17.4] > Task :libs:plugin-api:classes
+ [8.17.4] > Task :libs:plugin-api:jar
+ [8.17.4] > Task :libs:native:jna:compileJava
+ [8.17.4] > Task :libs:x-content:generateImplProviderImpl
+ [8.17.4] > Task :libs:x-content:classes
+ [8.17.4] > Task :libs:native:jna:processResources
+ [8.17.4] > Task :libs:native:jna:classes
+ [8.17.4] > Task :libs:native:jna:jar
+ [8.17.4] > Task :libs:plugin-scanner:compileJava
+ [8.17.4] > Task :libs:plugin-scanner:processResources NO-SOURCE
+ [8.17.4] > Task :libs:plugin-scanner:classes
+ [8.17.4] > Task :libs:plugin-scanner:jar
+ [8.17.4] > Task :libs:secure-sm:processResources NO-SOURCE
+ [8.17.4] > Task :libs:secure-sm:classes
+ [8.17.4] > Task :libs:x-content:jar
+ [8.17.4] > Task :libs:simdvec:processResources NO-SOURCE
+ [8.17.4] > Task :libs:simdvec:classes
+ [8.17.4] > Task :libs:secure-sm:jar
+ [8.17.4] > Task :libs:tdigest:processResources NO-SOURCE
+ [8.17.4] > Task :libs:tdigest:classes
+ [8.17.4] > Task :x-pack:plugin:sql:sql-cli:compileJava
+ [8.17.4] > Task :x-pack:plugin:sql:sql-cli:classes
+ [8.17.4] > Task :libs:tdigest:jar
+ [8.17.4] > Task :distribution:tools:ansi-console:processResources NO-SOURCE
+ [8.17.4] > Task :distribution:tools:cli-launcher:processResources NO-SOURCE
+ [8.17.4] > Task :distribution:tools:geoip-cli:processResources
+ [8.17.4] > Task :libs:native:generateJnaProviderManifest
+ [8.17.4] > Task :distribution:tools:java-version-checker:compileJava
+ [8.17.4] > Task :distribution:tools:java-version-checker:processResources NO-SOURCE
+ [8.17.4] > Task :distribution:tools:java-version-checker:classes
+ [8.17.4] > Task :distribution:tools:java-version-checker:jar
+ [8.17.4] > Task :distribution:tools:keystore-cli:processResources
+ [8.17.4] > Task :distribution:tools:plugin-cli:processResources
+ [8.17.4] > Task :distribution:tools:server-cli:processResources
+ [8.17.4] > Task :distribution:tools:windows-service-cli:processResources
+ [8.17.4] > Task :libs:native:generateJnaProviderImpl
+ [8.17.4] > Task :libs:native:classes
+ [8.17.4] > Task :libs:entitlement:agent:compileJava
+ [8.17.4] > Task :libs:entitlement:agent:processResources NO-SOURCE
+ [8.17.4] > Task :libs:entitlement:agent:classes
+ [8.17.4] > Task :libs:entitlement:agent:jar
+ [8.17.4] > Task :libs:entitlement:bridge:processResources NO-SOURCE
+ [8.17.4] > Task :libs:entitlement:bridge:classes
+ [8.17.4] > Task :libs:entitlement:bridge:jar
+ [8.17.4] > Task :distribution:buildDefaultNotice
+ [8.17.4] > Task :x-pack:plugin:security:cli:processResources
+ [8.17.4] warning: using incubating module(s): jdk.incubator.vector
+ [8.17.4] 
+ [8.17.4] > Task :libs:simdvec:compileMain21Java
+ [8.17.4] Note: Some input files use preview features of Java SE 21.
+ [8.17.4] Note: Recompile with -Xlint:preview for details.
+ [8.17.4] 1 warning
+ [8.17.4] 
+ [8.17.4] > Task :x-pack:plugin:sql:sql-cli:shadowJar
+ [8.17.4] 
+ [8.17.4] > Task :libs:native:compileMain21Java
+ [8.17.4] Note: Some input files use preview features of Java SE 21.
+ [8.17.4] Note: Recompile with -Xlint:preview for details.
+ [8.17.4] 
+ [8.17.4] > Task :libs:simdvec:processMain21Resources NO-SOURCE
+ [8.17.4] > Task :libs:simdvec:main21Classes
+ [8.17.4] > Task :libs:native:main21Classes
+ [8.17.4] > Task :libs:native:native-libraries:extractLibs
+
+> Task :distribution:bwc:staged:buildBwcLinuxTar
+ [8.18.0] > Task :libs:logging:compileJava
+ [8.18.0] > Task :libs:plugin-api:compileJava
+ [8.18.0] 
+ [8.18.0] > Task :libs:secure-sm:compileJava
+ [8.18.0] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.18.0] Note: Recompile with -Xlint:removal for details.
+ [8.18.0] 
+ [8.18.0] > Task :modules:aggregations:processResources
+ [8.18.0] > Task :modules:analysis-common:processResources
+ [8.18.0] > Task :modules:apm:processResources NO-SOURCE
+ [8.18.0] > Task :modules:data-streams:processResources
+ [8.18.0] > Task :libs:entitlement:bridge:compileJava
+ [8.18.0] > Task :modules:dot-prefix-validation:processResources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:bridge:processResources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:bridge:classes
+ [8.18.0] > Task :modules:health-shards-availability:processResources NO-SOURCE
+ [8.18.0] > Task :modules:ingest-attachment:processResources NO-SOURCE
+ [8.18.0] > Task :libs:grok:compileJava
+ [8.18.0] > Task :libs:grok:processResources
+ [8.18.0] > Task :libs:grok:classes
+ [8.18.0] > Task :libs:grok:jar
+ [8.18.0] > Task :modules:ingest-common:processResources
+ [8.18.0] > Task :modules:ingest-geoip:processResources NO-SOURCE
+ [8.18.0] > Task :modules:ingest-user-agent:processResources
+ [8.18.0] > Task :modules:kibana:processResources NO-SOURCE
+ [8.18.0] > Task :modules:lang-expression:processResources NO-SOURCE
+ [8.18.0] > Task :modules:lang-mustache:processResources NO-SOURCE
+ [8.18.0] > Task :modules:lang-painless:processResources
+ [8.18.0] > Task :modules:lang-painless:spi:processResources NO-SOURCE
+ [8.18.0] > Task :modules:legacy-geo:processResources NO-SOURCE
+ [8.18.0] > Task :modules:mapper-extras:processResources NO-SOURCE
+ [8.18.0] > Task :modules:parent-join:processResources NO-SOURCE
+ [8.18.0] > Task :modules:percolator:processResources NO-SOURCE
+ [8.18.0] > Task :modules:rank-eval:processResources
+ [8.18.0] > Task :libs:dissect:compileJava
+ [8.18.0] > Task :libs:dissect:processResources NO-SOURCE
+ [8.18.0] > Task :libs:dissect:classes
+ [8.18.0] > Task :libs:dissect:jar
+ [8.18.0] > Task :libs:entitlement:asm-provider:processResources
+ [8.18.0] > Task :libs:entitlement:processResources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:processMain19Resources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:processMain20Resources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:processMain21Resources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:processMain22Resources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:processMain23Resources NO-SOURCE
+ [8.18.0] > Task :libs:ssl-config:processResources NO-SOURCE
+ [8.18.0] > Task :modules:reindex:processResources NO-SOURCE
+ [8.18.0] > Task :modules:repository-azure:processResources NO-SOURCE
+ [8.18.0] > Task :modules:transport-netty4:processResources NO-SOURCE
+ [8.18.0] > Task :modules:repository-gcs:processResources NO-SOURCE
+ [8.18.0] > Task :modules:repository-s3:processResources NO-SOURCE
+ [8.18.0] > Task :modules:repository-url:processResources NO-SOURCE
+ [8.18.0] > Task :modules:rest-root:processResources NO-SOURCE
+ [8.18.0] > Task :modules:runtime-fields-common:processResources
+ [8.18.0] > Task :x-pack:plugin:analytics:generateNotice
+ [8.18.0] > Task :x-pack:plugin:core:template-resources:compileJava
+ [8.18.0] > Task :x-pack:plugin:analytics:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:apm-data:generateNotice
+ [8.18.0] > Task :x-pack:plugin:apm-data:processResources
+ [8.18.0] > Task :x-pack:plugin:async:generateNotice
+ [8.18.0] > Task :x-pack:plugin:async:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:async-search:generateNotice
+ [8.18.0] > Task :x-pack:plugin:async-search:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:autoscaling:generateNotice
+ [8.18.0] > Task :x-pack:plugin:autoscaling:processResources
+ [8.18.0] > Task :x-pack:plugin:blob-cache:generateNotice
+ [8.18.0] > Task :x-pack:plugin:blob-cache:processResources NO-SOURCE
+ [8.18.0] > Task :libs:geo:compileJava
+ [8.18.0] > Task :x-pack:plugin:ccr:generateNotice
+ [8.18.0] > Task :x-pack:plugin:ccr:processResources NO-SOURCE
+ [8.18.0] Note: Some input files use or override a deprecated API that is marked for removal.
+ [8.18.0] > Task :libs:plugin-analysis-api:compileJava
+ [8.18.0] Note: Recompile with -Xlint:removal for details.
+ [8.18.0] 
+ [8.18.0] > Task :libs:core:compileJava
+ [8.18.0] 
+ [8.18.0] > Task :x-pack:plugin:deprecation:generateNotice
+ [8.18.0] > Task :x-pack:plugin:deprecation:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:downsample:generateNotice
+ [8.18.0] > Task :x-pack:plugin:downsample:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:core:template-resources:processResources
+ [8.18.0] > Task :x-pack:plugin:core:template-resources:classes
+ [8.18.0] > Task :x-pack:plugin:enrich:generateNotice
+ [8.18.0] > Task :x-pack:plugin:enrich:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:core:template-resources:jar
+ [8.18.0] Note: /repo/distribution/bwc/staged/build/bwc/checkout-8.18/libs/entitlement/bridge/src/main19/java/org/elasticsearch/entitlement/bridge/Java19PreviewEntitlementChecker.java uses preview features of Java SE 19.
+ [8.18.0] Note: Recompile with -Xlint:preview for details.
+ [8.18.0] 
+ [8.18.0] > Task :libs:entitlement:bridge:compileMain19Java
+ [8.18.0] 
+ [8.18.0] > Task :x-pack:plugin:ent-search:generateNotice
+ [8.18.0] > Task :libs:entitlement:bridge:processMain19Resources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:bridge:main19Classes
+ [8.18.0] > Task :x-pack:plugin:core:generateNotice
+ [8.18.0] > Task :libs:cli:compileJava
+ [8.18.0] > Task :libs:lz4:compileJava
+ [8.18.0] > Task :libs:core:processResources NO-SOURCE
+ [8.18.0] > Task :libs:core:classes
+ [8.18.0] > Task :libs:core:jar
+ [8.18.0] > Task :client:rest:compileJava
+ [8.18.0] > Task :x-pack:plugin:core:processResources
+ [8.18.0] > Task :x-pack:plugin:ent-search:processResources
+ [8.18.0] > Task :x-pack:plugin:search-business-rules:processResources NO-SOURCE
+ [8.18.0] > Task :client:rest:processResources
+ [8.18.0] > Task :client:rest:classes
+ [8.18.0] > Task :client:rest:jar
+ [8.18.0] > Task :x-pack:plugin:eql:generateNotice
+ [8.18.0] > Task :x-pack:plugin:eql:processResources
+ [8.18.0] 
+ [8.18.0] > Task :x-pack:plugin:esql:stringTemplates
+ [8.18.0] context [anonymous] 169:8 attribute NanosMillis isn't defined
+ [8.18.0] context [anonymous] 169:8 attribute NanosMillis isn't defined
+ [8.18.0] context [anonymous] 169:8 attribute NanosMillis isn't defined
+ [8.18.0] context [anonymous] 169:8 attribute NanosMillis isn't defined
+ [8.18.0] context [anonymous] 169:8 attribute NanosMillis isn't defined
+ [8.18.0] 
+ [8.18.0] > Task :libs:native:compileJava
+ [8.18.0] > Task :libs:tdigest:compileJava
+ [8.18.0] > Task :x-pack:plugin:esql:generateNotice
+ [8.18.0] > Task :x-pack:plugin:esql:compute:gen:processResources
+ [8.18.0] > Task :x-pack:plugin:esql:compute:ann:compileJava
+ [8.18.0] > Task :x-pack:plugin:esql:processResources
+ [8.18.0] > Task :x-pack:plugin:esql:compute:ann:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:esql:compute:ann:classes
+ [8.18.0] > Task :x-pack:plugin:esql:compute:ann:jar
+ [8.18.0] > Task :x-pack:plugin:kql:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:esql:arrow:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:esql:compute:stringTemplates
+ [8.18.0] > Task :x-pack:plugin:esql:compute:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:mapper-version:processResources
+ [8.18.0] > Task :libs:simdvec:compileJava
+ [8.18.0] > Task :x-pack:plugin:fleet:generateNotice
+ [8.18.0] > Task :x-pack:plugin:fleet:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:frozen-indices:generateNotice
+ [8.18.0] > Task :x-pack:plugin:frozen-indices:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:esql-core:generateNotice
+ [8.18.0] > Task :x-pack:plugin:geoip-enterprise-downloader:generateNotice
+ [8.18.0] > Task :x-pack:plugin:geoip-enterprise-downloader:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:esql-core:processResources
+ [8.18.0] > Task :x-pack:plugin:graph:generateNotice
+ [8.18.0] > Task :x-pack:plugin:graph:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:ilm:generateNotice
+ [8.18.0] > Task :x-pack:plugin:ilm:processResources
+ [8.18.0] > Task :libs:logging:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:identity-provider:generateNotice
+ [8.18.0] > Task :libs:logging:classes
+ [8.18.0] > Task :x-pack:plugin:identity-provider:processResources
+ [8.18.0] > Task :libs:logging:jar
+ [8.18.0] > Task :x-pack:plugin:kql:generateNotice
+ [8.18.0] > Task :x-pack:plugin:logsdb:generateNotice
+ [8.18.0] > Task :x-pack:plugin:logsdb:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:logstash:generateNotice
+ [8.18.0] > Task :x-pack:plugin:logstash:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:mapper-aggregate-metric:generateNotice
+ [8.18.0] > Task :x-pack:plugin:mapper-aggregate-metric:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:mapper-constant-keyword:generateNotice
+ [8.18.0] > Task :x-pack:plugin:mapper-constant-keyword:processResources
+ [8.18.0] > Task :x-pack:plugin:mapper-counted-keyword:generateNotice
+ [8.18.0] > Task :x-pack:plugin:mapper-counted-keyword:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:mapper-unsigned-long:generateNotice
+ [8.18.0] > Task :x-pack:plugin:inference:generateNotice
+ [8.18.0] > Task :x-pack:plugin:mapper-unsigned-long:processResources
+ [8.18.0] > Task :x-pack:plugin:inference:processResources
+ [8.18.0] > Task :x-pack:plugin:mapper-version:generateNotice
+ [8.18.0] 
+ [8.18.0] > Task :libs:entitlement:bridge:compileMain20Java
+ [8.18.0] Note: Some input files use preview features of Java SE 20.
+ [8.18.0] Note: Recompile with -Xlint:preview for details.
+ [8.18.0] 
+ [8.18.0] > Task :x-pack:plugin:migrate:generateNotice
+ [8.18.0] > Task :x-pack:plugin:migrate:processResources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:bridge:processMain20Resources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:bridge:main20Classes
+ [8.18.0] > Task :x-pack:plugin:ml-package-loader:generateNotice
+ [8.18.0] > Task :x-pack:plugin:ml-package-loader:processResources NO-SOURCE
+ [8.18.0] > Task :libs:x-content:compileJava
+ [8.18.0] > Task :x-pack:libs:es-opensaml-security-api:compileJava
+ [8.18.0] > Task :x-pack:libs:es-opensaml-security-api:processResources
+ [8.18.0] > Task :x-pack:libs:es-opensaml-security-api:classes
+ [8.18.0] > Task :client:sniffer:compileJava
+ [8.18.0] > Task :client:sniffer:processResources NO-SOURCE
+ [8.18.0] > Task :client:sniffer:classes
+ [8.18.0] > Task :x-pack:libs:es-opensaml-security-api:shadowJar
+ [8.18.0] > Task :x-pack:plugin:monitoring:generateNotice
+ [8.18.0] 
+ [8.18.0] > Task :libs:entitlement:bridge:compileMain21Java
+ [8.18.0] 
+ [8.18.0] > Task :libs:entitlement:bridge:processMain21Resources NO-SOURCE
+ [8.18.0] > Task :libs:entitlement:bridge:main21Classes
+ [8.18.0] > Task :x-pack:plugin:monitoring:processResources
+ [8.18.0] Note: /repo/distribution/bwc/staged/build/bwc/checkout-8.18/libs/entitlement/bridge/src/main21/java/org/elasticsearch/entitlement/bridge/Java21EntitlementChecker.java uses preview features of Java SE 21.
+ [8.18.0] Note: Recompile with -Xlint:preview for details.
+ [8.18.0] > Task :x-pack:plugin:old-lucene-versions:generateNotice
+ [8.18.0] > Task :client:sniffer:jar
+ [8.18.0] > Task :x-pack:plugin:old-lucene-versions:processResources
+ [8.18.0] > Task :x-pack:plugin:otel-data:generateNotice
+ [8.18.0] > Task :x-pack:plugin:otel-data:processResources
+ [8.18.0] > Task :x-pack:plugin:profiling:generateNotice
+ [8.18.0] > Task :x-pack:plugin:profiling:processResources
+ [8.18.0] > Task :x-pack:plugin:rank-rrf:generateNotice
+ [8.18.0] > Task :x-pack:plugin:rank-rrf:processResources
+ [8.18.0] > Task :x-pack:plugin:ml:extractNativeLicenses
+ [8.18.0] > Task :x-pack:plugin:rank-vectors:generateNotice
+ [8.18.0] > Task :x-pack:plugin:rank-vectors:processResources
+ [8.18.0] > Task :x-pack:plugin:redact:generateNotice
+ [8.18.0] > Task :x-pack:plugin:redact:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:repositories-metering-api:generateNotice
+ [8.18.0] > Task :x-pack:plugin:repositories-metering-api:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:rollup:generateNotice
+ [8.18.0] > Task :x-pack:plugin:ql:generateNotice
+ [8.18.0] > Task :x-pack:plugin:rollup:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:search-business-rules:generateNotice
+ [8.18.0] > Task :x-pack:plugin:ql:processResources
+ [8.18.0] > Task :x-pack:plugin:searchable-snapshots:generateNotice
+ [8.18.0] > Task :x-pack:plugin:searchable-snapshots:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:shutdown:generateNotice
+ [8.18.0] > Task :x-pack:plugin:shutdown:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:slm:generateNotice
+ [8.18.0] > Task :x-pack:plugin:slm:processResources
+ [8.18.0] > Task :x-pack:plugin:snapshot-based-recoveries:generateNotice
+ [8.18.0] > Task :x-pack:plugin:snapshot-based-recoveries:processResources NO-SOURCE
+ [8.18.0] > Task :x-pack:plugin:snapshot-repo-test-kit:generateNotice
+ [8.18.0] > Task :x-pack:plugin:snapshot-repo-test-kit:processResources
+ [8.18.0] > Task :x-pack:plugin:esql:compute:gen:compileJava
+ [8.18.0] > Task :x-pack:plugin:esql:compute:gen:classes
+ [8.18.0] > Task :x-pack:plugin:security:generateNotice
+ [8.18.0] > Task :x-pack:plugin:security:processResources
+ [8.18.0] > Task :x-pack:plugin:esql:compute:gen:jar
+ [8.18.0] > Task :server:generateTransportVersionManifest
+ [8.18.0] > Task :x-pack:plugin:ml:generateNotice
+ [8.18.0] > Task :x-pack:plugin:spatial:generateNotice
+ [8.18.0] > Task :x-pack:plugin:spatial:processResources
+ [8.18.0] > Task :x-pack:plugin:ml:processResources
+ [8.18.0] > Task :server:processResources
+ [8.18.0] > Task :libs:x-content:processResources NO-SOURCE
+ [8.18.0] > Task :server:generateModulesList
+ [8.18.0] > Task :server:generatePluginsList
+
+> Task :distribution:bwc:maintenance:buildBwcLinuxTar FAILED
+ [7.17.29] > Task :distribution:archives:buildLinux
+ [7.17.29] > Task :distribution:archives:linux-tar:extractedAssemble
+ [7.17.29] 
+ [7.17.29] BUILD SUCCESSFUL in 5m 27s
+ [7.17.29] 467 actionable tasks: 467 executed
+
+> Task :distribution:bwc:bugfix:buildBwcLinuxTar
+ [8.17.4] > Task :libs:native:compileMain22Java
+ [8.17.4] > Task :libs:native:main22Classes
+ [8.17.4] > Task :libs:simdvec:compileMain22Java
+ [8.17.4] > Task :libs:simdvec:processMain22Resources NO-SOURCE
+ [8.17.4] > Task :libs:simdvec:main22Classes
+ [8.17.4] > Task :libs:simdvec:jar
+ [8.17.4] > Task :libs:native:jar
+ [8.17.4] > Task :server:compileJava

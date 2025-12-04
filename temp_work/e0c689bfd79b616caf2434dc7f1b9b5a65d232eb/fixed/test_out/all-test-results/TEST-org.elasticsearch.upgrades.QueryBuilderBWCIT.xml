@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.elasticsearch.upgrades.QueryBuilderBWCIT" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-12-04T07:39:15.584Z" hostname="bbee68ad056a" time="82.466">
+  <properties/>
+  <testcase name="testQueryBuilderBWC {cluster=OLD}" classname="org.elasticsearch.upgrades.QueryBuilderBWCIT" time="4.366"/>
+  <testcase name="testQueryBuilderBWC {cluster=UPGRADED}" classname="org.elasticsearch.upgrades.QueryBuilderBWCIT" time="78.1"/>
+  <system-out><![CDATA[[2025-12-04T10:38:08,577][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [suite] Starting Elasticsearch test cluster 'test-cluster'
+[2025-12-04T10:38:08,582][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-0]] Starting Elasticsearch node 'test-cluster-1'
+[2025-12-04T10:38:08,583][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-1]] Starting Elasticsearch node 'test-cluster-0'
+[2025-12-04T10:38:08,583][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-0]] Creating installation for node 'test-cluster-1' in /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1
+[2025-12-04T10:38:08,583][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-1]] Creating installation for node 'test-cluster-0' in /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0
+[2025-12-04T10:38:08,583][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-0]] Distribution for node 'test-cluster-1': DefaultDistributionDescriptor{version=8.19.0, snapshot=true, distributionDir=/repo/distribution/archives/linux-tar/build/install, type=DEFAULT}
+[2025-12-04T10:38:08,583][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-1]] Distribution for node 'test-cluster-0': DefaultDistributionDescriptor{version=8.19.0, snapshot=true, distributionDir=/repo/distribution/archives/linux-tar/build/install, type=DEFAULT}
+[2025-12-04T10:38:10,858][INFO ][process-output           ] [[elasticsearch-keystore-log-forwarder]] Created elasticsearch keystore in /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/elasticsearch.keystore
+[2025-12-04T10:38:10,893][INFO ][process-output           ] [[elasticsearch-keystore-log-forwarder]] Created elasticsearch keystore in /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/elasticsearch.keystore
+[2025-12-04T10:38:16,950][INFO ][o.e.n.j.JdkVectorLibrary ] [test-cluster-0] vec_caps=1
+[2025-12-04T10:38:17,067][INFO ][o.e.n.NativeAccess       ] [test-cluster-0] Using native vector library; to disable start with -Dorg.elasticsearch.nativeaccess.enableVectorLibrary=false
+[2025-12-04T10:38:17,127][INFO ][o.e.n.NativeAccess       ] [test-cluster-0] Using [jdk] native provider and native methods for [Linux]
+[2025-12-04T10:38:17,503][INFO ][o.e.n.j.JdkVectorLibrary ] [test-cluster-1] vec_caps=1
+[2025-12-04T10:38:17,561][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [test-cluster-0] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
+[2025-12-04T10:38:17,619][INFO ][o.e.n.NativeAccess       ] [test-cluster-1] Using native vector library; to disable start with -Dorg.elasticsearch.nativeaccess.enableVectorLibrary=false
+[2025-12-04T10:38:17,692][INFO ][o.e.n.NativeAccess       ] [test-cluster-1] Using [jdk] native provider and native methods for [Linux]
+[2025-12-04T10:38:17,822][INFO ][o.e.b.Elasticsearch      ] [test-cluster-0] Bootstrapping Entitlements
+[2025-12-04T10:38:17,959][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [test-cluster-1] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
+[2025-12-04T10:38:18,216][INFO ][o.e.b.Elasticsearch      ] [test-cluster-1] Bootstrapping Entitlements
+[2025-12-04T10:38:25,188][INFO ][o.e.n.Node               ] [test-cluster-0] version[8.19.0-SNAPSHOT], pid[13339], build[tar/e0c689bfd79b616caf2434dc7f1b9b5a65d232eb/2025-12-04T07:29:15.711961922Z], OS[Linux/6.8.0-1039-oracle/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/24/24+36-3646]
+[2025-12-04T10:38:25,189][INFO ][o.e.n.Node               ] [test-cluster-0] JVM home [/home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2], using bundled JDK [false]
+[2025-12-04T10:38:25,190][INFO ][o.e.n.Node               ] [test-cluster-0] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Dorg.apache.lucene.vectorization.upperJavaFeatureVersion=24, -Des.distribution.type=tar, -Des.java.type=null, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, --enable-native-access=ALL-UNNAMED, --illegal-native-access=deny, -XX:ReplayDataFile=logs/replay_pid%p.log, -Des.entitlements.enabled=true, -XX:+EnableDynamicAgentLoading, -Djdk.attach.allowAttachSelf=true, --patch-module=java.base=lib/entitlement-bridge/elasticsearch-entitlement-bridge-8.19.0-SNAPSHOT.jar, --add-exports=java.base/org.elasticsearch.entitlement.bridge=org.elasticsearch.entitlement,java.logging,java.net.http,java.naming,jdk.net, -XX:+UseG1GC, -Djava.io.tmpdir=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/tmp, --add-modules=jdk.incubator.vector, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs, -XX:ErrorFile=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms512m, -Xmx512m, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -XX:MaxDirectMemorySize=268435456, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib, --add-modules=jdk.net, --add-modules=jdk.management.agent, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
+[2025-12-04T10:38:25,192][INFO ][o.e.n.Node               ] [test-cluster-0] Default Locale [en_US]
+[2025-12-04T10:38:25,194][WARN ][o.e.n.Node               ] [test-cluster-0] version [8.19.0-SNAPSHOT] is a pre-release version of Elasticsearch and is not suitable for production
+[2025-12-04T10:38:25,722][INFO ][o.e.n.Node               ] [test-cluster-1] version[8.19.0-SNAPSHOT], pid[13371], build[tar/e0c689bfd79b616caf2434dc7f1b9b5a65d232eb/2025-12-04T07:29:15.711961922Z], OS[Linux/6.8.0-1039-oracle/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/24/24+36-3646]
+[2025-12-04T10:38:25,723][INFO ][o.e.n.Node               ] [test-cluster-1] JVM home [/home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2], using bundled JDK [false]
+[2025-12-04T10:38:25,724][INFO ][o.e.n.Node               ] [test-cluster-1] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Dorg.apache.lucene.vectorization.upperJavaFeatureVersion=24, -Des.distribution.type=tar, -Des.java.type=null, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, --enable-native-access=ALL-UNNAMED, --illegal-native-access=deny, -XX:ReplayDataFile=logs/replay_pid%p.log, -Des.entitlements.enabled=true, -XX:+EnableDynamicAgentLoading, -Djdk.attach.allowAttachSelf=true, --patch-module=java.base=lib/entitlement-bridge/elasticsearch-entitlement-bridge-8.19.0-SNAPSHOT.jar, --add-exports=java.base/org.elasticsearch.entitlement.bridge=org.elasticsearch.entitlement,java.logging,java.net.http,java.naming,jdk.net, -XX:+UseG1GC, -Djava.io.tmpdir=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/tmp, --add-modules=jdk.incubator.vector, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs, -XX:ErrorFile=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms512m, -Xmx512m, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -XX:MaxDirectMemorySize=268435456, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib, --add-modules=jdk.net, --add-modules=jdk.management.agent, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
+[2025-12-04T10:38:25,726][INFO ][o.e.n.Node               ] [test-cluster-1] Default Locale [en_US]
+[2025-12-04T10:38:25,726][WARN ][o.e.n.Node               ] [test-cluster-1] version [8.19.0-SNAPSHOT] is a pre-release version of Elasticsearch and is not suitable for production
+[2025-12-04T10:38:26,843][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [esql_semantic_text] is enabled
+[2025-12-04T10:38:26,844][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [esql_aggregate_metric_double] is enabled
+[2025-12-04T10:38:27,333][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [esql_semantic_text] is enabled
+[2025-12-04T10:38:27,334][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [esql_aggregate_metric_double] is enabled
+[2025-12-04T10:38:27,615][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [esql_inlinestats] is enabled
+[2025-12-04T10:38:28,341][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [esql_inlinestats] is enabled
+[2025-12-04T10:38:29,804][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repository-url]
+[2025-12-04T10:38:29,804][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [rest-root]
+[2025-12-04T10:38:29,805][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-core]
+[2025-12-04T10:38:29,805][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-redact]
+[2025-12-04T10:38:29,805][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ingest-user-agent]
+[2025-12-04T10:38:29,805][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-async-search]
+[2025-12-04T10:38:29,806][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-error-query]
+[2025-12-04T10:38:29,806][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-monitoring]
+[2025-12-04T10:38:29,806][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repository-s3]
+[2025-12-04T10:38:29,807][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-analytics]
+[2025-12-04T10:38:29,807][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-esql-core]
+[2025-12-04T10:38:29,807][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ent-search]
+[2025-12-04T10:38:29,808][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-autoscaling]
+[2025-12-04T10:38:29,808][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [lang-painless]
+[2025-12-04T10:38:29,809][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ml]
+[2025-12-04T10:38:29,810][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-die-with-dignity]
+[2025-12-04T10:38:29,810][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [legacy-geo]
+[2025-12-04T10:38:29,811][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [lang-mustache]
+[2025-12-04T10:38:29,812][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [logsdb]
+[2025-12-04T10:38:29,812][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ql]
+[2025-12-04T10:38:29,813][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [rank-rrf]
+[2025-12-04T10:38:29,814][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [analysis-common]
+[2025-12-04T10:38:29,814][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [health-shards-availability]
+[2025-12-04T10:38:29,814][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [transport-netty4]
+[2025-12-04T10:38:29,815][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [aggregations]
+[2025-12-04T10:38:29,817][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ingest-common]
+[2025-12-04T10:38:29,817][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [frozen-indices]
+[2025-12-04T10:38:29,817][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-identity-provider]
+[2025-12-04T10:38:29,817][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-text-structure]
+[2025-12-04T10:38:29,818][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-shutdown]
+[2025-12-04T10:38:29,818][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [snapshot-repo-test-kit]
+[2025-12-04T10:38:29,818][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-delayed-aggs]
+[2025-12-04T10:38:29,818][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ml-package-loader]
+[2025-12-04T10:38:29,818][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [kibana]
+[2025-12-04T10:38:29,820][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-esql-heap-attack]
+[2025-12-04T10:38:29,820][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [constant-keyword]
+[2025-12-04T10:38:29,820][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-logstash]
+[2025-12-04T10:38:29,820][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-graph]
+[2025-12-04T10:38:29,821][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ccr]
+[2025-12-04T10:38:29,821][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [rank-vectors]
+[2025-12-04T10:38:29,821][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-esql]
+[2025-12-04T10:38:29,821][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [parent-join]
+[2025-12-04T10:38:29,821][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [counted-keyword]
+[2025-12-04T10:38:29,822][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-enrich]
+[2025-12-04T10:38:29,822][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repositories-metering-api]
+[2025-12-04T10:38:29,822][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [transform]
+[2025-12-04T10:38:29,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repository-azure]
+[2025-12-04T10:38:29,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [dot-prefix-validation]
+[2025-12-04T10:38:29,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repository-gcs]
+[2025-12-04T10:38:29,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-otel-data]
+[2025-12-04T10:38:29,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [spatial]
+[2025-12-04T10:38:29,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [mapper-version]
+[2025-12-04T10:38:29,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [apm]
+[2025-12-04T10:38:29,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [mapper-extras]
+[2025-12-04T10:38:29,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-jvm-crash]
+[2025-12-04T10:38:29,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-rollup]
+[2025-12-04T10:38:29,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [percolator]
+[2025-12-04T10:38:29,833][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-migrate]
+[2025-12-04T10:38:29,833][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [data-streams]
+[2025-12-04T10:38:29,833][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-stack]
+[2025-12-04T10:38:29,834][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [rank-eval]
+[2025-12-04T10:38:29,834][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [reindex]
+[2025-12-04T10:38:29,834][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-apm-integration]
+[2025-12-04T10:38:29,834][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-security]
+[2025-12-04T10:38:29,834][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [blob-cache]
+[2025-12-04T10:38:29,835][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [searchable-snapshots]
+[2025-12-04T10:38:29,835][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-slm]
+[2025-12-04T10:38:29,835][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-geoip-enterprise-downloader]
+[2025-12-04T10:38:29,835][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [snapshot-based-recoveries]
+[2025-12-04T10:38:29,835][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-latency-simulating-directory]
+[2025-12-04T10:38:29,836][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-watcher]
+[2025-12-04T10:38:29,837][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [old-lucene-versions]
+[2025-12-04T10:38:29,837][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ilm]
+[2025-12-04T10:38:29,837][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-voting-only-node]
+[2025-12-04T10:38:29,838][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-inference]
+[2025-12-04T10:38:29,838][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-deprecation]
+[2025-12-04T10:38:29,839][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-fleet]
+[2025-12-04T10:38:29,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-profiling]
+[2025-12-04T10:38:29,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-aggregate-metric]
+[2025-12-04T10:38:29,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-downsample]
+[2025-12-04T10:38:29,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ingest-geoip]
+[2025-12-04T10:38:29,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-write-load-forecaster]
+[2025-12-04T10:38:29,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [search-business-rules]
+[2025-12-04T10:38:29,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ingest-attachment]
+[2025-12-04T10:38:29,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [wildcard]
+[2025-12-04T10:38:29,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-apm-data]
+[2025-12-04T10:38:29,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-sql]
+[2025-12-04T10:38:29,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [unsigned-long]
+[2025-12-04T10:38:29,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [runtime-fields-common]
+[2025-12-04T10:38:29,846][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-async]
+[2025-12-04T10:38:29,847][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [vector-tile]
+[2025-12-04T10:38:29,852][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-kql]
+[2025-12-04T10:38:29,852][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [lang-expression]
+[2025-12-04T10:38:29,852][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-eql]
+[2025-12-04T10:38:30,273][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repository-url]
+[2025-12-04T10:38:30,273][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [rest-root]
+[2025-12-04T10:38:30,273][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-core]
+[2025-12-04T10:38:30,274][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-redact]
+[2025-12-04T10:38:30,274][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ingest-user-agent]
+[2025-12-04T10:38:30,274][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-async-search]
+[2025-12-04T10:38:30,275][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-error-query]
+[2025-12-04T10:38:30,276][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-monitoring]
+[2025-12-04T10:38:30,276][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repository-s3]
+[2025-12-04T10:38:30,281][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-analytics]
+[2025-12-04T10:38:30,282][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-esql-core]
+[2025-12-04T10:38:30,282][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ent-search]
+[2025-12-04T10:38:30,283][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-autoscaling]
+[2025-12-04T10:38:30,283][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [lang-painless]
+[2025-12-04T10:38:30,286][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ml]
+[2025-12-04T10:38:30,290][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-die-with-dignity]
+[2025-12-04T10:38:30,291][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [legacy-geo]
+[2025-12-04T10:38:30,291][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [lang-mustache]
+[2025-12-04T10:38:30,291][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [logsdb]
+[2025-12-04T10:38:30,291][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ql]
+[2025-12-04T10:38:30,292][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [rank-rrf]
+[2025-12-04T10:38:30,292][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [analysis-common]
+[2025-12-04T10:38:30,292][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [health-shards-availability]
+[2025-12-04T10:38:30,292][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [transport-netty4]
+[2025-12-04T10:38:30,292][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [aggregations]
+[2025-12-04T10:38:30,293][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ingest-common]
+[2025-12-04T10:38:30,293][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [frozen-indices]
+[2025-12-04T10:38:30,293][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-identity-provider]
+[2025-12-04T10:38:30,293][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-text-structure]
+[2025-12-04T10:38:30,293][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-shutdown]
+[2025-12-04T10:38:30,294][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [snapshot-repo-test-kit]
+[2025-12-04T10:38:30,294][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-delayed-aggs]
+[2025-12-04T10:38:30,294][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ml-package-loader]
+[2025-12-04T10:38:30,303][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [kibana]
+[2025-12-04T10:38:30,306][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-esql-heap-attack]
+[2025-12-04T10:38:30,309][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [failure_store] is enabled
+[2025-12-04T10:38:30,308][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [constant-keyword]
+[2025-12-04T10:38:30,310][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-logstash]
+[2025-12-04T10:38:30,311][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-graph]
+[2025-12-04T10:38:30,311][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ccr]
+[2025-12-04T10:38:30,312][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [rank-vectors]
+[2025-12-04T10:38:30,313][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-esql]
+[2025-12-04T10:38:30,313][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [parent-join]
+[2025-12-04T10:38:30,313][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [counted-keyword]
+[2025-12-04T10:38:30,313][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-enrich]
+[2025-12-04T10:38:30,313][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repositories-metering-api]
+[2025-12-04T10:38:30,314][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [transform]
+[2025-12-04T10:38:30,314][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repository-azure]
+[2025-12-04T10:38:30,315][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [dot-prefix-validation]
+[2025-12-04T10:38:30,315][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repository-gcs]
+[2025-12-04T10:38:30,315][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-otel-data]
+[2025-12-04T10:38:30,316][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [spatial]
+[2025-12-04T10:38:30,318][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [mapper-version]
+[2025-12-04T10:38:30,319][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [apm]
+[2025-12-04T10:38:30,319][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [mapper-extras]
+[2025-12-04T10:38:30,320][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-jvm-crash]
+[2025-12-04T10:38:30,320][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-rollup]
+[2025-12-04T10:38:30,320][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [percolator]
+[2025-12-04T10:38:30,320][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-migrate]
+[2025-12-04T10:38:30,320][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [data-streams]
+[2025-12-04T10:38:30,321][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-stack]
+[2025-12-04T10:38:30,321][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [rank-eval]
+[2025-12-04T10:38:30,321][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [reindex]
+[2025-12-04T10:38:30,321][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-apm-integration]
+[2025-12-04T10:38:30,323][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-security]
+[2025-12-04T10:38:30,323][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [blob-cache]
+[2025-12-04T10:38:30,323][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [searchable-snapshots]
+[2025-12-04T10:38:30,323][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-slm]
+[2025-12-04T10:38:30,324][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-geoip-enterprise-downloader]
+[2025-12-04T10:38:30,324][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [snapshot-based-recoveries]
+[2025-12-04T10:38:30,324][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-latency-simulating-directory]
+[2025-12-04T10:38:30,324][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-watcher]
+[2025-12-04T10:38:30,325][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [old-lucene-versions]
+[2025-12-04T10:38:30,327][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ilm]
+[2025-12-04T10:38:30,328][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-voting-only-node]
+[2025-12-04T10:38:30,328][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-inference]
+[2025-12-04T10:38:30,328][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-deprecation]
+[2025-12-04T10:38:30,328][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-fleet]
+[2025-12-04T10:38:30,328][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-profiling]
+[2025-12-04T10:38:30,332][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-aggregate-metric]
+[2025-12-04T10:38:30,333][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-downsample]
+[2025-12-04T10:38:30,333][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ingest-geoip]
+[2025-12-04T10:38:30,333][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-write-load-forecaster]
+[2025-12-04T10:38:30,333][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [search-business-rules]
+[2025-12-04T10:38:30,334][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ingest-attachment]
+[2025-12-04T10:38:30,334][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [wildcard]
+[2025-12-04T10:38:30,335][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-apm-data]
+[2025-12-04T10:38:30,336][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-sql]
+[2025-12-04T10:38:30,336][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [unsigned-long]
+[2025-12-04T10:38:30,336][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [runtime-fields-common]
+[2025-12-04T10:38:30,338][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-async]
+[2025-12-04T10:38:30,339][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [vector-tile]
+[2025-12-04T10:38:30,339][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-kql]
+[2025-12-04T10:38:30,339][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [lang-expression]
+[2025-12-04T10:38:30,340][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-eql]
+[2025-12-04T10:38:30,909][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [failure_store] is enabled
+[2025-12-04T10:38:33,235][INFO ][o.e.e.NodeEnvironment    ] [test-cluster-0] using [1] data paths, mounts [[/ (overlay)]], net usable_space [875.9gb], net total_space [968.9gb], types [overlay]
+[2025-12-04T10:38:33,235][INFO ][o.e.e.NodeEnvironment    ] [test-cluster-0] heap size [512mb], compressed ordinary object pointers [true]
+[2025-12-04T10:38:33,272][INFO ][o.e.n.Node               ] [test-cluster-0] node name [test-cluster-0], node ID [T83J5kQdTCaN1HvGGtG5Ug], cluster name [test-cluster], roles [data_cold, data, remote_cluster_client, master, data_warm, data_content, transform, data_hot, ml, data_frozen, ingest]
+[2025-12-04T10:38:33,438][INFO ][o.e.e.NodeEnvironment    ] [test-cluster-1] using [1] data paths, mounts [[/ (overlay)]], net usable_space [875.9gb], net total_space [968.9gb], types [overlay]
+[2025-12-04T10:38:33,439][INFO ][o.e.e.NodeEnvironment    ] [test-cluster-1] heap size [512mb], compressed ordinary object pointers [true]
+[2025-12-04T10:38:33,473][INFO ][o.e.n.Node               ] [test-cluster-1] node name [test-cluster-1], node ID [z9T8CkWsRGibeXjQ9heUlg], cluster name [test-cluster], roles [data_hot, ml, data_frozen, ingest, data_cold, data, remote_cluster_client, master, data_warm, data_content, transform]
+[2025-12-04T10:38:39,307][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [connector_secrets] is enabled
+[2025-12-04T10:38:39,446][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [connector_secrets] is enabled
+[2025-12-04T10:38:41,052][INFO ][o.e.i.r.RecoverySettings ] [test-cluster-1] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
+[2025-12-04T10:38:41,173][INFO ][o.e.i.r.RecoverySettings ] [test-cluster-0] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
+[2025-12-04T10:38:41,301][WARN ][o.e.f.FeatureData        ] [test-cluster-1] WARNING: Test features are enabled. This should ONLY be used in automated tests.
+[2025-12-04T10:38:41,315][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [sub_objects_auto] is enabled
+[2025-12-04T10:38:41,401][INFO ][o.e.f.FeatureService     ] [test-cluster-1] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.downsample.default_aggregate_metric_fix, data_stream.failure_store.tsdb_fix, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.metrics_syntax, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, index.logsdb_no_host_name_field, inner_retrievers_filter_support, knn_retriever_supported, license-trial-independent-version, linear_retriever_supported, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.constant_keyword.synthetic_source_write_fix, mapper.copy_to.dynamic_handling, mapper.counted_keyword.synthetic_source_native_support, mapper.fix_parsing_subobjects_false_dynamic_false, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.ignored_source.always_store_object_arrays_in_nested, mapper.ignored_source.dont_expand_dots, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.logsdb_default_ignore_dynamic_beyond_limit, mapper.nested.sorting_fields_check_fix, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.date_range_indexing_fix, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.mode_from_index_setting, mapper.source.remove_synthetic_source_only_validation, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.sparse_vector.store_support, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.subobjects_false_mapping_update_fix, mapper.synthetic_recovery_source, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.tsdb_nested_field_support, mapper.unknown_field_mapping_update_error_message, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, meta_fetch_fields_error_code_changed, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.numeric_validation, query_rules.test, random_reranker_retriever_supported, rank_vectors, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.logsb_route_on_sort_fields, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.completion_field.duplicate.support, search.retriever.rescorer.enabled, search.semantic_knn_filter_fix, search.semantic_knn_vector_query_rewrite_interception_supported, search.semantic_match_query_rewrite_interception_supported, search.semantic_sparse_vector_query_rewrite_interception_supported, search.vectors.k_param_supported, security.migration_framework, security.queryable_built_in_roles, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.always_emit_inference_id_fix, semantic_text.bit_vector_support, semantic_text.default_elser_2, semantic_text.delete_fix, semantic_text.handle_empty_input, semantic_text.highlighter, semantic_text.highlighter.default, semantic_text.in_object_field_fix, semantic_text.inference_metadata_fields.enabled_by_default, semantic_text.inference_metadata_fields.explicit_null_fixes, semantic_text.search_inference_id, semantic_text.single_field_update_fix, semantic_text.skip_inference_fields, semantic_text.zero_size_fix, simulate.component.template.substitutions, simulate.ignored.fields, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, test_features_enabled, test_reranking_service.parse_text_as_score, text_similarity_reranker_alias_handling_fix, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
+[2025-12-04T10:38:41,429][WARN ][o.e.f.FeatureData        ] [test-cluster-0] WARNING: Test features are enabled. This should ONLY be used in automated tests.
+[2025-12-04T10:38:41,443][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [sub_objects_auto] is enabled
+[2025-12-04T10:38:41,458][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [test-cluster-1] Updated default factory retention to [null]
+[2025-12-04T10:38:41,459][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [test-cluster-1] Updated max factory retention to [null]
+[2025-12-04T10:38:41,460][INFO ][o.e.c.m.DataStreamFailureStoreSettings] [test-cluster-1] Updated data stream name patterns for enabling failure store to [[]]
+[2025-12-04T10:38:41,512][INFO ][o.e.f.FeatureService     ] [test-cluster-0] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.downsample.default_aggregate_metric_fix, data_stream.failure_store.tsdb_fix, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.metrics_syntax, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, index.logsdb_no_host_name_field, inner_retrievers_filter_support, knn_retriever_supported, license-trial-independent-version, linear_retriever_supported, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.constant_keyword.synthetic_source_write_fix, mapper.copy_to.dynamic_handling, mapper.counted_keyword.synthetic_source_native_support, mapper.fix_parsing_subobjects_false_dynamic_false, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.ignored_source.always_store_object_arrays_in_nested, mapper.ignored_source.dont_expand_dots, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.logsdb_default_ignore_dynamic_beyond_limit, mapper.nested.sorting_fields_check_fix, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.date_range_indexing_fix, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.mode_from_index_setting, mapper.source.remove_synthetic_source_only_validation, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.sparse_vector.store_support, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.subobjects_false_mapping_update_fix, mapper.synthetic_recovery_source, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.tsdb_nested_field_support, mapper.unknown_field_mapping_update_error_message, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, meta_fetch_fields_error_code_changed, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.numeric_validation, query_rules.test, random_reranker_retriever_supported, rank_vectors, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.logsb_route_on_sort_fields, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.completion_field.duplicate.support, search.retriever.rescorer.enabled, search.semantic_knn_filter_fix, search.semantic_knn_vector_query_rewrite_interception_supported, search.semantic_match_query_rewrite_interception_supported, search.semantic_sparse_vector_query_rewrite_interception_supported, search.vectors.k_param_supported, security.migration_framework, security.queryable_built_in_roles, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.always_emit_inference_id_fix, semantic_text.bit_vector_support, semantic_text.default_elser_2, semantic_text.delete_fix, semantic_text.handle_empty_input, semantic_text.highlighter, semantic_text.highlighter.default, semantic_text.in_object_field_fix, semantic_text.inference_metadata_fields.enabled_by_default, semantic_text.inference_metadata_fields.explicit_null_fixes, semantic_text.search_inference_id, semantic_text.single_field_update_fix, semantic_text.skip_inference_fields, semantic_text.zero_size_fix, simulate.component.template.substitutions, simulate.ignored.fields, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, test_features_enabled, test_reranking_service.parse_text_as_score, text_similarity_reranker_alias_handling_fix, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
+[2025-12-04T10:38:41,553][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [test-cluster-0] Updated default factory retention to [null]
+[2025-12-04T10:38:41,554][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [test-cluster-0] Updated max factory retention to [null]
+[2025-12-04T10:38:41,554][INFO ][o.e.c.m.DataStreamFailureStoreSettings] [test-cluster-0] Updated data stream name patterns for enabling failure store to [[]]
+[2025-12-04T10:38:41,857][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [test-cluster-1] [controller/13476] [Main.cc@123] controller (64 bit): Version 8.19.0-SNAPSHOT (Build b81eec921bbb2f) Copyright (c) 2025 Elasticsearch BV
+[2025-12-04T10:38:41,927][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [test-cluster-0] [controller/13461] [Main.cc@123] controller (64 bit): Version 8.19.0-SNAPSHOT (Build b81eec921bbb2f) Copyright (c) 2025 Elasticsearch BV
+[2025-12-04T10:38:42,367][INFO ][o.e.x.o.OTelPlugin       ] [test-cluster-1] OTel ingest plugin is enabled
+[2025-12-04T10:38:42,410][INFO ][o.e.x.c.t.YamlTemplateRegistry] [test-cluster-1] OpenTelemetry index template registry is enabled
+[2025-12-04T10:38:42,416][INFO ][o.e.t.a.APM              ] [test-cluster-1] Sending apm metrics is disabled
+[2025-12-04T10:38:42,416][INFO ][o.e.t.a.APM              ] [test-cluster-1] Sending apm tracing is disabled
+[2025-12-04T10:38:42,464][INFO ][o.e.x.o.OTelPlugin       ] [test-cluster-0] OTel ingest plugin is enabled
+[2025-12-04T10:38:42,482][INFO ][o.e.x.s.Security         ] [test-cluster-1] Security is disabled
+[2025-12-04T10:38:42,546][INFO ][o.e.x.c.t.YamlTemplateRegistry] [test-cluster-0] OpenTelemetry index template registry is enabled
+[2025-12-04T10:38:42,553][INFO ][o.e.t.a.APM              ] [test-cluster-0] Sending apm metrics is disabled
+[2025-12-04T10:38:42,555][INFO ][o.e.t.a.APM              ] [test-cluster-0] Sending apm tracing is disabled
+[2025-12-04T10:38:42,617][INFO ][o.e.x.s.Security         ] [test-cluster-0] Security is disabled
+[2025-12-04T10:38:42,850][INFO ][o.e.x.w.Watcher          ] [test-cluster-1] Watcher initialized components at 2025-12-04T07:38:42.849Z
+[2025-12-04T10:38:42,943][INFO ][o.e.x.w.Watcher          ] [test-cluster-0] Watcher initialized components at 2025-12-04T07:38:42.943Z
+[2025-12-04T10:38:42,956][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [inference_cluster_aware_rate_limiting] is enabled
+[2025-12-04T10:38:42,968][INFO ][o.e.x.p.ProfilingPlugin  ] [test-cluster-1] Profiling is enabled
+[2025-12-04T10:38:43,003][INFO ][o.e.x.p.ProfilingPlugin  ] [test-cluster-1] profiling index templates will not be installed or reinstalled
+[2025-12-04T10:38:43,023][INFO ][o.e.x.a.APMPlugin        ] [test-cluster-1] APM ingest plugin is enabled
+[2025-12-04T10:38:43,059][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [inference_cluster_aware_rate_limiting] is enabled
+[2025-12-04T10:38:43,074][INFO ][o.e.x.p.ProfilingPlugin  ] [test-cluster-0] Profiling is enabled
+[2025-12-04T10:38:43,085][INFO ][o.e.x.c.t.YamlTemplateRegistry] [test-cluster-1] apm index template registry is enabled
+[2025-12-04T10:38:43,099][INFO ][o.e.x.p.ProfilingPlugin  ] [test-cluster-0] profiling index templates will not be installed or reinstalled
+[2025-12-04T10:38:43,117][INFO ][o.e.x.a.APMPlugin        ] [test-cluster-0] APM ingest plugin is enabled
+[2025-12-04T10:38:43,171][INFO ][o.e.x.c.t.YamlTemplateRegistry] [test-cluster-0] apm index template registry is enabled
+[2025-12-04T10:38:43,368][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [connector_api] is enabled
+[2025-12-04T10:38:44,060][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [connector_api] is enabled
+[2025-12-04T10:38:44,623][INFO ][o.e.t.n.NettyAllocator   ] [test-cluster-1] creating NettyAllocator with the following configs: [name=unpooled, suggested_max_allocation_size=1mb, factors={es.unsafe.use_unpooled_allocator=null, g1gc_enabled=true, g1gc_region_size=4mb, heap_size=512mb}]
+[2025-12-04T10:38:44,917][INFO ][o.e.d.DiscoveryModule    ] [test-cluster-1] using discovery type [multi-node] and seed hosts providers [settings, file]
+[2025-12-04T10:38:45,669][INFO ][o.e.t.n.NettyAllocator   ] [test-cluster-0] creating NettyAllocator with the following configs: [name=unpooled, suggested_max_allocation_size=1mb, factors={es.unsafe.use_unpooled_allocator=null, g1gc_enabled=true, g1gc_region_size=4mb, heap_size=512mb}]
+[2025-12-04T10:38:45,895][INFO ][o.e.d.DiscoveryModule    ] [test-cluster-0] using discovery type [multi-node] and seed hosts providers [settings, file]
+[2025-12-04T10:38:51,496][INFO ][o.e.n.Node               ] [test-cluster-1] initialized
+[2025-12-04T10:38:51,498][INFO ][o.e.n.Node               ] [test-cluster-1] starting ...
+[2025-12-04T10:38:51,546][INFO ][o.e.x.s.c.f.PersistentCache] [test-cluster-1] persistent cache index loaded
+[2025-12-04T10:38:51,552][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [test-cluster-1] deprecation component started
+[2025-12-04T10:38:51,699][INFO ][o.e.t.TransportService   ] [test-cluster-1] publish_address {127.0.0.1:46795}, bound_addresses {[::1]:33927}, {127.0.0.1:46795}
+[2025-12-04T10:38:51,759][INFO ][o.e.n.Node               ] [test-cluster-0] initialized
+[2025-12-04T10:38:51,760][INFO ][o.e.n.Node               ] [test-cluster-0] starting ...
+[2025-12-04T10:38:51,802][INFO ][o.e.x.s.c.f.PersistentCache] [test-cluster-0] persistent cache index loaded
+[2025-12-04T10:38:51,804][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [test-cluster-0] deprecation component started
+[2025-12-04T10:38:51,910][WARN ][o.e.b.BootstrapChecks    ] [test-cluster-1] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/master/bootstrap-checks-max-map-count.html]
+[2025-12-04T10:38:51,912][INFO ][o.e.c.c.ClusterBootstrapService] [test-cluster-1] this node has not joined a bootstrapped cluster yet; [cluster.initial_master_nodes] is set to [test-cluster-0, test-cluster-1]
+[2025-12-04T10:38:51,931][WARN ][o.e.d.FileBasedSeedHostsProvider] [test-cluster-1] expected, but did not find, a dynamic hosts list at [/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/unicast_hosts.txt]
+[2025-12-04T10:38:51,960][INFO ][o.e.h.AbstractHttpServerTransport] [test-cluster-1] publish_address {127.0.0.1:38487}, bound_addresses {[::1]:36567}, {127.0.0.1:38487}
+[2025-12-04T10:38:51,962][INFO ][o.e.t.TransportService   ] [test-cluster-0] publish_address {127.0.0.1:45525}, bound_addresses {[::1]:39691}, {127.0.0.1:45525}
+[2025-12-04T10:38:51,994][INFO ][o.e.n.Node               ] [test-cluster-1] started {test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000}{transform.config_version=10.0.0, xpack.installed=true, ml.allocated_processors=16, ml.max_jvm_size=536870912, ml.config_version=12.0.0, ml.machine_memory=135065120768, ml.allocated_processors_double=16.0, testattr=test}
+[2025-12-04T10:38:52,045][WARN ][o.e.x.i.s.e.a.ElasticInferenceServiceAuthorizationHandler] [test-cluster-1] Failed to revoke access to default inference endpoint IDs: [rainbow-sprinkles, elser-v2], error: org.elasticsearch.cluster.block.ClusterBlockException: blocked by: [SERVICE_UNAVAILABLE/1/state not recovered / initialized];
+[2025-12-04T10:38:52,219][WARN ][o.e.b.BootstrapChecks    ] [test-cluster-0] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/master/bootstrap-checks-max-map-count.html]
+[2025-12-04T10:38:52,221][INFO ][o.e.c.c.ClusterBootstrapService] [test-cluster-0] this node has not joined a bootstrapped cluster yet; [cluster.initial_master_nodes] is set to [test-cluster-0, test-cluster-1]
+[2025-12-04T10:38:52,234][WARN ][o.e.d.FileBasedSeedHostsProvider] [test-cluster-0] expected, but did not find, a dynamic hosts list at [/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/unicast_hosts.txt]
+[2025-12-04T10:38:52,249][INFO ][o.e.h.AbstractHttpServerTransport] [test-cluster-0] publish_address {127.0.0.1:32993}, bound_addresses {[::1]:45279}, {127.0.0.1:32993}
+[2025-12-04T10:38:52,331][INFO ][o.e.n.Node               ] [test-cluster-0] started {test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000}{ml.config_version=12.0.0, ml.machine_memory=135065120768, ml.allocated_processors_double=16.0, testattr=test, transform.config_version=10.0.0, xpack.installed=true, ml.allocated_processors=16, ml.max_jvm_size=536870912}
+[2025-12-04T10:38:52,434][WARN ][o.e.x.i.s.e.a.ElasticInferenceServiceAuthorizationHandler] [test-cluster-0] Failed to revoke access to default inference endpoint IDs: [rainbow-sprinkles, elser-v2], error: org.elasticsearch.cluster.block.ClusterBlockException: blocked by: [SERVICE_UNAVAILABLE/1/state not recovered / initialized];
+[2025-12-04T10:38:52,484][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [[test-cluster-node-executor-0]] Writing unicast hosts file /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/unicast_hosts.txt for node test-cluster-1
+[2025-12-04T10:38:52,484][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [[test-cluster-node-executor-0]] Writing unicast hosts file /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/unicast_hosts.txt for node test-cluster-0
+[2025-12-04T10:38:53,202][INFO ][o.e.c.c.Coordinator      ] [test-cluster-1] setting initial configuration to VotingConfiguration{T83J5kQdTCaN1HvGGtG5Ug,z9T8CkWsRGibeXjQ9heUlg}
+[2025-12-04T10:38:53,366][INFO ][o.e.c.c.Coordinator      ] [test-cluster-0] setting initial configuration to VotingConfiguration{T83J5kQdTCaN1HvGGtG5Ug,z9T8CkWsRGibeXjQ9heUlg}
+[2025-12-04T10:38:53,817][INFO ][o.e.c.s.MasterService    ] [test-cluster-0] elected-as-master ([2] nodes joined in term 2)[_FINISH_ELECTION_, {test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000} completing election, {test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000} completing election], term: 2, version: 1, delta: master node changed {previous [], current [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000}]}, added {{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000}}
+[2025-12-04T10:38:54,084][INFO ][o.e.c.c.CoordinationState] [test-cluster-0] cluster UUID set to [ibu29IT4QgKRRI-VYL7_fA]
+[2025-12-04T10:38:54,097][INFO ][o.e.c.c.CoordinationState] [test-cluster-1] cluster UUID set to [ibu29IT4QgKRRI-VYL7_fA]
+[2025-12-04T10:38:54,184][INFO ][o.e.c.s.ClusterApplierService] [test-cluster-1] master node changed {previous [], current [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000}]}, added {{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000}}, term: 2, version: 1, reason: ApplyCommitRequest{term=2, version=1, sourceNode={test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000}{xpack.installed=true, transform.config_version=10.0.0, ml.max_jvm_size=536870912, ml.allocated_processors=16, ml.config_version=12.0.0, ml.allocated_processors_double=16.0, ml.machine_memory=135065120768, testattr=test}}
+[2025-12-04T10:38:54,240][INFO ][o.e.c.s.ClusterApplierService] [test-cluster-0] master node changed {previous [], current [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000}]}, added {{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000}}, term: 2, version: 1, reason: Publication{term=2, version=1}
+[2025-12-04T10:38:54,389][INFO ][o.e.c.c.NodeJoinExecutor ] [test-cluster-0] node-join: [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000}] with reason [completing election]
+[2025-12-04T10:38:54,390][INFO ][o.e.c.c.NodeJoinExecutor ] [test-cluster-0] node-join: [{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000}] with reason [completing election]
+[2025-12-04T10:38:54,971][INFO ][o.e.x.m.MlIndexRollover  ] [test-cluster-0] ML legacy indices rolled over
+[2025-12-04T10:38:54,974][INFO ][o.e.x.m.MlAnomaliesIndexUpdate] [test-cluster-0] legacy ml anomalies indices rolled over and aliases updated
+[2025-12-04T10:38:55,034][INFO ][o.e.c.f.AbstractFileWatchingService] [test-cluster-0] starting file watcher ...
+[2025-12-04T10:38:55,045][INFO ][o.e.c.f.AbstractFileWatchingService] [test-cluster-0] file settings service up and running [tid=113]
+[2025-12-04T10:38:55,048][INFO ][o.e.r.s.FileSettingsService] [test-cluster-0] setting file [/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/operator/settings.json] not found, initializing [file_settings] as empty
+[2025-12-04T10:38:55,049][INFO ][o.e.g.GatewayService     ] [test-cluster-0] recovered [0] indices into cluster_state
+[2025-12-04T10:38:55,588][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding template [.monitoring-alerts-7] for index patterns [.monitoring-alerts-7]
+[2025-12-04T10:38:55,921][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding template [.monitoring-es] for index patterns [.monitoring-es-7-*]
+[2025-12-04T10:38:55,972][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding template [.monitoring-kibana] for index patterns [.monitoring-kibana-7-*]
+[2025-12-04T10:38:56,097][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding template [.monitoring-beats] for index patterns [.monitoring-beats-7-*]
+[2025-12-04T10:38:56,154][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding template [.monitoring-logstash] for index patterns [.monitoring-logstash-7-*]
+[2025-12-04T10:38:56,422][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.monitoring-beats-mb] for index patterns [.monitoring-beats-8-*]
+[2025-12-04T10:38:56,583][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.monitoring-kibana-mb] for index patterns [.monitoring-kibana-8-*]
+[2025-12-04T10:38:56,711][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [behavioral_analytics-events-mappings]
+[2025-12-04T10:38:56,820][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.monitoring-ent-search-mb] for index patterns [.monitoring-ent-search-8-*]
+[2025-12-04T10:38:56,930][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.monitoring-logstash-mb] for index patterns [.monitoring-logstash-8-*]
+[2025-12-04T10:38:57,412][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.monitoring-es-mb] for index patterns [.monitoring-es-8-*]
+[2025-12-04T10:38:57,434][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [elastic-connectors-sync-jobs-settings]
+[2025-12-04T10:38:57,494][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [search-acl-filter] for index patterns [.search-acl-filter-*]
+[2025-12-04T10:38:57,582][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [elastic-connectors-sync-jobs-mappings]
+[2025-12-04T10:38:57,672][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [elastic-connectors-mappings]
+[2025-12-04T10:38:57,701][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [elastic-connectors-settings]
+[2025-12-04T10:38:57,889][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.ml-anomalies-] for index patterns [.ml-anomalies-*]
+[2025-12-04T10:38:57,969][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.ml-stats] for index patterns [.ml-stats-*]
+[2025-12-04T10:38:58,060][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.ml-notifications-000002] for index patterns [.ml-notifications-*]
+[2025-12-04T10:38:58,115][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.ml-state] for index patterns [.ml-state*]
+[2025-12-04T10:38:58,167][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [ecs-tsdb@mappings]
+[2025-12-04T10:38:58,269][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [traces-otel@mappings]
+[2025-12-04T10:38:58,375][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [otel@mappings]
+[2025-12-04T10:38:58,442][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [semconv-resource-to-ecs@mappings]
+[2025-12-04T10:38:58,536][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs-otel@mappings]
+[2025-12-04T10:38:58,564][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-otel@mappings]
+[2025-12-04T10:38:58,575][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-settings]
+[2025-12-04T10:38:58,640][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [data-streams-mappings]
+[2025-12-04T10:38:58,655][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [synthetics-settings]
+[2025-12-04T10:38:58,680][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-tsdb-settings]
+[2025-12-04T10:38:58,700][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [synthetics-mappings]
+[2025-12-04T10:38:58,728][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-mappings]
+[2025-12-04T10:38:58,774][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [ecs@dynamic_templates]
+[2025-12-04T10:38:58,810][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs-mappings]
+[2025-12-04T10:38:58,835][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs@mappings]
+[2025-12-04T10:38:58,854][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [synthetics@mappings]
+[2025-12-04T10:38:58,877][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics@settings]
+[2025-12-04T10:38:58,897][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [agentless@settings]
+[2025-12-04T10:38:58,915][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics@tsdb-settings]
+[2025-12-04T10:38:58,935][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [kibana-reporting@settings]
+[2025-12-04T10:38:58,960][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [agentless@mappings]
+[2025-12-04T10:38:58,980][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [traces@settings]
+[2025-12-04T10:38:59,000][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [data-streams@mappings]
+[2025-12-04T10:38:59,024][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [traces@mappings]
+[2025-12-04T10:38:59,039][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [synthetics@settings]
+[2025-12-04T10:38:59,076][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics@mappings]
+[2025-12-04T10:38:59,108][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [ecs@mappings]
+[2025-12-04T10:38:59,131][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.slm-history-7] for index patterns [.slm-history-7*]
+[2025-12-04T10:38:59,223][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.watch-history-17] for index patterns [.watcher-history-17*]
+[2025-12-04T10:38:59,238][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [.deprecation-indexing-settings]
+[2025-12-04T10:38:59,268][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.fleet-fileds-fromhost-meta] for index patterns [.fleet-fileds-fromhost-meta-*]
+[2025-12-04T10:38:59,308][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [ilm-history-7] for index patterns [ilm-history-7*]
+[2025-12-04T10:38:59,319][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [.deprecation-indexing-mappings]
+[2025-12-04T10:38:59,345][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.fleet-fileds-tohost-meta] for index patterns [.fleet-fileds-tohost-meta-*]
+[2025-12-04T10:38:59,379][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.fleet-fileds-fromhost-data] for index patterns [.fleet-fileds-fromhost-data-*]
+[2025-12-04T10:38:59,418][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.fleet-fileds-tohost-data] for index patterns [.fleet-fileds-tohost-data-*]
+[2025-12-04T10:38:59,434][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [apm-10d@lifecycle]
+[2025-12-04T10:38:59,447][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [traces-apm.sampled-fallback@ilm]
+[2025-12-04T10:38:59,494][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_destination@mappings]
+[2025-12-04T10:38:59,511][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [apm@settings]
+[2025-12-04T10:38:59,522][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_destination.10m-fallback@ilm]
+[2025-12-04T10:38:59,544][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_destination.60m-fallback@ilm]
+[2025-12-04T10:38:59,580][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.transaction@mappings]
+[2025-12-04T10:38:59,592][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [apm-390d@lifecycle]
+[2025-12-04T10:38:59,632][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_summary@mappings]
+[2025-12-04T10:38:59,665][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [apm@mappings]
+[2025-12-04T10:38:59,682][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [apm-90d@lifecycle]
+[2025-12-04T10:38:59,690][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [apm-180d@lifecycle]
+[2025-12-04T10:38:59,713][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.transaction.1m-fallback@ilm]
+[2025-12-04T10:38:59,723][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [traces-apm.rum-fallback@ilm]
+[2025-12-04T10:38:59,745][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_summary.1m-fallback@ilm]
+[2025-12-04T10:38:59,771][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_transaction.60m-fallback@ilm]
+[2025-12-04T10:38:59,792][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [traces-apm-fallback@ilm]
+[2025-12-04T10:38:59,822][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs-apm.app-fallback@ilm]
+[2025-12-04T10:38:59,838][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_transaction.10m-fallback@ilm]
+[2025-12-04T10:38:59,850][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_summary.10m-fallback@ilm]
+[2025-12-04T10:38:59,888][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [traces-apm.rum@mappings]
+[2025-12-04T10:38:59,903][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm@settings]
+[2025-12-04T10:38:59,918][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs-apm.error-fallback@ilm]
+[2025-12-04T10:38:59,932][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.app-fallback@ilm]
+[2025-12-04T10:39:00,117][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs-apm.error@mappings]
+[2025-12-04T10:39:00,136][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs-apm@settings]
+[2025-12-04T10:39:00,147][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_summary.60m-fallback@ilm]
+[2025-12-04T10:39:00,186][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [traces-apm@mappings]
+[2025-12-04T10:39:00,196][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_destination.1m-fallback@ilm]
+[2025-12-04T10:39:00,223][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.transaction.10m-fallback@ilm]
+[2025-12-04T10:39:00,248][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.internal-fallback@ilm]
+[2025-12-04T10:39:00,284][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_transaction@mappings]
+[2025-12-04T10:39:00,313][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.transaction.60m-fallback@ilm]
+[2025-12-04T10:39:00,321][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm.service_transaction.1m-fallback@ilm]
+[2025-12-04T10:39:00,337][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [metrics-apm@mappings]
+[2025-12-04T10:39:00,343][WARN ][o.e.c.s.MasterService    ] [test-cluster-0] took [5.2s/5269ms] to compute cluster state update for [create-component-template [synthetics-mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@46b6dc63], create-component-template [agentless@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@4cfa923e], create-index-template-v2 [.monitoring-kibana-mb], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@3586ce3a], create-component-template [metrics-apm.service_summary@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@695e4b6d], create-index-template-v2 [.monitoring-logstash-mb], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@197bd7e1], create-index-template [.monitoring-logstash], cause [api][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$7@188dd92], create-index-template [.monitoring-es], cause [api][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$7@27c2487], create-component-template [logs-apm@settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@19e21286], create-component-template [metrics-otel@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@5ee10a84], create-component-template [kibana-reporting@settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@19423887], create-component-template [synthetics@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@7a797f34], create-component-template [elastic-connectors-sync-jobs-settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@730624df], create-component-template [traces-apm.rum-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@2565b511], create-component-template [metrics-apm.transaction.10m-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@2deb273a], create-index-template-v2 [ilm-history-7], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@1cda6d6c], create-index-template [.monitoring-beats], cause [api][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$7@5eb892f4], create-component-template [metrics-apm.service_transaction.1m-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@56fd690f], create-component-template [traces-apm.rum@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@22db561d], create-component-template [apm@settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@6da5ee27], create-component-template [.deprecation-indexing-mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@7710ee55], create-component-template [metrics@tsdb-settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@4a9844a9], create-component-template [otel@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@320b9859], create-component-template [metrics-apm.service_transaction.10m-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@701d8ce9], create-component-template [agentless@settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@8fa6f9], create-component-template [synthetics-settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@8ba074d], create-component-template [logs-mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@669d9f53], create-component-template [traces-otel@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@7a7b3dad], create-component-template [.deprecation-indexing-settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@73ee475], create-index-template-v2 [.monitoring-ent-search-mb], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@5f661bb0], create-component-template [logs-apm.app-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@550b7008], create-component-template [traces-apm@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@763eb951], create-component-template [apm-180d@lifecycle], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@653f6af], create-index-template-v2 [.watch-history-17], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@6987c64e], create-index-template-v2 [.slm-history-7], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@67026046], create-index-template-v2 [.ml-notifications-000002], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@64f5b9c6], create-component-template [apm-90d@lifecycle], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@7d0acd79], create-component-template [metrics-apm.transaction@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@2a68d120], create-component-template [metrics-mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@5e9c847b], create-component-template [logs-apm.error@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@17ee2de7], create-index-template-v2 [search-acl-filter], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@3c245b66], create-component-template [traces-apm.sampled-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@50a96c13], create-component-template [metrics-apm.app-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@6a2c8521], create-component-template [metrics-apm@settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@c4b1c96], create-component-template [metrics-apm.transaction.1m-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@12aa9912], create-component-template [metrics-apm.service_summary.10m-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@978b6a0], create-index-template [.monitoring-kibana], cause [api][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$7@7732f23], create-component-template [behavioral_analytics-events-mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@53083cf7], create-component-template [logs-apm.error-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@15ac5d8d], create-component-template [ecs@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@592d342e], create-component-template [elastic-connectors-mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@4739121f], create-component-template [logs-otel@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@55c4618b], create-index-template [.monitoring-alerts-7], cause [api][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$7@22730e8b], create-component-template [metrics-apm.transaction.60m-fallback@ilm], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@124fc2af], create-index-template-v2 [.ml-anomalies-], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$5@1de99313], create-component-template [apm-10d@lifecycle], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@6bd7711c], create-component-template [metrics-apm.service_destination@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@516a2dbb], create-component-template [traces@settings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@3ddcd783], create-component-template [metrics-apm.service_transaction@mappings], cause [null][org.elasticsearch.cluster.metadata.MetadataIndexTemplateService$3@6c7caa20], ... (91 in total, 33 omitted) (91 tasks in total)], which exceeds the warn threshold of [5s]
+[2025-12-04T10:39:01,036][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [elastic-connectors] for index patterns [.elastic-connectors-v1]
+[2025-12-04T10:39:01,073][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [elastic-connectors-sync-jobs] for index patterns [.elastic-connectors-sync-jobs-v1]
+[2025-12-04T10:39:01,262][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_summary.60m.otel@template] for index patterns [metrics-service_summary.60m.otel-*]
+[2025-12-04T10:39:01,353][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-otel@template] for index patterns [metrics-*.otel-*]
+[2025-12-04T10:39:01,439][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_destination.1m@template] for index patterns [metrics-service_destination.1m.otel-*]
+[2025-12-04T10:39:01,529][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_transaction.10m.otel@template] for index patterns [metrics-service_transaction.10m.otel-*]
+[2025-12-04T10:39:01,602][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_destination.10m@template] for index patterns [metrics-service_destination.10m.otel-*]
+[2025-12-04T10:39:01,707][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-transaction.10m.otel@template] for index patterns [metrics-transaction.10m.otel-*]
+[2025-12-04T10:39:01,838][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_transaction.60m.otel@template] for index patterns [metrics-service_transaction.60m.otel-*]
+[2025-12-04T10:39:01,869][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics] for index patterns [metrics-*-*]
+[2025-12-04T10:39:01,964][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_destination.60m@template] for index patterns [metrics-service_destination.60m.otel-*]
+[2025-12-04T10:39:02,084][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-transaction.1m.otel@template] for index patterns [metrics-transaction.1m.otel-*]
+[2025-12-04T10:39:02,183][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-transaction.60m.otel@template] for index patterns [metrics-transaction.60m.otel-*]
+[2025-12-04T10:39:02,248][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_transaction.1m.otel@template] for index patterns [metrics-service_transaction.1m.otel-*]
+[2025-12-04T10:39:02,271][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [agentless] for index patterns [agentless-*-*]
+[2025-12-04T10:39:02,301][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.kibana-reporting] for index patterns [.kibana-reporting*]
+[2025-12-04T10:39:02,313][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [synthetics] for index patterns [synthetics-*-*]
+[2025-12-04T10:39:02,398][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_summary.10m.otel@template] for index patterns [metrics-service_summary.10m.otel-*]
+[2025-12-04T10:39:02,493][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-service_summary.1m.otel@template] for index patterns [metrics-service_summary.1m.otel-*]
+[2025-12-04T10:39:02,558][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [traces-otel@template] for index patterns [traces-*.otel-*]
+[2025-12-04T10:39:02,602][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_summary.10m@template] for index patterns [metrics-apm.service_summary.10m-*]
+[2025-12-04T10:39:02,636][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_summary.60m@template] for index patterns [metrics-apm.service_summary.60m-*]
+[2025-12-04T10:39:02,666][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.transaction.1m@template] for index patterns [metrics-apm.transaction.1m-*]
+[2025-12-04T10:39:02,694][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_transaction.1m@template] for index patterns [metrics-apm.service_transaction.1m-*]
+[2025-12-04T10:39:02,751][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_destination.1m@template] for index patterns [metrics-apm.service_destination.1m-*]
+[2025-12-04T10:39:02,781][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [logs-apm.error@template] for index patterns [logs-apm.error-*]
+[2025-12-04T10:39:02,809][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_transaction.60m@template] for index patterns [metrics-apm.service_transaction.60m-*]
+[2025-12-04T10:39:02,833][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_destination.60m@template] for index patterns [metrics-apm.service_destination.60m-*]
+[2025-12-04T10:39:02,869][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [traces-apm.rum@template] for index patterns [traces-apm.rum-*]
+[2025-12-04T10:39:02,895][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.transaction.60m@template] for index patterns [metrics-apm.transaction.60m-*]
+[2025-12-04T10:39:02,929][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.transaction.10m@template] for index patterns [metrics-apm.transaction.10m-*]
+[2025-12-04T10:39:02,960][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_summary.1m@template] for index patterns [metrics-apm.service_summary.1m-*]
+[2025-12-04T10:39:02,998][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.app@template] for index patterns [metrics-apm.app.*-*]
+[2025-12-04T10:39:03,024][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_destination.10m@template] for index patterns [metrics-apm.service_destination.10m-*]
+[2025-12-04T10:39:03,050][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [.deprecation-indexing-template] for index patterns [.logs-deprecation.*]
+[2025-12-04T10:39:03,106][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.internal@template] for index patterns [metrics-apm.internal-*]
+[2025-12-04T10:39:03,152][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [traces-apm.sampled@template] for index patterns [traces-apm.sampled-*]
+[2025-12-04T10:39:03,192][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [metrics-apm.service_transaction.10m@template] for index patterns [metrics-apm.service_transaction.10m-*]
+[2025-12-04T10:39:03,230][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [logs-apm.app@template] for index patterns [logs-apm.app.*-*]
+[2025-12-04T10:39:03,266][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [traces-apm@template] for index patterns [traces-apm-*]
+[2025-12-04T10:39:03,488][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [.monitoring-8-ilm-policy]
+[2025-12-04T10:39:03,774][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [ml-size-based-ilm-policy]
+[2025-12-04T10:39:05,285][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline behavioral_analytics-events-final_pipeline
+[2025-12-04T10:39:05,288][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline reindex-data-stream-pipeline
+[2025-12-04T10:39:05,289][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline logs-default-pipeline
+[2025-12-04T10:39:05,289][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline logs@default-pipeline
+[2025-12-04T10:39:05,289][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline metrics-apm.transaction@default-pipeline
+[2025-12-04T10:39:05,289][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline traces-apm.rum@default-pipeline
+[2025-12-04T10:39:05,289][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline metrics-apm.service_transaction@default-pipeline
+[2025-12-04T10:39:05,289][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline logs-apm.app@default-pipeline
+[2025-12-04T10:39:05,289][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline traces-apm@default-pipeline
+[2025-12-04T10:39:05,290][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline metrics-apm.app@default-pipeline
+[2025-12-04T10:39:05,290][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline metrics-apm.service_summary@default-pipeline
+[2025-12-04T10:39:05,290][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline apm@pipeline
+[2025-12-04T10:39:05,290][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline metrics-apm.service_destination@default-pipeline
+[2025-12-04T10:39:05,290][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline logs-apm.error@default-pipeline
+[2025-12-04T10:39:05,290][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline ent-search-generic-ingestion
+[2025-12-04T10:39:05,290][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline logs@json-message
+[2025-12-04T10:39:05,290][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline logs@json-pipeline
+[2025-12-04T10:39:05,291][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline search-default-ingestion
+[2025-12-04T10:39:05,310][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [behavioral_analytics-events-settings]
+[2025-12-04T10:39:05,333][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs-settings]
+[2025-12-04T10:39:05,342][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding component template [logs@settings]
+[2025-12-04T10:39:05,609][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [behavioral_analytics-events-default] for index patterns [behavioral_analytics-events-*]
+[2025-12-04T10:39:05,664][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [logs-otel@template] for index patterns [logs-*.otel-*]
+[2025-12-04T10:39:05,702][INFO ][o.e.c.m.MetadataIndexTemplateService] [test-cluster-0] adding index template [logs] for index patterns [logs-*-*]
+[2025-12-04T10:39:05,915][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [logs]
+[2025-12-04T10:39:06,096][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics]
+[2025-12-04T10:39:06,241][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [365-days-default]
+[2025-12-04T10:39:06,369][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [synthetics]
+[2025-12-04T10:39:06,501][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [30-days-default]
+[2025-12-04T10:39:06,613][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [90-days-default]
+[2025-12-04T10:39:06,751][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [7-days-default]
+[2025-12-04T10:39:06,867][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [180-days-default]
+[2025-12-04T10:39:06,981][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [logs@lifecycle]
+[2025-12-04T10:39:07,118][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [slm-history-ilm-policy]
+[2025-12-04T10:39:07,227][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [ilm-history-ilm-policy]
+[2025-12-04T10:39:07,296][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [30-days@lifecycle]
+[2025-12-04T10:39:07,395][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [traces@lifecycle]
+[2025-12-04T10:39:07,552][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [7-days@lifecycle]
+[2025-12-04T10:39:07,764][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [180-days@lifecycle]
+[2025-12-04T10:39:07,910][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [synthetics@lifecycle]
+[2025-12-04T10:39:08,138][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [365-days@lifecycle]
+[2025-12-04T10:39:08,336][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [watch-history-ilm-policy-16]
+[2025-12-04T10:39:08,536][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [90-days@lifecycle]
+[2025-12-04T10:39:08,844][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics@lifecycle]
+[2025-12-04T10:39:09,061][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [.deprecation-indexing-ilm-policy]
+[2025-12-04T10:39:09,228][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [.fleet-file-fromhost-meta-ilm-policy]
+[2025-12-04T10:39:09,424][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [.fleet-file-tohost-meta-ilm-policy]
+[2025-12-04T10:39:09,606][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [.fleet-actions-results-ilm-policy]
+[2025-12-04T10:39:09,754][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [.fleet-file-tohost-data-ilm-policy]
+[2025-12-04T10:39:09,958][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [.fleet-file-fromhost-data-ilm-policy]
+[2025-12-04T10:39:10,183][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [logs-apm.app_logs-default_policy]
+[2025-12-04T10:39:10,386][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_transaction_10m_metrics-default_policy]
+[2025-12-04T10:39:10,704][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.internal_metrics-default_policy]
+[2025-12-04T10:39:10,921][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [logs-apm.error_logs-default_policy]
+[2025-12-04T10:39:11,052][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_destination_10m_metrics-default_policy]
+[2025-12-04T10:39:11,242][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_summary_10m_metrics-default_policy]
+[2025-12-04T10:39:11,440][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_summary_60m_metrics-default_policy]
+[2025-12-04T10:39:11,586][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.app_metrics-default_policy]
+[2025-12-04T10:39:11,716][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-12-04T10:39:11,835][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_transaction_60m_metrics-default_policy]
+[2025-12-04T10:39:11,992][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_destination_60m_metrics-default_policy]
+[2025-12-04T10:39:12,181][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-12-04T10:39:12,364][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-12-04T10:39:12,517][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.transaction_10m_metrics-default_policy]
+[2025-12-04T10:39:12,634][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [traces-apm.sampled_traces-default_policy]
+[2025-12-04T10:39:12,826][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [traces-apm.traces-default_policy]
+[2025-12-04T10:39:12,964][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-12-04T10:39:13,114][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [metrics-apm.transaction_60m_metrics-default_policy]
+[2025-12-04T10:39:13,335][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [test-cluster-0] adding index lifecycle policy [traces-apm.rum_traces-default_policy]
+[2025-12-04T10:39:13,918][INFO ][o.e.h.n.s.HealthNodeTaskExecutor] [test-cluster-0] Node [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}] is selected as the current health node.
+[2025-12-04T10:39:14,775][INFO ][o.e.l.ClusterStateLicenseService] [test-cluster-1] license [21464b86-7701-48b4-a4dc-3fefddde25b6] mode [basic] - valid
+[2025-12-04T10:39:14,860][INFO ][o.e.l.ClusterStateLicenseService] [test-cluster-0] license [21464b86-7701-48b4-a4dc-3fefddde25b6] mode [basic] - valid
+[2025-12-04T10:39:15,474][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline metrics-apm.internal@default-pipeline
+[2025-12-04T10:39:15,474][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline metrics-apm@pipeline
+[2025-12-04T10:39:15,474][INFO ][o.e.x.c.t.IndexTemplateRegistry] [test-cluster-0] adding ingest pipeline traces-apm@pipeline
+[2025-12-04T10:39:15,583][INFO ][o.e.t.c.l.WaitForHttpResource] [suite] Got successful response [200] from URL [http://[::1]:45279/_cluster/health?wait_for_nodes=>=2&wait_for_status=yellow&wait_for_events=LANGUID&wait_for_no_initializing_shards&wait_for_no_relocating_shards]
+[2025-12-04T10:39:15,605][INFO ][o.e.u.QueryBuilderBWCIT  ] [testQueryBuilderBWC] [cluster=OLD] before test
+[2025-12-04T10:39:15,618][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [[test-cluster-node-executor-0]] Writing unicast hosts file /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/unicast_hosts.txt for node test-cluster-1
+[2025-12-04T10:39:15,618][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [[test-cluster-node-executor-0]] Writing unicast hosts file /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/unicast_hosts.txt for node test-cluster-0
+[2025-12-04T10:39:15,653][INFO ][o.e.t.c.l.WaitForHttpResource] [testQueryBuilderBWC] Got successful response [200] from URL [http://[::1]:45279/_cluster/health?wait_for_nodes=>=2&wait_for_status=yellow&wait_for_events=LANGUID&wait_for_no_initializing_shards&wait_for_no_relocating_shards]
+[2025-12-04T10:39:15,654][INFO ][o.e.u.QueryBuilderBWCIT  ] [testQueryBuilderBWC] initializing REST clients against [http://[::1]:45279, http://[::1]:36567]
+[2025-12-04T10:39:17,187][INFO ][o.e.c.m.MetadataCreateIndexService] [test-cluster-0] [queries] creating index, cause [api], templates [], shards [1]/[0]
+[2025-12-04T10:39:17,923][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [zstd_stored_fields] is enabled
+[2025-12-04T10:39:18,431][INFO ][o.e.c.r.a.AllocationService] [test-cluster-0] current.health="GREEN" message="Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[queries][0]]])." previous.health="YELLOW" reason="shards started [[queries][0]]"
+[2025-12-04T10:39:19,950][INFO ][o.e.u.QueryBuilderBWCIT  ] [testQueryBuilderBWC] [cluster=OLD] after test
+[2025-12-04T10:39:19,967][INFO ][o.e.u.QueryBuilderBWCIT  ] [testQueryBuilderBWC] [cluster=UPGRADED] before test
+[2025-12-04T10:39:20,107][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [testQueryBuilderBWC] Stopping Elasticsearch test cluster 'test-cluster', forcibly: false
+[2025-12-04T10:39:20,107][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-0]] Shutting down node 'test-cluster-1'
+[2025-12-04T10:39:20,111][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-1]] Shutting down node 'test-cluster-0'
+[2025-12-04T10:39:20,115][INFO ][o.e.t.c.u.ProcessUtils   ] [[test-cluster-node-executor-1]] Terminating Elasticsearch process gracefully: [user: Optional[gradle], cmd: /home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2/bin/java, args: [-Xms4m, -Xmx64m, -XX:+UseSerialGC, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -Dcli.name=server, -Dcli.script=../../../../../../../../distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/bin/elasticsearch, -Dcli.libs=lib/tools/server-cli, -Des.path.home=/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT, -Des.path.conf=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config, -Des.distribution.type=tar, -cp, /repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib/*:/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib/cli-launcher/*, org.elasticsearch.launcher.CliToolLauncher], startTime: Optional[2025-12-04T07:38:10.230Z], totalTime: Optional[PT6.03S]]
+[2025-12-04T10:39:20,116][INFO ][o.e.t.c.u.ProcessUtils   ] [[test-cluster-node-executor-0]] Terminating Elasticsearch process gracefully: [user: Optional[gradle], cmd: /home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2/bin/java, args: [-Xms4m, -Xmx64m, -XX:+UseSerialGC, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -Dcli.name=server, -Dcli.script=../../../../../../../../distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/bin/elasticsearch, -Dcli.libs=lib/tools/server-cli, -Des.path.home=/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT, -Des.path.conf=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config, -Des.distribution.type=tar, -cp, /repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib/*:/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib/cli-launcher/*, org.elasticsearch.launcher.CliToolLauncher], startTime: Optional[2025-12-04T07:38:10.260Z], totalTime: Optional[PT6.47S]]
+[2025-12-04T10:39:20,160][INFO ][o.e.n.Node               ] [test-cluster-0] stopping ...
+[2025-12-04T10:39:20,164][INFO ][o.e.c.f.AbstractFileWatchingService] [test-cluster-0] shutting down watcher thread
+[2025-12-04T10:39:20,167][INFO ][o.e.c.f.AbstractFileWatchingService] [test-cluster-0] watcher service stopped
+[2025-12-04T10:39:20,177][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [test-cluster-0] [controller/13461] [Main.cc@176] ML controller exiting
+[2025-12-04T10:39:20,177][INFO ][o.e.x.w.WatcherService   ] [test-cluster-0] stopping watch service, reason [shutdown initiated]
+[2025-12-04T10:39:20,178][INFO ][o.e.x.w.WatcherLifeCycleService] [test-cluster-0] watcher has stopped and shutdown
+[2025-12-04T10:39:20,179][INFO ][o.e.x.w.t.s.e.TickerScheduleTriggerEngine] [test-cluster-0] Stopping watcher engine
+[2025-12-04T10:39:20,182][INFO ][o.e.x.m.p.NativeController] [test-cluster-0] Native controller process has stopped - no new native processes can be started
+[2025-12-04T10:39:20,185][INFO ][o.e.n.Node               ] [test-cluster-1] stopping ...
+[2025-12-04T10:39:20,190][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [test-cluster-1] [controller/13476] [Main.cc@176] ML controller exiting
+[2025-12-04T10:39:20,195][INFO ][o.e.x.m.p.NativeController] [test-cluster-1] Native controller process has stopped - no new native processes can be started
+[2025-12-04T10:39:20,202][INFO ][o.e.x.w.WatcherService   ] [test-cluster-1] stopping watch service, reason [shutdown initiated]
+[2025-12-04T10:39:20,203][INFO ][o.e.x.w.t.s.e.TickerScheduleTriggerEngine] [test-cluster-1] Stopping watcher engine
+[2025-12-04T10:39:20,203][INFO ][o.e.x.w.WatcherLifeCycleService] [test-cluster-1] watcher has stopped and shutdown
+[2025-12-04T10:39:20,402][INFO ][o.e.c.c.Coordinator      ] [test-cluster-1] master node [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{oLhqc8IFQ_qKW053Xuu83A}{test-cluster-0}{127.0.0.1}{127.0.0.1:45525}{cdfhilmrstw}{8.19.0}{7000099-8527000}] disconnected, restarting discovery
+[2025-12-04T10:39:20,410][INFO ][o.e.t.ClusterConnectionManager] [test-cluster-0] transport connection to [{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000}] closed by remote; if unexpected, see [https://www.elastic.co/guide/en/elasticsearch/reference/master/troubleshooting-unstable-cluster.html#troubleshooting-unstable-cluster-network] for troubleshooting guidance
+[2025-12-04T10:39:20,418][INFO ][o.e.c.s.MasterService    ] [test-cluster-0] node-left[{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000} reason: disconnected], term: 2, version: 64, delta: removed {{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000}}
+[2025-12-04T10:39:20,459][INFO ][o.e.c.s.ClusterApplierService] [test-cluster-0] removed {{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{9WgZxHkhSGqWtKAhQMBmmA}{test-cluster-1}{127.0.0.1}{127.0.0.1:46795}{cdfhilmrstw}{8.19.0}{7000099-8527000}}, term: 2, version: 64, reason: Publication{term=2, version=64}
+[2025-12-04T10:39:20,497][INFO ][o.e.n.Node               ] [test-cluster-1] stopped
+[2025-12-04T10:39:20,498][INFO ][o.e.n.Node               ] [test-cluster-1] closing ...
+[2025-12-04T10:39:20,567][INFO ][o.e.n.Node               ] [test-cluster-1] closed
+[2025-12-04T10:39:20,766][INFO ][o.e.n.Node               ] [test-cluster-0] stopped
+[2025-12-04T10:39:20,767][INFO ][o.e.n.Node               ] [test-cluster-0] closing ...
+[2025-12-04T10:39:20,816][INFO ][o.e.n.Node               ] [test-cluster-0] closed
+[2025-12-04T10:39:23,129][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [testQueryBuilderBWC] Upgrading Elasticsearch test cluster 'test-cluster' to version 8.19.0
+[2025-12-04T10:39:23,129][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-0]] Starting Elasticsearch node 'test-cluster-1'
+[2025-12-04T10:39:23,129][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-2]] Starting Elasticsearch node 'test-cluster-0'
+[2025-12-04T10:39:27,027][INFO ][process-output           ] [[elasticsearch-keystore-log-forwarder]] Created elasticsearch keystore in /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/elasticsearch.keystore
+[2025-12-04T10:39:27,509][INFO ][process-output           ] [[elasticsearch-keystore-log-forwarder]] Created elasticsearch keystore in /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/elasticsearch.keystore
+[2025-12-04T10:39:37,105][INFO ][o.e.n.j.JdkVectorLibrary ] [test-cluster-1] vec_caps=1
+[2025-12-04T10:39:37,192][INFO ][o.e.n.NativeAccess       ] [test-cluster-1] Using native vector library; to disable start with -Dorg.elasticsearch.nativeaccess.enableVectorLibrary=false
+[2025-12-04T10:39:37,240][INFO ][o.e.n.NativeAccess       ] [test-cluster-1] Using [jdk] native provider and native methods for [Linux]
+[2025-12-04T10:39:37,348][INFO ][o.e.n.j.JdkVectorLibrary ] [test-cluster-0] vec_caps=1
+[2025-12-04T10:39:37,387][INFO ][o.e.n.NativeAccess       ] [test-cluster-0] Using native vector library; to disable start with -Dorg.elasticsearch.nativeaccess.enableVectorLibrary=false
+[2025-12-04T10:39:37,389][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [test-cluster-1] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
+[2025-12-04T10:39:37,428][INFO ][o.e.n.NativeAccess       ] [test-cluster-0] Using [jdk] native provider and native methods for [Linux]
+[2025-12-04T10:39:37,560][INFO ][o.e.b.Elasticsearch      ] [test-cluster-1] Bootstrapping Entitlements
+[2025-12-04T10:39:37,586][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [test-cluster-0] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
+[2025-12-04T10:39:37,711][INFO ][o.e.b.Elasticsearch      ] [test-cluster-0] Bootstrapping Entitlements
+[2025-12-04T10:39:46,408][INFO ][o.e.n.Node               ] [test-cluster-1] version[8.19.0-SNAPSHOT], pid[14899], build[tar/e0c689bfd79b616caf2434dc7f1b9b5a65d232eb/2025-12-04T07:29:15.711961922Z], OS[Linux/6.8.0-1039-oracle/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/24/24+36-3646]
+[2025-12-04T10:39:46,409][INFO ][o.e.n.Node               ] [test-cluster-1] JVM home [/home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2], using bundled JDK [false]
+[2025-12-04T10:39:46,412][INFO ][o.e.n.Node               ] [test-cluster-1] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Dorg.apache.lucene.vectorization.upperJavaFeatureVersion=24, -Des.distribution.type=tar, -Des.java.type=null, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, --enable-native-access=ALL-UNNAMED, --illegal-native-access=deny, -XX:ReplayDataFile=logs/replay_pid%p.log, -Des.entitlements.enabled=true, -XX:+EnableDynamicAgentLoading, -Djdk.attach.allowAttachSelf=true, --patch-module=java.base=lib/entitlement-bridge/elasticsearch-entitlement-bridge-8.19.0-SNAPSHOT.jar, --add-exports=java.base/org.elasticsearch.entitlement.bridge=org.elasticsearch.entitlement,java.logging,java.net.http,java.naming,jdk.net, -XX:+UseG1GC, -Djava.io.tmpdir=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/tmp, --add-modules=jdk.incubator.vector, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs, -XX:ErrorFile=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms512m, -Xmx512m, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -XX:MaxDirectMemorySize=268435456, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib, --add-modules=jdk.net, --add-modules=jdk.management.agent, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
+[2025-12-04T10:39:46,418][INFO ][o.e.n.Node               ] [test-cluster-1] Default Locale [en_US]
+[2025-12-04T10:39:46,422][WARN ][o.e.n.Node               ] [test-cluster-1] version [8.19.0-SNAPSHOT] is a pre-release version of Elasticsearch and is not suitable for production
+[2025-12-04T10:39:47,235][INFO ][o.e.n.Node               ] [test-cluster-0] version[8.19.0-SNAPSHOT], pid[14869], build[tar/e0c689bfd79b616caf2434dc7f1b9b5a65d232eb/2025-12-04T07:29:15.711961922Z], OS[Linux/6.8.0-1039-oracle/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/24/24+36-3646]
+[2025-12-04T10:39:47,236][INFO ][o.e.n.Node               ] [test-cluster-0] JVM home [/home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2], using bundled JDK [false]
+[2025-12-04T10:39:47,236][INFO ][o.e.n.Node               ] [test-cluster-0] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Dorg.apache.lucene.vectorization.upperJavaFeatureVersion=24, -Des.distribution.type=tar, -Des.java.type=null, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, --enable-native-access=ALL-UNNAMED, --illegal-native-access=deny, -XX:ReplayDataFile=logs/replay_pid%p.log, -Des.entitlements.enabled=true, -XX:+EnableDynamicAgentLoading, -Djdk.attach.allowAttachSelf=true, --patch-module=java.base=lib/entitlement-bridge/elasticsearch-entitlement-bridge-8.19.0-SNAPSHOT.jar, --add-exports=java.base/org.elasticsearch.entitlement.bridge=org.elasticsearch.entitlement,java.logging,java.net.http,java.naming,jdk.net, -XX:+UseG1GC, -Djava.io.tmpdir=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/tmp, --add-modules=jdk.incubator.vector, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs, -XX:ErrorFile=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms512m, -Xmx512m, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -XX:MaxDirectMemorySize=268435456, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib, --add-modules=jdk.net, --add-modules=jdk.management.agent, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
+[2025-12-04T10:39:47,238][INFO ][o.e.n.Node               ] [test-cluster-0] Default Locale [en_US]
+[2025-12-04T10:39:47,239][WARN ][o.e.n.Node               ] [test-cluster-0] version [8.19.0-SNAPSHOT] is a pre-release version of Elasticsearch and is not suitable for production
+[2025-12-04T10:39:48,242][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [esql_semantic_text] is enabled
+[2025-12-04T10:39:48,247][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [esql_aggregate_metric_double] is enabled
+[2025-12-04T10:39:49,418][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [esql_semantic_text] is enabled
+[2025-12-04T10:39:49,419][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [esql_aggregate_metric_double] is enabled
+[2025-12-04T10:39:49,612][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [esql_inlinestats] is enabled
+[2025-12-04T10:39:50,982][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [esql_inlinestats] is enabled
+[2025-12-04T10:39:52,721][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repository-url]
+[2025-12-04T10:39:52,722][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [rest-root]
+[2025-12-04T10:39:52,723][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-core]
+[2025-12-04T10:39:52,723][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-redact]
+[2025-12-04T10:39:52,724][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ingest-user-agent]
+[2025-12-04T10:39:52,724][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-async-search]
+[2025-12-04T10:39:52,725][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-error-query]
+[2025-12-04T10:39:52,726][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-monitoring]
+[2025-12-04T10:39:52,726][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repository-s3]
+[2025-12-04T10:39:52,727][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-analytics]
+[2025-12-04T10:39:52,728][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-esql-core]
+[2025-12-04T10:39:52,729][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ent-search]
+[2025-12-04T10:39:52,730][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-autoscaling]
+[2025-12-04T10:39:52,731][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [lang-painless]
+[2025-12-04T10:39:52,731][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ml]
+[2025-12-04T10:39:52,736][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-die-with-dignity]
+[2025-12-04T10:39:52,737][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [legacy-geo]
+[2025-12-04T10:39:52,741][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [lang-mustache]
+[2025-12-04T10:39:52,743][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [logsdb]
+[2025-12-04T10:39:52,743][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ql]
+[2025-12-04T10:39:52,744][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [rank-rrf]
+[2025-12-04T10:39:52,744][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [analysis-common]
+[2025-12-04T10:39:52,745][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [health-shards-availability]
+[2025-12-04T10:39:52,746][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [transport-netty4]
+[2025-12-04T10:39:52,746][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [aggregations]
+[2025-12-04T10:39:52,747][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ingest-common]
+[2025-12-04T10:39:52,747][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [frozen-indices]
+[2025-12-04T10:39:52,748][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-identity-provider]
+[2025-12-04T10:39:52,748][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-text-structure]
+[2025-12-04T10:39:52,748][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-shutdown]
+[2025-12-04T10:39:52,748][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [snapshot-repo-test-kit]
+[2025-12-04T10:39:52,749][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-delayed-aggs]
+[2025-12-04T10:39:52,749][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ml-package-loader]
+[2025-12-04T10:39:52,749][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [kibana]
+[2025-12-04T10:39:52,749][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-esql-heap-attack]
+[2025-12-04T10:39:52,750][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [constant-keyword]
+[2025-12-04T10:39:52,750][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-logstash]
+[2025-12-04T10:39:52,750][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-graph]
+[2025-12-04T10:39:52,750][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ccr]
+[2025-12-04T10:39:52,751][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [rank-vectors]
+[2025-12-04T10:39:52,751][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-esql]
+[2025-12-04T10:39:52,751][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [parent-join]
+[2025-12-04T10:39:52,751][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [counted-keyword]
+[2025-12-04T10:39:52,752][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-enrich]
+[2025-12-04T10:39:52,752][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repositories-metering-api]
+[2025-12-04T10:39:52,752][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [transform]
+[2025-12-04T10:39:52,753][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repository-azure]
+[2025-12-04T10:39:52,753][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [dot-prefix-validation]
+[2025-12-04T10:39:52,754][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [repository-gcs]
+[2025-12-04T10:39:52,754][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-otel-data]
+[2025-12-04T10:39:52,755][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [spatial]
+[2025-12-04T10:39:52,756][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [mapper-version]
+[2025-12-04T10:39:52,757][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [apm]
+[2025-12-04T10:39:52,757][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [mapper-extras]
+[2025-12-04T10:39:52,757][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-jvm-crash]
+[2025-12-04T10:39:52,757][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-rollup]
+[2025-12-04T10:39:52,757][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [percolator]
+[2025-12-04T10:39:52,757][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-migrate]
+[2025-12-04T10:39:52,758][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [data-streams]
+[2025-12-04T10:39:52,758][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-stack]
+[2025-12-04T10:39:52,758][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [rank-eval]
+[2025-12-04T10:39:52,758][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [reindex]
+[2025-12-04T10:39:52,758][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-apm-integration]
+[2025-12-04T10:39:52,758][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-security]
+[2025-12-04T10:39:52,758][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [blob-cache]
+[2025-12-04T10:39:52,759][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [searchable-snapshots]
+[2025-12-04T10:39:52,759][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-slm]
+[2025-12-04T10:39:52,761][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-geoip-enterprise-downloader]
+[2025-12-04T10:39:52,761][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [snapshot-based-recoveries]
+[2025-12-04T10:39:52,761][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [test-latency-simulating-directory]
+[2025-12-04T10:39:52,762][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-watcher]
+[2025-12-04T10:39:52,773][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [old-lucene-versions]
+[2025-12-04T10:39:52,773][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-ilm]
+[2025-12-04T10:39:52,773][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-voting-only-node]
+[2025-12-04T10:39:52,773][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-inference]
+[2025-12-04T10:39:52,774][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-deprecation]
+[2025-12-04T10:39:52,774][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-fleet]
+[2025-12-04T10:39:52,774][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-profiling]
+[2025-12-04T10:39:52,774][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-aggregate-metric]
+[2025-12-04T10:39:52,774][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-downsample]
+[2025-12-04T10:39:52,774][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ingest-geoip]
+[2025-12-04T10:39:52,775][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-write-load-forecaster]
+[2025-12-04T10:39:52,775][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [search-business-rules]
+[2025-12-04T10:39:52,775][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [ingest-attachment]
+[2025-12-04T10:39:52,775][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [wildcard]
+[2025-12-04T10:39:52,775][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-apm-data]
+[2025-12-04T10:39:52,775][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-sql]
+[2025-12-04T10:39:52,775][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [unsigned-long]
+[2025-12-04T10:39:52,776][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [runtime-fields-common]
+[2025-12-04T10:39:52,776][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-async]
+[2025-12-04T10:39:52,776][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [vector-tile]
+[2025-12-04T10:39:52,783][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-kql]
+[2025-12-04T10:39:52,783][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [lang-expression]
+[2025-12-04T10:39:52,783][INFO ][o.e.p.PluginsService     ] [test-cluster-1] loaded module [x-pack-eql]
+[2025-12-04T10:39:53,595][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [failure_store] is enabled
+[2025-12-04T10:39:54,757][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repository-url]
+[2025-12-04T10:39:54,758][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [rest-root]
+[2025-12-04T10:39:54,758][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-core]
+[2025-12-04T10:39:54,759][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-redact]
+[2025-12-04T10:39:54,759][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ingest-user-agent]
+[2025-12-04T10:39:54,759][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-async-search]
+[2025-12-04T10:39:54,760][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-error-query]
+[2025-12-04T10:39:54,762][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-monitoring]
+[2025-12-04T10:39:54,762][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repository-s3]
+[2025-12-04T10:39:54,764][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-analytics]
+[2025-12-04T10:39:54,766][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-esql-core]
+[2025-12-04T10:39:54,767][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ent-search]
+[2025-12-04T10:39:54,767][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-autoscaling]
+[2025-12-04T10:39:54,772][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [lang-painless]
+[2025-12-04T10:39:54,772][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ml]
+[2025-12-04T10:39:54,772][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-die-with-dignity]
+[2025-12-04T10:39:54,772][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [legacy-geo]
+[2025-12-04T10:39:54,772][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [lang-mustache]
+[2025-12-04T10:39:54,773][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [logsdb]
+[2025-12-04T10:39:54,773][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ql]
+[2025-12-04T10:39:54,773][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [rank-rrf]
+[2025-12-04T10:39:54,773][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [analysis-common]
+[2025-12-04T10:39:54,773][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [health-shards-availability]
+[2025-12-04T10:39:54,774][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [transport-netty4]
+[2025-12-04T10:39:54,774][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [aggregations]
+[2025-12-04T10:39:54,774][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ingest-common]
+[2025-12-04T10:39:54,775][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [frozen-indices]
+[2025-12-04T10:39:54,775][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-identity-provider]
+[2025-12-04T10:39:54,775][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-text-structure]
+[2025-12-04T10:39:54,791][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-shutdown]
+[2025-12-04T10:39:54,799][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [snapshot-repo-test-kit]
+[2025-12-04T10:39:54,799][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-delayed-aggs]
+[2025-12-04T10:39:54,800][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ml-package-loader]
+[2025-12-04T10:39:54,802][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [kibana]
+[2025-12-04T10:39:54,806][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-esql-heap-attack]
+[2025-12-04T10:39:54,807][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [constant-keyword]
+[2025-12-04T10:39:54,811][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-logstash]
+[2025-12-04T10:39:54,812][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-graph]
+[2025-12-04T10:39:54,817][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ccr]
+[2025-12-04T10:39:54,819][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [rank-vectors]
+[2025-12-04T10:39:54,819][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-esql]
+[2025-12-04T10:39:54,819][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [parent-join]
+[2025-12-04T10:39:54,819][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [counted-keyword]
+[2025-12-04T10:39:54,819][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-enrich]
+[2025-12-04T10:39:54,819][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repositories-metering-api]
+[2025-12-04T10:39:54,820][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [transform]
+[2025-12-04T10:39:54,823][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repository-azure]
+[2025-12-04T10:39:54,824][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [dot-prefix-validation]
+[2025-12-04T10:39:54,824][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [repository-gcs]
+[2025-12-04T10:39:54,824][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-otel-data]
+[2025-12-04T10:39:54,824][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [spatial]
+[2025-12-04T10:39:54,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [mapper-version]
+[2025-12-04T10:39:54,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [apm]
+[2025-12-04T10:39:54,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [mapper-extras]
+[2025-12-04T10:39:54,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-jvm-crash]
+[2025-12-04T10:39:54,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-rollup]
+[2025-12-04T10:39:54,830][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [percolator]
+[2025-12-04T10:39:54,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-migrate]
+[2025-12-04T10:39:54,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [data-streams]
+[2025-12-04T10:39:54,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-stack]
+[2025-12-04T10:39:54,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [rank-eval]
+[2025-12-04T10:39:54,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [reindex]
+[2025-12-04T10:39:54,831][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-apm-integration]
+[2025-12-04T10:39:54,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-security]
+[2025-12-04T10:39:54,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [blob-cache]
+[2025-12-04T10:39:54,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [searchable-snapshots]
+[2025-12-04T10:39:54,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-slm]
+[2025-12-04T10:39:54,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-geoip-enterprise-downloader]
+[2025-12-04T10:39:54,832][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [snapshot-based-recoveries]
+[2025-12-04T10:39:54,833][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [test-latency-simulating-directory]
+[2025-12-04T10:39:54,833][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-watcher]
+[2025-12-04T10:39:54,833][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [old-lucene-versions]
+[2025-12-04T10:39:54,838][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-ilm]
+[2025-12-04T10:39:54,839][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-voting-only-node]
+[2025-12-04T10:39:54,839][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-inference]
+[2025-12-04T10:39:54,839][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-deprecation]
+[2025-12-04T10:39:54,839][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-fleet]
+[2025-12-04T10:39:54,839][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-profiling]
+[2025-12-04T10:39:54,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-aggregate-metric]
+[2025-12-04T10:39:54,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-downsample]
+[2025-12-04T10:39:54,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ingest-geoip]
+[2025-12-04T10:39:54,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-write-load-forecaster]
+[2025-12-04T10:39:54,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [search-business-rules]
+[2025-12-04T10:39:54,840][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [ingest-attachment]
+[2025-12-04T10:39:54,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [wildcard]
+[2025-12-04T10:39:54,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-apm-data]
+[2025-12-04T10:39:54,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-sql]
+[2025-12-04T10:39:54,841][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [unsigned-long]
+[2025-12-04T10:39:54,844][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [runtime-fields-common]
+[2025-12-04T10:39:54,845][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-async]
+[2025-12-04T10:39:54,845][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [vector-tile]
+[2025-12-04T10:39:54,846][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-kql]
+[2025-12-04T10:39:54,847][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [lang-expression]
+[2025-12-04T10:39:54,847][INFO ][o.e.p.PluginsService     ] [test-cluster-0] loaded module [x-pack-eql]
+[2025-12-04T10:39:55,926][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [failure_store] is enabled
+[2025-12-04T10:40:00,069][INFO ][o.e.e.NodeEnvironment    ] [test-cluster-1] using [1] data paths, mounts [[/ (overlay)]], net usable_space [873.4gb], net total_space [968.9gb], types [overlay]
+[2025-12-04T10:40:00,070][INFO ][o.e.e.NodeEnvironment    ] [test-cluster-1] heap size [512mb], compressed ordinary object pointers [true]
+[2025-12-04T10:40:00,277][INFO ][o.e.n.Node               ] [test-cluster-1] node name [test-cluster-1], node ID [z9T8CkWsRGibeXjQ9heUlg], cluster name [test-cluster], roles [data_cold, data, remote_cluster_client, master, data_warm, data_content, transform, data_hot, ml, data_frozen, ingest]
+[2025-12-04T10:40:02,292][INFO ][o.e.e.NodeEnvironment    ] [test-cluster-0] using [1] data paths, mounts [[/ (overlay)]], net usable_space [873.3gb], net total_space [968.9gb], types [overlay]
+[2025-12-04T10:40:02,300][INFO ][o.e.e.NodeEnvironment    ] [test-cluster-0] heap size [512mb], compressed ordinary object pointers [true]
+[2025-12-04T10:40:02,486][INFO ][o.e.n.Node               ] [test-cluster-0] node name [test-cluster-0], node ID [T83J5kQdTCaN1HvGGtG5Ug], cluster name [test-cluster], roles [data_frozen, ingest, data_cold, data, remote_cluster_client, master, data_warm, data_content, transform, data_hot, ml]
+[2025-12-04T10:40:14,798][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [connector_secrets] is enabled
+[2025-12-04T10:40:16,373][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [connector_secrets] is enabled
+[2025-12-04T10:40:18,999][INFO ][o.e.i.r.RecoverySettings ] [test-cluster-1] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
+[2025-12-04T10:40:19,778][WARN ][o.e.f.FeatureData        ] [test-cluster-1] WARNING: Test features are enabled. This should ONLY be used in automated tests.
+[2025-12-04T10:40:19,817][INFO ][o.e.i.r.RecoverySettings ] [test-cluster-0] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
+[2025-12-04T10:40:19,855][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [sub_objects_auto] is enabled
+[2025-12-04T10:40:20,150][INFO ][o.e.f.FeatureService     ] [test-cluster-1] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.downsample.default_aggregate_metric_fix, data_stream.failure_store.tsdb_fix, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.metrics_syntax, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, index.logsdb_no_host_name_field, inner_retrievers_filter_support, knn_retriever_supported, license-trial-independent-version, linear_retriever_supported, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.constant_keyword.synthetic_source_write_fix, mapper.copy_to.dynamic_handling, mapper.counted_keyword.synthetic_source_native_support, mapper.fix_parsing_subobjects_false_dynamic_false, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.ignored_source.always_store_object_arrays_in_nested, mapper.ignored_source.dont_expand_dots, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.logsdb_default_ignore_dynamic_beyond_limit, mapper.nested.sorting_fields_check_fix, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.date_range_indexing_fix, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.mode_from_index_setting, mapper.source.remove_synthetic_source_only_validation, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.sparse_vector.store_support, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.subobjects_false_mapping_update_fix, mapper.synthetic_recovery_source, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.tsdb_nested_field_support, mapper.unknown_field_mapping_update_error_message, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, meta_fetch_fields_error_code_changed, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.numeric_validation, query_rules.test, random_reranker_retriever_supported, rank_vectors, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.logsb_route_on_sort_fields, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.completion_field.duplicate.support, search.retriever.rescorer.enabled, search.semantic_knn_filter_fix, search.semantic_knn_vector_query_rewrite_interception_supported, search.semantic_match_query_rewrite_interception_supported, search.semantic_sparse_vector_query_rewrite_interception_supported, search.vectors.k_param_supported, security.migration_framework, security.queryable_built_in_roles, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.always_emit_inference_id_fix, semantic_text.bit_vector_support, semantic_text.default_elser_2, semantic_text.delete_fix, semantic_text.handle_empty_input, semantic_text.highlighter, semantic_text.highlighter.default, semantic_text.in_object_field_fix, semantic_text.inference_metadata_fields.enabled_by_default, semantic_text.inference_metadata_fields.explicit_null_fixes, semantic_text.search_inference_id, semantic_text.single_field_update_fix, semantic_text.skip_inference_fields, semantic_text.zero_size_fix, simulate.component.template.substitutions, simulate.ignored.fields, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, test_features_enabled, test_reranking_service.parse_text_as_score, text_similarity_reranker_alias_handling_fix, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
+[2025-12-04T10:40:20,266][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [test-cluster-1] Updated default factory retention to [null]
+[2025-12-04T10:40:20,271][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [test-cluster-1] Updated max factory retention to [null]
+[2025-12-04T10:40:20,272][INFO ][o.e.c.m.DataStreamFailureStoreSettings] [test-cluster-1] Updated data stream name patterns for enabling failure store to [[]]
+[2025-12-04T10:40:20,426][WARN ][o.e.f.FeatureData        ] [test-cluster-0] WARNING: Test features are enabled. This should ONLY be used in automated tests.
+[2025-12-04T10:40:20,465][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [sub_objects_auto] is enabled
+[2025-12-04T10:40:20,672][INFO ][o.e.f.FeatureService     ] [test-cluster-0] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.downsample.default_aggregate_metric_fix, data_stream.failure_store.tsdb_fix, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.metrics_syntax, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, index.logsdb_no_host_name_field, inner_retrievers_filter_support, knn_retriever_supported, license-trial-independent-version, linear_retriever_supported, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.constant_keyword.synthetic_source_write_fix, mapper.copy_to.dynamic_handling, mapper.counted_keyword.synthetic_source_native_support, mapper.fix_parsing_subobjects_false_dynamic_false, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.ignored_source.always_store_object_arrays_in_nested, mapper.ignored_source.dont_expand_dots, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.logsdb_default_ignore_dynamic_beyond_limit, mapper.nested.sorting_fields_check_fix, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.date_range_indexing_fix, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.mode_from_index_setting, mapper.source.remove_synthetic_source_only_validation, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.sparse_vector.store_support, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.subobjects_false_mapping_update_fix, mapper.synthetic_recovery_source, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.tsdb_nested_field_support, mapper.unknown_field_mapping_update_error_message, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, meta_fetch_fields_error_code_changed, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.numeric_validation, query_rules.test, random_reranker_retriever_supported, rank_vectors, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.logsb_route_on_sort_fields, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.completion_field.duplicate.support, search.retriever.rescorer.enabled, search.semantic_knn_filter_fix, search.semantic_knn_vector_query_rewrite_interception_supported, search.semantic_match_query_rewrite_interception_supported, search.semantic_sparse_vector_query_rewrite_interception_supported, search.vectors.k_param_supported, security.migration_framework, security.queryable_built_in_roles, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.always_emit_inference_id_fix, semantic_text.bit_vector_support, semantic_text.default_elser_2, semantic_text.delete_fix, semantic_text.handle_empty_input, semantic_text.highlighter, semantic_text.highlighter.default, semantic_text.in_object_field_fix, semantic_text.inference_metadata_fields.enabled_by_default, semantic_text.inference_metadata_fields.explicit_null_fixes, semantic_text.search_inference_id, semantic_text.single_field_update_fix, semantic_text.skip_inference_fields, semantic_text.zero_size_fix, simulate.component.template.substitutions, simulate.ignored.fields, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, test_features_enabled, test_reranking_service.parse_text_as_score, text_similarity_reranker_alias_handling_fix, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
+[2025-12-04T10:40:20,793][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [test-cluster-0] Updated default factory retention to [null]
+[2025-12-04T10:40:20,803][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [test-cluster-0] Updated max factory retention to [null]
+[2025-12-04T10:40:20,804][INFO ][o.e.c.m.DataStreamFailureStoreSettings] [test-cluster-0] Updated data stream name patterns for enabling failure store to [[]]
+[2025-12-04T10:40:21,467][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [test-cluster-1] [controller/14979] [Main.cc@123] controller (64 bit): Version 8.19.0-SNAPSHOT (Build b81eec921bbb2f) Copyright (c) 2025 Elasticsearch BV
+[2025-12-04T10:40:21,759][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [test-cluster-0] [controller/14988] [Main.cc@123] controller (64 bit): Version 8.19.0-SNAPSHOT (Build b81eec921bbb2f) Copyright (c) 2025 Elasticsearch BV
+[2025-12-04T10:40:22,595][INFO ][o.e.x.o.OTelPlugin       ] [test-cluster-1] OTel ingest plugin is enabled
+[2025-12-04T10:40:22,779][INFO ][o.e.x.c.t.YamlTemplateRegistry] [test-cluster-1] OpenTelemetry index template registry is enabled
+[2025-12-04T10:40:22,793][INFO ][o.e.t.a.APM              ] [test-cluster-1] Sending apm metrics is disabled
+[2025-12-04T10:40:22,794][INFO ][o.e.t.a.APM              ] [test-cluster-1] Sending apm tracing is disabled
+[2025-12-04T10:40:22,866][INFO ][o.e.x.o.OTelPlugin       ] [test-cluster-0] OTel ingest plugin is enabled
+[2025-12-04T10:40:22,882][INFO ][o.e.x.s.Security         ] [test-cluster-1] Security is disabled
+[2025-12-04T10:40:23,079][INFO ][o.e.x.c.t.YamlTemplateRegistry] [test-cluster-0] OpenTelemetry index template registry is enabled
+[2025-12-04T10:40:23,096][INFO ][o.e.t.a.APM              ] [test-cluster-0] Sending apm metrics is disabled
+[2025-12-04T10:40:23,097][INFO ][o.e.t.a.APM              ] [test-cluster-0] Sending apm tracing is disabled
+[2025-12-04T10:40:23,259][INFO ][o.e.x.s.Security         ] [test-cluster-0] Security is disabled
+[2025-12-04T10:40:23,564][INFO ][o.e.x.w.Watcher          ] [test-cluster-1] Watcher initialized components at 2025-12-04T07:40:23.563Z
+[2025-12-04T10:40:23,850][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [inference_cluster_aware_rate_limiting] is enabled
+[2025-12-04T10:40:23,900][INFO ][o.e.x.p.ProfilingPlugin  ] [test-cluster-1] Profiling is enabled
+[2025-12-04T10:40:23,984][INFO ][o.e.x.p.ProfilingPlugin  ] [test-cluster-1] profiling index templates will not be installed or reinstalled
+[2025-12-04T10:40:24,070][INFO ][o.e.x.a.APMPlugin        ] [test-cluster-1] APM ingest plugin is enabled
+[2025-12-04T10:40:24,252][INFO ][o.e.x.c.t.YamlTemplateRegistry] [test-cluster-1] apm index template registry is enabled
+[2025-12-04T10:40:24,289][INFO ][o.e.x.w.Watcher          ] [test-cluster-0] Watcher initialized components at 2025-12-04T07:40:24.288Z
+[2025-12-04T10:40:24,501][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [inference_cluster_aware_rate_limiting] is enabled
+[2025-12-04T10:40:24,530][INFO ][o.e.x.p.ProfilingPlugin  ] [test-cluster-0] Profiling is enabled
+[2025-12-04T10:40:24,595][INFO ][o.e.x.p.ProfilingPlugin  ] [test-cluster-0] profiling index templates will not be installed or reinstalled
+[2025-12-04T10:40:24,626][INFO ][o.e.x.a.APMPlugin        ] [test-cluster-0] APM ingest plugin is enabled
+[2025-12-04T10:40:24,735][INFO ][o.e.x.c.t.YamlTemplateRegistry] [test-cluster-0] apm index template registry is enabled
+[2025-12-04T10:40:25,160][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-1] The current build is a snapshot, feature flag [connector_api] is enabled
+[2025-12-04T10:40:25,631][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [connector_api] is enabled
+[2025-12-04T10:40:26,050][INFO ][o.e.t.n.NettyAllocator   ] [test-cluster-1] creating NettyAllocator with the following configs: [name=unpooled, suggested_max_allocation_size=1mb, factors={es.unsafe.use_unpooled_allocator=null, g1gc_enabled=true, g1gc_region_size=4mb, heap_size=512mb}]
+[2025-12-04T10:40:26,183][INFO ][o.e.t.n.NettyAllocator   ] [test-cluster-0] creating NettyAllocator with the following configs: [name=unpooled, suggested_max_allocation_size=1mb, factors={es.unsafe.use_unpooled_allocator=null, g1gc_enabled=true, g1gc_region_size=4mb, heap_size=512mb}]
+[2025-12-04T10:40:26,279][INFO ][o.e.d.DiscoveryModule    ] [test-cluster-1] using discovery type [multi-node] and seed hosts providers [settings, file]
+[2025-12-04T10:40:26,383][INFO ][o.e.d.DiscoveryModule    ] [test-cluster-0] using discovery type [multi-node] and seed hosts providers [settings, file]
+[2025-12-04T10:40:30,928][INFO ][o.e.n.Node               ] [test-cluster-1] initialized
+[2025-12-04T10:40:30,930][INFO ][o.e.n.Node               ] [test-cluster-1] starting ...
+[2025-12-04T10:40:31,033][INFO ][o.e.x.s.c.f.PersistentCache] [test-cluster-1] persistent cache index loaded
+[2025-12-04T10:40:31,035][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [test-cluster-1] deprecation component started
+[2025-12-04T10:40:31,368][INFO ][o.e.t.TransportService   ] [test-cluster-1] publish_address {127.0.0.1:40737}, bound_addresses {[::1]:46567}, {127.0.0.1:40737}
+[2025-12-04T10:40:32,107][INFO ][o.e.n.Node               ] [test-cluster-0] initialized
+[2025-12-04T10:40:32,108][INFO ][o.e.n.Node               ] [test-cluster-0] starting ...
+[2025-12-04T10:40:32,222][INFO ][o.e.x.s.c.f.PersistentCache] [test-cluster-0] persistent cache index loaded
+[2025-12-04T10:40:32,224][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [test-cluster-0] deprecation component started
+[2025-12-04T10:40:32,491][INFO ][o.e.t.TransportService   ] [test-cluster-0] publish_address {127.0.0.1:40623}, bound_addresses {[::1]:37019}, {127.0.0.1:40623}
+[2025-12-04T10:40:32,515][WARN ][o.e.b.BootstrapChecks    ] [test-cluster-1] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/master/bootstrap-checks-max-map-count.html]
+[2025-12-04T10:40:32,521][WARN ][o.e.c.c.ClusterBootstrapService] [test-cluster-1] this node is locked into cluster UUID [ibu29IT4QgKRRI-VYL7_fA] but [cluster.initial_master_nodes] is set to [test-cluster-0, test-cluster-1]; remove this setting to avoid possible data loss caused by subsequent cluster bootstrap attempts; for further information see https://www.elastic.co/guide/en/elasticsearch/reference/master/important-settings.html#initial_master_nodes
+[2025-12-04T10:40:32,544][WARN ][o.e.d.FileBasedSeedHostsProvider] [test-cluster-1] expected, but did not find, a dynamic hosts list at [/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/unicast_hosts.txt]
+[2025-12-04T10:40:32,571][INFO ][o.e.h.AbstractHttpServerTransport] [test-cluster-1] publish_address {127.0.0.1:46437}, bound_addresses {[::1]:39923}, {127.0.0.1:46437}
+[2025-12-04T10:40:32,648][INFO ][o.e.n.Node               ] [test-cluster-1] started {test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{AV_qaOvIQcOFFSfdkrpzOw}{test-cluster-1}{127.0.0.1}{127.0.0.1:40737}{cdfhilmrstw}{8.19.0}{7000099-8527000}{ml.machine_memory=135065120768, ml.allocated_processors_double=16.0, testattr=test, transform.config_version=10.0.0, xpack.installed=true, ml.allocated_processors=16, ml.max_jvm_size=536870912, ml.config_version=12.0.0}
+[2025-12-04T10:40:32,779][WARN ][o.e.x.i.s.e.a.ElasticInferenceServiceAuthorizationHandler] [test-cluster-1] Failed to revoke access to default inference endpoint IDs: [rainbow-sprinkles, elser-v2], error: org.elasticsearch.cluster.block.ClusterBlockException: blocked by: [SERVICE_UNAVAILABLE/1/state not recovered / initialized];
+[2025-12-04T10:40:33,371][WARN ][o.e.b.BootstrapChecks    ] [test-cluster-0] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/master/bootstrap-checks-max-map-count.html]
+[2025-12-04T10:40:33,378][WARN ][o.e.c.c.ClusterBootstrapService] [test-cluster-0] this node is locked into cluster UUID [ibu29IT4QgKRRI-VYL7_fA] but [cluster.initial_master_nodes] is set to [test-cluster-0, test-cluster-1]; remove this setting to avoid possible data loss caused by subsequent cluster bootstrap attempts; for further information see https://www.elastic.co/guide/en/elasticsearch/reference/master/important-settings.html#initial_master_nodes
+[2025-12-04T10:40:33,410][WARN ][o.e.d.FileBasedSeedHostsProvider] [test-cluster-0] expected, but did not find, a dynamic hosts list at [/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/unicast_hosts.txt]
+[2025-12-04T10:40:33,444][INFO ][o.e.h.AbstractHttpServerTransport] [test-cluster-0] publish_address {127.0.0.1:39291}, bound_addresses {[::1]:35689}, {127.0.0.1:39291}
+[2025-12-04T10:40:33,484][INFO ][o.e.n.Node               ] [test-cluster-0] started {test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{53ylkRonQ2-IkuPrPFmbzQ}{test-cluster-0}{127.0.0.1}{127.0.0.1:40623}{cdfhilmrstw}{8.19.0}{7000099-8527000}{xpack.installed=true, ml.allocated_processors=16, ml.max_jvm_size=536870912, ml.config_version=12.0.0, ml.machine_memory=135065120768, ml.allocated_processors_double=16.0, testattr=test, transform.config_version=10.0.0}
+[2025-12-04T10:40:33,538][WARN ][o.e.x.i.s.e.a.ElasticInferenceServiceAuthorizationHandler] [test-cluster-0] Failed to revoke access to default inference endpoint IDs: [rainbow-sprinkles, elser-v2], error: org.elasticsearch.cluster.block.ClusterBlockException: blocked by: [SERVICE_UNAVAILABLE/1/state not recovered / initialized];
+[2025-12-04T10:40:33,541][WARN ][o.e.d.FileBasedSeedHostsProvider] [test-cluster-1] expected, but did not find, a dynamic hosts list at [/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/unicast_hosts.txt]
+[2025-12-04T10:40:33,540][INFO ][o.e.c.s.MasterService    ] [test-cluster-0] elected-as-master ([1] nodes joined in term 3)[_FINISH_ELECTION_, {test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{53ylkRonQ2-IkuPrPFmbzQ}{test-cluster-0}{127.0.0.1}{127.0.0.1:40623}{cdfhilmrstw}{8.19.0}{7000099-8527000} completing election], term: 3, version: 65, delta: master node changed {previous [], current [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{53ylkRonQ2-IkuPrPFmbzQ}{test-cluster-0}{127.0.0.1}{127.0.0.1:40623}{cdfhilmrstw}{8.19.0}{7000099-8527000}]}
+[2025-12-04T10:40:33,706][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [[test-cluster-node-executor-0]] Writing unicast hosts file /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/unicast_hosts.txt for node test-cluster-1
+[2025-12-04T10:40:33,706][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [[test-cluster-node-executor-3]] Writing unicast hosts file /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/unicast_hosts.txt for node test-cluster-0
+[2025-12-04T10:40:33,707][INFO ][o.e.c.s.ClusterApplierService] [test-cluster-0] master node changed {previous [], current [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{53ylkRonQ2-IkuPrPFmbzQ}{test-cluster-0}{127.0.0.1}{127.0.0.1:40623}{cdfhilmrstw}{8.19.0}{7000099-8527000}]}, term: 3, version: 65, reason: Publication{term=3, version=65}
+[2025-12-04T10:40:33,817][INFO ][o.e.c.c.NodeJoinExecutor ] [test-cluster-0] node-join: [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{53ylkRonQ2-IkuPrPFmbzQ}{test-cluster-0}{127.0.0.1}{127.0.0.1:40623}{cdfhilmrstw}{8.19.0}{7000099-8527000}] with reason [completing election]
+[2025-12-04T10:40:33,830][INFO ][o.e.x.w.LicensedWriteLoadForecaster] [test-cluster-0] license state changed, now [valid]
+[2025-12-04T10:40:34,691][INFO ][o.e.x.m.MlIndexRollover  ] [test-cluster-0] ML legacy indices rolled over
+[2025-12-04T10:40:34,692][INFO ][o.e.x.m.MlAnomaliesIndexUpdate] [test-cluster-0] legacy ml anomalies indices rolled over and aliases updated
+[2025-12-04T10:40:34,920][INFO ][o.e.l.ClusterStateLicenseService] [test-cluster-0] license [21464b86-7701-48b4-a4dc-3fefddde25b6] mode [basic] - valid
+[2025-12-04T10:40:34,930][INFO ][o.e.c.f.AbstractFileWatchingService] [test-cluster-0] starting file watcher ...
+[2025-12-04T10:40:34,938][INFO ][o.e.c.f.AbstractFileWatchingService] [test-cluster-0] file settings service up and running [tid=97]
+[2025-12-04T10:40:34,939][INFO ][o.e.r.s.FileSettingsService] [test-cluster-0] setting file [/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/operator/settings.json] not found, initializing [file_settings] as empty
+[2025-12-04T10:40:34,939][INFO ][o.e.g.GatewayService     ] [test-cluster-0] recovered [1] indices into cluster_state
+[2025-12-04T10:40:35,071][INFO ][o.e.x.w.LicensedWriteLoadForecaster] [test-cluster-0] license state changed, now [not valid]
+[2025-12-04T10:40:35,298][INFO ][o.e.c.u.FeatureFlag      ] [test-cluster-0] The current build is a snapshot, feature flag [zstd_stored_fields] is enabled
+[2025-12-04T10:40:35,347][INFO ][o.e.c.s.MasterService    ] [test-cluster-0] node-join[{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{AV_qaOvIQcOFFSfdkrpzOw}{test-cluster-1}{127.0.0.1}{127.0.0.1:40737}{cdfhilmrstw}{8.19.0}{7000099-8527000} joining], term: 3, version: 70, delta: added {{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{AV_qaOvIQcOFFSfdkrpzOw}{test-cluster-1}{127.0.0.1}{127.0.0.1:40737}{cdfhilmrstw}{8.19.0}{7000099-8527000}}
+[2025-12-04T10:40:35,568][INFO ][o.e.c.s.ClusterApplierService] [test-cluster-1] master node changed {previous [], current [{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{53ylkRonQ2-IkuPrPFmbzQ}{test-cluster-0}{127.0.0.1}{127.0.0.1:40623}{cdfhilmrstw}{8.19.0}{7000099-8527000}]}, added {{test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{53ylkRonQ2-IkuPrPFmbzQ}{test-cluster-0}{127.0.0.1}{127.0.0.1:40623}{cdfhilmrstw}{8.19.0}{7000099-8527000}}, term: 3, version: 70, reason: ApplyCommitRequest{term=3, version=70, sourceNode={test-cluster-0}{T83J5kQdTCaN1HvGGtG5Ug}{53ylkRonQ2-IkuPrPFmbzQ}{test-cluster-0}{127.0.0.1}{127.0.0.1:40623}{cdfhilmrstw}{8.19.0}{7000099-8527000}{ml.max_jvm_size=536870912, ml.allocated_processors=16, testattr=test, transform.config_version=10.0.0, xpack.installed=true, ml.allocated_processors_double=16.0, ml.machine_memory=135065120768, ml.config_version=12.0.0}}
+[2025-12-04T10:40:36,426][INFO ][o.e.l.ClusterStateLicenseService] [test-cluster-1] license [21464b86-7701-48b4-a4dc-3fefddde25b6] mode [basic] - valid
+[2025-12-04T10:40:36,442][INFO ][o.e.c.s.ClusterApplierService] [test-cluster-0] added {{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{AV_qaOvIQcOFFSfdkrpzOw}{test-cluster-1}{127.0.0.1}{127.0.0.1:40737}{cdfhilmrstw}{8.19.0}{7000099-8527000}}, term: 3, version: 70, reason: Publication{term=3, version=70}
+[2025-12-04T10:40:36,478][INFO ][o.e.c.c.NodeJoinExecutor ] [test-cluster-0] node-join: [{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}{AV_qaOvIQcOFFSfdkrpzOw}{test-cluster-1}{127.0.0.1}{127.0.0.1:40737}{cdfhilmrstw}{8.19.0}{7000099-8527000}] with reason [joining]
+[2025-12-04T10:40:36,502][INFO ][o.e.c.r.a.AllocationService] [test-cluster-0] current.health="GREEN" message="Cluster health status changed from [RED] to [GREEN] (reason: [shards started [[queries][0]]])." previous.health="RED" reason="shards started [[queries][0]]"
+[2025-12-04T10:40:36,701][INFO ][o.e.h.n.s.HealthNodeTaskExecutor] [test-cluster-1] Node [{test-cluster-1}{z9T8CkWsRGibeXjQ9heUlg}] is selected as the current health node.
+[2025-12-04T10:40:36,764][INFO ][o.e.t.c.l.WaitForHttpResource] [testQueryBuilderBWC] Got successful response [200] from URL [http://[::1]:35689/_cluster/health?wait_for_nodes=>=2&wait_for_status=yellow&wait_for_events=LANGUID&wait_for_no_initializing_shards&wait_for_no_relocating_shards]
+[2025-12-04T10:40:36,766][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [[test-cluster-node-executor-0]] Writing unicast hosts file /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config/unicast_hosts.txt for node test-cluster-0
+[2025-12-04T10:40:36,766][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [[test-cluster-node-executor-4]] Writing unicast hosts file /repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config/unicast_hosts.txt for node test-cluster-1
+[2025-12-04T10:40:36,775][INFO ][o.e.t.c.l.WaitForHttpResource] [testQueryBuilderBWC] Got successful response [200] from URL [http://[::1]:35689/_cluster/health?wait_for_nodes=>=2&wait_for_status=yellow&wait_for_events=LANGUID&wait_for_no_initializing_shards&wait_for_no_relocating_shards]
+[2025-12-04T10:40:36,776][INFO ][o.e.u.QueryBuilderBWCIT  ] [testQueryBuilderBWC] initializing REST clients against [http://[::1]:35689, http://[::1]:39923]
+[2025-12-04T10:40:38,050][INFO ][o.e.u.QueryBuilderBWCIT  ] [testQueryBuilderBWC] [cluster=UPGRADED] after test
+[2025-12-04T10:40:38,052][INFO ][o.e.t.c.l.DefaultLocalClusterHandle] [suite] Stopping Elasticsearch test cluster 'test-cluster', forcibly: true
+[2025-12-04T10:40:38,053][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-0]] Shutting down node 'test-cluster-0'
+[2025-12-04T10:40:38,053][INFO ][o.e.t.c.l.AbstractLocalClusterFactory] [[test-cluster-node-executor-4]] Shutting down node 'test-cluster-1'
+[2025-12-04T10:40:38,056][INFO ][o.e.t.c.u.ProcessUtils   ] [[test-cluster-node-executor-4]] Terminating Elasticsearch process  forcibly : [user: Optional[gradle], cmd: /home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2/bin/java, args: [-Xms4m, -Xmx64m, -XX:+UseSerialGC, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -Dcli.name=server, -Dcli.script=../../../../../../../../distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/bin/elasticsearch, -Dcli.libs=lib/tools/server-cli, -Des.path.home=/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT, -Des.path.conf=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/config, -Des.distribution.type=tar, -cp, /repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib/*:/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib/cli-launcher/*, org.elasticsearch.launcher.CliToolLauncher], startTime: Optional[2025-12-04T07:39:26.920Z], totalTime: Optional[PT6.7S]]
+[2025-12-04T10:40:38,057][INFO ][o.e.t.c.u.ProcessUtils   ] [[test-cluster-node-executor-0]] Terminating Elasticsearch process  forcibly : [user: Optional[gradle], cmd: /home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2/bin/java, args: [-Xms4m, -Xmx64m, -XX:+UseSerialGC, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -Dcli.name=server, -Dcli.script=../../../../../../../../distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/bin/elasticsearch, -Dcli.libs=lib/tools/server-cli, -Des.path.home=/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT, -Des.path.conf=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/config, -Des.distribution.type=tar, -cp, /repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib/*:/repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib/cli-launcher/*, org.elasticsearch.launcher.CliToolLauncher], startTime: Optional[2025-12-04T07:39:26.390Z], totalTime: Optional[PT6.36S]]
+[2025-12-04T10:40:38,085][INFO ][o.e.n.Node               ] [test-cluster-1] stopping ...
+[2025-12-04T10:40:38,088][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [test-cluster-1] [controller/14979] [Main.cc@176] ML controller exiting
+[2025-12-04T10:40:38,089][INFO ][o.e.x.m.p.NativeController] [test-cluster-1] Native controller process has stopped - no new native processes can be started
+[2025-12-04T10:40:38,094][INFO ][o.e.n.Node               ] [test-cluster-0] stopping ...
+[2025-12-04T10:40:39,059][INFO ][o.e.t.c.u.ProcessUtils   ] [[test-cluster-node-executor-4]] Terminating Elasticsearch process  forcibly : [user: Optional[gradle], cmd: /home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2/bin/java, args: [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Dorg.apache.lucene.vectorization.upperJavaFeatureVersion=24, -Des.distribution.type=tar, -Des.java.type=null, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, --enable-native-access=ALL-UNNAMED, --illegal-native-access=deny, -XX:ReplayDataFile=logs/replay_pid%p.log, -Des.entitlements.enabled=true, -XX:+EnableDynamicAgentLoading, -Djdk.attach.allowAttachSelf=true, --patch-module=java.base=lib/entitlement-bridge/elasticsearch-entitlement-bridge-8.19.0-SNAPSHOT.jar, --add-exports=java.base/org.elasticsearch.entitlement.bridge=org.elasticsearch.entitlement,java.logging,java.net.http,java.naming,jdk.net, -XX:+UseG1GC, -Djava.io.tmpdir=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/tmp, --add-modules=jdk.incubator.vector, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs, -XX:ErrorFile=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-1/logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms512m, -Xmx512m, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -XX:MaxDirectMemorySize=268435456, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path, /repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib, --add-modules=jdk.net, --add-modules=jdk.management.agent, --add-modules=ALL-MODULE-PATH, -m, org.elasticsearch.server/org.elasticsearch.bootstrap.Elasticsearch], startTime: Optional[2025-12-04T07:39:32.690Z], totalTime: Optional[PT1M12.42S]]
+[2025-12-04T10:40:39,061][INFO ][o.e.t.c.u.ProcessUtils   ] [[test-cluster-node-executor-0]] Terminating Elasticsearch process  forcibly : [user: Optional[gradle], cmd: /home/gradle/.gradle/jdks/oracle_corporation-24-amd64-linux.2/bin/java, args: [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Dorg.apache.lucene.vectorization.upperJavaFeatureVersion=24, -Des.distribution.type=tar, -Des.java.type=null, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, --enable-native-access=ALL-UNNAMED, --illegal-native-access=deny, -XX:ReplayDataFile=logs/replay_pid%p.log, -Des.entitlements.enabled=true, -XX:+EnableDynamicAgentLoading, -Djdk.attach.allowAttachSelf=true, --patch-module=java.base=lib/entitlement-bridge/elasticsearch-entitlement-bridge-8.19.0-SNAPSHOT.jar, --add-exports=java.base/org.elasticsearch.entitlement.bridge=org.elasticsearch.entitlement,java.logging,java.net.http,java.naming,jdk.net, -XX:+UseG1GC, -Djava.io.tmpdir=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/tmp, --add-modules=jdk.incubator.vector, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs, -XX:ErrorFile=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=/repo/qa/full-cluster-restart/build/testrun/v8.19.0_bwcTest/temp/test-cluster10233204273646337071/test-cluster-0/logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms512m, -Xmx512m, -ea, -esa, -Dtests.testfeatures.enabled=true, -Dingest.geoip.downloader.enabled.default=false, -XX:MaxDirectMemorySize=268435456, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path, /repo/distribution/archives/linux-tar/build/install/elasticsearch-8.19.0-SNAPSHOT/lib, --add-modules=jdk.net, --add-modules=jdk.management.agent, --add-modules=ALL-MODULE-PATH, -m, org.elasticsearch.server/org.elasticsearch.bootstrap.Elasticsearch], startTime: Optional[2025-12-04T07:39:32.340Z], totalTime: Optional[PT1M15.19S]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
