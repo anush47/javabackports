@@ -7,8 +7,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git \
     git-lfs \
-    maven \
     && rm -rf /var/lib/apt/lists/*
+
+# --- Install Maven 3.9.9 ---
+ENV MAVEN_VERSION=3.9.9
+ENV MAVEN_HOME=/usr/share/maven
+ENV MAVEN_CONFIG=/root/.m2
+
+RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
+    && curl -fsSL -o /tmp/apache-maven.tar.gz https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+    && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
+    && rm -f /tmp/apache-maven.tar.gz \
+    && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
 # --- Install Node.js & Yarn (Graylog web interface might need it, similar to Druid) ---
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
