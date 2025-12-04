@@ -1,4 +1,4 @@
-unique_id,repo,key,scope,complexity,Backport ommit,date,message
+unique_id,repo,key,scope,complexity,Backport Commit,date,message
 graylog2-server_24240_6.3,graylog2-server,24240_6.3,S3,C1,90d6e92dea97979bbbf4e6514da8d554b4fffce9,2025-11-21 09:15:36+00:00,Fetch fields index by index (#24240) (#24276)
 graylog2-server_24150_7.0,graylog2-server,24150_7.0,S3,C3,dca3e8475c353d3a40867abd6b6d27bc2af04515,2025-11-07 22:50:41+00:00,Validate ObjectId of StreamEntity before searching Mongo (`7.0`) (#24167)
 graylog2-server_23955_7.0,graylog2-server,23955_7.0,S3,C1,f6cf8288626191ac2d58485aa004526e669c023e,2025-10-23 14:27:03+00:00,add role assign permission (#23955) (#24005)
