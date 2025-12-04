@@ -1,5 +1,5 @@
 # Use the official Temurin 17 image
-FROM eclipse-temurin:17-jdk
+FROM eclipse-temurin:21-jdk
 
 # ---- system packages --------------------------------------------------
 RUN apt-get update && apt-get install -y --no-install-recommends \
