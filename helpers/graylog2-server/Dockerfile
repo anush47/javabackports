@@ -14,7 +14,8 @@ ENV DOCKER_VERSION=27.4.0
 RUN curl -fsSL -o /tmp/docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
     && tar -xzf /tmp/docker.tgz -C /tmp \
     && mv /tmp/docker/docker /usr/bin/docker \
-    && rm -rf /tmp/docker /tmp/docker.tgz
+    && rm -rf /tmp/docker /tmp/docker.tgz \
+    && groupadd -g 999 docker || true
 
 # --- Install Maven 3.9.9 ---
 ENV MAVEN_VERSION=3.9.9
