@@ -2,16 +2,6 @@
 # This script builds the Docker image and compiles the code.
 set -e # Exit on error
 
-echo "--- Building code for ${COMMIT_SHA:0:7} ---"
-
-echo "--- Changing directory to ${PROJECT_DIR} ---"
-cd "${PROJECT_DIR}"
-
-echo "--- Checking out commit... ---"
-git config --global --add safe.directory "${PROJECT_DIR}"
-git checkout ${COMMIT_SHA}
-
-# Create persistent Gradle cache volumes if they don't exist
 # Determine if we need sudo for docker
 DOCKER_CMD="docker"
 if ! docker info > /dev/null 2>&1; then
@@ -22,6 +12,22 @@ if ! docker info > /dev/null 2>&1; then
         echo "Warning: Docker command failed and sudo check failed. Continuing with 'docker' but expect errors."
     fi
 fi
+
+echo "--- Fixing permissions for ${PROJECT_DIR} ---"
+# We use a lightweight image to chown the directory back to the current user
+# This fixes issues where previous Docker runs (as root) messed up .git permissions
+${DOCKER_CMD} run --rm -v "${PROJECT_DIR}:/repo" alpine chown -R $(id -u):$(id -g) /repo
+
+echo "--- Building code for ${COMMIT_SHA:0:7} ---"
+
+echo "--- Changing directory to ${PROJECT_DIR} ---"
+cd "${PROJECT_DIR}"
+
+echo "--- Checking out commit... ---"
+git config --global --add safe.directory "${PROJECT_DIR}"
+git checkout ${COMMIT_SHA}
+
+# Create persistent Gradle cache volumes if they don't exist
 
 ${DOCKER_CMD} volume create gradle-cache-ls 2>/dev/null || true
 ${DOCKER_CMD} volume create gradle-wrapper-ls 2>/dev/null || true
