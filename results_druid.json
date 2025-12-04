@@ -1,0 +1,610 @@
+[
+  {
+    "index": 2,
+    "commit": "7c1b3f1d3a2ee924440c6c88727d5a5ac6eb18e4",
+    "parent": "e0739e46093a08227efe460ee994cf5090815184",
+    "test_targets": {
+      "modified": [],
+      "added": [
+        "embedded-tests:org.apache.druid.testing.embedded.server.HistoricalCloningTest"
+      ],
+      "all": "embedded-tests:org.apache.druid.testing.embedded.server.HistoricalCloningTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 1,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.testing.embedded.server.HistoricalCloningTest.test_cloneHistoricals_inTurboMode_duringCoordinatorLeaderSwitch"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 6,
+    "commit": "3ba7badda390977805600942d71016b5af12751b",
+    "parent": "26d5e95073058b9adf3827b676e0df81175bdc6e",
+    "test_targets": {
+      "modified": [
+        "extensions-core/multi-stage-query:org.apache.druid.msq.exec.MSQWindowTest",
+        "processing:org.apache.druid.frame.write.FrameWriterTest"
+      ],
+      "added": [
+        "processing:org.apache.druid.frame.allocation.AppendableMemoryTest"
+      ],
+      "all": "extensions-core/multi-stage-query:org.apache.druid.msq.exec.MSQWindowTest processing:org.apache.druid.frame.write.FrameWriterTest processing:org.apache.druid.frame.allocation.AppendableMemoryTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 281,
+      "after_fail_count": 0,
+      "before_pass_count": 280,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.frame.allocation.AppendableMemoryTest.testReserveAdditionalWithLargeLastBlockAndSmallAllocator"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 7,
+    "commit": "06c1a6a31eaa2339a8507658ea1baf378da48e4a",
+    "parent": "f72dbfd9cdf607d876e330aa4996bc8fccf810b3",
+    "test_targets": {
+      "modified": [
+        "extensions-core/multi-stage-query:org.apache.druid.msq.input.InputSpecsTest"
+      ],
+      "added": [
+        "extensions-core/multi-stage-query:org.apache.druid.msq.dart.controller.DartControllerContextTest"
+      ],
+      "all": "extensions-core/multi-stage-query:org.apache.druid.msq.input.InputSpecsTest extensions-core/multi-stage-query:org.apache.druid.msq.dart.controller.DartControllerContextTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 1,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 7
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.msq.input.InputSpecsTest.test_getHasLeafInputs_oneTableOneStage",
+        "org.apache.druid.msq.input.InputSpecsTest.test_getHasLeafInputs_oneTableOneBroadcastStage",
+        "org.apache.druid.msq.input.InputSpecsTest.test_getHasLeafInputs_allStages",
+        "org.apache.druid.msq.input.InputSpecsTest.test_getHasLeafInputs_oneTableOneBroadcastTable",
+        "org.apache.druid.msq.input.InputSpecsTest.test_getHasLeafInputs_broadcastTable",
+        "org.apache.druid.msq.dart.controller.DartControllerContextTest.test_queryKernelConfig",
+        "org.apache.druid.msq.input.InputSpecsTest.test_getHasLeafInputs_oneBroadcastTableOneStage"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 9,
+    "commit": "f27a1dc651d0ee607337ac6f0483643b32ace66a",
+    "parent": "10528a6d9e507729d0687345be732c5145e2c6ae",
+    "test_targets": {
+      "modified": [],
+      "added": [
+        "extensions-core/multi-stage-query:org.apache.druid.msq.exec.RunWorkOrderTest"
+      ],
+      "all": "extensions-core/multi-stage-query:org.apache.druid.msq.exec.RunWorkOrderTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 4
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.msq.exec.RunWorkOrderTest.test_stopUnchecked_errorDuringExecCancel",
+        "org.apache.druid.msq.exec.RunWorkOrderTest.test_stopUnchecked_error",
+        "org.apache.druid.msq.exec.RunWorkOrderTest.test_stopUnchecked_errorDuringFrameContextClose",
+        "org.apache.druid.msq.exec.RunWorkOrderTest.test_stopUnchecked"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 12,
+    "commit": "4a8008aebb7b3f324325feabd1b5a11a07e76022",
+    "parent": "2f2807d3798e651cec0b04cc43aec1a53b9ba7b5",
+    "test_targets": {
+      "modified": [
+        "extensions-core/multi-stage-query:org.apache.druid.msq.exec.MSQWindowTest",
+        "processing:org.apache.druid.frame.allocation.HeapMemoryAllocatorTest",
+        "processing:org.apache.druid.frame.write.RowBasedFrameWriterTest"
+      ],
+      "added": [
+        "processing:org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest",
+        "processing:org.apache.druid.frame.allocation.BaseMemoryAllocatorTest"
+      ],
+      "all": "extensions-core/multi-stage-query:org.apache.druid.msq.exec.MSQWindowTest processing:org.apache.druid.frame.allocation.HeapMemoryAllocatorTest processing:org.apache.druid.frame.write.RowBasedFrameWriterTest processing:org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest processing:org.apache.druid.frame.allocation.BaseMemoryAllocatorTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 50,
+      "after_fail_count": 0,
+      "before_pass_count": 39,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 12
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.frame.allocation.HeapMemoryAllocatorTest.testReleaseLastAllocationFirst",
+        "org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest.testReleaseAllocationTwice",
+        "org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest.testOverallocationInMultiplePasses",
+        "org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest.testAllocationInMultiplePasses",
+        "org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest.testReleaseLastAllocationFirst",
+        "org.apache.druid.frame.allocation.HeapMemoryAllocatorTest.testReleaseLastAllocationLast",
+        "org.apache.druid.frame.allocation.HeapMemoryAllocatorTest.testReleaseAllocationTwice",
+        "org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest.testAllocationInSinglePass",
+        "org.apache.druid.frame.write.RowBasedFrameWriterTest.test_addSelection_singleLargeRow",
+        "org.apache.druid.frame.write.RowBasedFrameWriterTest.test_addSelection_withException",
+        "org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest.testOverallocationInSinglePass",
+        "org.apache.druid.frame.allocation.ArenaMemoryAllocatorTest.testReleaseLastAllocationLast"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 14,
+    "commit": "9b192bd5a2b1911472d2f0328e87adfaba75da3e",
+    "parent": "ef7c461722fa89875c7657ed4c835470a20caf06",
+    "test_targets": {
+      "modified": [],
+      "added": [
+        "processing:org.apache.druid.segment.CursorHolderPreaggTest"
+      ],
+      "all": "processing:org.apache.druid.segment.CursorHolderPreaggTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 3
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.segment.CursorHolderPreaggTest.testTopn",
+        "org.apache.druid.segment.CursorHolderPreaggTest.testGroupBy",
+        "org.apache.druid.segment.CursorHolderPreaggTest.testTimeseries"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 16,
+    "commit": "f4ad5d001b49cead0c9d4e93b36df123946ae632",
+    "parent": "8c7c422d8dedccb482b7ed46bacc70a7c8809e95",
+    "test_targets": {
+      "modified": [
+        "processing:org.apache.druid.frame.processor.SuperSorterTest"
+      ],
+      "added": [],
+      "all": "processing:org.apache.druid.frame.processor.SuperSorterTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 18,
+    "commit": "0ae9988796de026793008ca9368a4c22d75747f2",
+    "parent": "b7cc0bb34345d4dba86f9a2318d8767f1e9dfeb2",
+    "test_targets": {
+      "modified": [],
+      "added": [
+        "extensions-contrib/druid-iceberg-extensions:org.apache.druid.iceberg.input.RestCatalogTest"
+      ],
+      "all": "extensions-contrib/druid-iceberg-extensions:org.apache.druid.iceberg.input.RestCatalogTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 1,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.iceberg.input.RestCatalogTest.testCatalogCreate"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 20,
+    "commit": "11727af2a6c464b57047b1a97ff5053daa6fb0dd",
+    "parent": "52929ed24a746407364edf8312a30bf97817a544",
+    "test_targets": {
+      "modified": [
+        "processing:org.apache.druid.query.rowsandcols.semantic.TestVirtualColumnEvaluationRowsAndColumnsTest"
+      ],
+      "added": [
+        "processing:org.apache.druid.query.rowsandcols.semantic.EvaluateRowsAndColumnsTest"
+      ],
+      "all": "processing:org.apache.druid.query.rowsandcols.semantic.TestVirtualColumnEvaluationRowsAndColumnsTest processing:org.apache.druid.query.rowsandcols.semantic.EvaluateRowsAndColumnsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 4,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 4
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.query.rowsandcols.semantic.EvaluateRowsAndColumnsTest.testMaterializeColumns[ColumnBasedFrameRowsAndColumns]",
+        "org.apache.druid.query.rowsandcols.semantic.EvaluateRowsAndColumnsTest.testMaterializeColumns[ArrayListRowsAndColumns]",
+        "org.apache.druid.query.rowsandcols.semantic.EvaluateRowsAndColumnsTest.testMaterializeColumns[RowBasedFrameRowsAndColumns]",
+        "org.apache.druid.query.rowsandcols.semantic.EvaluateRowsAndColumnsTest.testMaterializeColumns[CursorFactoryRowsAndColumns]"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 23,
+    "commit": "305abae8b198cd10f8f718d6da053348e3e5ac89",
+    "parent": "279b60e5b518a66839da19448a88f0569c89eecf",
+    "test_targets": {
+      "modified": [],
+      "added": [
+        "processing:org.apache.druid.query.groupby.GroupByResourcesReservationPoolTest"
+      ],
+      "all": "processing:org.apache.druid.query.groupby.GroupByResourcesReservationPoolTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.query.groupby.GroupByResourcesReservationPoolTest.testMultipleSequentialAllocationAttemptsSucceed",
+        "org.apache.druid.query.groupby.GroupByResourcesReservationPoolTest.testMultipleSimultaneousAllocationAttemptsFail"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 27,
+    "commit": "d6858771d1acb63c5fb39a3a6bcd62b03461dc15",
+    "parent": "9592d5414ab777bbdb4206f6e344f7895cc5285f",
+    "test_targets": {
+      "modified": [
+        "server:org.apache.druid.indexing.overlord.supervisor.SupervisorTest"
+      ],
+      "added": [
+        "server:org.apache.druid.indexing.overlord.supervisor.LagStatsTest"
+      ],
+      "all": "server:org.apache.druid.indexing.overlord.supervisor.SupervisorTest server:org.apache.druid.indexing.overlord.supervisor.LagStatsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 1,
+      "after_fail_count": 0,
+      "before_pass_count": 1,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.indexing.overlord.supervisor.LagStatsTest.testAutoScalerLagComputation"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 29,
+    "commit": "e1dc60f21d7d9ec502c1f256ac27b5e6abd92792",
+    "parent": "44d0d3245c063e3c9d7a3805632fa1295143b115",
+    "test_targets": {
+      "modified": [
+        "extensions-core/multi-stage-query:org.apache.druid.msq.exec.MSQExportTest"
+      ],
+      "added": [
+        "extensions-core/multi-stage-query:org.apache.druid.msq.querykit.results.ExportResultsFrameProcessorFactoryTest"
+      ],
+      "all": "extensions-core/multi-stage-query:org.apache.druid.msq.exec.MSQExportTest extensions-core/multi-stage-query:org.apache.druid.msq.querykit.results.ExportResultsFrameProcessorFactoryTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.msq.exec.MSQExportTest.testExport2",
+        "org.apache.druid.msq.querykit.results.ExportResultsFrameProcessorFactoryTest.testSerde"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 31,
+    "commit": "2b9ee7fc71432e5be9b8d6b738cc55886cb9b3d4",
+    "parent": "6241af733c18e6b73bcf69e542a4b86252a83800",
+    "test_targets": {
+      "modified": [],
+      "added": [
+        "processing:org.apache.druid.data.input.impl.RowsTest"
+      ],
+      "all": "processing:org.apache.druid.data.input.impl.RowsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 4
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.data.input.impl.RowsTest.test_objectToNumber_typeFloat_noThrow",
+        "org.apache.druid.data.input.impl.RowsTest.test_objectToNumber_typeDouble_noThrow",
+        "org.apache.druid.data.input.impl.RowsTest.test_objectToNumber_typeLong_noThrow",
+        "org.apache.druid.data.input.impl.RowsTest.test_objectToNumber_typeUnknown_noThrow"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 32,
+    "commit": "f283849821d0ffde5dfe6a64a7400f0191ef5989",
+    "parent": "b45752c4645deab65f577f5e508fead6b9bd8edf",
+    "test_targets": {
+      "modified": [
+        "server:org.apache.druid.metadata.IndexerSQLMetadataStorageCoordinatorTest",
+        "server:org.apache.druid.server.http.MetadataResourceTest"
+      ],
+      "added": [
+        "server:org.apache.druid.server.http.DataSegmentPlusTest"
+      ],
+      "all": "server:org.apache.druid.metadata.IndexerSQLMetadataStorageCoordinatorTest server:org.apache.druid.server.http.MetadataResourceTest server:org.apache.druid.server.http.DataSegmentPlusTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 92,
+      "after_fail_count": 0,
+      "before_pass_count": 90,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.server.http.DataSegmentPlusTest.testEquals",
+        "org.apache.druid.server.http.DataSegmentPlusTest.testSerde"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 33,
+    "commit": "8cfaaac2c05ad10b2a520e6991e9178484406b61",
+    "parent": "00ee60aecb175a39dc9d9eb0fbec2c7ff4dc73e5",
+    "test_targets": {
+      "modified": [],
+      "added": [
+        "extensions-core/druid-pac4j:org.apache.druid.security.pac4j.Pac4jFilterTest"
+      ],
+      "all": "extensions-core/druid-pac4j:org.apache.druid.security.pac4j.Pac4jFilterTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.druid.security.pac4j.Pac4jFilterTest.testActionAdapterForRedirection",
+        "org.apache.druid.security.pac4j.Pac4jFilterTest.testActionAdapterForForbidden"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 34,
+    "commit": "de0569bb49f87b916e3f793cda13826eb041e750",
+    "parent": "d9ce4e04c6731b59703bc637ef150e0adad990f9",
+    "test_targets": {
+      "modified": [
+        "processing:org.apache.druid.segment.data.IncrementalIndexTest",
+        "processing:org.apache.druid.segment.incremental.IncrementalIndexIngestionTest"
+      ],
+      "added": [],
+      "all": "processing:org.apache.druid.segment.data.IncrementalIndexTest processing:org.apache.druid.segment.incremental.IncrementalIndexIngestionTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 49,
+      "after_fail_count": 0,
+      "before_pass_count": 55,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  }
+]
