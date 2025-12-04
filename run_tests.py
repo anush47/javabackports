@@ -79,6 +79,12 @@ PROJECT_CONFIG = {
         "report_pattern": "**/build/test-results/**/*.xml",
         "builder_tag": "sql-builder:latest",
         "build_system": "self-building"
+    },
+    "logstash": {
+        "repo_dir": "logstash",
+        "report_pattern": "**/build/test-results/**/*.xml",
+        "builder_tag": "logstash-builder:latest",
+        "build_system": "self-building"
     }
 }
 
