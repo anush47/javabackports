@@ -5,6 +5,44 @@ import sys
 import os
 import json
 
+def find_gradle_module(repo, filepath):
+    """
+    Finds the Gradle module path (e.g. :core or :connect:runtime) for a given file.
+    Walks up the directory tree looking for build.gradle.
+    """
+    # filepath is relative to repo root, e.g. "share-coordinator/src/test/java/..."
+    # We want to find the nearest parent directory containing build.gradle
+    
+    current_dir = os.path.dirname(filepath)
+    
+    while current_dir:
+        # Check if build.gradle exists in this directory
+        # We construct the full path to check existence
+        build_gradle_path = os.path.join(repo, current_dir, "build.gradle")
+        
+        if os.path.exists(build_gradle_path):
+            # Found it!
+            # Convert the relative directory path to Gradle project path
+            # e.g. "share-coordinator" -> ":share-coordinator"
+            # e.g. "connect/runtime" -> ":connect:runtime"
+            
+            # Ensure we use forward slashes for Gradle path logic, regardless of OS
+            # (git output is usually forward slash, but os.path.dirname might change it on Windows)
+            normalized_dir = current_dir.replace("\\", "/")
+            return ":" + normalized_dir.replace("/", ":")
+            
+        # Move up one level
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir: # Safety check
+            break
+        current_dir = parent
+        
+    # Check root if we haven't found anything yet
+    if os.path.exists(os.path.join(repo, "build.gradle")):
+        return ":"
+        
+    return None
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", required=True, help="Path to the git repository")
@@ -31,7 +69,7 @@ def main():
             
         status = parts[0]
         
-        # Handle Renames (R) and Copies (C) which have 3 parts: status, old_path, new_path
+        # Handle Renames (R) and Copies (C)
         if status.startswith('R') or status.startswith('C'):
             if len(parts) >= 3:
                 filepath = parts[2]
@@ -42,9 +80,6 @@ def main():
                 filepath = parts[1]
             else:
                 continue
-        
-        # Kafka structure: [module]/src/...
-        # e.g. clients/src/test/java/org/apache/kafka/clients/producer/KafkaProducerTest.java
         
         # Only process test files
         filename = os.path.basename(filepath)
@@ -57,16 +92,14 @@ def main():
         if not is_test_file:
             continue
             
-        parts_path = filepath.split("/")
-        if len(parts_path) < 2:
+        # Find the Gradle module
+        module_path = find_gradle_module(args.repo, filepath)
+        if not module_path:
             continue
             
-        module = parts_path[0]
+        # If module is root (:), we might want to skip or handle differently, 
+        # but usually tests are in submodules.
         
-        # Verify it is a real module (has build.gradle)
-        if not os.path.exists(os.path.join(args.repo, module, "build.gradle")):
-            continue
-
         test_target = ""
         
         try:
@@ -74,22 +107,23 @@ def main():
             # Path: clients/src/test/java/org/apache/kafka/clients/MyTest.java
             # Want: org.apache.kafka.clients.MyTest
             
-            # Find where package structure starts (after java/ or scala/)
-            if "/java/" in filepath:
-                rel_path = filepath.split("/java/")[1]
-            elif "/scala/" in filepath:
-                rel_path = filepath.split("/scala/")[1]
-            else:
-                # Weird path, fall back to module
-                test_target = f":{module}:test"
+            rel_path = ""
+            if "/src/test/java/" in filepath:
+                rel_path = filepath.split("/src/test/java/")[1]
+            elif "/src/test/scala/" in filepath:
+                rel_path = filepath.split("/src/test/scala/")[1]
             
-            if not test_target:
-                class_name = rel_path.replace("/", ".").rsplit(".", 1)[0]
+            if rel_path:
+                class_name = rel_path.replace("/", ".").replace("\\", ".").rsplit(".", 1)[0]
                 # Gradle syntax for single test
-                test_target = f":{module}:test --tests \"{class_name}\""
+                test_target = f"{module_path}:test --tests \"{class_name}\""
+            else:
+                # Fallback to module test if we can't parse the class path
+                test_target = f"{module_path}:test"
+                
         except IndexError:
             # Fallback
-            test_target = f":{module}:test"
+            test_target = f"{module_path}:test"
 
         if test_target:
             if status == 'A':
