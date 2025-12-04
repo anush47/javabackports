@@ -52,8 +52,12 @@ if ${DOCKER_CMD} run --rm \
     exit \$GRADLE_EXIT_CODE"; then
     
     echo "✅ Tests Passed"
+    mkdir -p "${BUILD_DIR}/all-test-results"
+    cp -r "${PROJECT_DIR}/build/all-test-results/"* "${BUILD_DIR}/all-test-results/" 2>/dev/null || true
     exit 0
 else
     echo "❌ Tests Failed"
+    mkdir -p "${BUILD_DIR}/all-test-results"
+    cp -r "${PROJECT_DIR}/build/all-test-results/"* "${BUILD_DIR}/all-test-results/" 2>/dev/null || true
     exit 1
 fi

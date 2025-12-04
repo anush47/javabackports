@@ -125,6 +125,15 @@ def parse_console_output(console_text):
         for i in range(fail_count):
             failed.add(f"TestGroup.failed_{i+1}")
 
+    # Gradle style: Class > Method PASSED
+    for match in re.finditer(r"(\S+)\s+>\s+(\S+)\s+(PASSED|FAILED|SKIPPED)", console_text):
+        cls, method, status = match.groups()
+        full_name = f"{cls}.{method}"
+        if status == "PASSED":
+            passed.add(full_name)
+        elif status == "FAILED":
+            failed.add(full_name)
+
     return passed, failed
 
 def parse_test_results(results_dir):
