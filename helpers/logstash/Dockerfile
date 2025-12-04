@@ -31,12 +31,4 @@ RUN chown gradle:gradle /repo
 # Set up a working directory inside the container
 WORKDIR /repo
 
-# Copy files *AS* the gradle user
-COPY --chown=gradle:gradle gradlew .
-COPY --chown=gradle:gradle gradle gradle
-
-# Download the dependencies.
-RUN ./gradlew --version || true
-
-# Copy all files *AS* the gradle user.
-COPY --chown=gradle:gradle . .
+# Note: We do NOT copy source code here to allow incremental builds via volume mounting.
