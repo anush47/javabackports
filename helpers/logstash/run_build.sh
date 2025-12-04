@@ -54,7 +54,7 @@ if ${DOCKER_CMD} run --rm \
     -v "gradle-wrapper-ls:/home/gradle/.gradle/wrapper" \
     -v "${PROJECT_DIR}:/repo" \
     ${BUILDER_IMAGE} \
-    ./gradlew classes testClasses -Dbuild.docker=false --continue; then
+    bash -c "find /home/gradle/.gradle/caches -name '*.lock' -delete; ./gradlew classes testClasses -Dbuild.docker=false --continue"; then
     echo "Success" > $BUILD_STATUS_FILE
 else
     echo "Fail" > $BUILD_STATUS_FILE

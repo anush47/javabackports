@@ -45,7 +45,7 @@ if ${DOCKER_CMD} run --rm \
     -v "gradle-wrapper-ls:/home/gradle/.gradle/wrapper" \
     -v "${PROJECT_DIR}:/repo" \
     "${IMAGE_TAG}" \
-    bash -c "${GRADLE_CMD}; \
+    bash -c "find /home/gradle/.gradle/caches -name '*.lock' -delete; ${GRADLE_CMD}; \
     GRADLE_EXIT_CODE=\$?; \
     mkdir -p /repo/build/all-test-results; \
     find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;; \
