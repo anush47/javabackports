@@ -96,7 +96,11 @@ def run_command(command, env=None, check=True, cwd=None, **kwargs):
         process_env.update(env)
     return subprocess.run(command, shell=True, check=check, env=process_env, cwd=cwd, **kwargs)
 
+def strip_ansi(text):
+    return re.sub(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])', '', text)
+
 def parse_console_output(console_text):
+    console_text = strip_ansi(console_text)
     passed = set()
     failed = set()
 
@@ -126,7 +130,8 @@ def parse_console_output(console_text):
             failed.add(f"TestGroup.failed_{i+1}")
 
     # Gradle style: Class > Method PASSED
-    for match in re.finditer(r"(\S+)\s+>\s+(\S+)\s+(PASSED|FAILED|SKIPPED)", console_text):
+    # Example: org.logstash.plugins.NamespacedMetricImplTest > testNamespaceUnicodeFragment PASSED
+    for match in re.finditer(r"([a-zA-Z0-9_$.]+)\s+>\s+([a-zA-Z0-9_$]+)\s+(PASSED|FAILED|SKIPPED)", console_text):
         cls, method, status = match.groups()
         full_name = f"{cls}.{method}"
         if status == "PASSED":
