@@ -53,9 +53,11 @@ if docker run --rm \
     -v "${PROJECT_DIR}:/repo" \
     -v "maven-repo:/root/.m2/repository" \
     -v "/var/run/docker.sock:/var/run/docker.sock" \
+    -e TESTCONTAINERS_RYUK_DISABLED=true \
+    -e TESTCONTAINERS_CHECKS_DISABLE=true \
     -w /repo \
     "${BUILDER_IMAGE_TAG}" \
-    bash -c "git checkout -f ${COMMIT_SHA} && \
+    bash -c "docker info && git checkout -f ${COMMIT_SHA} && \
              mvn test ${MAVEN_ARGS} -DfailIfNoTests=false -Denforcer.skip=true -Dskip.yarn -Dskip.npm -Dskip.installnodenpm -Dmaven.antrun.skip=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true; \
              MVN_EXIT_CODE=\$?; \
              mkdir -p /repo/build/all-test-results; \

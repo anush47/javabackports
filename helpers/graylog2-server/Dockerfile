@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git \
     git-lfs \
+    docker.io \
     && rm -rf /var/lib/apt/lists/*
 
 # --- Install Maven 3.9.9 ---
