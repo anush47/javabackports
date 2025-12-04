@@ -97,8 +97,9 @@ def main():
         if not module_path:
             continue
             
-        # If module is root (:), we might want to skip or handle differently, 
-        # but usually tests are in submodules.
+        # Fix for root module returning ':' which leads to '::test'
+        if module_path == ":":
+            module_path = ""
         
         test_target = ""
         
