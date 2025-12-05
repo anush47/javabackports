@@ -511,5 +511,1922 @@
       "all_failures_after": [],
       "all_failures_before": []
     }
+  },
+  {
+    "index": 1,
+    "commit": "70e3b2210c304a0b3c8562df8683197f8562f8c9",
+    "parent": "09f7c69e1cb4a981bf1baa54c9de79d0e0d7318e",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.mcp.server.MarkdownBuilderTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.mcp.server.MarkdownBuilderTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 85,
+      "after_fail_count": 0,
+      "before_pass_count": 74,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 14
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.mcp.server.MarkdownBuilderTest.testEscapeMarkdownMultipleCharactersTableContext",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testTableWithInlineFormattingCharacters",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testOpenCodeBlockPreservesLiteralContent",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testContextSpecificEscaping",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testUnsafeRaw",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testTableRowWithInlineEmphasis",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testEscapeMarkdownMultipleCharactersParagraphContext",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testEscapeMarkdownAlwaysEscaped",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testCodeBlockDoesNotEscapeButOtherMethodsDo",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testUnorderedListWithLeadingSpecialCharacters",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testContextSpecificEscapingWithWordBoundaries",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testHeadingWithLeadingSpecialCharacters",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testParagraphWithEmphasizableCharacters",
+        "org.graylog.mcp.server.MarkdownBuilderTest.testBlockquoteWithLeadingSpecialCharacters"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 5,
+    "commit": "fed989b6eb3e4e883841c6edd9d5d5061f8e19b8",
+    "parent": "525ed23ddd125501974d0c29c5f12d2464a469bf",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 6,
+    "commit": "55dc866d71b7b56199f5990b37e99c9c99a30033",
+    "parent": "bf7a45dfb27aae71997ac7f503229983f75cdd48",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.contentpacks.facades.PipelineFacadeTest",
+        "graylog2-server:org.graylog2.contentpacks.facades.PipelineRuleFacadeTest",
+        "graylog2-server:org.graylog2.contentpacks.facades.StreamCatalogTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.contentpacks.facades.PipelineFacadeTest graylog2-server:org.graylog2.contentpacks.facades.PipelineRuleFacadeTest graylog2-server:org.graylog2.contentpacks.facades.StreamCatalogTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 31,
+      "before_pass_count": 0,
+      "before_fail_count": 27,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.delete",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.exportEntity",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.exportNativeEntity",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.listEntityExcerpts",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportNativeEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportNativeEntityWithDefaultStream",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.delete",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.findExisting",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.encode",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.collectEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createNativeEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.findExisting",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.collectEntity",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.findExistingWithDifferentSource",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.resolve",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.resolveEntityDescriptor",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createNativeEntityWithDefaultStream",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.deleteSystemPipeline",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.collectEntity",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.listEntityExcerpts",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.resolveEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.resolveEntityDescriptor",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.listEntityExcerpts"
+      ],
+      "all_failures_after": [
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.delete",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.exportEntity",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.exportNativeEntity",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.listEntityExcerpts",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportNativeEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportNativeEntityWithDefaultStream",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.delete",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.exportEntity_descriptionNull",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.findExisting",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.collectEntity",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.encode",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createNativeEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.findExisting",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportEntity_descriptionNull",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.collectEntity",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.findExistingWithDifferentSource",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.exportEntity_descriptionNull",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.resolve",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.resolveEntityDescriptor",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createNativeEntityWithDefaultStream",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.deleteSystemPipeline",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.collectEntity",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.listEntityExcerpts",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.resolveEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.resolveEntityDescriptor",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.createNativeEntity_descriptionNull",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.listEntityExcerpts"
+      ],
+      "all_failures_before": [
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.delete",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.exportEntity",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.exportNativeEntity",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.listEntityExcerpts",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportNativeEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.exportNativeEntityWithDefaultStream",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.delete",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.findExisting",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.collectEntity",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.encode",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createNativeEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.findExisting",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.collectEntity",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.findExistingWithDifferentSource",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.resolve",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.resolveEntityDescriptor",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.createNativeEntityWithDefaultStream",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.deleteSystemPipeline",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.collectEntity",
+        "org.graylog2.contentpacks.facades.StreamCatalogTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.createExcerpt",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.listEntityExcerpts",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.resolveEntity",
+        "org.graylog2.contentpacks.facades.PipelineFacadeTest.resolveEntityDescriptor",
+        "org.graylog2.contentpacks.facades.PipelineRuleFacadeTest.listEntityExcerpts"
+      ]
+    }
+  },
+  {
+    "index": 7,
+    "commit": "48023e307971e9fd2dfaa903b762ca4126a97f12",
+    "parent": "12bc602f0810a73e3fddb6ff336fa3571d9407b9",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.views.search.validation.TokenCollectingQueryParserTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.views.search.validation.TokenCollectingQueryParserTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 4,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 8,
+    "commit": "9421b6cc1e5e92d05bbbe67f1dc89dfb7319d95c",
+    "parent": "e40226f304baf7652c05ac9e30866638ef6ec557",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.views.search.rest.export.response.ExportTabularResultResponseTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.views.search.rest.export.response.ExportTabularResultResponseTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 3,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.plugins.views.search.rest.export.response.ExportTabularResultResponseTest.testCreationFromMessageListWithSelectedFields"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 9,
+    "commit": "81f248e119cb55f12222c9ace767f2f1f23a79d8",
+    "parent": "bd2043b1b1ae82f7376761410a95a1fd285f8371",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 11,
+    "commit": "eb1106e4b982de1beed1f401b63f4c53fc0f3337",
+    "parent": "69cccfdb77a18909301d1d0d73c56fc90b2d0d1a",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.security.UserContextTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.security.UserContextTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 12,
+    "commit": "5a16a731e77cfc38ba5a355716397639d15ef935",
+    "parent": "f9144aed74c82a9fe23015c852d4c2840879cbad",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.decorators.LinkFieldDecoratorTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.decorators.LinkFieldDecoratorTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 1,
+      "after_fail_count": 0,
+      "before_pass_count": 1,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 13,
+    "commit": "3b5050775d4457379150957ab11f4416aa668a4d",
+    "parent": "45962a110e6b6b0b04072f7048acb1f30898e22c",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.database.filtering.inmemory.SingleFilterParserTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.database.filtering.inmemory.SingleFilterParserTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 10,
+      "after_fail_count": 0,
+      "before_pass_count": 9,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.database.filtering.inmemory.SingleFilterParserTest.parsesFilterExpressionCorrectlyForAllTimeRange"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 14,
+    "commit": "5d168a4e9e16572a304e5530dcb9f9dadfc23216",
+    "parent": "876bd86a22a06e5923fabd3013671fdb02a6d44f",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.rest.resources.system.inputs.InputsResourceTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.rest.resources.system.inputs.InputsResourceTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 7,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.rest.resources.system.inputs.InputsResourceTest.testCreateNotGlobalInputWhenIsGlobalInputOnly"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 16,
+    "commit": "bef8e9e28fac5c06ccd4ac0a23c7761f91030755",
+    "parent": "ab08c8b5c32585469448da9aec1eddbfbc02652a",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.integrations.notifications.types.microsoftteams.TeamsEventNotificationTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.integrations.notifications.types.microsoftteams.TeamsEventNotificationTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 13,
+      "after_fail_count": 0,
+      "before_pass_count": 13,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 17,
+    "commit": "8e136461d7ab9f4d33b31733fc05d79f916e82ec",
+    "parent": "ca62e70d2891e9c787650e5cd3ac3ac8ef2594c6",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.plugin.utilities.date.NaturalDateParserTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.plugin.utilities.date.NaturalDateParserTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 26,
+      "after_fail_count": 0,
+      "before_pass_count": 26,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 19,
+    "commit": "197b8477a9d8d82817bb5999d86b46c4cf26ee3b",
+    "parent": "8efd5504413a13268ee4eb4446dd83a765f870b1",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.inputs.syslog.tcp.SyslogOctetCountFrameDecoderTest",
+        "graylog2-server:org.graylog2.inputs.syslog.tcp.SyslogTCPFramingRouterHandlerTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.inputs.syslog.tcp.SyslogOctetCountFrameDecoderTest graylog2-server:org.graylog2.inputs.syslog.tcp.SyslogTCPFramingRouterHandlerTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 16,
+      "after_fail_count": 0,
+      "before_pass_count": 14,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.inputs.syslog.tcp.SyslogTCPFramingRouterHandlerTest.testRetainedBufferReleasedDuringException",
+        "org.graylog2.inputs.syslog.tcp.SyslogOctetCountFrameDecoderTest.testInvalidFrameLenghtThrowsDecodingException"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 21,
+    "commit": "cfaca4a6036c0100b2eddcd5f581abd80109fe1c",
+    "parent": "250c2d25b49f2ee038f96e1cba59cbfeda91496b",
+    "test_targets": {
+      "modified": [
+        "data-node:org.graylog.datanode.rest.CertificatesControllerTest"
+      ],
+      "added": [],
+      "all": "data-node:org.graylog.datanode.rest.CertificatesControllerTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Crash/No Report",
+    "build_status_before": "Success",
+    "test_status_before": "Crash/No Report",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 22,
+    "commit": "506c42a25d863de3d72c5bac2061a7e51a8b3535",
+    "parent": "f86dbe454ac617306fe81a5f95158cce1c473b13",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.aws.inputs.cloudtrail.CloudTrailCodecTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.aws.inputs.cloudtrail.CloudTrailCodecTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 4,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 24,
+    "commit": "7cfa0633d5a67bd6f893eb044580eafb07760266",
+    "parent": "2d72d93250292cdfaa217bd7bd89e4ea59c830aa",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.aws.inputs.cloudtrail.CloudTrailCodecTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.aws.inputs.cloudtrail.CloudTrailCodecTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 4,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 25,
+    "commit": "a44a5af5f658bf96baf1d4c5ff5300603f4f9e3a",
+    "parent": "5e7a525841e24a5417abe6f692df8a057d6d91bf",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.security.html.HTMLSanitizerConverterTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.security.html.HTMLSanitizerConverterTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 1,
+      "after_fail_count": 0,
+      "before_pass_count": 1,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 28,
+    "commit": "76e35a95cdf20252e6352de132e5f268e25af4ef",
+    "parent": "50687d1827baeb5d44a8fe76d4b2108f48a12fef",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.rulebuilder.parser.ActionParserTest",
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.rulebuilder.parser.ConditionParserTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.rulebuilder.parser.ActionParserTest graylog2-server:org.graylog.plugins.pipelineprocessor.rulebuilder.parser.ConditionParserTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 17,
+      "after_fail_count": 0,
+      "before_pass_count": 17,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 29,
+    "commit": "4a6f103c154197d5420c1d1fc14406a1049c0fc7",
+    "parent": "cbf1fed0ce16ce3a97d6be1602a8e116912d406e",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.shared.journal.LocalKafkaJournalTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.shared.journal.LocalKafkaJournalTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 14,
+      "after_fail_count": 0,
+      "before_pass_count": 13,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.shared.journal.LocalKafkaJournalTest.noRetryOnShutdown"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 30,
+    "commit": "ff4c607c03472562ccc77d24ee0faba5437b6e24",
+    "parent": "7e505b48c57e836eebaff759a5769fbe932f0857",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 75,
+      "after_fail_count": 0,
+      "before_pass_count": 75,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 31,
+    "commit": "7e505b48c57e836eebaff759a5769fbe932f0857",
+    "parent": "1b2af126ebd1e4ea65826fb25e31a3b3760f1aeb",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.events.notifications.types.HTTPEventNotificationV2Test"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.events.notifications.types.HTTPEventNotificationV2Test"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 3,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.events.notifications.types.HTTPEventNotificationV2Test.testDateFormatting"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 32,
+    "commit": "26a34e31cf061aadc95622b0ff5c253c95640ec3",
+    "parent": "d87a76f69cff0e6dd744b71e8ad4b700fbc7ce3a",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 35,
+    "commit": "1b2af126ebd1e4ea65826fb25e31a3b3760f1aeb",
+    "parent": "86a291128b7f01675aed7584304cac16ad4e9b3c",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.cef.codec.CEFCodecTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.cef.codec.CEFCodecTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 6,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.plugins.cef.codec.CEFCodecTest.testIssue8844WithoutPriority",
+        "org.graylog.plugins.cef.codec.CEFCodecTest.testIssue8844"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 36,
+    "commit": "6b39425245138bec764490b037bc0a45e0448ce9",
+    "parent": "e1a0e209972e9d03df8314978730e564fc3dbd6f",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.views.search.rest.export.response.ExportTabularResultResponseTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.views.search.rest.export.response.ExportTabularResultResponseTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 3,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 38,
+    "commit": "27b696c672edd0952ddb1922521eb7d495b6ed2b",
+    "parent": "8789b7cb58efc05a5f9cab7868745484c6139949",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.events.processor.aggregation.PivotAggregationSearchTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.events.processor.aggregation.PivotAggregationSearchTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 11,
+      "after_fail_count": 0,
+      "before_pass_count": 10,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.events.processor.aggregation.PivotAggregationSearchTest.testPrepareSearch"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 40,
+    "commit": "3c77aa8a0d0059e58b7044e23b7cedd4098fe6db",
+    "parent": "298891455ef1e01d7ef9fa97410839cb91800846",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.integrations.aws.service.AWSServiceTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.integrations.aws.service.AWSServiceTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 4,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 41,
+    "commit": "97ec98b39d4f4bd57439cd766e01834dbf2537f0",
+    "parent": "baf2dcc4d368ded1a5902116b2193d840b018695",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.search.SearchQueryParserTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.search.SearchQueryParserTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 15,
+      "after_fail_count": 0,
+      "before_pass_count": 13,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.search.SearchQueryParserTest.quotedEmptyFieldPrefixSingleSearchTerm",
+        "org.graylog2.search.SearchQueryParserTest.unquotedEmptyFieldPrefixSingleSearchTerm"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 42,
+    "commit": "566d3c019156ffb46ef920d08b32774cdbe1e727",
+    "parent": "4d5b0a70fc4854c345e39d2b2eb0b4a0289e5783",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.indexer.MongoIndexSetRegistryTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.indexer.MongoIndexSetRegistryTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 13,
+      "after_fail_count": 0,
+      "before_pass_count": 10,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 3
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.indexer.MongoIndexSetRegistryTest.isCurrentWriteIndexSingleIndexSetConfigHappyPath",
+        "org.graylog2.indexer.MongoIndexSetRegistryTest.isCurrentWriteIndexSingleIndexSetConfigNoneFound",
+        "org.graylog2.indexer.MongoIndexSetRegistryTest.isCurrentWriteIndexOnManyIndexSetConfigsNoneFoundDueToMismatchingIndexName"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 46,
+    "commit": "8d972b2311d10d0516df7b3e54cb9b976627767d",
+    "parent": "56041913396ab5e6d6c32d39da493cca25ef69bf",
+    "test_targets": {
+      "modified": [
+        "data-node:org.graylog.datanode.configuration.TruststoreCreatorTest"
+      ],
+      "added": [
+        "graylog2-server:org.graylog2.security.TruststoreCreatorTest"
+      ],
+      "all": "data-node:org.graylog.datanode.configuration.TruststoreCreatorTest graylog2-server:org.graylog2.security.TruststoreCreatorTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Crash/No Report",
+    "stats": {
+      "after_pass_count": 5,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 5
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.security.TruststoreCreatorTest.testTrustStoreCreation(Path)",
+        "org.graylog2.security.TruststoreCreatorTest.testIntermediateCa",
+        "org.graylog2.security.TruststoreCreatorTest.testAdditionalCertificates(Path)",
+        "org.graylog2.security.TruststoreCreatorTest.testDefaultJvm",
+        "org.graylog2.security.TruststoreCreatorTest.testDuplicateCname"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 47,
+    "commit": "56041913396ab5e6d6c32d39da493cca25ef69bf",
+    "parent": "8e7cca413650bb30360c6ca4f7a6be7a7172edf0",
+    "test_targets": {
+      "modified": [
+        "data-node:org.graylog.datanode.configuration.DatanodeKeystoreTest"
+      ],
+      "added": [],
+      "all": "data-node:org.graylog.datanode.configuration.DatanodeKeystoreTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Crash/No Report",
+    "build_status_before": "Success",
+    "test_status_before": "Crash/No Report",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 48,
+    "commit": "358d917d34da3654f17368efd0053c583cdad911",
+    "parent": "cd6f3427725bf835a1ab1c72cdf4f3230439581e",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.strings.KeyValueTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.strings.KeyValueTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 7,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.plugins.pipelineprocessor.functions.strings.KeyValueTest.testEscapeHandling"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 49,
+    "commit": "cd6f3427725bf835a1ab1c72cdf4f3230439581e",
+    "parent": "510461919ad38cb72ab543fcd8d7528a29eb6266",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 51,
+    "commit": "ca99aa84dcb5fd8b1c131ebe116f80f8b3bf96dc",
+    "parent": "da799e6aca360d0bf12a3302588649f445e2c920",
+    "test_targets": {
+      "modified": [
+        "graylog-storage-opensearch2:org.graylog.storage.opensearch2.blocks.BlockSettingsParserTest"
+      ],
+      "added": [],
+      "all": "graylog-storage-opensearch2:org.graylog.storage.opensearch2.blocks.BlockSettingsParserTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Crash/No Report",
+    "build_status_before": "Success",
+    "test_status_before": "Crash/No Report",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 52,
+    "commit": "da799e6aca360d0bf12a3302588649f445e2c920",
+    "parent": "b0c2e7b94ba2df783df30957e7b398913f0ba0df",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.events.notifications.types.HTTPEventNotificationV2Test"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.events.notifications.types.HTTPEventNotificationV2Test"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 1,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.events.notifications.types.HTTPEventNotificationV2Test.testEscapedQuotesInList",
+        "org.graylog.events.notifications.types.HTTPEventNotificationV2Test.testEscapedQuotesInEventFields"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 55,
+    "commit": "aafd66b9fa32f97adb95faf084ca5dab8be32309",
+    "parent": "2d63769fd55df6fa74c93a5721f9fa6d2f4de9a6",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 75,
+      "after_fail_count": 0,
+      "before_pass_count": 74,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest.multiGrok"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 57,
+    "commit": "4f7f82c4cd18eca899e917f7a2aa5ecc35cd1564",
+    "parent": "79cfa320f6427a88ccb5b40ac655c3ab3293234c",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 59,
+    "commit": "7cfea09b2c3773bb36dacf597e5a7740dfb8d8d9",
+    "parent": "e74a4db33e8b74673af48653fa1fd6d1afc63fd9",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.inputs.codecs.SyslogCodecTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.inputs.codecs.SyslogCodecTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 17,
+      "after_fail_count": 0,
+      "before_pass_count": 16,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.inputs.codecs.SyslogCodecTest.testFortiGateTrimLineBreaks",
+        "org.graylog2.inputs.codecs.SyslogCodecTest.testFortiGate"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 61,
+    "commit": "bb808c4af218c3a42eefed44ca4141d8a03cfa79",
+    "parent": "5ddba4f9315e58aff5152b5b9eac3e7725c31197",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.integrations.notifications.types.microsoftteams.TeamsEventNotificationV2Test"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.integrations.notifications.types.microsoftteams.TeamsEventNotificationV2Test"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 8,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 63,
+    "commit": "dceeef68eaefef18e556bb508a8868f0c69d1c3b",
+    "parent": "78296cabd65a4b8903bc316236417783010ebee9",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.contentpacks.ContentPackPersistenceServiceTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.contentpacks.ContentPackPersistenceServiceTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 16,
+      "before_pass_count": 0,
+      "before_fail_count": 14,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.insertDuplicate",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevisionWithInvalidRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.insert",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevisionWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findAllByIdWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.loadAll",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.loadAllLatest",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevisionWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findAllById",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteById",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevisionWithInvalidRevision"
+      ],
+      "all_failures_after": [
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.insertDuplicate",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevisionWithInvalidRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.insert",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevisionWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.filterMissingResourcesAndInsertDashboardWithStream",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findAllByIdWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.loadAll",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.loadAllLatest",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevisionWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findAllById",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteById",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.filterMissingResourcesAndInsertDashboardWithStreamReference",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevisionWithInvalidRevision"
+      ],
+      "all_failures_before": [
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.insertDuplicate",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevisionWithInvalidRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevision",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.insert",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteByIdAndRevisionWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findAllByIdWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.loadAll",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.loadAllLatest",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevisionWithInvalidId",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findAllById",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.deleteById",
+        "org.graylog2.contentpacks.ContentPackPersistenceServiceTest.findByIdAndRevisionWithInvalidRevision"
+      ]
+    }
+  },
+  {
+    "index": 64,
+    "commit": "78296cabd65a4b8903bc316236417783010ebee9",
+    "parent": "d52773f26739ef2dab06b0f64ba4aa731c892178",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.grok.GrokPatternRegistryTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.grok.GrokPatternRegistryTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 7,
+      "after_fail_count": 0,
+      "before_pass_count": 6,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.grok.GrokPatternRegistryTest.patternExists"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 66,
+    "commit": "e38b1fa2cbf274f932df96fca98db6682159322c",
+    "parent": "3b8a9b8888100a9fd6d3c3a3763ba3bbefbd9d2b",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.lookup.CaffeineLookupCacheTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.lookup.CaffeineLookupCacheTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 5,
+      "after_fail_count": 0,
+      "before_pass_count": 4,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog2.lookup.CaffeineLookupCacheTest.ttlError"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 67,
+    "commit": "0244ac02a265793728d25fe715dbedc83713e355",
+    "parent": "a001a6d28a1591e1036c75e3c37ddb2a0dd050d6",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.integrations.ipfix.codecs.IpfixAggregatorTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.integrations.ipfix.codecs.IpfixAggregatorTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.integrations.ipfix.codecs.IpfixAggregatorTest.ignoreTrailingRecordPadding"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 68,
+    "commit": "c3b09b5b5fcbc899b5a8a7473377e0e0a6a021fe",
+    "parent": "c3176e9983e387fef237f7f4ef3f63f68eaef6e2",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog2.rest.resources.system.indexer.responses.IndexSetFieldTypeTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog2.rest.resources.system.indexer.responses.IndexSetFieldTypeTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 69,
+    "commit": "40593bd4d3a3fc4b7b8da92fcd02159c6705bb23",
+    "parent": "a77e867324ba537d11d1deb27ec0abc2ca312751",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 74,
+      "after_fail_count": 0,
+      "before_pass_count": 74,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 70,
+    "commit": "d6e2f6c6ad542ebeee0d15a732e3d21ca8ec724e",
+    "parent": "1417d534a28fe558e54522e04008f3b2e76aa4f5",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 62,
+      "after_fail_count": 0,
+      "before_pass_count": 58,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 4
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest.removeFieldsByName",
+        "org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest.removeField",
+        "org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest.removeFieldsByRegex",
+        "org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest.removeSingleField"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 71,
+    "commit": "4c090569af6fdbf48bfdf12a34c8782f0ba3d441",
+    "parent": "06dd09d67210738f68d29c67577a359a821da007",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 70,
+      "after_fail_count": 0,
+      "before_pass_count": 70,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 72,
+    "commit": "0a75a575944134f40a3daf639a1adf3a87abadd7",
+    "parent": "d086e5a0f314fa7367445c3651e5d1fca41dc6f8",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.views.search.db.SearchesCleanUpJobTest",
+        "graylog2-server:org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.views.search.db.SearchesCleanUpJobTest graylog2-server:org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 7,
+      "after_fail_count": 3,
+      "before_pass_count": 7,
+      "before_fail_count": 3,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testMixedExpiredAndNonExpiredSearches",
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testMixedExpiredNonExpiredReferencedAndNonReferencedSearches",
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testForAllEmpty"
+      ],
+      "all_failures_after": [
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testMixedExpiredAndNonExpiredSearches",
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testMixedExpiredNonExpiredReferencedAndNonReferencedSearches",
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testForAllEmpty"
+      ],
+      "all_failures_before": [
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testMixedExpiredAndNonExpiredSearches",
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testMixedExpiredNonExpiredReferencedAndNonReferencedSearches",
+        "org.graylog.plugins.views.search.db.SearchesCleanUpJobWithDBServicesTest.testForAllEmpty"
+      ]
+    }
+  },
+  {
+    "index": 77,
+    "commit": "f45eb69e2d66dccabc4e24c882bf3992d13f3394",
+    "parent": "251f9cdb769af4b3774af495eebe127aeecd697a",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 4,
+      "before_pass_count": 0,
+      "before_fail_count": 4,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.doesNotRunAgainIfMigrationHadCompletedBefore",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.writesMigrationCompletedAfterSuccess",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.doesNotChangeMigratedEventDefinitions",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.migratesEventDefinitionsProperly"
+      ],
+      "all_failures_after": [
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.doesNotRunAgainIfMigrationHadCompletedBefore",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.writesMigrationCompletedAfterSuccess",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.doesNotChangeMigratedEventDefinitions",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.migratesEventDefinitionsProperly"
+      ],
+      "all_failures_before": [
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.doesNotRunAgainIfMigrationHadCompletedBefore",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.writesMigrationCompletedAfterSuccess",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.doesNotChangeMigratedEventDefinitions",
+        "org.graylog.events.migrations.V20230629140000_RenameFieldTypeOfEventDefinitionSeriesTest.migratesEventDefinitionsProperly"
+      ]
+    }
+  },
+  {
+    "index": 78,
+    "commit": "09014720f926fd234b76bb4ebf743bc582294af9",
+    "parent": "cac3c90aa9b546f52d4001b7ccd37b848352ec1b",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 70,
+      "after_fail_count": 0,
+      "before_pass_count": 70,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 79,
+    "commit": "cac3c90aa9b546f52d4001b7ccd37b848352ec1b",
+    "parent": "782a5d6beb97f0943c44ef31070fe2ca79657579",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.security.entities.EntityDependencyResolverTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.security.entities.EntityDependencyResolverTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 1,
+      "before_pass_count": 0,
+      "before_fail_count": 1,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.graylog.security.entities.EntityDependencyResolverTest."
+      ],
+      "all_failures_after": [
+        "org.graylog.security.entities.EntityDependencyResolverTest."
+      ],
+      "all_failures_before": [
+        "org.graylog.security.entities.EntityDependencyResolverTest."
+      ]
+    }
+  },
+  {
+    "index": 80,
+    "commit": "56362c72d24db0532161c3288b2b21e2d2772c01",
+    "parent": "3a4a9ff7fa8c8e5068d7de0a9be18c23708dd61b",
+    "test_targets": {
+      "modified": [
+        "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+      ],
+      "added": [],
+      "all": "graylog2-server:org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 58,
+      "after_fail_count": 0,
+      "before_pass_count": 57,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.graylog.plugins.pipelineprocessor.functions.FunctionsSnippetsTest.jsonpathFromMessageField"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
   }
 ]
