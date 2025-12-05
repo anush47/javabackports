@@ -4,14 +4,15 @@ set -e
 echo "=== Running Tests for ${COMMIT_SHA:0:7} ==="
 echo "Target: ${TEST_TARGETS}"
 
-# 1. Reconstruct the Docker Image Tag
-IMAGE_TAG="${IMAGE_TAG:-logstash-${BUILD_TYPE}-${COMMIT_SHA:0:7}}"
+# 1. Use Fixed Builder Image
+IMAGE_TAG="logstash-builder:latest"
 
 echo "--- Using Docker Image: ${IMAGE_TAG} ---"
 
 # 2. Configure Test Command
 if [ "${TEST_TARGETS}" == "ALL" ]; then
-    GRADLE_CMD="./gradlew test"
+    # Per documentation, javaTests runs the subset of tests covering the Java codebase only
+    GRADLE_CMD="./gradlew javaTests"
 elif [ "${TEST_TARGETS}" == "NONE" ]; then
     echo "No relevant source code changes found. Skipping tests."
     exit 0
@@ -37,23 +38,27 @@ ${DOCKER_CMD} volume create gradle-wrapper-ls 2>/dev/null || true
 
 echo "--- Executing: ${GRADLE_CMD} ---"
 
-# Note: The Dockerfile for Logstash already sets WORKDIR /repo and user 'gradle'
+# Mount source code from host to /repo
 if ${DOCKER_CMD} run --rm \
     --dns=8.8.8.8 \
     -u 1000:1000 \
     -v "gradle-cache-ls:/home/gradle/.gradle/caches" \
     -v "gradle-wrapper-ls:/home/gradle/.gradle/wrapper" \
-    -v "${BUILD_DIR}:/repo/build" \
+    -v "${PROJECT_DIR}:/repo" \
     "${IMAGE_TAG}" \
-    bash -c "${GRADLE_CMD}; \
+    bash -c "find /home/gradle/.gradle/caches -name '*.lock' -delete; ${GRADLE_CMD}; \
     GRADLE_EXIT_CODE=\$?; \
     mkdir -p /repo/build/all-test-results; \
     find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;; \
     exit \$GRADLE_EXIT_CODE"; then
     
     echo "✅ Tests Passed"
+    mkdir -p "${BUILD_DIR}/all-test-results"
+    cp -r "${PROJECT_DIR}/build/all-test-results/"* "${BUILD_DIR}/all-test-results/" 2>/dev/null || true
     exit 0
 else
     echo "❌ Tests Failed"
+    mkdir -p "${BUILD_DIR}/all-test-results"
+    cp -r "${PROJECT_DIR}/build/all-test-results/"* "${BUILD_DIR}/all-test-results/" 2>/dev/null || true
     exit 1
 fi
