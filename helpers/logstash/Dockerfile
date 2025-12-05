@@ -1,7 +1,5 @@
-# Use a standard, trusted Java 21 (JDK) image
-# Kafka 3.7+ supports Java 21. For older versions, we might need 17 or 11.
-# Starting with 21 as default for modern Kafka.
-FROM eclipse-temurin:21-jdk-jammy
+# Use a standard, trusted Java 17 (JDK) image
+FROM eclipse-temurin:17-jdk-jammy
 
 # Install basic tools (git, python3) needed for build scripts
 RUN apt-get update && apt-get install -y \
@@ -33,12 +31,4 @@ RUN chown gradle:gradle /repo
 # Set up a working directory inside the container
 WORKDIR /repo
 
-# Copy files *AS* the gradle user
-COPY --chown=gradle:gradle gradlew .
-COPY --chown=gradle:gradle gradle gradle
-
-# Download the dependencies.
-RUN ./gradlew --version || true
-
-# Copy all files *AS* the gradle user.
-COPY --chown=gradle:gradle . .
+# Note: We do NOT copy source code here to allow incremental builds via volume mounting.

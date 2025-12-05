@@ -1,7 +1,16 @@
-Project,Original Version,Original Commit,Backport Version,Backport Commit,Backport Date,Type
-kafka,trunk,ff90f78c700c582f9800013faad827c36b45ceb7,3.6,6a3cc229895b36373360a079d970e071d318e4fe,2024-03-14 14:09:04+00:00,TYPE-V
-kafka,trunk,bf3f088c944763d8418764064f593d0bf06fbcc3,3.6,95c14f868a03d652fb5b8d22e5008dfd2db09d4a,2024-03-23 03:12:27+00:00,TYPE-V
-kafka,trunk,7a07aefd86f32824ade4821deb4bd81400b99d91,3.7,c7c3e609c009b05c29a1032a21103411c5ea1e10,2024-09-03 19:34:35+00:00,TYPE-V
-kafka,trunk,e124d3975bdb3a9ec85eee2fba7a1b0a6967d3a6,3.9,27a3e5560ec8770bc43f97c596604845987ff103,2025-02-10 17:24:19+00:00,TYPE-V
-kafka,trunk,88a23dab3ea6f76cc32066066149ce7843bf24ab,3.9,1ec1043d5197c4f807fa5cbc41d875b289443096,2025-03-04 07:42:51+00:00,TYPE-V
-kafka,trunk,818ee8a581b92ccd0434310ea3b108e76daea565,3.9,392a56423e0bc35dad47c8e83fc3a5fcc82709b0,2025-04-07 02:39:24+00:00,TYPE-V
+unique_id,repo,key,scope,complexity,Backport Commit,date,message
+kafka_20516_4.1,kafka,20516_4.1,S3,C3,93c4dc1d275e2ed95751f4d041608d85e3c64178,2025-09-11 11:42:50+00:00,KAFKA-19695: Fix bug in redundant offset calculation. (#20516) (#20519)
+kafka_20030_4.0,kafka,20030_4.0,S3,C5,6351bc05aafc8ba480e9f85ab702e67e48416953,2025-06-25 16:56:58+00:00,MINOR: Fix response for consumer group describe with empty group id (#20030) (#20036)
+kafka_20013_4.1,kafka,20013_4.1,S3,C5,7b6ef4d32274d94c9ebbc9b5bd2eedd78003f0cc,2025-06-23 07:31:59+00:00,MINOR: Add retention prop to share group state topic. (#20013) (#20015)
+kafka_19959_4.0,kafka,19959_4.0,S3,C5,26e5a53906ba04721b9f5435632d3c8b4a6a8ece,2025-06-16 09:11:18+00:00,HOTFIX: Correcting build after cherry-pick (#19969)
+kafka_19532_4.0,kafka,19532_4.0,S3,C5,c2068878c920af06a23e8079be41d20ceb59e2f1,2025-05-04 13:23:16+00:00,KAFKA-19131: Adjust remote storage reader thread maximum pool size to avoid illegal argument (#19629)
+kafka_16522_3.9,kafka,16522_3.9,S3,C5,392a56423e0bc35dad47c8e83fc3a5fcc82709b0,2025-04-07 02:39:24+00:00,KAFKA-17078: Add SecurityManagerCompatibility shim (#16522) (#19221)
+kafka_18989_4.0,kafka,18989_4.0,S3,C5,8e44ddccb5b3335e3450cb46e6be58130f8851a1,2025-02-26 21:53:46+00:00,KAFKA-18813: ConsumerGroupHeartbeat API and ConsumerGroupDescribe API… (#19042)
+kafka_18964_4.0,kafka,18964_4.0,S3,C5,c7db98e15e4c85c37610e768b635676a3c0d755a,2025-02-21 09:28:41+00:00,KAFKA-18829: Added check before converting to IMPLICIT mode (#18964) (Cherry-pick) (#18982)
+kafka_18012_3.9,kafka,18012_3.9,S3,C5,27a3e5560ec8770bc43f97c596604845987ff103,2025-02-10 17:24:19+00:00,KAFKA-806 Index may not always observe log.index.interval.bytes (#18843)
+kafka_17870_4.0,kafka,17870_4.0,S3,C5,ca1672bc3a8e831365d07e87dba2fa2625741819,2025-01-20 19:29:09+00:00,"Revert ""KAFKA-18404: Remove partitionMaxBytes usage from DelayedShareFetch (#17870)"" (#18643)"
+kafka_18490_3.8,kafka,18490_3.8,S3,C5,5b5c4f0ca1738c0a2e77f030faa5524ae0c3a2c0,2025-01-15 22:09:58+00:00,KAFKA-18479: RocksDBTimeOrderedKeyValueBuffer not initialized correctly (#18490) (#18564)
+kafka_17686_3.8,kafka,17686_3.8,S3,C5,5e72e7dbb5badb9dcede2202499951e2d6b12f82,2024-11-12 21:01:27+00:00,Backport fix from 3.9 (#17716)
+kafka_15476_3.6,kafka,15476_3.6,S3,C5,95c14f868a03d652fb5b8d22e5008dfd2db09d4a,2024-03-23 03:12:27+00:00,KAFKA-16341 fix the LogValidator for non-compressed type (#15570)
+kafka_15323_3.6,kafka,15323_3.6,S3,C5,6a3cc229895b36373360a079d970e071d318e4fe,2024-03-14 14:09:04+00:00,KAFKA-16226; Reduce synchronization between producer threads (#15323) (#15498)
+kafka_9902_3.6,kafka,9902_3.6,S3,C5,ab92eddb7cbdf40393ff9171649a09c3647eae48,2024-01-04 13:40:30+00:00,KAFKA-15817: Avoid reconnecting to the same IP address (#14813) (#14980)

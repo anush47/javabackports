@@ -10,24 +10,16 @@ def find_gradle_module(repo, filepath):
     Finds the Gradle module path (e.g. :core or :connect:runtime) for a given file.
     Walks up the directory tree looking for build.gradle.
     """
-    # filepath is relative to repo root, e.g. "share-coordinator/src/test/java/..."
-    # We want to find the nearest parent directory containing build.gradle
-    
     current_dir = os.path.dirname(filepath)
     
     while current_dir:
         # Check if build.gradle exists in this directory
-        # We construct the full path to check existence
         build_gradle_path = os.path.join(repo, current_dir, "build.gradle")
         
         if os.path.exists(build_gradle_path):
             # Found it!
             # Convert the relative directory path to Gradle project path
-            # e.g. "share-coordinator" -> ":share-coordinator"
-            # e.g. "connect/runtime" -> ":connect:runtime"
-            
-            # Ensure we use forward slashes for Gradle path logic, regardless of OS
-            # (git output is usually forward slash, but os.path.dirname might change it on Windows)
+            # Ensure we use forward slashes for Gradle path logic
             normalized_dir = current_dir.replace("\\", "/")
             return ":" + normalized_dir.replace("/", ":")
             
@@ -83,10 +75,11 @@ def main():
         
         # Only process test files
         filename = os.path.basename(filepath)
+        # Logstash uses *Tests.java, *Test.java, *IT.java
         is_test_file = (
             "/src/test/" in filepath and 
-            (filepath.endswith(".java") or filepath.endswith(".scala")) and
-            (filename.startswith("Test") or filename.endswith("Test.java") or filename.endswith("Tests.java") or filename.endswith("Test.scala") or filename.endswith("Tests.scala"))
+            filepath.endswith(".java") and
+            (filename.endswith("Tests.java") or filename.endswith("Test.java") or filename.endswith("IT.java"))
         )
         
         if not is_test_file:
@@ -105,19 +98,18 @@ def main():
         
         try:
             # Extract class name. 
-            # Path: clients/src/test/java/org/apache/kafka/clients/MyTest.java
-            # Want: org.apache.kafka.clients.MyTest
-            
-            rel_path = ""
             if "/src/test/java/" in filepath:
                 rel_path = filepath.split("/src/test/java/")[1]
-            elif "/src/test/scala/" in filepath:
-                rel_path = filepath.split("/src/test/scala/")[1]
-            
-            if rel_path:
                 class_name = rel_path.replace("/", ".").replace("\\", ".").rsplit(".", 1)[0]
+                
+                # Determine task name (usually 'test')
+                # But some modules might have custom source sets like 'yamlRestTest'
+                # We'll stick to 'test' for now unless we see specific patterns
+                task_name = "test"
+                
                 # Gradle syntax for single test
-                test_target = f"{module_path}:test --tests \"{class_name}\""
+                # We remove quotes to avoid bash quoting issues in run_tests.sh
+                test_target = f"{module_path}:{task_name} --tests {class_name}"
             else:
                 # Fallback to module test if we can't parse the class path
                 test_target = f"{module_path}:test"
