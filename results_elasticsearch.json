@@ -3014,5 +3014,2807 @@
       "all_failures_after": [],
       "all_failures_before": []
     }
+  },
+  {
+    "index": 19,
+    "commit": "e0c689bfd79b616caf2434dc7f1b9b5a65d232eb",
+    "parent": "57c0a50d90c304e9833a5df0b2ea72ef38d73be1",
+    "test_targets": {
+      "modified": [
+        ":qa:full-cluster-restart:check",
+        ":x-pack:plugin:downsample:qa:mixed-cluster:check"
+      ],
+      "added": [],
+      "all": ":qa:full-cluster-restart:check :x-pack:plugin:downsample:qa:mixed-cluster:check"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 46,
+      "after_fail_count": 0,
+      "before_pass_count": 46,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 21,
+    "commit": "072a798012d557b1d9c71ee9016fc50cee6136d6",
+    "parent": "7bd80dab5d8de47521f51c1f0ad15edc5abdd752",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:ml:qa:basic-multi-node:check",
+        ":x-pack:plugin:ml:qa:native-multi-node-tests:check",
+        ":x-pack:qa:rolling-upgrade:check"
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:ml:qa:basic-multi-node:check :x-pack:plugin:ml:qa:native-multi-node-tests:check :x-pack:qa:rolling-upgrade:check"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 279,
+      "after_fail_count": 0,
+      "before_pass_count": 323,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 26,
+    "commit": "fa3606552bec308475f78c35ce93ce8eddc43666",
+    "parent": "40abf467e9eae6e8b007e352b0565023441f1bb1",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:ent-search:test --tests \"org.elasticsearch.xpack.application.rules.QueryRuleTests\"",
+        ":x-pack:plugin:ent-search:test --tests \"org.elasticsearch.xpack.application.rules.action.GetQueryRulesetActionResponseBWCSerializingTests\"",
+        ":x-pack:plugin:ent-search:test --tests \"org.elasticsearch.xpack.application.rules.action.PutQueryRulesetActionRequestBWCSerializingTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:ent-search:test --tests \"org.elasticsearch.xpack.application.rules.QueryRuleTests\" :x-pack:plugin:ent-search:test --tests \"org.elasticsearch.xpack.application.rules.action.GetQueryRulesetActionResponseBWCSerializingTests\" :x-pack:plugin:ent-search:test --tests \"org.elasticsearch.xpack.application.rules.action.PutQueryRulesetActionRequestBWCSerializingTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Crash/No Report",
+    "build_status_before": "Fail",
+    "test_status_before": "Skipped",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 27,
+    "commit": "151ea39aaef2a4d7a8d4a3e10755adcac882d753",
+    "parent": "b934b1deae1d5072dd4f60ad82ac5741495ad49f",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.expression.function.scalar.string.EndsWithTests\"",
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.expression.function.scalar.string.StartsWithTests\"",
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.optimizer.PhysicalPlanOptimizerTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.expression.function.scalar.string.EndsWithTests\" :x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.expression.function.scalar.string.StartsWithTests\" :x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.optimizer.PhysicalPlanOptimizerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 161,
+      "after_fail_count": 0,
+      "before_pass_count": 160,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.esql.optimizer.PhysicalPlanOptimizerTests.testPushMultipleFunctions {default}"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 31,
+    "commit": "ea29afd850cc339b301711bc2f3b893ec0e2dd5d",
+    "parent": "0496cb57ec50f954ea36e42e4a9fdfb76fb2f5b2",
+    "test_targets": {
+      "modified": [
+        ":qa:smoke-test-multinode:check",
+        ":rest-api-spec:yamlRestTest --tests \"org.elasticsearch.test.rest.ClientYamlTestSuiteIT\"",
+        ":server:test --tests \"org.elasticsearch.index.mapper.SourceFieldMapperTests\"",
+        ":x-pack:plugin:logsdb:yamlRestTest --tests \"org.elasticsearch.xpack.logsdb.LogsdbTestSuiteIT\"",
+        ":x-pack:qa:core-rest-tests-with-security:check"
+      ],
+      "added": [],
+      "all": ":qa:smoke-test-multinode:check :rest-api-spec:yamlRestTest --tests \"org.elasticsearch.test.rest.ClientYamlTestSuiteIT\" :server:test --tests \"org.elasticsearch.index.mapper.SourceFieldMapperTests\" :x-pack:plugin:logsdb:yamlRestTest --tests \"org.elasticsearch.xpack.logsdb.LogsdbTestSuiteIT\" :x-pack:qa:core-rest-tests-with-security:check"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 5929,
+      "after_fail_count": 0,
+      "before_pass_count": 5929,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 34,
+    "commit": "6ff283aa21cb9da68cfa51f7a2b1cdc4c1b79010",
+    "parent": "dc3275c4cfb752e8518b1d26005801d1d578732d",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 15,
+      "after_fail_count": 0,
+      "before_pass_count": 15,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 41,
+    "commit": "4c01c1962cd7a1dd96deba7f38b429bc5f197416",
+    "parent": "685f60bd279ea61a7c4fd5cfd85baa6e6e5e9c65",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.common.logging.HeaderWarningTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.common.logging.HeaderWarningTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 19,
+      "after_fail_count": 0,
+      "before_pass_count": 19,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 42,
+    "commit": "685f60bd279ea61a7c4fd5cfd85baa6e6e5e9c65",
+    "parent": "030cbaf3b584d9f0d0d7a50e8bd64a8143e63a0e",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.search.fetch.StoredFieldsSpecTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.search.fetch.StoredFieldsSpecTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 3,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.search.fetch.StoredFieldsSpecTests.testNoCloneOnMerge"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 43,
+    "commit": "6bac0e4cd4a86b3bf3e0df2812836e51387d4421",
+    "parent": "73259a2b08114a540256be5046c6a463096e74f3",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerRawMessageTests\"",
+        ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerRawMessageTests\" :server:test --tests \"org.elasticsearch.transport.TransportHandshakerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 15,
+      "after_fail_count": 0,
+      "before_pass_count": 15,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 44,
+    "commit": "73259a2b08114a540256be5046c6a463096e74f3",
+    "parent": "f7321e56631eed7ad8613d10f8083b985916664b",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.lucene.LuceneSourceOperatorTests\"",
+        ":x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.operator.AsyncOperatorTests\"",
+        ":x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.operator.LimitOperatorTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.lucene.LuceneSourceOperatorTests\" :x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.operator.AsyncOperatorTests\" :x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.operator.LimitOperatorTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 13,
+      "after_fail_count": 0,
+      "before_pass_count": 12,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.compute.operator.LimitOperatorTests.testEarlyTermination"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 45,
+    "commit": "065f8a1ef023791bb7101fa00b96790fda78363e",
+    "parent": "83a5ea4ff5293083b4e0a123dbb7d82fb443298e",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.chunking.EmbeddingRequestChunkerTests\"",
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.results.TextEmbeddingBitResultsTests\"",
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.results.TextEmbeddingByteResultsTests\"",
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.results.TextEmbeddingResultsTests\"",
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.services.cohere.CohereServiceTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.chunking.EmbeddingRequestChunkerTests\" :x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.results.TextEmbeddingBitResultsTests\" :x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.results.TextEmbeddingByteResultsTests\" :x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.results.TextEmbeddingResultsTests\" :x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.services.cohere.CohereServiceTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 49,
+      "after_fail_count": 0,
+      "before_pass_count": 48,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.inference.services.cohere.CohereServiceTests.testDefaultSimilarity_BinaryEmbedding",
+        "org.elasticsearch.xpack.inference.services.cohere.CohereServiceTests.testDefaultSimilarity_NotBinaryEmbedding"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 46,
+    "commit": "223d50f0524d3d3e9a19f18a3b146212ff830042",
+    "parent": "1348993ab5d62b19dc1a2f8f8690237272cb97fd",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.script.ScriptStatsTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.script.ScriptStatsTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 7,
+      "after_fail_count": 0,
+      "before_pass_count": 6,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.script.ScriptStatsTests.testXContentChunkedHistory"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 47,
+    "commit": "9ce802fd5f4bc89fb2a433bfe8299a64797310ac",
+    "parent": "4b350018a47c7b4611cf1ff98b617963b7db2f3e",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.entitlements.FilesEntitlementTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.entitlements.FilesEntitlementTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 10,
+      "after_fail_count": 0,
+      "before_pass_count": 9,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.entitlement.runtime.policy.entitlements.FilesEntitlementTests.testExclusiveParsing"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 48,
+    "commit": "78c53dbbfc7e2a5dccd972ee914bcfca5c45828b",
+    "parent": "b8ce0de58ebc215e0e547d415ab77bb36f320385",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.transport.TransportServiceHandshakeTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.transport.TransportServiceHandshakeTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 7,
+      "after_fail_count": 0,
+      "before_pass_count": 7,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 49,
+    "commit": "d2778383792d414973065084d5cbcf4da32a2399",
+    "parent": "0c39c1e0d770c72b49a710c122ed6f50912a7f6a",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.ingest.PipelineConfigurationTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.ingest.PipelineConfigurationTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 7,
+      "after_fail_count": 0,
+      "before_pass_count": 6,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.ingest.PipelineConfigurationTests.testMapKeyOrderingRoundTrip"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 50,
+    "commit": "6afa74ace41d39e296da1abb82589813801550f0",
+    "parent": "67f25ca9d39a5a841a160f183604dc1550ed475d",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 52,
+    "commit": "19402e2c684ea5114f93f58477a90d1a2f480544",
+    "parent": "b45ee0b3c7cc00564eb5ee4da2d83b99ee695975",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:write-load-forecaster:internalClusterTest --tests \"org.elasticsearch.xpack.writeloadforecaster.WriteLoadForecasterIT\"",
+        ":x-pack:plugin:write-load-forecaster:test --tests \"org.elasticsearch.xpack.writeloadforecaster.LicensedWriteLoadForecasterTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:write-load-forecaster:internalClusterTest --tests \"org.elasticsearch.xpack.writeloadforecaster.WriteLoadForecasterIT\" :x-pack:plugin:write-load-forecaster:test --tests \"org.elasticsearch.xpack.writeloadforecaster.LicensedWriteLoadForecasterTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 7,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.writeloadforecaster.LicensedWriteLoadForecasterTests.testLicenseStateLogging"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 54,
+    "commit": "f3bf8ed1c21537cb1cb125e9df551bfef4514e48",
+    "parent": "69249e31d157d70829a51423a26b4f38d96406c2",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:write-load-forecaster:internalClusterTest --tests \"org.elasticsearch.xpack.writeloadforecaster.WriteLoadForecasterIT\"",
+        ":x-pack:plugin:write-load-forecaster:test --tests \"org.elasticsearch.xpack.writeloadforecaster.LicensedWriteLoadForecasterTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:write-load-forecaster:internalClusterTest --tests \"org.elasticsearch.xpack.writeloadforecaster.WriteLoadForecasterIT\" :x-pack:plugin:write-load-forecaster:test --tests \"org.elasticsearch.xpack.writeloadforecaster.LicensedWriteLoadForecasterTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 7,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.writeloadforecaster.LicensedWriteLoadForecasterTests.testLicenseStateLogging"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 55,
+    "commit": "69249e31d157d70829a51423a26b4f38d96406c2",
+    "parent": "3c9a0c8d4b2234dc7715f8987130a084b366376a",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 13,
+      "after_fail_count": 0,
+      "before_pass_count": 13,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 56,
+    "commit": "f2d8f7d6d293bfdfdaeeedff3f82fbdfbaca67ff",
+    "parent": "3ddaea14421a9aee497cd4f0d60845f4d6baa271",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 16,
+      "after_fail_count": 0,
+      "before_pass_count": 14,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests.testJdkAccess",
+        "org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests.testFollowLinks"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 58,
+    "commit": "1514c2a3e7e15bda86c55a7e1bc336a1171e710c",
+    "parent": "d77409872c203c93ae7a00425767290e63cc16ad",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.index.mapper.RootObjectMapperTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.index.mapper.RootObjectMapperTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 17,
+      "after_fail_count": 0,
+      "before_pass_count": 17,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 59,
+    "commit": "c37688630c69124e5cd575744f4dcf3a1bedf6ec",
+    "parent": "04ba85c4d223d458514c6e7558a7d3b541681810",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.entitlements.FilesEntitlementTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.entitlements.FilesEntitlementTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 4,
+      "after_fail_count": 0,
+      "before_pass_count": 4,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 60,
+    "commit": "04ba85c4d223d458514c6e7558a7d3b541681810",
+    "parent": "82835101f7b2a3957b0f5097c340a35804268bea",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 14,
+      "after_fail_count": 0,
+      "before_pass_count": 12,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests.testNormalizeTrailingSlashes",
+        "org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests.testPathAndFileWithSamePrefix"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 62,
+    "commit": "8421006641a2d8e617636d0a10bbe63e60648420",
+    "parent": "4c2fd9497c8a4d4e6159e6fbae1e5e43e41fde43",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.lucene.LuceneSourceOperatorTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.lucene.LuceneSourceOperatorTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 9,
+      "after_fail_count": 0,
+      "before_pass_count": 8,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.compute.lucene.LuceneSourceOperatorTests.testEarlyTermination"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 63,
+    "commit": "cc3c3870ecd91511f600a96612c30a3abbbb0129",
+    "parent": "9cc75734d0a6fe1c82e57c6c900daa7c5ac0db1e",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.action.admin.cluster.allocation.TransportGetAllocationStatsActionTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.action.admin.cluster.allocation.TransportGetAllocationStatsActionTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 1,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.action.admin.cluster.allocation.TransportGetAllocationStatsActionTests.testDeduplicatesStatsComputations"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 65,
+    "commit": "41f09bf1fcba928dd5e94f1a0bab9c747d71b312",
+    "parent": "1bf0a6ba8e2b937bdef68f85471d49ffd28d7a4b",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.action.admin.cluster.allocation.TransportGetAllocationStatsActionTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.action.admin.cluster.allocation.TransportGetAllocationStatsActionTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 1,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.action.admin.cluster.allocation.TransportGetAllocationStatsActionTests.testDeduplicatesStatsComputations"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 67,
+    "commit": "da7df4cf074fa2d2874342eab4a2535ef6caae43",
+    "parent": "053ec65b33e0fa9aab5e81c61625f464397ad55d",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 12,
+      "after_fail_count": 0,
+      "before_pass_count": 11,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests.testPrunedPaths"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 68,
+    "commit": "a803462ab51824828973ce0a72efb4c37a83a064",
+    "parent": "f2d591802c789cb0dcf6ff3ea7738d9b3d823d2a",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:migrate:internalClusterTest --tests \"org.elasticsearch.xpack.migrate.action.ReindexDatastreamIndexTransportActionIT\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:migrate:internalClusterTest --tests \"org.elasticsearch.xpack.migrate.action.ReindexDatastreamIndexTransportActionIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 16,
+      "after_fail_count": 0,
+      "before_pass_count": 19,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 69,
+    "commit": "f2d591802c789cb0dcf6ff3ea7738d9b3d823d2a",
+    "parent": "a580a21dad6f3db43016dd39c927dfc1d3ee4c6e",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.cluster.metadata.SystemIndexMetadataUpgradeServiceTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.cluster.metadata.SystemIndexMetadataUpgradeServiceTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 7,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.cluster.metadata.SystemIndexMetadataUpgradeServiceTests.testUpgradeDataStreamToSystemDataStream"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 70,
+    "commit": "a580a21dad6f3db43016dd39c927dfc1d3ee4c6e",
+    "parent": "284b6215d9a803831abe840d02c25601dbc82128",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.action.bulk.BulkRequestModifierTests\"",
+        ":server:test --tests \"org.elasticsearch.action.bulk.TransportBulkActionIngestTests\"",
+        ":server:test --tests \"org.elasticsearch.ingest.IngestServiceTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.action.bulk.BulkRequestModifierTests\" :server:test --tests \"org.elasticsearch.action.bulk.TransportBulkActionIngestTests\" :server:test --tests \"org.elasticsearch.ingest.IngestServiceTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 62,
+      "after_fail_count": 0,
+      "before_pass_count": 61,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.ingest.IngestServiceTests.testExecuteFailureStatusOnFailureWithoutRedirection"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 71,
+    "commit": "fcfde3b489fd7efe27bf212f365cb5502d449439",
+    "parent": "e498ad17938aea957ac1f72935f78618a9275d88",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 72,
+    "commit": "3b1c857199ad1b3aa1c0af674dc146f8fc328fc1",
+    "parent": "a910d2a130654a3fa37bb505b7e0b5a230b8ff4a",
+    "test_targets": {
+      "modified": [
+        ":modules:ingest-geoip:qa:full-cluster-restart:check",
+        ":server:test --tests \"org.elasticsearch.cluster.metadata.IndexAbstractionResolverTests\""
+      ],
+      "added": [],
+      "all": ":modules:ingest-geoip:qa:full-cluster-restart:check :server:test --tests \"org.elasticsearch.cluster.metadata.IndexAbstractionResolverTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 3,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 73,
+    "commit": "73bea3ac38eb0e7ad7f41a66ed7cd5dc497054c0",
+    "parent": "dc4e8f4b14f88dbfe45ef2fc1d12e28676dc2ebd",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.common.unit.ByteSizeValueTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.common.unit.ByteSizeValueTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 42,
+      "after_fail_count": 0,
+      "before_pass_count": 41,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.common.unit.ByteSizeValueTests.testTwoDigitTransportRoundTrips"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 75,
+    "commit": "d4694196455bcef583d051586e6ea63e245e4560",
+    "parent": "d6e1ad7a1e07d28bee25e409787e025f394b9475",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.analysis.AnalyzerTests\"",
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.analysis.VerifierTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.analysis.AnalyzerTests\" :x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.analysis.VerifierTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 95,
+      "after_fail_count": 0,
+      "before_pass_count": 95,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.esql.analysis.VerifierTests.testConditionalFunctionsWithMixedNumericTypes"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 77,
+    "commit": "730b538d967f1b51fa22be03bbbaffe28c377446",
+    "parent": "f5e907a35f4f92d36a8f23d44b462acfc0fcbab6",
+    "test_targets": {
+      "modified": [
+        ":modules:data-streams:internalClusterTest --tests \"org.elasticsearch.datastreams.lifecycle.DataStreamLifecycleServiceIT\"",
+        ":server:test --tests \"org.elasticsearch.action.admin.indices.rollover.TransportRolloverActionTests\""
+      ],
+      "added": [],
+      "all": ":modules:data-streams:internalClusterTest --tests \"org.elasticsearch.datastreams.lifecycle.DataStreamLifecycleServiceIT\" :server:test --tests \"org.elasticsearch.action.admin.indices.rollover.TransportRolloverActionTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 22,
+      "after_fail_count": 0,
+      "before_pass_count": 19,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 3
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.action.admin.indices.rollover.TransportRolloverActionTests.testCheckBlockForIndices",
+        "org.elasticsearch.action.admin.indices.rollover.TransportRolloverActionTests.testCheckBlockForDataStreams",
+        "org.elasticsearch.action.admin.indices.rollover.TransportRolloverActionTests.testCheckBlockForDataStreamFailureStores"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 79,
+    "commit": "47139ecedffaeaaf704990bea4b4b8ebb04af38e",
+    "parent": "09250aac889f2d36364e2dee66c95d7c099c4c57",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:logsdb:test --tests \"org.elasticsearch.xpack.logsdb.LogsdbIndexModeSettingsProviderTests\"",
+        ":x-pack:plugin:logsdb:test --tests \"org.elasticsearch.xpack.logsdb.LogsdbIndexSettingsProviderLegacyLicenseTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:logsdb:test --tests \"org.elasticsearch.xpack.logsdb.LogsdbIndexModeSettingsProviderTests\" :x-pack:plugin:logsdb:test --tests \"org.elasticsearch.xpack.logsdb.LogsdbIndexSettingsProviderLegacyLicenseTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 5,
+      "after_fail_count": 0,
+      "before_pass_count": 5,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 83,
+    "commit": "30f4ea0f5d907656c616bd9380309e70fd3b3de2",
+    "parent": "3caab7e24fed50fad3c4dc3cd4aec2c5c83f132e",
+    "test_targets": {
+      "modified": [
+        ":x-pack:qa:rolling-upgrade:check"
+      ],
+      "added": [],
+      "all": ":x-pack:qa:rolling-upgrade:check"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Crash/No Report",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 45,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 84,
+    "commit": "0637578e4464f2d540a47199c0595cdb444e10f8",
+    "parent": "86234e1172ec4e0cd0d567bbff5bc573d47ae933",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 87,
+    "commit": "4b4be70b9197aad510413f22cd6ea9be20b0a59e",
+    "parent": "4fdb85fb5a582c8cfbf3a8d15fd742a8d5b4ea25",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.DataStreamDeprecationCheckerTests\"",
+        ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.DataStreamDeprecationCheckerTests\" :x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 36,
+      "after_fail_count": 0,
+      "before_pass_count": 34,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldSystemIndicesIgnored {indexMetadataState=CLOSE}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldSystemIndicesIgnored {indexMetadataState=OPEN}"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 88,
+    "commit": "8e4bb51ae886318556e125e0e8a6f6114e0536ee",
+    "parent": "a24e42cde6cd431e2757b33a2e434aa44ccb0a5b",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 90,
+    "commit": "6938e91b373762f5df2d6cfbe9bab9d55474187c",
+    "parent": "0acec5261f80436a00a1775938e42e3b78ba0fa9",
+    "test_targets": {
+      "modified": [
+        ":modules:ingest-common:test --tests \"org.elasticsearch.ingest.common.RerouteProcessorFactoryTests\"",
+        ":modules:ingest-common:test --tests \"org.elasticsearch.ingest.common.RerouteProcessorTests\""
+      ],
+      "added": [],
+      "all": ":modules:ingest-common:test --tests \"org.elasticsearch.ingest.common.RerouteProcessorFactoryTests\" :modules:ingest-common:test --tests \"org.elasticsearch.ingest.common.RerouteProcessorTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 23,
+      "after_fail_count": 0,
+      "before_pass_count": 21,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.ingest.common.RerouteProcessorTests.testTypeSanitization",
+        "org.elasticsearch.ingest.common.RerouteProcessorTests.testRouteOnType"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 92,
+    "commit": "77f30d9c3490b45096027968440b0d365f269f04",
+    "parent": "93c5bac0322dc9c55282143c08ccbe1b4138f4df",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 93,
+    "commit": "65f336dfe0c6c554c1fb03aa84dd6d6582a8dae9",
+    "parent": "24b11e0a668a786c23a2fbbac1a7f6e1ff7d5b89",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyParserFailureTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyParserTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyParserFailureTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyParserTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 13,
+      "after_fail_count": 0,
+      "before_pass_count": 13,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 94,
+    "commit": "24b11e0a668a786c23a2fbbac1a7f6e1ff7d5b89",
+    "parent": "591a44d63fb6af5622179ff94fa284223a367466",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.entitlements.FilesEntitlementTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.entitlements.FilesEntitlementTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 3,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 96,
+    "commit": "377190151c499fc7d4b02db155182eddf926248e",
+    "parent": "d28fe49100df9aa808130b4b38efa3499c21cd07",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 97,
+    "commit": "bc2bd59f40e54067d02f0f0d299cdcdd1de0f192",
+    "parent": "0850345d1390dc696a1afbd11ab7a2a8684eeed5",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:redact:test --tests \"org.elasticsearch.xpack.redact.RedactProcessorTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:redact:test --tests \"org.elasticsearch.xpack.redact.RedactProcessorTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 15,
+      "after_fail_count": 0,
+      "before_pass_count": 15,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 99,
+    "commit": "521e2679d63893608b7c55319943f776b5f02bab",
+    "parent": "a32611c375b33f5a6409a546b725769c972fdf80",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.action.search.AbstractSearchAsyncActionTests\"",
+        ":server:test --tests \"org.elasticsearch.action.search.SearchAsyncActionTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.action.search.AbstractSearchAsyncActionTests\" :server:test --tests \"org.elasticsearch.action.search.SearchAsyncActionTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 6,
+      "after_fail_count": 0,
+      "before_pass_count": 6,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 103,
+    "commit": "fa3bf55b9d0a0ce5bc610f7d2441a399f3e894f0",
+    "parent": "f65580822f8303a8f97f5537dc3c2a8c6c574906",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 34,
+      "after_fail_count": 0,
+      "before_pass_count": 28,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 6
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldIndicesIgnoredCheckWithMultipleTransforms {indexMetadataState=CLOSE}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldTransformIndicesIgnoredCheck {indexMetadataState=CLOSE}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testMultipleOldIndicesIgnoredCheckWithTransforms {indexMetadataState=OPEN}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldIndicesIgnoredCheckWithMultipleTransforms {indexMetadataState=OPEN}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldTransformIndicesIgnoredCheck {indexMetadataState=OPEN}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testMultipleOldIndicesIgnoredCheckWithTransforms {indexMetadataState=CLOSE}"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 104,
+    "commit": "ff0932f74fe09a872c88b1c4d3a089e031c438f9",
+    "parent": "2eea5f28f04e9593ad24e225e89b3b5cc4f07775",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 34,
+      "after_fail_count": 0,
+      "before_pass_count": 28,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 6
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldIndicesIgnoredCheckWithMultipleTransforms {indexMetadataState=CLOSE}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldTransformIndicesIgnoredCheck {indexMetadataState=CLOSE}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testMultipleOldIndicesIgnoredCheckWithTransforms {indexMetadataState=OPEN}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldIndicesIgnoredCheckWithMultipleTransforms {indexMetadataState=OPEN}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testOldTransformIndicesIgnoredCheck {indexMetadataState=OPEN}",
+        "org.elasticsearch.xpack.deprecation.IndexDeprecationCheckerTests.testMultipleOldIndicesIgnoredCheckWithTransforms {indexMetadataState=CLOSE}"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 105,
+    "commit": "f65580822f8303a8f97f5537dc3c2a8c6c574906",
+    "parent": "495a8f9a70047c1c4249fce49f9e57ce17136427",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 106,
+    "commit": "55ac92975e6ec0d714cfaa80d2d4a883bed9b78e",
+    "parent": "1744e174006006e0277d3aabb5da62c84e6804e6",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.ingest.IngestServiceTests\"",
+        ":server:test --tests \"org.elasticsearch.ingest.IngestStatsTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.ingest.IngestServiceTests\" :server:test --tests \"org.elasticsearch.ingest.IngestStatsTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 7,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.ingest.IngestStatsTests.testProcessorNameAndTypeIdentitySerialization"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 107,
+    "commit": "5426cd9bb65e4b5ad2c46f6223a808a716408d6c",
+    "parent": "13c511c7cd768d6a35d49820e1b22e797794217a",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 110,
+    "commit": "ac3eae67bcbaece2f3476397abeacb075148e4e2",
+    "parent": "557dae6224c65352b4740a152d1469eb5b42c359",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 111,
+    "commit": "557dae6224c65352b4740a152d1469eb5b42c359",
+    "parent": "b66c96074ee7bfe5bd22e788984bbb8b8407132f",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\"",
+        ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.FileAccessTreeTests\" :libs:entitlement:test --tests \"org.elasticsearch.entitlement.runtime.policy.PolicyManagerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 13,
+      "after_fail_count": 0,
+      "before_pass_count": 13,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 113,
+    "commit": "dab89d111bca545b84d922082eee692b872b4eaf",
+    "parent": "44e107679e9cd3bdda4a814d8d41a663c58e771d",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:asm-provider:test --tests \"org.elasticsearch.entitlement.instrumentation.impl.InstrumentationServiceImplTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:asm-provider:test --tests \"org.elasticsearch.entitlement.instrumentation.impl.InstrumentationServiceImplTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 24,
+      "after_fail_count": 0,
+      "before_pass_count": 23,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.entitlement.instrumentation.impl.InstrumentationServiceImplTests.testLookupImplementationMethodWithInheritanceOnTarget",
+        "org.elasticsearch.entitlement.instrumentation.impl.InstrumentationServiceImplTests.testLookupImplementationMethodWithInheritanceOnChecker"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 114,
+    "commit": "ec8a052125b9928f72e096d58f96e31ec58b868f",
+    "parent": "abb9369332dd46b3fb8d3282851bdd7b863f1f1a",
+    "test_targets": {
+      "modified": [
+        ":modules:lang-mustache:test --tests \"org.elasticsearch.script.mustache.MustacheScriptEngineTests\"",
+        ":server:test --tests \"org.elasticsearch.common.text.SizeLimitingStringWriterTests\""
+      ],
+      "added": [],
+      "all": ":modules:lang-mustache:test --tests \"org.elasticsearch.script.mustache.MustacheScriptEngineTests\" :server:test --tests \"org.elasticsearch.common.text.SizeLimitingStringWriterTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 11,
+      "after_fail_count": 0,
+      "before_pass_count": 10,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.common.text.SizeLimitingStringWriterTests.testLimitMessage"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 115,
+    "commit": "ae13c6119e404cda4a3377876b4068e2e745511c",
+    "parent": "b3631831fa1ce7ea54bdfaffdbb75be19c4c8440",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.mapper.SemanticTextFieldMapperTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.mapper.SemanticTextFieldMapperTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 76,
+      "after_fail_count": 0,
+      "before_pass_count": 76,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 116,
+    "commit": "b3631831fa1ce7ea54bdfaffdbb75be19c4c8440",
+    "parent": "a67d659cf83e25bc0266cb44c003a2b5dea26f14",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.cluster.routing.RoutingTableTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.cluster.routing.RoutingTableTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 15,
+      "after_fail_count": 0,
+      "before_pass_count": 15,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 117,
+    "commit": "1fce57cb7156732c583c882c48de96a395a0e083",
+    "parent": "14edc2ecf8d4fc3837e1cb44b8a4cdc15d295217",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.ingest.IngestStatsTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.ingest.IngestStatsTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 7,
+      "after_fail_count": 0,
+      "before_pass_count": 6,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.ingest.IngestStatsTests.testIdentitySerialization"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 118,
+    "commit": "a6fc27ef5b12040b5519351f2321e22f7536de78",
+    "parent": "32285b1eb04e4ba59eed4af1228858955b33e8c0",
+    "test_targets": {
+      "modified": [
+        ":build-tools-internal:test --tests \"org.elasticsearch.gradle.internal.release.UpdateVersionsTaskTests\""
+      ],
+      "added": [],
+      "all": ":build-tools-internal:test --tests \"org.elasticsearch.gradle.internal.release.UpdateVersionsTaskTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 10,
+      "after_fail_count": 0,
+      "before_pass_count": 8,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 2
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.gradle.internal.release.UpdateVersionsTaskTests.addTransportVersionPatch",
+        "org.elasticsearch.gradle.internal.release.UpdateVersionsTaskTests.addTransportVersion"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 120,
+    "commit": "ace8cd75df5a51619e6d1da5452cf48e32629932",
+    "parent": "2227ac518144eb4376c4d21dd994282caf11fa23",
+    "test_targets": {
+      "modified": [
+        ":x-pack:qa:rolling-upgrade:check"
+      ],
+      "added": [],
+      "all": ":x-pack:qa:rolling-upgrade:check"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "stats": {
+      "after_pass_count": 44,
+      "after_fail_count": 0,
+      "before_pass_count": 43,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.upgrades.MlJobSnapshotUpgradeIT.testSnapshotUpgrader"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 125,
+    "commit": "67d2e257b522d2c3cbb62ca8664c2c6b0861d45a",
+    "parent": "489e2d6692b510d9118a5d366792e40dbfee9620",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:asm-provider:test --tests \"org.elasticsearch.entitlement.instrumentation.impl.InstrumentationServiceImplTests\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:asm-provider:test --tests \"org.elasticsearch.entitlement.instrumentation.impl.InstrumentationServiceImplTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 23,
+      "after_fail_count": 0,
+      "before_pass_count": 22,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.entitlement.instrumentation.impl.InstrumentationServiceImplTests.testLookupImplementationMethodWithInheritance"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 126,
+    "commit": "489e2d6692b510d9118a5d366792e40dbfee9620",
+    "parent": "e58c38cc3e4ff0fb566fcf0e81458688631f182c",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:transform:qa:single-node-tests:check"
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:transform:qa:single-node-tests:check"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 98,
+      "after_fail_count": 0,
+      "before_pass_count": 95,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 4
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.transform.integration.TransformDeleteIT.testDeleteWithAlreadyDeletedIndex",
+        "org.elasticsearch.xpack.transform.integration.TransformDeleteIT.testDeleteWithNoWriteIndexThrowsException",
+        "org.elasticsearch.xpack.transform.integration.TransformDeleteIT.testDeleteWithAliasPointingToManyIndices",
+        "org.elasticsearch.xpack.transform.integration.TransformDeleteIT.testDeleteWithManuallyCreatedIndexAndManuallyCreatedAlias"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 127,
+    "commit": "0196787b2a3ca9e69fec3b19443c6282b21f83b4",
+    "parent": "410849243656697e5c6287384b145a9f2ede51ad",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:inference:internalClusterTest --tests \"org.elasticsearch.xpack.inference.integration.InferenceRevokeDefaultEndpointsIT\"",
+        ":x-pack:plugin:inference:qa:inference-service-tests:check",
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.services.elastic.ElasticInferenceServiceTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:inference:internalClusterTest --tests \"org.elasticsearch.xpack.inference.integration.InferenceRevokeDefaultEndpointsIT\" :x-pack:plugin:inference:qa:inference-service-tests:check :x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.services.elastic.ElasticInferenceServiceTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 95,
+      "after_fail_count": 0,
+      "before_pass_count": 95,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.inference.services.elastic.ElasticInferenceServiceTests.testDefaultConfigs_Returns_DefaultEndpoints_WhenTaskTypeIsCorrect"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 128,
+    "commit": "900ca08078cc7bff6238894bd9f07097c6ab47a7",
+    "parent": "6111d5ba870da1cb1c5a431cb6dc75826516ab11",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 134,
+    "commit": "35c3fa9c81dafb40b429463f441af96ac3518159",
+    "parent": "af9f56200b4781d4458b8592e9cebe8351a05671",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.action.search.ExpandSearchPhaseTests\"",
+        ":server:test --tests \"org.elasticsearch.cluster.routing.GroupShardsIteratorTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.action.search.ExpandSearchPhaseTests\" :server:test --tests \"org.elasticsearch.cluster.routing.GroupShardsIteratorTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 2,
+      "after_fail_count": 0,
+      "before_pass_count": 3,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 135,
+    "commit": "928f5719a107ea2fe3272b7509ec4c0fe4647282",
+    "parent": "bda662fa5630256645e6e5143eefdab986ef40ae",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.index.mapper.MapperServiceTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.index.mapper.MapperServiceTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 52,
+      "after_fail_count": 0,
+      "before_pass_count": 52,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 136,
+    "commit": "0bde70e5703c7a0ce24e2ce594b315cff04589d3",
+    "parent": "4a45491773de5bf32128c0a628fcfc5ddb4cb682",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:eql:test --tests \"org.elasticsearch.xpack.eql.analysis.VerifierTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:eql:test --tests \"org.elasticsearch.xpack.eql.analysis.VerifierTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 35,
+      "after_fail_count": 0,
+      "before_pass_count": 34,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.eql.analysis.VerifierTests.testJoinCommand"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 138,
+    "commit": "7869fbe5f3fc5649a3e4215b9f7d994c0fb77ce7",
+    "parent": "87b10688fb54937bdce9522f09173df4ed182cc5",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.operator.exchange.ExchangeServiceTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:esql:compute:test --tests \"org.elasticsearch.compute.operator.exchange.ExchangeServiceTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 8,
+      "after_fail_count": 0,
+      "before_pass_count": 7,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.compute.operator.exchange.ExchangeServiceTests.testNoCyclicException"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 139,
+    "commit": "eab1b3fe0ae7d321e1bff49018888f63fe2c9e01",
+    "parent": "ff43a24dd8a9b34c443e2e68b6453a335058724f",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.TemplateDeprecationCheckerTests\"",
+        ":x-pack:plugin:logsdb:javaRestTest --tests \"org.elasticsearch.xpack.logsdb.LogsIndexModeCustomSettingsIT\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.TemplateDeprecationCheckerTests\" :x-pack:plugin:logsdb:javaRestTest --tests \"org.elasticsearch.xpack.logsdb.LogsIndexModeCustomSettingsIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 19,
+      "after_fail_count": 0,
+      "before_pass_count": 19,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 140,
+    "commit": "1cfb32bbe84734bf488ab019f207eb24028983a1",
+    "parent": "c7ee96c18eff63a041fcfefeb07bdb47eb0c0038",
+    "test_targets": {
+      "modified": [
+        ":libs:entitlement:qa:javaRestTest --tests \"org.elasticsearch.entitlement.qa.AbstractEntitlementsIT\""
+      ],
+      "added": [],
+      "all": ":libs:entitlement:qa:javaRestTest --tests \"org.elasticsearch.entitlement.qa.AbstractEntitlementsIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Crash/No Report",
+    "build_status_before": "Success",
+    "test_status_before": "Crash/No Report",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 141,
+    "commit": "a18856ed4bbd13dbde1c92032d375286c15230a2",
+    "parent": "1570577ef122a54a48e19438558077208f19cc51",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.TemplateDeprecationCheckerTests\"",
+        ":x-pack:plugin:logsdb:javaRestTest --tests \"org.elasticsearch.xpack.logsdb.LogsIndexModeCustomSettingsIT\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:deprecation:test --tests \"org.elasticsearch.xpack.deprecation.TemplateDeprecationCheckerTests\" :x-pack:plugin:logsdb:javaRestTest --tests \"org.elasticsearch.xpack.logsdb.LogsIndexModeCustomSettingsIT\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "stats": {
+      "after_pass_count": 19,
+      "after_fail_count": 0,
+      "before_pass_count": 19,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 142,
+    "commit": "f8ac21865fea449634f389a5de300f3490b88132",
+    "parent": "7a089d9da86a5edea91a91a28bf214e1782434f3",
+    "test_targets": {
+      "modified": [
+        ":x-pack:qa:rolling-upgrade:check"
+      ],
+      "added": [],
+      "all": ":x-pack:qa:rolling-upgrade:check"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Fail",
+    "test_status_before": "Skipped",
+    "stats": {
+      "after_pass_count": 43,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 43
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/40_ml_datafeed_crud/Put job and datafeed with composite aggs}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/80_transform_jobs_crud/Test put batch transform on old cluster}",
+        "org.elasticsearch.upgrades.MLModelDeploymentsUpgradeIT.testTrainedModelDeployment",
+        "org.elasticsearch.upgrades.SearchableSnapshotsRollingUpgradeIT.testBlobStoreCacheWithPartialCopyInMixedVersions",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/120_api_key/Create API key in the old cluster}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/60_watcher/Test watcher stats output}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/70_ilm/Test Basic Policy Creation}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/30_ml_jobs_crud/Put job with empty strings in the configuration}",
+        "org.elasticsearch.upgrades.DataStreamsUpgradeIT.testDataStreams",
+        "org.elasticsearch.upgrades.DataStreamsUpgradeIT.testUpgradeDataStream",
+        "org.elasticsearch.upgrades.GeoIpUpgradeIT.testGeoIpDownloader",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/30_ml_jobs_crud/Put job on the old cluster with the default model memory limit and post some data}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/30_ml_jobs_crud/Put job with timing stats checking on the old cluster and post some data}",
+        "org.elasticsearch.upgrades.TokenBackwardsCompatibilityIT.testRefreshingTokensInOldCluster",
+        "org.elasticsearch.upgrades.SearchableSnapshotsRollingUpgradeIT.testBlobStoreCacheWithFullCopyInMixedVersions",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/30_ml_jobs_crud/Test function shortcut expansion}",
+        "org.elasticsearch.upgrades.TokenBackwardsCompatibilityIT.testGeneratingTokensInOldCluster",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/30_ml_jobs_crud/Put categorization job on the old cluster and post some data}",
+        "org.elasticsearch.upgrades.SearchableSnapshotsRollingUpgradeIT.testMountPartialCopyAndRecoversCorrectly",
+        "org.elasticsearch.upgrades.TransportVersionClusterStateUpgradeIT.testReadsInferredTransportVersions",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/150_profiling/Test Profiling Index Management creates indices}",
+        "org.elasticsearch.upgrades.WatcherRestartIT.testWatcherRestart",
+        "org.elasticsearch.upgrades.MlMappingsUpgradeIT.testMappingsUpgrade",
+        "org.elasticsearch.upgrades.MlTrainedModelsUpgradeIT.testTrainedModelInference",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/80_transform_jobs_crud/Test put continuous transform on old cluster}",
+        "org.elasticsearch.upgrades.SecurityIndexRolesMetadataMigrationIT.testRoleMigration",
+        "org.elasticsearch.upgrades.SearchableSnapshotsRollingUpgradeIT.testMountFullCopyAndRecoversCorrectly",
+        "org.elasticsearch.upgrades.WatcherRestartIT.testEnsureWatcherDeletesLegacyTemplates",
+        "org.elasticsearch.upgrades.DataStreamsUpgradeIT.testDataStreamValidationDoesNotBreakUpgrade",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/30_ml_jobs_crud/Test job with pre 6.4 rules - dummy job 6.4 onwards}",
+        "org.elasticsearch.upgrades.MLModelDeploymentsUpgradeIT.testTrainedModelDeploymentStopOnMixedCluster",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/40_ml_datafeed_crud/Put job and datafeed with aggs in old cluster - deprecated interval with warning after 8.0.0}",
+        "org.elasticsearch.upgrades.TokenBackwardsCompatibilityIT.testInvalidatingTokensInOldCluster",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/90_ml_data_frame_analytics_crud/Put classification job on the old cluster}",
+        "org.elasticsearch.upgrades.SLMHistoryManagedTemplateUpgradeIT.testEnsureHistoryManagedTemplateIsInstalledOnUpgradedVersion",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/90_ml_data_frame_analytics_crud/Put regression job on the old cluster}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/90_ml_data_frame_analytics_crud/Put outlier_detection job on the old cluster}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/20_security/Verify native store security actions}",
+        "org.elasticsearch.upgrades.ILMHistoryManagedTemplateUpgradeIT.testEnsureHistoryManagedTemplateIsInstalledOnUpgradedVersion",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/40_ml_datafeed_crud/Put job and datafeed without aggs in old cluster}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/30_ml_jobs_crud/Put job on the old cluster and post some data}",
+        "org.elasticsearch.upgrades.UpgradeClusterClientYamlTestSuiteIT.test {p0=old_cluster/60_watcher/CRUD watch APIs}",
+        "org.elasticsearch.upgrades.IndexingIT.testIndexing"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 143,
+    "commit": "7a089d9da86a5edea91a91a28bf214e1782434f3",
+    "parent": "3fe65794f65904b7f715d80536a4fac39b64fe9f",
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 147,
+    "commit": "f338ff8fc2ec9a810212319c7f69c1afb12601bf",
+    "parent": "fa72e538df48f9e4e07355188d7e64f240641536",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.services.elastic.ElasticInferenceServiceTests\"",
+        ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.services.openai.OpenAiServiceTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.services.elastic.ElasticInferenceServiceTests\" :x-pack:plugin:inference:test --tests \"org.elasticsearch.xpack.inference.services.openai.OpenAiServiceTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 148,
+    "commit": "fa72e538df48f9e4e07355188d7e64f240641536",
+    "parent": "a2fb5c41c5873cf4a7c473d30b7bb6c1558161c6",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.parser.StatementParserTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.parser.StatementParserTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 149,
+    "commit": "a4c1e6a941e4c99fc5ab033372ee2323c08c28e1",
+    "parent": "b0a3746cdd098a9d339147f02ec4d03273eaca46",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 150,
+    "commit": "193c7bb173281a274e3465e01ddcb2467d1f1c2c",
+    "parent": "9969b97775bbbeaf7aa63a5fc56b2bdfa671f5dd",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerTests\""
+      ],
+      "added": [],
+      "all": ":server:test --tests \"org.elasticsearch.transport.TransportHandshakerTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 152,
+    "commit": "eb32a9beb288477ac7b87bddcdcf0e53ddceac80",
+    "parent": "b7367490a90cd2d1b593b579d90f38d580e5438e",
+    "test_targets": {
+      "modified": [
+        ":modules:ingest-geoip:qa:full-cluster-restart:check",
+        ":server:test --tests \"org.elasticsearch.cluster.metadata.IndexAbstractionResolverTests\""
+      ],
+      "added": [],
+      "all": ":modules:ingest-geoip:qa:full-cluster-restart:check :server:test --tests \"org.elasticsearch.cluster.metadata.IndexAbstractionResolverTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 153,
+    "commit": "65b4577a356e4d208545f35aa8d62cdf4b527f2a",
+    "parent": "ad92edfbde01f429ff53a804b06ac58576ee7fd5",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:core:test --tests \"org.elasticsearch.xpack.core.common.notifications.AbstractAuditorTests\"",
+        ":x-pack:plugin:transform:test --tests \"org.elasticsearch.xpack.transform.action.TransformUpdaterTests\""
+      ],
+      "added": [],
+      "all": ":x-pack:plugin:core:test --tests \"org.elasticsearch.xpack.core.common.notifications.AbstractAuditorTests\" :x-pack:plugin:transform:test --tests \"org.elasticsearch.xpack.transform.action.TransformUpdaterTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
   }
 ]
