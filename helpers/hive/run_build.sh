@@ -47,7 +47,7 @@ if ${DOCKER_CMD} run --rm \
     -u 1000:1000 \
     -v "maven-cache-hive:/home/maven/.m2" \
     ${IMAGE_TAG} \
-    mvn clean install -DskipTests -Dmaven.javadoc.skip=true -B -V; then
+    mvn clean install -DskipTests -Dmaven.javadoc.skip=true -B -V -Piceberg; then
     echo "Success" > $BUILD_STATUS_FILE
 else
     echo "Fail" > $BUILD_STATUS_FILE
