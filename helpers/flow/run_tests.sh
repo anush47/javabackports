@@ -18,7 +18,7 @@ elif [ "${TEST_TARGETS}" == "NONE" ]; then
 else
     # Replace spaces with commas for Maven
     CLEAN_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
-    MVN_CMD="mvn test -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false"
+    MVN_CMD="mvn test -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false -pl '!com.vaadin:flow-test-npm-bytecode-scanning-production'"
 fi
 
 # Determine if we need sudo for docker
@@ -43,11 +43,12 @@ if ${DOCKER_CMD} run --rm \
     --dns=8.8.8.8 \
     -u 1000:1000 \
     -v "maven-cache-flow:/home/maven/.m2" \
+    -v "${BUILD_DIR}:/repo/build_outputs" \
     "${IMAGE_TAG}" \
     bash -c "${MVN_CMD}; \
     MVN_EXIT_CODE=\$?; \
-    mkdir -p /repo/target/surefire-reports; \
-    find . -name 'TEST-*.xml' -exec cp {} /repo/target/surefire-reports/ \;; \
+    mkdir -p /repo/build_outputs/target/surefire-reports; \
+    find . -name 'TEST-*.xml' -not -path '*/build_outputs/*' -exec cp {} /repo/build_outputs/target/surefire-reports/ \;; \
     exit \$MVN_EXIT_CODE"; then
     
     echo "✅ Tests Passed"

@@ -227,8 +227,11 @@ def collect_test_reports(project_name, project_repo_dir, dest_dir):
                 print(f"Failed to copy {full_src_path}: {e}")
     else:
         # For self-building projects (like ES), source_dir is already the build directory
-        # We aggregated all results into 'all-test-results' in run_tests.sh
-        if PROJECT_CONFIG[project_name]['build_system'] == 'self-building':
+        # We aggregated all results into 'all-test-results' in run_tests.sh for ES, but Flow uses a different structure.
+        # So we should rely on PROJECT_CONFIG if available, or default to all-test-results for legacy constraint.
+        if PROJECT_CONFIG[project_name].get('report_pattern'):
+             full_pattern = os.path.join(project_repo_dir, PROJECT_CONFIG[project_name]["report_pattern"])
+        elif PROJECT_CONFIG[project_name]['build_system'] == 'self-building':
              full_pattern = os.path.join(project_repo_dir, "all-test-results", "*.xml")
         else:
              full_pattern = os.path.join(project_repo_dir, PROJECT_CONFIG[project_name]["report_pattern"])
