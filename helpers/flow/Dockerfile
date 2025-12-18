@@ -1,5 +1,5 @@
 # Use a standard, trusted Java 21 (JDK) image
-FROM eclipse-temurin:21-jdk-jammy
+FROM eclipse-temurin:17-jdk-jammy
 
 # Install basic tools (git, python3) and Node.js/npm for Vaadin frontend
 RUN apt-get update && apt-get install -y \
