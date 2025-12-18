@@ -91,6 +91,12 @@ PROJECT_CONFIG = {
         "report_pattern": "**/target/surefire-reports/*.xml",
         "builder_tag": "flow-builder:latest",
         "build_system": "self-building"
+    },
+    "hive": {
+        "repo_dir": "hive",
+        "report_pattern": "**/target/surefire-reports/*.xml",
+        "builder_tag": "hive-builder:latest",
+        "build_system": "self-building"
     }
 }
 
