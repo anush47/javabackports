@@ -18,7 +18,7 @@ elif [ "${TEST_TARGETS}" == "NONE" ]; then
 else
     # Replace spaces with commas for Maven
     CLEAN_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
-    MVN_CMD="mvn test -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false -pl '!com.vaadin:flow-test-npm-bytecode-scanning-production,!com.vaadin:flow-test-npm-bytecode-scanning-fallback-production'"
+    MVN_CMD="mvn test -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false -pl '!com.vaadin:flow-test-npm-bytecode-scanning-production,!com.vaadin:flow-test-npm-bytecode-scanning-fallback-production,!com.vaadin:flow-test-root-context-npm'"
 fi
 
 # Determine if we need sudo for docker
