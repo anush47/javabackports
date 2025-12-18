@@ -97,6 +97,12 @@ PROJECT_CONFIG = {
         "report_pattern": "**/target/surefire-reports/*.xml",
         "builder_tag": "hive-builder:latest",
         "build_system": "self-building"
+    },
+    "solr": {
+        "repo_dir": "solr",
+        "report_pattern": "**/build/test-results/**/*.xml",
+        "builder_tag": "solr-builder:latest",
+        "build_system": "self-building"
     }
 }
 
