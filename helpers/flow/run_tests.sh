@@ -18,8 +18,8 @@ elif [ "${TEST_TARGETS}" == "NONE" ]; then
 else
     # Replace spaces with commas for Maven
     CLEAN_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
-    # Add JVM args to allow dynamic agent loading (required for Mockito on Java 21)
-    MVN_CMD="mvn test -DargLine='-XX:+EnableDynamicAgentLoading -Djdk.attach.allowAttachSelf=true' -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false"
+    # Add JVM args to allow dynamic agent loading and experimental ByteBuddy support (required for Java 21)
+    MVN_CMD="mvn test -DargLine='-XX:+EnableDynamicAgentLoading -Djdk.attach.allowAttachSelf=true -Dnet.bytebuddy.experimental=true' -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false"
 fi
 
 # Determine if we need sudo for docker
