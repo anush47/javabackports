@@ -11,14 +11,14 @@ echo "--- Using Docker Image: ${IMAGE_TAG} ---"
 
 # 2. Configure Test Command
 if [ "${TEST_TARGETS}" == "ALL" ]; then
-    MVN_CMD="mvn test -B"
+    MVN_CMD="mvn test -B -DfailIfNoTests=false"
 elif [ "${TEST_TARGETS}" == "NONE" ]; then
     echo "No relevant source code changes found. Skipping tests."
     exit 0
 else
     # Replace spaces with commas for Maven
     CLEAN_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
-    MVN_CMD="mvn test -Dtest=${CLEAN_TARGETS} -B"
+    MVN_CMD="mvn test -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false"
 fi
 
 # Determine if we need sudo for docker
