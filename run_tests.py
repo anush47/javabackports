@@ -85,6 +85,12 @@ PROJECT_CONFIG = {
         "report_pattern": "**/build/test-results/**/*.xml",
         "builder_tag": "logstash-builder:latest",
         "build_system": "self-building"
+    },
+    "flow": {
+        "repo_dir": "flow",
+        "report_pattern": "**/target/surefire-reports/*.xml",
+        "builder_tag": "flow-builder:latest",
+        "build_system": "self-building"
     }
 }
 
