@@ -10,15 +10,39 @@ IMAGE_TAG="${IMAGE_TAG:-flow-${BUILD_TYPE}-${COMMIT_SHA:0:7}}"
 echo "--- Using Docker Image: ${IMAGE_TAG} ---"
 
 # 2. Configure Test Command
+# Check for modules to exclude dynamically
+EXCLUSION_FLAGS=""
+MODULES_TO_CHECK="flow-test-npm-bytecode-scanning-production flow-test-npm-bytecode-scanning-fallback-production flow-test-root-context-npm"
+
+if [ -d "${PROJECT_DIR}" ]; then
+    pushd "${PROJECT_DIR}" > /dev/null
+    for mod in $MODULES_TO_CHECK; do
+        # Check if pom.xml containing this artifactId exists
+        if grep -r -q "<artifactId>${mod}</artifactId>" . 2>/dev/null; then
+            if [ -z "$EXCLUSION_FLAGS" ]; then
+                EXCLUSION_FLAGS="-pl '!com.vaadin:${mod}"
+            else
+                EXCLUSION_FLAGS="${EXCLUSION_FLAGS},!com.vaadin:${mod}"
+            fi
+        fi
+    done
+    popd > /dev/null
+fi
+
+# Close the single quote if exclusion flags were added
+if [ ! -z "$EXCLUSION_FLAGS" ]; then
+    EXCLUSION_FLAGS="${EXCLUSION_FLAGS}'"
+fi
+
 if [ "${TEST_TARGETS}" == "ALL" ]; then
-    MVN_CMD="mvn test -B -DfailIfNoTests=false"
+    MVN_CMD="mvn test -B -DfailIfNoTests=false ${EXCLUSION_FLAGS}"
 elif [ "${TEST_TARGETS}" == "NONE" ]; then
     echo "No relevant source code changes found. Skipping tests."
     exit 0
 else
     # Replace spaces with commas for Maven
     CLEAN_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
-    MVN_CMD="mvn test -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false -pl '!com.vaadin:flow-test-npm-bytecode-scanning-production,!com.vaadin:flow-test-npm-bytecode-scanning-fallback-production,!com.vaadin:flow-test-root-context-npm'"
+    MVN_CMD="mvn test -Dtest=${CLEAN_TARGETS} -B -DfailIfNoTests=false ${EXCLUSION_FLAGS}"
 fi
 
 # Determine if we need sudo for docker
