@@ -1,4 +1,4 @@
-unique_id,repo,key,scope,complexity,BuildType,Backport Commit,date,message
+unique_id,repo,key,scope,complexity,Backport Commit,date,message
 solr_3880_branch_9x,solr,3880_branch_9x,S3,C3,6733c65d20c47ffd09dbd34f47e5cd4e4f7f4a9a,2025-11-24 14:52:47+00:00,SOLR-17231: Don't try buffering updates when there's no update log (cherry-pick from #3880) (#3887)
 solr_3347_branch_9x,solr,3347_branch_9x,S3,C5,7597d14fdaf782f6145fb16f5927b116b8edbeee,2025-05-28 17:08:30+00:00,"9x backport for ""SOLR-7962 --jvm-opts with -e doesn't work on windows (#3347)"" (#3376)"
 solr_2862_branch_9x,solr,2862_branch_9x,S3,C5,73e82607c00ace791e1e4d0b2d739e1b559de78f,2024-11-15 00:16:43+00:00,Backport: Update com.google.errorprone:* to 2.31.0 (#2862) (#2863)
