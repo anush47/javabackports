@@ -161,6 +161,121 @@ def parse_test_results(results_dir):
             continue
     return passed, failed
 
+def get_modified_test_files(project_dir, commit_sha):
+    """Get list of modified test files (not newly added) from commit."""
+    try:
+        # Get modified files (excluding added files)
+        result = subprocess.run(
+            f"git diff-tree --no-commit-id --name-only --diff-filter=M -r {commit_sha}",
+            shell=True, cwd=project_dir, capture_output=True, text=True, check=True
+        )
+        all_modified = [f.strip() for f in result.stdout.strip().splitlines() if f.strip()]
+        
+        # Filter for test files
+        test_files = []
+        for f in all_modified:
+            if any(indicator in f.lower() for indicator in ['test', 'spec']) and f.endswith('.java'):
+                test_files.append(f)
+        
+        return test_files
+    except:
+        return []
+
+def apply_test_changes(project_dir, commit_sha, test_files):
+    """Apply changes to specific test files from commit_sha to current state."""
+    if not test_files:
+        return True, "No test files to apply"
+    
+    try:
+        for test_file in test_files:
+            # Get the file content from the commit
+            result = subprocess.run(
+                f"git show {commit_sha}:{test_file}",
+                shell=True, cwd=project_dir, capture_output=True, text=True
+            )
+            if result.returncode != 0:
+                continue
+            
+            file_content = result.stdout
+            file_path = os.path.join(project_dir, test_file)
+            
+            # Ensure directory exists
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+            
+            # Write the updated file
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(file_content)
+        
+        return True, f"Applied changes to {len(test_files)} test files"
+    except Exception as e:
+        return False, f"Error applying test changes: {e}"
+
+def compile_and_check_imports(project_dir, test_files, project_name):
+    """Compile test files and check specifically for import errors."""
+    if not test_files:
+        return True, "No files to compile", []
+    
+    print(f"--- Checking for import errors in {len(test_files)} test files... ---")
+    
+    # Find Java compiler and classpath
+    # This is a simplified approach - may need project-specific adjustments
+    compile_errors = []
+    import_errors = []
+    
+    for test_file in test_files:
+        file_path = os.path.join(project_dir, test_file)
+        if not os.path.exists(file_path):
+            continue
+        
+        try:
+            # Try to compile the file
+            # For a proper check, we'd need the project's classpath, but we can do a basic check
+            result = subprocess.run(
+                f"javac -Xlint:all {file_path}",
+                shell=True, cwd=project_dir, capture_output=True, text=True, timeout=30
+            )
+            
+            error_output = result.stderr + result.stdout
+            
+            # Check for import-related errors
+            import_error_patterns = [
+                r"package .+ does not exist",
+                r"cannot find symbol.*import",
+                r"class .+ is not public",
+                r"cannot access",
+            ]
+            
+            for pattern in import_error_patterns:
+                if re.search(pattern, error_output, re.IGNORECASE):
+                    import_errors.append({
+                        "file": test_file,
+                        "error": error_output
+                    })
+                    print(f"  ❌ Import error in {test_file}")
+                    break
+            else:
+                # Has errors but not import-related
+                if result.returncode != 0:
+                    compile_errors.append({
+                        "file": test_file,
+                        "error": error_output
+                    })
+                    print(f"  ⚠️  Compilation error (not import) in {test_file}")
+                else:
+                    print(f"  ✅ No import errors in {test_file}")
+        
+        except subprocess.TimeoutExpired:
+            print(f"  ⏱️  Compilation timeout for {test_file}")
+            continue
+        except Exception as e:
+            print(f"  ⚠️  Error checking {test_file}: {e}")
+            continue
+    
+    if import_errors:
+        return False, f"Import errors detected in {len(import_errors)} files", import_errors
+    
+    return True, "No import errors detected", compile_errors
+
 def get_smart_test_targets(toolkit_dir, project_dir, commit_sha, project_name):
     resolver_script = os.path.join(toolkit_dir, "helpers", project_name, "get_test_targets.py")
     if not os.path.exists(resolver_script):
@@ -246,7 +361,15 @@ def collect_test_reports(project_name, project_repo_dir, dest_dir):
         for f in os.listdir(dest_dir)[:10]:
             print(f"  - {f}")
 
-def execute_lifecycle(project_name, commit_sha, state, toolkit_dir, project_repo_dir, work_dir, test_targets):
+def execute_lifecycle(project_name, commit_sha, state, toolkit_dir, project_repo_dir, work_dir, test_targets, 
+                      apply_test_changes_from=None, modified_test_files=None):
+    """
+    Execute build and test lifecycle for a commit state.
+    
+    Args:
+        apply_test_changes_from: If provided, apply test changes from this commit before building
+        modified_test_files: List of modified test files to apply
+    """
     print(f"\n>>> Processing {state.upper()} state for {commit_sha}...")
     config = PROJECT_CONFIG[project_name]
     state_dir = os.path.join(work_dir, state)
@@ -257,6 +380,28 @@ def execute_lifecycle(project_name, commit_sha, state, toolkit_dir, project_repo
 
     os.makedirs(build_output_dir, exist_ok=True)
     os.makedirs(test_output_dir, exist_ok=True)
+    
+    # If this is buggy state and we need to apply test changes
+    if apply_test_changes_from and modified_test_files:
+        print(f"--- Applying modified test changes from {apply_test_changes_from[:7]} to buggy state ---")
+        success, msg = apply_test_changes(project_repo_dir, apply_test_changes_from, modified_test_files)
+        if not success:
+            return {"build": "Error", "test": "Skipped", "passed": set(), "failed": set(), 
+                    "error_type": "test_apply_failed", "error_msg": msg}
+        
+        print(f"--- {msg} ---")
+        
+        # Check for import errors
+        has_no_import_errors, check_msg, errors = compile_and_check_imports(
+            project_repo_dir, modified_test_files, project_name
+        )
+        
+        if not has_no_import_errors:
+            print(f"--- ❌ IMPORT ERROR DETECTED: {check_msg} ---")
+            return {"build": "Skipped", "test": "Skipped", "passed": set(), "failed": set(),
+                    "error_type": "import_error", "error_msg": check_msg, "import_errors": errors}
+        
+        print(f"--- ✅ {check_msg} ---")
 
     env = {
         "COMMIT_SHA": commit_sha,
@@ -365,8 +510,11 @@ def main():
     dataset_path = os.path.join(toolkit_dir, "dataset", f"{project_name}.csv")
     project_repo_dir = os.path.abspath(os.path.join(toolkit_dir, "..", PROJECT_CONFIG[project_name]["repo_dir"]))
 
-    results_csv = os.path.join(toolkit_dir, f"results_{project_name}.csv")
-    results_json = os.path.join(toolkit_dir, f"results_{project_name}.json")
+    # Use new results folder to avoid overlap
+    results_dir = os.path.join(toolkit_dir, "results_v2")
+    os.makedirs(results_dir, exist_ok=True)
+    results_csv = os.path.join(results_dir, f"results_{project_name}.csv")
+    results_json = os.path.join(results_dir, f"results_{project_name}.json")
 
     df = pd.read_csv(dataset_path)
     total_rows = len(df)
@@ -382,6 +530,19 @@ def main():
                 full_results_data = json.load(f)
                 existing_commits = {item['commit'] for item in full_results_data}
         except: pass
+    
+    # Load old results for reuse when only new tests are added
+    old_results_csv = os.path.join(toolkit_dir, f"results_{project_name}.csv")
+    old_results_json = os.path.join(toolkit_dir, f"results_{project_name}.json")
+    old_results_map = {}
+    if os.path.exists(old_results_json):
+        try:
+            with open(old_results_json, 'r') as f:
+                old_results = json.load(f)
+                old_results_map = {item['commit']: item for item in old_results}
+            print(f"--- Loaded {len(old_results_map)} existing results for potential reuse ---")
+        except:
+            pass
 
     builder_tag = PROJECT_CONFIG[project_name]['builder_tag']
     if PROJECT_CONFIG[project_name]['build_system'] != 'self-building':
@@ -429,20 +590,115 @@ def main():
         print(f"--- Modified tests: {modified_tests or 'None'} ---")
         print(f"--- Added tests: {added_tests or 'None'} ---")
         
+        # Get modified test files (not new files)
+        modified_test_files = get_modified_test_files(project_repo_dir, commit_sha)
+        print(f"--- Modified test files: {modified_test_files or 'None'} ---")
+        
+        # Check if we can reuse old results (only new tests, no modified tests)
+        if len(modified_tests) == 0 and len(added_tests) > 0 and commit_sha in old_results_map:
+            print(f"--- \u2705 REUSING OLD RESULTS: Only new tests detected, no modified tests ---")
+            old_result = old_results_map[commit_sha]
+            
+            # Convert old result format to new format with validation status
+            result_entry = {
+                "index": idx,
+                "commit": commit_sha,
+                "parent": old_result.get("parent", parent_sha),
+                "validation_status": "VALID_BACKPORT",
+                "validation_reason": "only_new_tests_added",
+                "reused_from_old_results": True,
+                "test_targets": {
+                    "modified": [],
+                    "added": added_tests,
+                    "modified_files": [],
+                    "all": all_targets
+                },
+                "build_status_after": old_result.get("build_status_after", "Unknown"),
+                "test_status_after": old_result.get("test_status_after", "Unknown"),
+                "build_status_before": old_result.get("build_status_before", "Skipped"),
+                "test_status_before": old_result.get("test_status_before", "Skipped"),
+                "error_info": {
+                    "before_error_type": None,
+                    "before_error_msg": None,
+                    "import_errors": []
+                },
+                "stats": old_result.get("stats", {}),
+                "details": old_result.get("details", {})
+            }
+            
+            full_results_data.append(result_entry)
+            with open(results_json, 'w') as f:
+                json.dump(full_results_data, f, indent=2)
+            
+            # Save to CSV
+            csv_row = {
+                "commit": commit_sha,
+                "validation_status": "VALID_BACKPORT",
+                "validation_reason": "only_new_tests_added",
+                "build_after": result_entry["build_status_after"],
+                "test_after": result_entry["test_status_after"],
+                "build_before": result_entry["build_status_before"],
+                "test_before": result_entry["test_status_before"],
+                "error_type": "",
+                "regressions": result_entry["stats"].get("regression_count", 0),
+                "fixes": result_entry["stats"].get("fix_count", 0),
+                "new_passes": result_entry["stats"].get("new_pass_count", 0)
+            }
+            csv_df = pd.DataFrame([csv_row])
+            if not os.path.exists(results_csv):
+                csv_df.to_csv(results_csv, index=False)
+            else:
+                csv_df.to_csv(results_csv, mode='a', header=False, index=False)
+            
+            print(f"--- \u2705 Reused results saved for {commit_sha} ---")
+            continue
+        
         # Decide if we need to test buggy version
         skip_buggy = (len(modified_tests) == 0 and len(added_tests) > 0)
         
         if skip_buggy:
             print(f"--- Only new tests detected. Skipping buggy build and running tests only on patched version. ---")
 
-        # Run patched version
+        # Run patched version first
         patched_test_targets = " ".join(modified_tests + added_tests) if (modified_tests or added_tests) else all_targets
         after_res = execute_lifecycle(project_name, commit_sha, "fixed", toolkit_dir, project_repo_dir, work_dir, patched_test_targets)
         
-        # Run buggy version only if needed
+        # Run buggy version with modified test changes applied
         if after_res["build"] == "Success" and not skip_buggy:
+            # Checkout parent commit
+            run_command(f"git checkout {parent_sha}", cwd=project_repo_dir, capture_output=True)
+            
             buggy_test_targets = " ".join(modified_tests) if modified_tests else "NONE"
-            before_res = execute_lifecycle(project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, buggy_test_targets)
+            
+            # Apply modified test changes and check for import errors
+            before_res = execute_lifecycle(
+                project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, 
+                buggy_test_targets,
+                apply_test_changes_from=commit_sha,
+                modified_test_files=modified_test_files
+            )
+            
+            # Check if we hit import errors (invalid backport)
+            if before_res.get("error_type") == "import_error":
+                print(f"--- ❌ INVALID BACKPORT: Import errors detected when applying test changes to buggy version ---")
+                result_entry = {
+                    "index": idx,
+                    "commit": commit_sha,
+                    "parent": parent_sha,
+                    "validation_status": "INVALID_BACKPORT",
+                    "validation_reason": "import_error",
+                    "error_details": before_res.get("error_msg"),
+                    "import_errors": before_res.get("import_errors", []),
+                    "test_targets": {
+                        "modified": modified_tests,
+                        "added": added_tests,
+                        "modified_files": modified_test_files
+                    }
+                }
+                full_results_data.append(result_entry)
+                with open(results_json, 'w') as f:
+                    json.dump(full_results_data, f, indent=2)
+                continue
         else:
             before_res = {"build": "Skipped", "test": "Skipped (Only New Tests)", "passed": set(), "failed": set()}
 
@@ -452,19 +708,41 @@ def main():
         all_tests_before = before_res["passed"].union(before_res["failed"])
         new_passes = list(after_res["passed"].difference(all_tests_before))
 
+        # Determine validation status
+        validation_status = "VALID_BACKPORT"
+        validation_reason = None
+        
+        if before_res.get("error_type") == "import_error":
+            validation_status = "INVALID_BACKPORT"
+            validation_reason = "import_error_in_buggy"
+        elif before_res.get("build") == "Fail" and after_res.get("build") == "Success":
+            validation_status = "VALID_BACKPORT"
+            validation_reason = "build_fixed"
+        elif len(fixes) > 0:
+            validation_status = "VALID_BACKPORT"
+            validation_reason = "tests_fixed"
+        
         result_entry = {
             "index": idx,
             "commit": commit_sha,
             "parent": parent_sha,
+            "validation_status": validation_status,
+            "validation_reason": validation_reason,
             "test_targets": {
                 "modified": modified_tests,
                 "added": added_tests,
+                "modified_files": modified_test_files,
                 "all": all_targets
             },
             "build_status_after": after_res["build"],
             "test_status_after": after_res["test"],
             "build_status_before": before_res["build"],
             "test_status_before": before_res["test"],
+            "error_info": {
+                "before_error_type": before_res.get("error_type"),
+                "before_error_msg": before_res.get("error_msg"),
+                "import_errors": before_res.get("import_errors", [])
+            },
             "stats": {
                 "after_pass_count": len(after_res["passed"]),
                 "after_fail_count": len(after_res["failed"]),
@@ -490,10 +768,13 @@ def main():
 
         csv_row = {
             "commit": commit_sha,
+            "validation_status": validation_status,
+            "validation_reason": validation_reason or "",
             "build_after": after_res["build"],
             "test_after": after_res["test"],
             "build_before": before_res["build"],
             "test_before": before_res["test"],
+            "error_type": before_res.get("error_type", ""),
             "regressions": len(regressions),
             "fixes": len(fixes),
             "new_passes": len(new_passes)
