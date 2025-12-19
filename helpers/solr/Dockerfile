@@ -28,3 +28,6 @@ RUN chown -R gradle:gradle /home/gradle/.gradle
 RUN mkdir /repo && chown gradle:gradle /repo
 
 WORKDIR /repo
+
+# Copy files *AS* the gradle user
+COPY --chown=gradle:gradle . .
