@@ -788,6 +788,12 @@ def main():
 
         print(f"--- Results saved for {commit_sha} ---")
 
+        # Reset git repo to clean state after each commit
+        print(f"--- Resetting git repository to clean state ---")
+        run_command(f"git reset --hard HEAD", cwd=project_repo_dir, check=False, capture_output=True)
+        run_command(f"git clean -fd", cwd=project_repo_dir, check=False, capture_output=True)
+        run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, check=False, capture_output=True)
+
         if os.path.exists(work_dir):
             try:
                 shutil.rmtree(work_dir)
