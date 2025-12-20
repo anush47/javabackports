@@ -522,13 +522,20 @@ def main():
 
     print(f"--- Processing {project_name} rows {args.start_index} to {end_index} ---")
 
+    # Check CSV for already processed commits (faster than JSON)
     existing_commits = set()
+    if os.path.exists(results_csv):
+        try:
+            csv_df = pd.read_csv(results_csv)
+            existing_commits = set(csv_df['commit'].tolist())
+        except: pass
+    
+    # Load JSON for appending new results
     full_results_data = []
     if os.path.exists(results_json):
         try:
             with open(results_json, 'r') as f:
                 full_results_data = json.load(f)
-                existing_commits = {item['commit'] for item in full_results_data}
         except: pass
     
     # Load old results for reuse when only new tests are added
