@@ -1,0 +1,8 @@
+commit,validation_status,validation_reason,build_after,test_after,build_before,test_before,error_type,regressions,fixes,new_passes
+b25542fd147164cd0e89a803bbe49f865972abdb,VALID_BACKPORT,tests_fixed,Success,Success,Success,Fail,,0,2,0
+e867dcdb61cafeaa590dccfec0bc595ad3aac495,VALID_BACKPORT,tests_fixed,Success,Success,Success,Fail,,0,4,0
+cd93409c3450fa843ed48cfc6c2042835b9e39b7,VALID_BACKPORT,tests_fixed,Success,Success,Success,Fail,,0,1,0
+c5a3eb86ffd964343865e2f48423f850f8f916ad,VALID_BACKPORT,tests_fixed,Success,Success,Success,Fail,,0,2,0
+551f4c7eefb2390654f357823226410ca957cc00,VALID_BACKPORT,build_fixed,Success,Success,Fail,Skipped,,0,0,17
+655e3ce1310196a95b154773106699d36d9fc8cb,VALID_BACKPORT,tests_fixed,Success,Success,Success,Fail,,0,31,0
+56e19e28bd098337f57e5b49f45ae14137fd3e72,VALID_BACKPORT,tests_fixed,Success,Success,Success,Fail,,0,4,0

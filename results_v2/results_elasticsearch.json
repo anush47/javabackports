@@ -1,0 +1,427 @@
+[
+  {
+    "index": 0,
+    "commit": "b25542fd147164cd0e89a803bbe49f865972abdb",
+    "parent": "1a0ff3d4d5515717562270c8ce2eb37c2a186a26",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": "tests_fixed",
+    "test_targets": {
+      "modified": [
+        ":server:test --tests \"org.elasticsearch.transport.InboundDecoderTests\"",
+        ":server:test --tests \"org.elasticsearch.transport.InboundPipelineTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "server/src/test/java/org/elasticsearch/transport/InboundDecoderTests.java",
+        "server/src/test/java/org/elasticsearch/transport/InboundPipelineTests.java"
+      ],
+      "all": ":server:test --tests \"org.elasticsearch.transport.InboundDecoderTests\" :server:test --tests \"org.elasticsearch.transport.InboundPipelineTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 1,
+      "before_fail_count": 2,
+      "regression_count": 0,
+      "fix_count": 2,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [
+        "org.elasticsearch.transport.InboundPipelineTests.testPipelineHandling",
+        "org.elasticsearch.transport.InboundPipelineTests.testEnsureBodyIsNotPrematurelyReleased"
+      ],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": [
+        "org.elasticsearch.transport.InboundPipelineTests.testPipelineHandling",
+        "org.elasticsearch.transport.InboundPipelineTests.testEnsureBodyIsNotPrematurelyReleased"
+      ]
+    }
+  },
+  {
+    "index": 1,
+    "commit": "e867dcdb61cafeaa590dccfec0bc595ad3aac495",
+    "parent": "4c591f5dfa917bec7d65238499a6032751449197",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": "tests_fixed",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.parser.StatementParserTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/parser/StatementParserTests.java"
+      ],
+      "all": ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.parser.StatementParserTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 148,
+      "after_fail_count": 0,
+      "before_pass_count": 144,
+      "before_fail_count": 4,
+      "regression_count": 0,
+      "fix_count": 4,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testInvalidPatternsWithIntermittentQuotes",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testInvalidFromPatterns",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testStringAsIndexPattern",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testInvalidCharacterInIndexPattern"
+      ],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": [
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testInvalidPatternsWithIntermittentQuotes",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testInvalidFromPatterns",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testStringAsIndexPattern",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testInvalidCharacterInIndexPattern"
+      ]
+    }
+  },
+  {
+    "index": 4,
+    "commit": "cd93409c3450fa843ed48cfc6c2042835b9e39b7",
+    "parent": "fa62e9455839d80879c03449c30b6278ad77ab44",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": "tests_fixed",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.optimizer.PhysicalPlanOptimizerTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/optimizer/PhysicalPlanOptimizerTests.java"
+      ],
+      "all": ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.optimizer.PhysicalPlanOptimizerTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 162,
+      "after_fail_count": 0,
+      "before_pass_count": 161,
+      "before_fail_count": 1,
+      "regression_count": 0,
+      "fix_count": 1,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [
+        "org.elasticsearch.xpack.esql.optimizer.PhysicalPlanOptimizerTests.testPushTopNDistanceAndPushableFieldWithCompoundFilterToSource {default}"
+      ],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": [
+        "org.elasticsearch.xpack.esql.optimizer.PhysicalPlanOptimizerTests.testPushTopNDistanceAndPushableFieldWithCompoundFilterToSource {default}"
+      ]
+    }
+  },
+  {
+    "index": 6,
+    "commit": "c5a3eb86ffd964343865e2f48423f850f8f916ad",
+    "parent": "d7fb0e2462681e67795d6c7ec1ba084e94a47a5c",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": "tests_fixed",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/plugin/DataNodeRequestSenderTests.java"
+      ],
+      "all": ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 21,
+      "after_fail_count": 0,
+      "before_pass_count": 19,
+      "before_fail_count": 2,
+      "regression_count": 0,
+      "fix_count": 2,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testQueryHotShardsFirstWhenIlmMovesShard",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testQueryHotShardsFirst"
+      ],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": [
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testQueryHotShardsFirstWhenIlmMovesShard",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testQueryHotShardsFirst"
+      ]
+    }
+  },
+  {
+    "index": 9,
+    "commit": "551f4c7eefb2390654f357823226410ca957cc00",
+    "parent": "6b4f024199bc74cda339fefa2510c1bc1ccf174a",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": "build_fixed",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:internalClusterTest --tests \"org.elasticsearch.xpack.esql.action.ManyShardsIT\"",
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "x-pack/plugin/esql/src/internalClusterTest/java/org/elasticsearch/xpack/esql/action/ManyShardsIT.java",
+        "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/plugin/DataNodeRequestSenderTests.java"
+      ],
+      "all": ":x-pack:plugin:esql:internalClusterTest --tests \"org.elasticsearch.xpack.esql.action.ManyShardsIT\" :x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Fail",
+    "test_status_before": "Skipped",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 17,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 17
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testOnePass",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testNonFatalFailedOnAllNodes",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testDoNotRetryCircuitBreakerException",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testLimitConcurrentNodes",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testNonFatalErrorIsRetriedOnAnotherShard",
+        "org.elasticsearch.xpack.esql.action.ManyShardsIT.testRejection",
+        "org.elasticsearch.xpack.esql.action.ManyShardsIT.testCancelUnnecessaryRequests",
+        "org.elasticsearch.xpack.esql.action.ManyShardsIT.testConcurrentQueries",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testRetryButFail",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testSkipNodes",
+        "org.elasticsearch.xpack.esql.action.ManyShardsIT.testLimitConcurrentShards",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testDoNotRetryOnRequestLevelFailure",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testSkipRemovesPriorNonFatalErrors",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testRetryThenSuccess",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testEmpty",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testAllowPartialResults",
+        "org.elasticsearch.xpack.esql.plugin.DataNodeRequestSenderTests.testMissingShards"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 10,
+    "commit": "655e3ce1310196a95b154773106699d36d9fc8cb",
+    "parent": "56e19e28bd098337f57e5b49f45ae14137fd3e72",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": "tests_fixed",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.analysis.VerifierTests\"",
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/analysis/VerifierTests.java",
+        "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/expression/predicate/operator/comparison/InTests.java"
+      ],
+      "all": ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.analysis.VerifierTests\" :x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 192,
+      "after_fail_count": 0,
+      "before_pass_count": 161,
+      "before_fail_count": 31,
+      "regression_count": 0,
+      "fix_count": 31,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=text #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=cartesian_point}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=geo_shape #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=boolean #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=ip #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=cartesian_point #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=cartesian_shape #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=boolean}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=TEXT SEMANTIC_TEXT}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=long}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=version #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=integer}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=keyword}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=long #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=TEXT KEYWORD}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=semantic_text #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=geo_shape}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=geo_point}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=SEMANTIC_TEXT KEYWORD}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=integer #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=semantic_text}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=keyword #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=double}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=double #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=SEMANTIC_TEXT TEXT}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=KEYWORD TEXT}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=KEYWORD SEMANTIC_TEXT}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=text}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=ip}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=geo_point #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=cartesian_shape}"
+      ],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": [
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=text #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=cartesian_point}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=geo_shape #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=boolean #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=ip #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=cartesian_point #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=cartesian_shape #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=boolean}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=TEXT SEMANTIC_TEXT}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=long}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=version #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=integer}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=keyword}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=long #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=TEXT KEYWORD}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=semantic_text #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=geo_shape}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=geo_point}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=SEMANTIC_TEXT KEYWORD}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=integer #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=semantic_text}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=keyword #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=double}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=double #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=SEMANTIC_TEXT TEXT}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=KEYWORD TEXT}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=KEYWORD SEMANTIC_TEXT}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=text}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=ip}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=geo_point #2}",
+        "org.elasticsearch.xpack.esql.expression.predicate.operator.comparison.InTests.testConvertedNull {TestCase=cartesian_shape}"
+      ]
+    }
+  },
+  {
+    "index": 11,
+    "commit": "56e19e28bd098337f57e5b49f45ae14137fd3e72",
+    "parent": "4c8ac4c280e0a506a3fe46ec100da1a3fe08f2ab",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": "tests_fixed",
+    "test_targets": {
+      "modified": [
+        ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.parser.StatementParserTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "x-pack/plugin/esql/src/test/java/org/elasticsearch/xpack/esql/parser/StatementParserTests.java"
+      ],
+      "all": ":x-pack:plugin:esql:test --tests \"org.elasticsearch.xpack.esql.parser.StatementParserTests\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 127,
+      "after_fail_count": 0,
+      "before_pass_count": 123,
+      "before_fail_count": 4,
+      "regression_count": 0,
+      "fix_count": 4,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testPreserveParanthesis",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testNamedFunctionArgumentInInvalidPositions",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testInvalidQuotingAsFromIndexPattern",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testMetadataFieldOnOtherSources"
+      ],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": [
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testPreserveParanthesis",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testNamedFunctionArgumentInInvalidPositions",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testInvalidQuotingAsFromIndexPattern",
+        "org.elasticsearch.xpack.esql.parser.StatementParserTests.testMetadataFieldOnOtherSources"
+      ]
+    }
+  }
+]
