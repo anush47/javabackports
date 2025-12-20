@@ -45,8 +45,9 @@ if ${DOCKER_CMD} run --rm \
     "${IMAGE_TAG}" \
     bash -c "${GRADLE_CMD}; \
     GRADLE_EXIT_CODE=\$?; \
-    mkdir -p /repo/build_outputs/all-test-results; \
-    find . -name 'TEST-*.xml' -not -path '*/build_outputs/*' -exec cp {} /repo/build_outputs/all-test-results/ \;; \
+    mkdir -p /repo/build_outputs/build; \
+    rsync -a --include='*/' --include='TEST-*.xml' --exclude='*' /repo/solr/ /repo/build_outputs/build/ || echo 'Rsync failed'; \
+    find /repo/build_outputs -name 'TEST-*.xml'; \
     exit \$GRADLE_EXIT_CODE"; then
     
     echo "✅ Tests Passed"
