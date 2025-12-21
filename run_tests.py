@@ -580,6 +580,68 @@ def main():
             print("Error finding parent commit or checking file count.")
             continue
 
+        # Early check: if old results show build_after failed, reuse immediately
+        if commit_sha in old_results_map:
+            old_result = old_results_map[commit_sha]
+            build_after_status = old_result.get("build_status_after", "Unknown")
+            
+            if build_after_status == "Fail":
+                print(f"--- ✅ REUSING OLD RESULTS: Build failed in previous run, no need to retry ---")
+                
+                # Convert old result to new format
+                result_entry = {
+                    "index": idx,
+                    "commit": commit_sha,
+                    "parent": old_result.get("parent", parent_sha),
+                    "validation_status": "BUILD_FAILED",
+                    "validation_reason": "reused_build_failure",
+                    "reused_from_old_results": True,
+                    "test_targets": {
+                        "modified": old_result.get("test_targets", {}).get("modified", []),
+                        "added": old_result.get("test_targets", {}).get("added", []),
+                        "modified_files": [],
+                        "all": old_result.get("test_targets", {}).get("all", "NONE")
+                    },
+                    "build_status_after": build_after_status,
+                    "test_status_after": old_result.get("test_status_after", "Skipped"),
+                    "build_status_before": old_result.get("build_status_before", "Skipped"),
+                    "test_status_before": old_result.get("test_status_before", "Skipped"),
+                    "error_info": {
+                        "before_error_type": None,
+                        "before_error_msg": None,
+                        "import_errors": []
+                    },
+                    "stats": old_result.get("stats", {}),
+                    "details": old_result.get("details", {})
+                }
+                
+                full_results_data.append(result_entry)
+                with open(results_json, 'w') as f:
+                    json.dump(full_results_data, f, indent=2)
+                
+                # Save to CSV
+                csv_row = {
+                    "commit": commit_sha,
+                    "validation_status": "BUILD_FAILED",
+                    "validation_reason": "reused_build_failure",
+                    "build_after": build_after_status,
+                    "test_after": old_result.get("test_status_after", "Skipped"),
+                    "build_before": old_result.get("build_status_before", "Skipped"),
+                    "test_before": old_result.get("test_status_before", "Skipped"),
+                    "error_type": "",
+                    "regressions": old_result.get("stats", {}).get("regression_count", 0),
+                    "fixes": old_result.get("stats", {}).get("fix_count", 0),
+                    "new_passes": old_result.get("stats", {}).get("new_pass_count", 0)
+                }
+                csv_df = pd.DataFrame([csv_row])
+                if not os.path.exists(results_csv):
+                    csv_df.to_csv(results_csv, index=False)
+                else:
+                    csv_df.to_csv(results_csv, mode='a', header=False, index=False)
+                
+                print(f"--- ✅ Reused build failure result for {commit_sha} ---")
+                continue
+
         work_dir = os.path.join(toolkit_dir, "temp_work", commit_sha)
         if os.path.exists(work_dir):
             try:
@@ -660,54 +722,62 @@ def main():
             print(f"--- \u2705 Reused results saved for {commit_sha} ---")
             continue
         
-        # Decide if we need to test buggy version
-        skip_buggy = (len(modified_tests) == 0 and len(added_tests) > 0)
-        
-        if skip_buggy:
-            print(f"--- Only new tests detected. Skipping buggy build and running tests only on patched version. ---")
-
         # Run patched version first
         patched_test_targets = " ".join(modified_tests + added_tests) if (modified_tests or added_tests) else all_targets
         after_res = execute_lifecycle(project_name, commit_sha, "fixed", toolkit_dir, project_repo_dir, work_dir, patched_test_targets)
         
-        # Run buggy version with modified test changes applied
-        if after_res["build"] == "Success" and not skip_buggy:
+        # Always run buggy version for proper baseline comparison
+        # For patches with only new tests: run without applying test changes (no modified files)
+        # For patches with modified tests: apply test changes and check for import errors
+        if after_res["build"] == "Success":
             # Checkout parent commit
             run_command(f"git checkout {parent_sha}", cwd=project_repo_dir, capture_output=True)
             
-            buggy_test_targets = " ".join(modified_tests) if modified_tests else "NONE"
-            
-            # Apply modified test changes and check for import errors
-            before_res = execute_lifecycle(
-                project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, 
-                buggy_test_targets,
-                apply_test_changes_from=commit_sha,
-                modified_test_files=modified_test_files
-            )
-            
-            # Check if we hit import errors (invalid backport)
-            if before_res.get("error_type") == "import_error":
-                print(f"--- ❌ INVALID BACKPORT: Import errors detected when applying test changes to buggy version ---")
-                result_entry = {
-                    "index": idx,
-                    "commit": commit_sha,
-                    "parent": parent_sha,
-                    "validation_status": "INVALID_BACKPORT",
-                    "validation_reason": "import_error",
-                    "error_details": before_res.get("error_msg"),
-                    "import_errors": before_res.get("import_errors", []),
-                    "test_targets": {
-                        "modified": modified_tests,
-                        "added": added_tests,
-                        "modified_files": modified_test_files
+            # Determine test targets and whether to apply test changes
+            if len(modified_test_files) > 0:
+                # Has modified test files - apply changes and check for import errors
+                buggy_test_targets = " ".join(modified_tests) if modified_tests else all_targets
+                print(f"--- Running buggy version with modified test changes applied ---")
+                
+                before_res = execute_lifecycle(
+                    project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, 
+                    buggy_test_targets,
+                    apply_test_changes_from=commit_sha,
+                    modified_test_files=modified_test_files
+                )
+                
+                # Check if we hit import errors (invalid backport)
+                if before_res.get("error_type") == "import_error":
+                    print(f"--- ❌ INVALID BACKPORT: Import errors detected when applying test changes to buggy version ---")
+                    result_entry = {
+                        "index": idx,
+                        "commit": commit_sha,
+                        "parent": parent_sha,
+                        "validation_status": "INVALID_BACKPORT",
+                        "validation_reason": "import_error",
+                        "error_details": before_res.get("error_msg"),
+                        "import_errors": before_res.get("import_errors", []),
+                        "test_targets": {
+                            "modified": modified_tests,
+                            "added": added_tests,
+                            "modified_files": modified_test_files
+                        }
                     }
-                }
-                full_results_data.append(result_entry)
-                with open(results_json, 'w') as f:
-                    json.dump(full_results_data, f, indent=2)
-                continue
+                    full_results_data.append(result_entry)
+                    with open(results_json, 'w') as f:
+                        json.dump(full_results_data, f, indent=2)
+                    continue
+            else:
+                # Only new test files - run all tests without applying changes for baseline
+                buggy_test_targets = all_targets
+                print(f"--- Running buggy version without test changes (only new tests added) - establishing baseline ---")
+                
+                before_res = execute_lifecycle(
+                    project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, 
+                    buggy_test_targets
+                )
         else:
-            before_res = {"build": "Skipped", "test": "Skipped (Only New Tests)", "passed": set(), "failed": set()}
+            before_res = {"build": "Skipped", "test": "Skipped (Build Failed)", "passed": set(), "failed": set()}
 
         fixes = list(before_res["failed"].intersection(after_res["passed"]))
         regressions = list(before_res["passed"].intersection(after_res["failed"]))
