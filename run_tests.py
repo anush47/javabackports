@@ -664,64 +664,86 @@ def main():
         print(f"--- Modified test files: {modified_test_files or 'None'} ---")
         
         # Check if we can reuse old results (only new tests, no modified tests)
+        # Can only reuse if: (build_after=Success AND test_after=Success) OR (build_after=Fail)
+        # Cannot reuse if: build_after=Success AND test_after=Fail (need baseline for comparison)
         if len(modified_tests) == 0 and len(added_tests) > 0 and commit_sha in old_results_map:
-            print(f"--- \u2705 REUSING OLD RESULTS: Only new tests detected, no modified tests ---")
             old_result = old_results_map[commit_sha]
+            build_after_status = old_result.get("build_status_after", "Unknown")
+            test_after_status = old_result.get("test_status_after", "Unknown")
             
-            # Convert old result format to new format with validation status
-            result_entry = {
-                "index": idx,
-                "commit": commit_sha,
-                "parent": old_result.get("parent", parent_sha),
-                "validation_status": "VALID_BACKPORT",
-                "validation_reason": "only_new_tests_added",
-                "reused_from_old_results": True,
-                "test_targets": {
-                    "modified": [],
-                    "added": added_tests,
-                    "modified_files": [],
-                    "all": all_targets
-                },
-                "build_status_after": old_result.get("build_status_after", "Unknown"),
-                "test_status_after": old_result.get("test_status_after", "Unknown"),
-                "build_status_before": old_result.get("build_status_before", "Skipped"),
-                "test_status_before": old_result.get("test_status_before", "Skipped"),
-                "error_info": {
-                    "before_error_type": None,
-                    "before_error_msg": None,
-                    "import_errors": []
-                },
-                "stats": old_result.get("stats", {}),
-                "details": old_result.get("details", {})
-            }
+            can_reuse = False
+            reuse_reason = ""
             
-            full_results_data.append(result_entry)
-            with open(results_json, 'w') as f:
-                json.dump(full_results_data, f, indent=2)
+            if build_after_status == "Success" and test_after_status == "Success":
+                can_reuse = True
+                reuse_reason = "build_and_tests_passed"
+            elif build_after_status == "Success" and test_after_status in ["Fail", "Timeout", "Error"]:
+                can_reuse = False
+                print(f"--- ⚠️  CANNOT REUSE: Build succeeded but tests failed - need baseline for comparison ---")
             
-            # Save to CSV
-            csv_row = {
-                "commit": commit_sha,
-                "validation_status": "VALID_BACKPORT",
-                "validation_reason": "only_new_tests_added",
-                "build_after": result_entry["build_status_after"],
-                "test_after": result_entry["test_status_after"],
-                "build_before": result_entry["build_status_before"],
-                "test_before": result_entry["test_status_before"],
-                "error_type": "",
-                "regressions": result_entry["stats"].get("regression_count", 0),
-                "fixes": result_entry["stats"].get("fix_count", 0),
-                "new_passes": result_entry["stats"].get("new_pass_count", 0)
-            }
-            csv_df = pd.DataFrame([csv_row])
-            if not os.path.exists(results_csv):
-                csv_df.to_csv(results_csv, index=False)
-            else:
-                csv_df.to_csv(results_csv, mode='a', header=False, index=False)
+            if can_reuse:
+                print(f"--- ✅ REUSING OLD RESULTS: Only new tests, {reuse_reason} ---")
             
-            print(f"--- \u2705 Reused results saved for {commit_sha} ---")
-            continue
+                # Convert old result format to new format with validation status
+                result_entry = {
+                    "index": idx,
+                    "commit": commit_sha,
+                    "parent": old_result.get("parent", parent_sha),
+                    "validation_status": "VALID_BACKPORT",
+                    "validation_reason": f"reused_{reuse_reason}",
+                    "reused_from_old_results": True,
+                    "test_targets": {
+                        "modified": [],
+                        "added": added_tests,
+                        "modified_files": [],
+                        "all": all_targets
+                    },
+                    "build_status_after": build_after_status,
+                    "test_status_after": test_after_status,
+                    "build_status_before": old_result.get("build_status_before", "Skipped"),
+                    "test_status_before": old_result.get("test_status_before", "Skipped"),
+                    "error_info": {
+                        "before_error_type": None,
+                        "before_error_msg": None,
+                        "import_errors": []
+                    },
+                    "stats": old_result.get("stats", {}),
+                    "details": old_result.get("details", {})
+                }
+                
+                full_results_data.append(result_entry)
+                with open(results_json, 'w') as f:
+                    json.dump(full_results_data, f, indent=2)
+                
+                # Save to CSV
+                csv_row = {
+                    "commit": commit_sha,
+                    "validation_status": "VALID_BACKPORT",
+                    "validation_reason": f"reused_{reuse_reason}",
+                    "build_after": build_after_status,
+                    "test_after": test_after_status,
+                    "build_before": result_entry["build_status_before"],
+                    "test_before": result_entry["test_status_before"],
+                    "error_type": "",
+                    "regressions": result_entry["stats"].get("regression_count", 0),
+                    "fixes": result_entry["stats"].get("fix_count", 0),
+                    "new_passes": result_entry["stats"].get("new_pass_count", 0)
+                }
+                csv_df = pd.DataFrame([csv_row])
+                if not os.path.exists(results_csv):
+                    csv_df.to_csv(results_csv, index=False)
+                else:
+                    csv_df.to_csv(results_csv, mode='a', header=False, index=False)
+                
+                print(f"--- ✅ Reused results saved for {commit_sha} ---")
+                continue
         
+        # Decide if we need to test buggy version
+        skip_buggy = (len(modified_tests) == 0 and len(added_tests) > 0)
+        
+        if skip_buggy:
+            print(f"--- Only new tests detected. Skipping buggy build and running tests only on patched version. ---")
+
         # Run patched version first
         patched_test_targets = " ".join(modified_tests + added_tests) if (modified_tests or added_tests) else all_targets
         after_res = execute_lifecycle(project_name, commit_sha, "fixed", toolkit_dir, project_repo_dir, work_dir, patched_test_targets)
