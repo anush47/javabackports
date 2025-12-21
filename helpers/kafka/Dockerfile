@@ -20,7 +20,6 @@ RUN mkdir -p /home/gradle/.gradle
 # Create our global gradle.properties file with optimization settings
 RUN echo "org.gradle.daemon=true" >> /home/gradle/.gradle/gradle.properties && \
     echo "org.gradle.parallel=true" >> /home/gradle/.gradle/gradle.properties && \
-    echo "org.gradle.workers.max=6" >> /home/gradle/.gradle/gradle.properties && \
     echo "org.gradle.caching=true" >> /home/gradle/.gradle/gradle.properties
 
 # Set ownership for the .gradle dir
