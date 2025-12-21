@@ -1,0 +1,454 @@
+[
+  {
+    "index": 0,
+    "commit": "93c4dc1d275e2ed95751f4d041608d85e3c64178",
+    "parent": "373848449aa26ccf6ef79b44a36ed0f59de1a10c",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"org.apache.kafka.coordinator.share.ShareCoordinatorOffsetsManagerTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "share-coordinator/src/test/java/org/apache/kafka/coordinator/share/ShareCoordinatorOffsetsManagerTest.java"
+      ],
+      "all": ":test --tests \"org.apache.kafka.coordinator.share.ShareCoordinatorOffsetsManagerTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 1,
+    "commit": "6351bc05aafc8ba480e9f85ab702e67e48416953",
+    "parent": "15ec0536654f36bea73945f594f640b2592d689e",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"org.apache.kafka.coordinator.group.GroupCoordinatorServiceTest\"",
+        ":test --tests \"unit.kafka.server.ConsumerGroupDescribeRequestTest\"",
+        ":test --tests \"unit.kafka.server.ConsumerGroupHeartbeatRequestTest\"",
+        ":test --tests \"unit.kafka.server.DeleteGroupsRequestTest\"",
+        ":test --tests \"unit.kafka.server.DescribeGroupsRequestTest\"",
+        ":test --tests \"unit.kafka.server.HeartbeatRequestTest\"",
+        ":test --tests \"unit.kafka.server.JoinGroupRequestTest\"",
+        ":test --tests \"unit.kafka.server.OffsetFetchRequestTest\"",
+        ":test --tests \"unit.kafka.server.SyncGroupRequestTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "group-coordinator/src/test/java/org/apache/kafka/coordinator/group/GroupCoordinatorServiceTest.java"
+      ],
+      "all": ":test --tests \"org.apache.kafka.coordinator.group.GroupCoordinatorServiceTest\" :test --tests \"unit.kafka.server.ConsumerGroupDescribeRequestTest\" :test --tests \"unit.kafka.server.ConsumerGroupHeartbeatRequestTest\" :test --tests \"unit.kafka.server.DeleteGroupsRequestTest\" :test --tests \"unit.kafka.server.DescribeGroupsRequestTest\" :test --tests \"unit.kafka.server.HeartbeatRequestTest\" :test --tests \"unit.kafka.server.JoinGroupRequestTest\" :test --tests \"unit.kafka.server.OffsetFetchRequestTest\" :test --tests \"unit.kafka.server.SyncGroupRequestTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 2,
+    "commit": "7b6ef4d32274d94c9ebbc9b5bd2eedd78003f0cc",
+    "parent": "af3d5a1e243aae71226ab36504914cd59c59d930",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"org.apache.kafka.coordinator.share.ShareCoordinatorServiceTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "share-coordinator/src/test/java/org/apache/kafka/coordinator/share/ShareCoordinatorServiceTest.java"
+      ],
+      "all": ":test --tests \"org.apache.kafka.coordinator.share.ShareCoordinatorServiceTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 3,
+    "commit": "26e5a53906ba04721b9f5435632d3c8b4a6a8ece",
+    "parent": "c6b44b5d66f05c5a1ff792e9bcb43b7d9cfff267",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": "build_fixed",
+    "test_targets": {
+      "modified": [
+        ":test --tests \"org.apache.kafka.server.ClientMetricsManagerTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "server/src/test/java/org/apache/kafka/server/ClientMetricsManagerTest.java"
+      ],
+      "all": ":test --tests \"org.apache.kafka.server.ClientMetricsManagerTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Fail",
+    "test_status_before": "Skipped",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 4,
+    "commit": "c2068878c920af06a23e8079be41d20ceb59e2f1",
+    "parent": "0832c2ceb132850d93220154d2afb496963eebc6",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"kafka.log.remote.RemoteLogManagerTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "core/src/test/java/kafka/log/remote/RemoteLogManagerTest.java"
+      ],
+      "all": ":test --tests \"kafka.log.remote.RemoteLogManagerTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 7,
+    "commit": "c7db98e15e4c85c37610e768b635676a3c0d755a",
+    "parent": "d3791c39e3e426161ea4f8fd95ca3c97b049dd95",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"kafka.test.api.ShareConsumerTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "core/src/test/java/kafka/test/api/ShareConsumerTest.java"
+      ],
+      "all": ":test --tests \"kafka.test.api.ShareConsumerTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 9,
+    "commit": "ca1672bc3a8e831365d07e87dba2fa2625741819",
+    "parent": "9e80d7ed56439356d73846f479a91c7082e0b9c2",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"kafka.server.share.DelayedShareFetchTest\"",
+        ":test --tests \"kafka.server.share.SharePartitionManagerTest\"",
+        ":test --tests \"kafka.test.api.ShareConsumerTest\"",
+        ":test --tests \"unit.kafka.server.ShareFetchAcknowledgeRequestTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "core/src/test/java/kafka/server/share/DelayedShareFetchTest.java",
+        "core/src/test/java/kafka/server/share/SharePartitionManagerTest.java",
+        "core/src/test/java/kafka/test/api/ShareConsumerTest.java"
+      ],
+      "all": ":test --tests \"kafka.server.share.DelayedShareFetchTest\" :test --tests \"kafka.server.share.SharePartitionManagerTest\" :test --tests \"kafka.test.api.ShareConsumerTest\" :test --tests \"unit.kafka.server.ShareFetchAcknowledgeRequestTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 10,
+    "commit": "5b5c4f0ca1738c0a2e77f030faa5524ae0c3a2c0",
+    "parent": "d64e8f39e1714aeccb8700022f7c621d877cccc5",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"org.apache.kafka.streams.integration.AbstractJoinIntegrationTest\"",
+        ":test --tests \"org.apache.kafka.streams.integration.StreamStreamJoinIntegrationTest\"",
+        ":test --tests \"org.apache.kafka.streams.integration.StreamTableJoinIntegrationTest\"",
+        ":test --tests \"org.apache.kafka.streams.integration.StreamTableJoinWithGraceIntegrationTest\"",
+        ":test --tests \"org.apache.kafka.streams.integration.TableTableJoinIntegrationTest\"",
+        ":test --tests \"org.apache.kafka.streams.state.internals.RocksDBTimeOrderedKeyValueBufferTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "streams/src/test/java/org/apache/kafka/streams/integration/AbstractJoinIntegrationTest.java",
+        "streams/src/test/java/org/apache/kafka/streams/integration/StreamStreamJoinIntegrationTest.java",
+        "streams/src/test/java/org/apache/kafka/streams/integration/StreamTableJoinIntegrationTest.java",
+        "streams/src/test/java/org/apache/kafka/streams/integration/StreamTableJoinWithGraceIntegrationTest.java",
+        "streams/src/test/java/org/apache/kafka/streams/integration/TableTableJoinIntegrationTest.java",
+        "streams/src/test/java/org/apache/kafka/streams/state/internals/RocksDBTimeOrderedKeyValueBufferTest.java"
+      ],
+      "all": ":test --tests \"org.apache.kafka.streams.integration.AbstractJoinIntegrationTest\" :test --tests \"org.apache.kafka.streams.integration.StreamStreamJoinIntegrationTest\" :test --tests \"org.apache.kafka.streams.integration.StreamTableJoinIntegrationTest\" :test --tests \"org.apache.kafka.streams.integration.StreamTableJoinWithGraceIntegrationTest\" :test --tests \"org.apache.kafka.streams.integration.TableTableJoinIntegrationTest\" :test --tests \"org.apache.kafka.streams.state.internals.RocksDBTimeOrderedKeyValueBufferTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 11,
+    "commit": "5e72e7dbb5badb9dcede2202499951e2d6b12f82",
+    "parent": "16d472722f5eaf6294988af2f965928c4001de60",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"org.apache.kafka.streams.processor.internals.StreamTaskTest\""
+      ],
+      "added": [],
+      "modified_files": [
+        "streams/src/test/java/org/apache/kafka/streams/processor/internals/StreamTaskTest.java"
+      ],
+      "all": ":test --tests \"org.apache.kafka.streams.processor.internals.StreamTaskTest\""
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 14,
+    "commit": "ab92eddb7cbdf40393ff9171649a09c3647eae48",
+    "parent": "af8d63ac7f6fb8d9d01397155adac627ef5a1ab8",
+    "validation_status": "BUILD_FAILED",
+    "validation_reason": "reused_build_failure",
+    "reused_from_old_results": true,
+    "test_targets": {
+      "modified": [
+        ":test --tests \"org.apache.kafka.clients.ClusterConnectionStatesTest\""
+      ],
+      "added": [],
+      "modified_files": [],
+      "all": ":test --tests \"org.apache.kafka.clients.ClusterConnectionStatesTest\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  }
+]
