@@ -1,0 +1,567 @@
+[
+  {
+    "index": 0,
+    "commit": "e6cf6e6d10bb2e8e4963e9e78d9c3ade3f0bf161",
+    "parent": "0e81a54b1c858ca552629e819ad507fb306dbe63",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        "hadoop-common-project/hadoop-common:org.apache.hadoop.fs.TestLocalDirAllocator"
+      ],
+      "added": [],
+      "modified_files": [
+        "hadoop-common-project/hadoop-common/src/test/java/org/apache/hadoop/fs/TestLocalDirAllocator.java"
+      ],
+      "all": "hadoop-common-project/hadoop-common:org.apache.hadoop.fs.TestLocalDirAllocator"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 39,
+      "after_fail_count": 9,
+      "before_pass_count": 36,
+      "before_fail_count": 9,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 3
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testDirectoryRecoveryKnownSize[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testDirectoryRecoveryKnownSize[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testDirectoryRecoveryKnownSize[2]"
+      ],
+      "persistent_failures": [
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[2]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[2]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[2]"
+      ],
+      "all_failures_after": [
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[2]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[2]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[2]"
+      ],
+      "all_failures_before": [
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[2]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testROBufferDirAndRWBufferDir[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[0]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[1]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.test0[2]",
+        "org.apache.hadoop.fs.TestLocalDirAllocator.testRWBufferDirBecomesRO[2]"
+      ]
+    }
+  },
+  {
+    "index": 1,
+    "commit": "8194b823e92445c962d89c1dcbb0837ff183a237",
+    "parent": "7f170e9788f8074091f98527cdd9552acd1d05db",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        "hadoop-tools/hadoop-aws:org.apache.hadoop.fs.s3a.TestS3ABlockOutputStream"
+      ],
+      "added": [],
+      "modified_files": [
+        "hadoop-tools/hadoop-aws/src/test/java/org/apache/hadoop/fs/s3a/TestS3ABlockOutputStream.java"
+      ],
+      "all": "hadoop-tools/hadoop-aws:org.apache.hadoop.fs.s3a.TestS3ABlockOutputStream"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 6,
+      "after_fail_count": 0,
+      "before_pass_count": 6,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 3,
+    "commit": "8d353d562764d68dda7d745658bf62637ed677fe",
+    "parent": "a6b2a21ea8058976ebf5c9f9ee3fec6a9efceb95",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "modified_files": [
+        "hadoop-tools/hadoop-azure/src/test/java/org/apache/hadoop/fs/azurebfs/ITestAzureBlobFileSystemChooseSAS.java",
+        "hadoop-tools/hadoop-azure/src/test/java/org/apache/hadoop/fs/azurebfs/utils/ServiceSASGenerator.java"
+      ],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 7,
+    "commit": "203b94414fdc67d1b77006dc05402d373c4f74d1",
+    "parent": "c36c72a5d8c6d9420da54adc52fa859271067562",
+    "validation_status": "BUILD_FAILED",
+    "validation_reason": "reused_build_failure",
+    "reused_from_old_results": true,
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "modified_files": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Only New Tests)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 11,
+    "commit": "d56e7153b11b1e5a5116f67e8af380136e57aabe",
+    "parent": "b9b650b8437e697b201fc16ac4dddb4e41c4acc1",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        "hadoop-common-project/hadoop-registry:org.apache.hadoop.registry.server.dns.TestRegistryDNS"
+      ],
+      "added": [],
+      "modified_files": [
+        "hadoop-common-project/hadoop-registry/src/test/java/org/apache/hadoop/registry/server/dns/TestRegistryDNS.java"
+      ],
+      "all": "hadoop-common-project/hadoop-registry:org.apache.hadoop.registry.server.dns.TestRegistryDNS"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 20,
+      "after_fail_count": 0,
+      "before_pass_count": 20,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 13,
+    "commit": "745afa8ceb5dc88ce97d89d24c2236bd2ecb9e98",
+    "parent": "bd63358c0bb53bb1097f38ebf6c125547fe5e547",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        "hadoop-hdfs-project/hadoop-hdfs:org.apache.hadoop.hdfs.util.TestCombinedHostsFileReader"
+      ],
+      "added": [],
+      "modified_files": [
+        "hadoop-hdfs-project/hadoop-hdfs/src/test/java/org/apache/hadoop/hdfs/util/TestCombinedHostsFileReader.java"
+      ],
+      "all": "hadoop-hdfs-project/hadoop-hdfs:org.apache.hadoop.hdfs.util.TestCombinedHostsFileReader"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 6,
+      "after_fail_count": 0,
+      "before_pass_count": 3,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 3
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.hadoop.hdfs.util.TestCombinedHostsFileReader.testReadFileWithTimeoutInterruptedException",
+        "org.apache.hadoop.hdfs.util.TestCombinedHostsFileReader.testReadFileWithTimeoutSuccess",
+        "org.apache.hadoop.hdfs.util.TestCombinedHostsFileReader.testReadFileWithTimeoutTimeoutException"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 16,
+    "commit": "75ad60ba99bdb4bd044879af20cab4f368866613",
+    "parent": "efc53d87252af3b2455d4c38df08d8d850d1879f",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        "hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-resourcemanager:org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.TestCapacityScheduler"
+      ],
+      "added": [],
+      "modified_files": [
+        "hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-resourcemanager/src/test/java/org/apache/hadoop/yarn/server/resourcemanager/scheduler/capacity/TestCapacityScheduler.java"
+      ],
+      "all": "hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-resourcemanager:org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.TestCapacityScheduler"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 73,
+      "after_fail_count": 0,
+      "before_pass_count": 72,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.TestCapacityScheduler.testRefreshQueueWithOpenPreemption"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 17,
+    "commit": "efc53d87252af3b2455d4c38df08d8d850d1879f",
+    "parent": "da26b4561f6628c9b974463fbc294b9f1499f45c",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        "hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-resourcemanager:org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.policy.TestPriorityUtilizationQueueOrderingPolicy"
+      ],
+      "added": [],
+      "modified_files": [
+        "hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-resourcemanager/src/test/java/org/apache/hadoop/yarn/server/resourcemanager/scheduler/capacity/policy/TestPriorityUtilizationQueueOrderingPolicy.java"
+      ],
+      "all": "hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-resourcemanager:org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.policy.TestPriorityUtilizationQueueOrderingPolicy"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 3,
+      "after_fail_count": 0,
+      "before_pass_count": 2,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 1
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.policy.TestPriorityUtilizationQueueOrderingPolicy.testComparatorDoesNotValidateGeneralContract"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 19,
+    "commit": "e40f696c448dcf9cf7ab33ab94d06812fb7df09b",
+    "parent": "2d14dbce3ca69b9a2de6b9363e653b1d2d5b0ca0",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        "hadoop-common-project/hadoop-common:org.apache.hadoop.util.TestStringUtils",
+        "hadoop-tools/hadoop-aws:org.apache.hadoop.fs.s3a.TestS3AAWSCredentialsProvider"
+      ],
+      "added": [],
+      "modified_files": [
+        "hadoop-common-project/hadoop-common/src/test/java/org/apache/hadoop/util/TestStringUtils.java",
+        "hadoop-tools/hadoop-aws/src/test/java/org/apache/hadoop/fs/s3a/ITestS3AAWSCredentialsProvider.java",
+        "hadoop-tools/hadoop-aws/src/test/java/org/apache/hadoop/fs/s3a/TestS3AAWSCredentialsProvider.java"
+      ],
+      "all": "hadoop-common-project/hadoop-common:org.apache.hadoop.util.TestStringUtils hadoop-tools/hadoop-aws:org.apache.hadoop.fs.s3a.TestS3AAWSCredentialsProvider"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 44,
+      "after_fail_count": 0,
+      "before_pass_count": 40,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 4
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.hadoop.fs.s3a.TestS3AAWSCredentialsProvider.testAwsCredentialProvidersWithRemap",
+        "org.apache.hadoop.fs.s3a.TestS3AAWSCredentialsProvider.testAssumedRoleWithRemap",
+        "org.apache.hadoop.util.TestStringUtils.testStringCollectionSplitByEquals",
+        "org.apache.hadoop.fs.s3a.TestS3AAWSCredentialsProvider.testStringCollectionSplitByEquals"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 20,
+    "commit": "56f3bd998b1fd4ed5c1c1e60b9f5e7f7c32a176a",
+    "parent": "6dd0f1299ff122f0e0258a59801cd3b117305562",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "modified_files": [],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 21,
+    "commit": "45eca9e107a316816f394d9a17e7454a0ea8e829",
+    "parent": "2e586c12e53bc7a55cae83fd25a9926e2dba5b48",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [],
+      "added": [],
+      "modified_files": [
+        "hadoop-tools/hadoop-aws/src/test/java/org/apache/hadoop/fs/s3a/ITestS3AEndpointRegion.java",
+        "hadoop-tools/hadoop-aws/src/test/java/org/apache/hadoop/fs/s3a/test/PublicDatasetTestUtils.java"
+      ],
+      "all": "NONE"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Skipped (No Targets)",
+    "build_status_before": "Success",
+    "test_status_before": "Skipped (No Targets)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 22,
+    "commit": "585f9667e4b36c6347ec70d646d9ae4f216cfabb",
+    "parent": "63de43768ea0d50b0f5d1dcce61e574d2ef17b99",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        "hadoop-tools/hadoop-aws:org.apache.hadoop.fs.s3a.prefetch.TestS3ACachingBlockManager"
+      ],
+      "added": [],
+      "modified_files": [
+        "hadoop-tools/hadoop-aws/src/test/java/org/apache/hadoop/fs/s3a/ITestS3APrefetchingCacheFiles.java",
+        "hadoop-tools/hadoop-aws/src/test/java/org/apache/hadoop/fs/s3a/prefetch/S3APrefetchFakes.java",
+        "hadoop-tools/hadoop-aws/src/test/java/org/apache/hadoop/fs/s3a/prefetch/TestS3ACachingBlockManager.java"
+      ],
+      "all": "hadoop-tools/hadoop-aws:org.apache.hadoop.fs.s3a.prefetch.TestS3ACachingBlockManager"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Success",
+    "build_status_before": "Success",
+    "test_status_before": "Success",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 13,
+      "after_fail_count": 0,
+      "before_pass_count": 8,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 5
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [
+        "org.apache.hadoop.fs.s3a.prefetch.TestS3ACachingBlockManager.testNullReader",
+        "org.apache.hadoop.fs.s3a.prefetch.TestS3ACachingBlockManager.testFuturePoolNull",
+        "org.apache.hadoop.fs.s3a.prefetch.TestS3ACachingBlockManager.testNonPositiveBufferPoolSize",
+        "org.apache.hadoop.fs.s3a.prefetch.TestS3ACachingBlockManager.testNullPrefetchingStatistics",
+        "org.apache.hadoop.fs.s3a.prefetch.TestS3ACachingBlockManager.testNullBlockData"
+      ],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  }
+]
