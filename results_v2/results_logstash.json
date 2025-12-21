@@ -9717,5 +9717,221 @@
       "all_failures_after": [],
       "all_failures_before": []
     }
+  },
+  {
+    "index": 5,
+    "commit": "40a7fdf60593aa550971f4d9e45e45a104b4b21a",
+    "parent": "f561207b4b562989192cc5c3c7d18b39f6846003",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [],
+      "added": [
+        ":logstash-core:test --tests org.logstash.common.BufferedTokenizerExtTest",
+        ":logstash-core:test --tests org.logstash.common.BufferedTokenizerExtWithDelimiterTest",
+        ":logstash-core:test --tests org.logstash.common.BufferedTokenizerExtWithSizeLimitTest"
+      ],
+      "modified_files": [],
+      "all": ":logstash-core:test --tests org.logstash.common.BufferedTokenizerExtTest :logstash-core:test --tests org.logstash.common.BufferedTokenizerExtWithDelimiterTest :logstash-core:test --tests org.logstash.common.BufferedTokenizerExtWithSizeLimitTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 986,
+      "after_fail_count": 3,
+      "before_pass_count": 986,
+      "before_fail_count": 3,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ],
+      "all_failures_after": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ],
+      "all_failures_before": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ]
+    }
+  },
+  {
+    "index": 14,
+    "commit": "b4ca550dca1afb168fb22d10e303f9d971a21fae",
+    "parent": "e742b760cd03294505eb9d7c29a95bf908e5e056",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [],
+      "added": [
+        ":logstash-core:test --tests org.logstash.common.BufferedTokenizerExtTest",
+        ":logstash-core:test --tests org.logstash.common.BufferedTokenizerExtWithDelimiterTest",
+        ":logstash-core:test --tests org.logstash.common.BufferedTokenizerExtWithSizeLimitTest"
+      ],
+      "modified_files": [],
+      "all": ":logstash-core:test --tests org.logstash.common.BufferedTokenizerExtTest :logstash-core:test --tests org.logstash.common.BufferedTokenizerExtWithDelimiterTest :logstash-core:test --tests org.logstash.common.BufferedTokenizerExtWithSizeLimitTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 928,
+      "after_fail_count": 3,
+      "before_pass_count": 928,
+      "before_fail_count": 3,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ],
+      "all_failures_after": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ],
+      "all_failures_before": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ]
+    }
+  },
+  {
+    "index": 15,
+    "commit": "26c2f612768f9d5a9cbc8512c5133c019a7f294c",
+    "parent": "986a253db83e6487110d6f6acbb35065f20717f2",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [],
+      "added": [
+        ":logstash-core:test --tests org.logstash.health.PipelineIndicatorTest"
+      ],
+      "modified_files": [],
+      "all": ":logstash-core:test --tests org.logstash.health.PipelineIndicatorTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 928,
+      "after_fail_count": 3,
+      "before_pass_count": 928,
+      "before_fail_count": 3,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ],
+      "all_failures_after": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ],
+      "all_failures_before": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ]
+    }
+  },
+  {
+    "index": 16,
+    "commit": "986a253db83e6487110d6f6acbb35065f20717f2",
+    "parent": "ad7c61448f401e02b219ef10242879d150e8e264",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [],
+      "added": [
+        ":logstash-core:test --tests org.logstash.health.HealthObserverTest"
+      ],
+      "modified_files": [],
+      "all": ":logstash-core:test --tests org.logstash.health.HealthObserverTest"
+    },
+    "build_status_after": "Success",
+    "test_status_after": "Fail",
+    "build_status_before": "Success",
+    "test_status_before": "Fail",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 928,
+      "after_fail_count": 3,
+      "before_pass_count": 928,
+      "before_fail_count": 3,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ],
+      "all_failures_after": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ],
+      "all_failures_before": [
+        "org.logstash.settings.SettingStringTest$WithValueConstraintCase.whenSetConstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.settings.SettingStringTest$WithoutValueConstraintCase.whenSetUnconstrainedToNullThenThrowAHelpfulError",
+        "org.logstash.RSpecTests.rspecTests[core tests]"
+      ]
+    }
   }
 ]
