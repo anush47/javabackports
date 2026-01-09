@@ -15,10 +15,11 @@ def find_gradle_module(repo, filepath):
     current_dir = os.path.dirname(filepath)
     
     while current_dir:
-        # Check if build.gradle exists in this directory
+        # Check if build.gradle or build.gradle.kts exists in this directory
         build_gradle_path = os.path.join(repo, current_dir, "build.gradle")
+        build_gradle_kts_path = os.path.join(repo, current_dir, "build.gradle.kts")
         
-        if os.path.exists(build_gradle_path):
+        if os.path.exists(build_gradle_path) or os.path.exists(build_gradle_kts_path):
             # Found it!
             normalized_dir = current_dir.replace("\\", "/")
             return ":" + normalized_dir.replace("/", ":")

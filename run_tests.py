@@ -273,6 +273,7 @@ def compile_and_check_imports(project_dir, test_files, project_name):
                         "error": error_output
                     })
                     print(f"  ⚠️  Compilation error (not import) in {test_file}")
+                    print(f"     DETAILS:\n{error_output}\n     ----------------------------------")
                 else:
                     print(f"  ✅ No import errors in {test_file}")
         
