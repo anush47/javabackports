@@ -92,9 +92,6 @@ def main():
         module_path = find_gradle_module(args.repo, filepath)
         if not module_path:
             continue
-            
-        if module_path == ":":
-            module_path = ""
         
         test_target = ""
         

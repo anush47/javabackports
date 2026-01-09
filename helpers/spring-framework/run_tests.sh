@@ -47,14 +47,14 @@ if ${DOCKER_CMD} run --rm \
     "${IMAGE_TAG}" \
     bash -c "${GRADLE_CMD}; \
     GRADLE_EXIT_CODE=\$?; \
-    echo "--- Debug: finding test-results dirs ---"; \
-    find . -type d -name "test-results"; \
-    echo "--- Debug: finding ALL xml files ---"; \
-    find . -type f -name "*.xml" | head -n 20; \
+    echo '--- Debug: finding test-results dirs ---'; \
+    find . -type d -name 'test-results' 2>/dev/null; \
+    echo '--- Debug: finding XML files in test-results ---'; \
+    find . -path '*/build/test-results/*/*.xml' 2>/dev/null | head -n 20; \
     mkdir -p /repo/build/all-test-results; \
-    find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;; \
-    echo "--- Debug: listing copied files ---"; \
-    ls -l /repo/build/all-test-results/; \
+    find . -path '*/build/test-results/*/*.xml' -exec cp {} /repo/build/all-test-results/ \; 2>/dev/null; \
+    echo '--- Debug: listing copied files ---'; \
+    ls -l /repo/build/all-test-results/ 2>/dev/null || echo 'No files copied'; \
     exit \$GRADLE_EXIT_CODE"; then
     
     echo "✅ Tests Passed"
