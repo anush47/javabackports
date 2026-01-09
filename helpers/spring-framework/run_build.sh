@@ -47,11 +47,8 @@ if [ -f "gradle/wrapper/gradle-wrapper.properties" ]; then
     if [ "$MAJOR" -ge 9 ]; then
         JAVA_VERSION=21
     elif [ "$MAJOR" -eq 8 ]; then
-        if [ "$MINOR" -ge 5 ]; then
-             JAVA_VERSION=21
-        else
-             JAVA_VERSION=17
-        fi
+        # Gradle 8.x supports Java 17+ but works best with 17 for older code (avoids JDK 21+ deprecations)
+        JAVA_VERSION=17
     elif [ "$MAJOR" -eq 7 ]; then
         if [ "$MINOR" -ge 3 ]; then
              JAVA_VERSION=17
