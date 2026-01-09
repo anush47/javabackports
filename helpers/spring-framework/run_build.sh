@@ -41,9 +41,8 @@ docker build --build-arg JAVA_VERSION=${JAVA_VERSION} -t ${IMAGE_TAG} -f ${TOOLK
 
 echo "--- Running Gradle build (compile only, no tests) ---"
 
-# Fix permissions and create all required directories before running build
+# Fix basic layout before running build (permissions handled by running as root)
 docker run --rm \
-    --user root \
     -v "${PROJECT_DIR}:/repo" \
     -w /repo \
     ${IMAGE_TAG} \
@@ -51,26 +50,23 @@ docker run --rm \
              rm -rf /repo/build /repo/buildSrc/.gradle 2>/dev/null || true; \
              rm -f /repo/.git/index.lock 2>/dev/null || true; \
              find /repo -type f -name gradlew -exec chmod +x {} + 2>/dev/null || true; \
-             chown -R 1000:1000 /repo 2>/dev/null || true; \
              mkdir -p /repo/.gradle /repo/build /repo/buildSrc/.gradle; \
              touch /repo/build/build-scan-uri.txt 2>/dev/null || true; \
-             chown 1000:1000 /repo/build/build-scan-uri.txt 2>/dev/null || true; \
              chmod -R 755 /repo/build /repo/buildSrc 2>/dev/null || true"
 
-# Run build in Docker with the source code mounted
+# Run build in Docker with the source code mounted (as root to avoid host FS permission issues)
 if docker run --rm \
-    -u 1000:1000 \
-    -v "${PROJECT_DIR}:/repo" \
-    -v "gradle-cache-spring:/home/gradle/.gradle/caches" \
-    -v "gradle-wrapper-spring:/home/gradle/.gradle/wrapper" \
-    -w /repo \
-    ${IMAGE_TAG} \
-    bash -c "set -e; \
-             git config --global --add safe.directory /repo; \
-             git reset --hard HEAD; \
-             git clean -fd; \
-             git checkout -f ${COMMIT_SHA}; \
-             export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true -Dorg.gradle.scan.publish=false'; \
+        -v "${PROJECT_DIR}:/repo" \
+        -v "gradle-cache-spring:/home/gradle/.gradle/caches" \
+        -v "gradle-wrapper-spring:/home/gradle/.gradle/wrapper" \
+        -w /repo \
+        ${IMAGE_TAG} \
+        bash -c "set -e; \
+                         git config --global --add safe.directory /repo; \
+                         git reset --hard HEAD; \
+                         git clean -fd; \
+                         git checkout -f ${COMMIT_SHA}; \
+                         export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true -Dorg.gradle.scan.publish=false'; \
                          ./gradlew build -x test --no-daemon \
                              -Dorg.gradle.jvmargs='-XX:+IgnoreUnrecognizedVMOptions -XX:+UseG1GC -XX:+UseStringDeduplication'"; then
     echo "Success" > "${BUILD_STATUS_FILE}"

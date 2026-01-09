@@ -37,9 +37,8 @@ ${DOCKER_CMD} volume create gradle-wrapper-spring 2>/dev/null || true
 
 echo "--- Executing: ${GRADLE_CMD} ---"
 
-# Note: The Dockerfile already sets WORKDIR /repo and user 'gradle'
+# First, prep the repo as root (handles any permission wrinkles on host FS)
 if ${DOCKER_CMD} run --rm \
-    --user root \
     -v "${PROJECT_DIR}:/repo" \
     -w /repo \
     "${IMAGE_TAG}" \
@@ -56,9 +55,8 @@ else
     exit 1
 fi
 
-# Now run the tests as the gradle user
+# Now run the tests (as root inside container to avoid NTFS permission issues)
 if ${DOCKER_CMD} run --rm \
-    -u 1000:1000 \
     -v "${PROJECT_DIR}:/repo" \
     -v "gradle-cache-spring:/home/gradle/.gradle/caches" \
     -v "gradle-wrapper-spring:/home/gradle/.gradle/wrapper" \
