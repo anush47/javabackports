@@ -1,0 +1,483 @@
+[
+  {
+    "index": 54,
+    "commit": "ddcae04ad57ffb2e03f28fa56ff258d5e0e02b1b",
+    "parent": "994bbec0c3ae081b1c81aa5d9335bf5f47964dbf",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-core:test --tests \"org.springframework.util.ObjectUtilsTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-core/src/test/java/org/springframework/util/ObjectUtilsTests.java"
+      ],
+      "all": ":spring-core:test --tests \"org.springframework.util.ObjectUtilsTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 56,
+    "commit": "7c8fed7f3b173fd3c485ebb10f1e903675b83c4f",
+    "parent": "89a3d64adafb4fc716473ad2d21f7b76ad63db2a",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-expression:test --tests \"org.springframework.expression.spel.AbstractExpressionTests\"",
+        ":spring-expression:test --tests \"org.springframework.expression.spel.EvaluationTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-expression/src/test/java/org/springframework/expression/spel/AbstractExpressionTests.java",
+        "spring-expression/src/test/java/org/springframework/expression/spel/EvaluationTests.java"
+      ],
+      "all": ":spring-expression:test --tests \"org.springframework.expression.spel.AbstractExpressionTests\" :spring-expression:test --tests \"org.springframework.expression.spel.EvaluationTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 57,
+    "commit": "7d95a24573ef38be93a9c8e86bb92ede105c0cd4",
+    "parent": "1dbe0ee6dbddc3cbf149c8a22f920a8e4107de1f",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-expression:test --tests \"org.springframework.expression.spel.AbstractExpressionTests\"",
+        ":spring-expression:test --tests \"org.springframework.expression.spel.EvaluationTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-expression/src/test/java/org/springframework/expression/spel/AbstractExpressionTests.java",
+        "spring-expression/src/test/java/org/springframework/expression/spel/EvaluationTests.java"
+      ],
+      "all": ":spring-expression:test --tests \"org.springframework.expression.spel.AbstractExpressionTests\" :spring-expression:test --tests \"org.springframework.expression.spel.EvaluationTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 58,
+    "commit": "cbbb2871b3a4092c623a4a87c4dd24f54aa24225",
+    "parent": "18403cddea3151475069c5db03b4edf9c760f544",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-expression:test --tests \"org.springframework.expression.spel.OperatorTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-expression/src/test/java/org/springframework/expression/spel/OperatorTests.java"
+      ],
+      "all": ":spring-expression:test --tests \"org.springframework.expression.spel.OperatorTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 59,
+    "commit": "86457464d767284a7c588292a39d6accf1f65bfe",
+    "parent": "be129dc17160c82da9e56b88321da13199cda2af",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-expression:test --tests \"org.springframework.expression.spel.OperatorTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-expression/src/test/java/org/springframework/expression/spel/OperatorTests.java"
+      ],
+      "all": ":spring-expression:test --tests \"org.springframework.expression.spel.OperatorTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 54,
+    "commit": "ddcae04ad57ffb2e03f28fa56ff258d5e0e02b1b",
+    "parent": "994bbec0c3ae081b1c81aa5d9335bf5f47964dbf",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-core:test --tests \"org.springframework.util.ObjectUtilsTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-core/src/test/java/org/springframework/util/ObjectUtilsTests.java"
+      ],
+      "all": ":spring-core:test --tests \"org.springframework.util.ObjectUtilsTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 56,
+    "commit": "7c8fed7f3b173fd3c485ebb10f1e903675b83c4f",
+    "parent": "89a3d64adafb4fc716473ad2d21f7b76ad63db2a",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-expression:test --tests \"org.springframework.expression.spel.AbstractExpressionTests\"",
+        ":spring-expression:test --tests \"org.springframework.expression.spel.EvaluationTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-expression/src/test/java/org/springframework/expression/spel/AbstractExpressionTests.java",
+        "spring-expression/src/test/java/org/springframework/expression/spel/EvaluationTests.java"
+      ],
+      "all": ":spring-expression:test --tests \"org.springframework.expression.spel.AbstractExpressionTests\" :spring-expression:test --tests \"org.springframework.expression.spel.EvaluationTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 57,
+    "commit": "7d95a24573ef38be93a9c8e86bb92ede105c0cd4",
+    "parent": "1dbe0ee6dbddc3cbf149c8a22f920a8e4107de1f",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-expression:test --tests \"org.springframework.expression.spel.AbstractExpressionTests\"",
+        ":spring-expression:test --tests \"org.springframework.expression.spel.EvaluationTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-expression/src/test/java/org/springframework/expression/spel/AbstractExpressionTests.java",
+        "spring-expression/src/test/java/org/springframework/expression/spel/EvaluationTests.java"
+      ],
+      "all": ":spring-expression:test --tests \"org.springframework.expression.spel.AbstractExpressionTests\" :spring-expression:test --tests \"org.springframework.expression.spel.EvaluationTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 58,
+    "commit": "cbbb2871b3a4092c623a4a87c4dd24f54aa24225",
+    "parent": "18403cddea3151475069c5db03b4edf9c760f544",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-expression:test --tests \"org.springframework.expression.spel.OperatorTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-expression/src/test/java/org/springframework/expression/spel/OperatorTests.java"
+      ],
+      "all": ":spring-expression:test --tests \"org.springframework.expression.spel.OperatorTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 59,
+    "commit": "86457464d767284a7c588292a39d6accf1f65bfe",
+    "parent": "be129dc17160c82da9e56b88321da13199cda2af",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-expression:test --tests \"org.springframework.expression.spel.OperatorTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-expression/src/test/java/org/springframework/expression/spel/OperatorTests.java"
+      ],
+      "all": ":spring-expression:test --tests \"org.springframework.expression.spel.OperatorTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  },
+  {
+    "index": 62,
+    "commit": "0bad69d5fbab74cd1afded96fbf5ed287ece7f18",
+    "parent": "6b19642256c33f0ba55c9275b883609933953318",
+    "validation_status": "VALID_BACKPORT",
+    "validation_reason": null,
+    "test_targets": {
+      "modified": [
+        ":spring-webmvc:test --tests \"org.springframework.web.servlet.function.SseServerResponseTests\""
+      ],
+      "added": [],
+      "modified_files": [
+        "spring-webmvc/src/test/java/org/springframework/web/servlet/function/SseServerResponseTests.java"
+      ],
+      "all": ":spring-webmvc:test --tests \"org.springframework.web.servlet.function.SseServerResponseTests\""
+    },
+    "build_status_after": "Fail",
+    "test_status_after": "Skipped",
+    "build_status_before": "Skipped",
+    "test_status_before": "Skipped (Build Failed)",
+    "error_info": {
+      "before_error_type": null,
+      "before_error_msg": null,
+      "import_errors": []
+    },
+    "stats": {
+      "after_pass_count": 0,
+      "after_fail_count": 0,
+      "before_pass_count": 0,
+      "before_fail_count": 0,
+      "regression_count": 0,
+      "fix_count": 0,
+      "new_pass_count": 0
+    },
+    "details": {
+      "regressions": [],
+      "fixes": [],
+      "new_passes": [],
+      "persistent_failures": [],
+      "all_failures_after": [],
+      "all_failures_before": []
+    }
+  }
+]
