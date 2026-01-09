@@ -41,13 +41,15 @@ docker build --build-arg JAVA_VERSION=${JAVA_VERSION} -t ${IMAGE_TAG} -f ${TOOLK
 
 echo "--- Running Gradle build (compile only, no tests) ---"
 
-# Fix permissions before running build
+# Fix permissions before running build - create .gradle directory as root
 docker run --rm \
     --user root \
     -v "${PROJECT_DIR}:/repo" \
     -w /repo \
     ${IMAGE_TAG} \
-    bash -c "chown -R 1000:1000 /repo/.git 2>/dev/null || true"
+    bash -c "chown -R 1000:1000 /repo/.git 2>/dev/null || true; \
+             mkdir -p /repo/.gradle && \
+             chown -R 1000:1000 /repo/.gradle"
 
 # Run build in Docker with the source code mounted
 if docker run --rm \
@@ -60,7 +62,7 @@ if docker run --rm \
     bash -c "set -e; \
              git config --global --add safe.directory /repo; \
              git checkout -f ${COMMIT_SHA}; \
-             ./gradlew clean build -x test --no-daemon -Dorg.gradle.jvmargs='-Xmx4g'"; then
+             ./gradlew clean build -x test --no-daemon"; then
     echo "Success" > "${BUILD_STATUS_FILE}"
 else
     echo "Fail" > "${BUILD_STATUS_FILE}"
