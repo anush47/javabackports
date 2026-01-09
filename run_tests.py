@@ -143,6 +143,28 @@ def parse_console_output(console_text):
     for match in re.finditer(r"❌ Target\s+(.+?)\s+FAILED", console_text):
         failed.add(match.group(1).replace("test/", "").replace("/", "."))
 
+    # Maven Surefire/Failsafe: [INFO] Running ... and [INFO] Tests run: ... -- in ...
+    # Example:
+    # [INFO] Running org.apache.hadoop.hbase.backup.master.TestBackupLogCleaner
+    # [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: ... -- in org.apache.hadoop.hbase.backup.master.TestBackupLogCleaner
+    surefire_results = {}
+    for match in re.finditer(r"^\[INFO\] Running ([\w.$-]+)", console_text, re.MULTILINE):
+        current_class = match.group(1)
+        surefire_results[current_class] = {"run": 0, "fail": 0, "error": 0, "skipped": 0}
+    for match in re.finditer(r"^\[INFO\] Tests run: (\d+), Failures: (\d+), Errors: (\d+), Skipped: (\d+)[^\n]*-- in ([\w.$-]+)", console_text, re.MULTILINE):
+        run, fail, error, skipped, test_class = match.groups()
+        run = int(run)
+        fail = int(fail)
+        error = int(error)
+        skipped = int(skipped)
+        # Count all non-failed, non-error tests as passed
+        fail_count = fail + error
+        pass_count = run - fail - error - skipped
+        for i in range(pass_count):
+            passed.add(f"{test_class}.pass_{i+1}")
+        for i in range(fail_count):
+            failed.add(f"{test_class}.fail_{i+1}")
+
     # jtreg summary fallback
     summary_match = re.search(r"Test results:\s+passed:\s+(\d+)(?:;\s+failed:\s+(\d+))?", console_text)
     if summary_match and len(passed) == 0 and len(failed) == 0:

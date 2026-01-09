@@ -93,7 +93,7 @@ if docker run --rm \
              MVN_EXIT_CODE=\$?; \
              echo 'Collecting test results...'; \
              mkdir -p /repo/all-test-results; \
-             find . -path '*/target/surefire-reports/TEST-*.xml' -exec cp {} /repo/all-test-results/ \; 2>/dev/null || true; \
+             find . -path '*/target/surefire-reports/*.xml' -exec cp {} /repo/all-test-results/ \; 2>/dev/null || true; \
              echo \"Found \$(ls /repo/all-test-results/*.xml 2>/dev/null | wc -l) test result files\"; \
              exit \$MVN_EXIT_CODE"; then
     
