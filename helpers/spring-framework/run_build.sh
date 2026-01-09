@@ -41,15 +41,17 @@ docker build --build-arg JAVA_VERSION=${JAVA_VERSION} -t ${IMAGE_TAG} -f ${TOOLK
 
 echo "--- Running Gradle build (compile only, no tests) ---"
 
-# Fix permissions before running build - create .gradle directory as root
+# Fix permissions and create all required directories before running build
 docker run --rm \
     --user root \
     -v "${PROJECT_DIR}:/repo" \
     -w /repo \
     ${IMAGE_TAG} \
-    bash -c "chown -R 1000:1000 /repo/.git 2>/dev/null || true; \
-             mkdir -p /repo/.gradle && \
-             chown -R 1000:1000 /repo/.gradle"
+    bash -c "set -e; \
+             chown -R 1000:1000 /repo/.git 2>/dev/null || true; \
+             mkdir -p /repo/.gradle /repo/build /repo/buildSrc/.gradle; \
+             chown -R 1000:1000 /repo/.gradle /repo/build /repo/buildSrc; \
+             echo '' > /repo/build/build-scan-uri.txt 2>/dev/null || true"
 
 # Run build in Docker with the source code mounted
 if docker run --rm \
@@ -62,7 +64,10 @@ if docker run --rm \
     bash -c "set -e; \
              git config --global --add safe.directory /repo; \
              git checkout -f ${COMMIT_SHA}; \
-             ./gradlew clean build -x test --no-daemon"; then
+             export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true'; \
+             ./gradlew clean build -x test --no-daemon \
+               -Dorg.gradle.jvmargs='-XX:+IgnoreUnrecognizedVMOptions -XX:+UseG1GC -XX:+UseStringDeduplication' \
+               --scan-off 2>/dev/null || ./gradlew clean build -x test --no-daemon"; then
     echo "Success" > "${BUILD_STATUS_FILE}"
 else
     echo "Fail" > "${BUILD_STATUS_FILE}"
