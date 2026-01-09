@@ -646,7 +646,7 @@ def main():
             # Check if any Java files are modified
             has_java_changes = any(f.endswith(".java") for f in changed_files)
             print(f"--- Changed files in {commit_sha}: {len(changed_files)} total, Java: {sum(1 for f in changed_files if f.endswith('.java'))} ---")
-            if len(changed_files) <= 10:
+            if len(changed_files) <= 20:
                 for f in changed_files[:10]:
                     print(f"    {f}")
             if not has_java_changes:
