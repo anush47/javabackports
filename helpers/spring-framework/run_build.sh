@@ -41,6 +41,14 @@ docker build --build-arg JAVA_VERSION=${JAVA_VERSION} -t ${IMAGE_TAG} -f ${TOOLK
 
 echo "--- Running Gradle build (compile only, no tests) ---"
 
+# Fix permissions before running build
+docker run --rm \
+    --user root \
+    -v "${PROJECT_DIR}:/repo" \
+    -w /repo \
+    ${IMAGE_TAG} \
+    bash -c "chown -R 1000:1000 /repo/.git 2>/dev/null || true"
+
 # Run build in Docker with the source code mounted
 if docker run --rm \
     -u 1000:1000 \
@@ -56,23 +64,6 @@ if docker run --rm \
     echo "Success" > "${BUILD_STATUS_FILE}"
 else
     echo "Fail" > "${BUILD_STATUS_FILE}"
-fi
-
-echo "--- Build complete for ${COMMIT_SHA:0:7} ---"
-
-echo "--- Compiling and preparing for tests... ---"
-# Spring build: classes testClasses
-if ${DOCKER_CMD} run --rm \
-    --dns=8.8.8.8 \
-    -u 1000:1000 \
-    -v "gradle-cache-spring:/home/gradle/.gradle/caches" \
-    -v "gradle-wrapper-spring:/home/gradle/.gradle/wrapper" \
-    -v "${BUILD_DIR}:/repo/build" \
-    ${IMAGE_TAG} \
-    ./gradlew classes testClasses -Dbuild.docker=false --continue; then
-    echo "Success" > $BUILD_STATUS_FILE
-else
-    echo "Fail" > $BUILD_STATUS_FILE
 fi
 
 echo "--- Build complete for ${COMMIT_SHA:0:7} ---"
