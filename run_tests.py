@@ -674,12 +674,12 @@ def main():
         added_tests = test_targets_data["added"]
         all_targets = test_targets_data["all_targets"]
         
-        print(f"--- Modified tests: {modified_tests or 'None'} ---")
-        print(f"--- Added tests: {added_tests or 'None'} ---")
+        if len(modified_tests) == 0 and len(added_tests) == 0:
+            print(f"--- Skipping {commit_sha} (No relevant test targets found) ---")
+            continue
         
-        # Get modified test files (not new files)
-        modified_test_files = get_modified_test_files(project_repo_dir, commit_sha)
-        print(f"--- Modified test files: {modified_test_files or 'None'} ---")
+        # Determine if we need to test buggy version
+        skip_buggy = (len(modified_tests) == 0 and len(added_tests) > 0)
         
         # Check if we can reuse old results (only new tests, no modified tests)
         # Can only reuse if: (build_after=Success AND test_after=Success) OR (build_after=Fail)

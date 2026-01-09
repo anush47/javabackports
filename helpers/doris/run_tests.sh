@@ -58,9 +58,13 @@ if docker run --rm \
     -v "${PROJECT_DIR}:/repo" \
     -v "maven-repo:/root/.m2/repository" \
     -w /repo \
+    -e DORIS_HOME=/repo \
     "${BUILDER_IMAGE_TAG}" \
     bash -c "git checkout -f ${COMMIT_SHA} && \
-             mvn test ${MAVEN_ARGS} -DfailIfNoTests=false -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true; \
+             POM_FILE='pom.xml'; \
+             if [ -f fe/pom.xml ]; then POM_FILE='fe/pom.xml'; fi; \
+             echo \"Using POM: \$POM_FILE\"; \
+             mvn -f \$POM_FILE test ${MAVEN_ARGS} -DfailIfNoTests=false -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true; \
              MVN_EXIT_CODE=\$?; \
              mkdir -p /repo/build/all-test-results; \
              find . -name 'TEST-*.xml' -exec cp {} /repo/build/all-test-results/ \;; \

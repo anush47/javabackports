@@ -27,15 +27,27 @@ docker volume create maven-repo 2>/dev/null || true
 
 echo "=== Running standard Maven build ==="
 
-# Run Maven build
-# Using standard install with skipped tests to verify compilation
-docker run --rm \
-    -v "${PROJECT_DIR}:/repo" \
-    -v "maven-repo:/root/.m2/repository" \
-    -w /repo \
-    ${BUILDER_IMAGE_TAG} \
-    bash -c "mvn clean install -DskipTests -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C" \
-    || BUILD_EXIT_CODE=$?
+    # Run Maven build
+    # Pointing to fe/pom.xml as Apache Doris Java components are mainly in FE
+    # We set DORIS_HOME just in case
+    docker run --rm \
+        -v "${PROJECT_DIR}:/repo" \
+        -v "maven-repo:/root/.m2/repository" \
+        -w /repo \
+        -e DORIS_HOME=/repo \
+        ${BUILDER_IMAGE_TAG} \
+        bash -c "
+            if [ -f generated-source.sh ]; then 
+                echo 'Running generated-source.sh...'; 
+                bash generated-source.sh noclean || echo 'Warning: generated-source.sh failed, proceeding with Maven...'; 
+            fi;
+            if [ -f fe/pom.xml ]; then 
+                mvn -f fe/pom.xml clean install -DskipTests -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C; 
+            else 
+                echo 'No fe/pom.xml found, checking root...'; 
+                mvn clean install -DskipTests -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C; 
+            fi" \
+        || BUILD_EXIT_CODE=$?
 
 # Save build status
 if [ ${BUILD_EXIT_CODE} -eq 0 ]; then
