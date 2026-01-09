@@ -8,7 +8,7 @@ echo "--- Building code for ${COMMIT_SHA:0:7} ---"
 docker volume create maven-cache-hbase 2>/dev/null || true
 
 echo "--- Building Docker image... ---"
-docker build -t ${IMAGE_TAG} -f ${TOOLKIT_DIR}/Dockerfile .
+docker build -t ${IMAGE_TAG} -f ${TOOLKIT_DIR}/Dockerfile ${TOOLKIT_DIR}
 
 echo "--- Preparing build directory... ---"
 # Copy source code to BUILD_DIR
