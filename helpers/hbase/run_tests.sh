@@ -76,10 +76,10 @@ docker volume create maven-cache-hbase 2>/dev/null || true
 # 3. Run Tests in Docker
 if docker run --rm \
     --dns=8.8.8.8 \
-    -v "${BUILD_DIR}:/repo" \
+    -v "${PROJECT_DIR}:/repo" \
     -v "maven-cache-hbase:/root/.m2" \
     -w /repo \
-    "${IMAGE_TAG}" \
+    "${BUILDER_IMAGE_TAG}" \
     bash -c "set -e; \
              echo 'Maven version:'; mvn --version; \
              echo 'Running: mvn test ${MAVEN_ARGS}'; \
