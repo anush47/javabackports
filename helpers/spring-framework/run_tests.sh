@@ -74,3 +74,10 @@ if ${DOCKER_CMD} run --rm \
     find . -path '*/build/test-results/*/*.xml' 2>/dev/null | head -n 20; \
     echo '--- Debug: listing test results ---'; \
     ls -la ./build/ 2>/dev/null | head -20; \
+    exit \$GRADLE_EXIT_CODE"; then
+    echo "✅ Tests Passed"
+    exit 0
+else
+    echo "❌ Tests Failed"
+    exit 1
+fi
