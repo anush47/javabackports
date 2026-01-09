@@ -867,16 +867,24 @@ def main():
             # Only run buggy tests if we haven't already determined to skip
             if 'before_res' not in locals():
                 # Determine test targets and whether to apply test changes
+                buggy_test_targets = all_targets  # Default to all targets
+                apply_test_changes = False
+                
                 if len(modified_test_files) > 0:
                     # Has modified test files - apply changes and check for import errors
                     buggy_test_targets = " ".join(modified_tests) if modified_tests else all_targets
-                print(f"--- Running buggy version with modified test changes applied ---")
+                    apply_test_changes = True
+                    print(f"--- Running buggy version with modified test changes applied ---")
+                else:
+                    # Only new test files - run all tests without applying changes for baseline
+                    buggy_test_targets = all_targets
+                    print(f"--- Running buggy version without test changes (only new tests added) - establishing baseline ---")
                 
                 before_res = execute_lifecycle(
                     project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, 
                     buggy_test_targets,
-                    apply_test_changes_from=commit_sha,
-                    modified_test_files=modified_test_files
+                    apply_test_changes_from=commit_sha if apply_test_changes else None,
+                    modified_test_files=modified_test_files if apply_test_changes else None
                 )
                 
                 # Check if we hit import errors (invalid backport)
@@ -900,15 +908,6 @@ def main():
                     with open(results_json, 'w') as f:
                         json.dump(full_results_data, f, indent=2)
                     continue
-            else:
-                # Only new test files - run all tests without applying changes for baseline
-                buggy_test_targets = all_targets
-                print(f"--- Running buggy version without test changes (only new tests added) - establishing baseline ---")
-                
-                before_res = execute_lifecycle(
-                    project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, 
-                    buggy_test_targets
-                )
         else:
             before_res = {"build": "Skipped", "test": "Skipped (Build Failed)", "passed": set(), "failed": set()}
 

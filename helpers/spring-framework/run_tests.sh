@@ -39,27 +39,38 @@ echo "--- Executing: ${GRADLE_CMD} ---"
 
 # Note: The Dockerfile already sets WORKDIR /repo and user 'gradle'
 if ${DOCKER_CMD} run --rm \
-    --dns=8.8.8.8 \
+    --user root \
+    -v "${PROJECT_DIR}:/repo" \
+    -w /repo \
+    "${IMAGE_TAG}" \
+    bash -c "set -e; \
+    rm -f /repo/.git/index.lock 2>/dev/null || true; \
+    chown -R 1000:1000 /repo; \
+    git config --global --add safe.directory /repo; \
+    git reset --hard HEAD 2>/dev/null || true; \
+    git clean -fd 2>/dev/null || true; \
+    git checkout -f ${COMMIT_SHA} 2>/dev/null || true"; then
+    true
+else
+    echo "❌ Failed to prepare repo"
+    exit 1
+fi
+
+# Now run the tests as the gradle user
+if ${DOCKER_CMD} run --rm \
     -u 1000:1000 \
+    -v "${PROJECT_DIR}:/repo" \
     -v "gradle-cache-spring:/home/gradle/.gradle/caches" \
     -v "gradle-wrapper-spring:/home/gradle/.gradle/wrapper" \
-    -v "${BUILD_DIR}:/repo/build" \
+    -w /repo \
     "${IMAGE_TAG}" \
-    bash -c "${GRADLE_CMD}; \
-    GRADLE_EXIT_CODE=\$?; \
+    bash -c "set -e; \
+    export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true -Dorg.gradle.scan.publish=false'; \
+    ${GRADLE_CMD} --scan-off 2>&1 | grep -v 'build-scan-uri' | grep -v 'build listener' || true; \
+    GRADLE_EXIT_CODE=\${PIPESTATUS[0]}; \
     echo '--- Debug: finding test-results dirs ---'; \
     find . -type d -name 'test-results' 2>/dev/null; \
     echo '--- Debug: finding XML files in test-results ---'; \
     find . -path '*/build/test-results/*/*.xml' 2>/dev/null | head -n 20; \
-    mkdir -p /repo/build/all-test-results; \
-    find . -path '*/build/test-results/*/*.xml' -exec cp {} /repo/build/all-test-results/ \; 2>/dev/null; \
-    echo '--- Debug: listing copied files ---'; \
-    ls -l /repo/build/all-test-results/ 2>/dev/null || echo 'No files copied'; \
-    exit \$GRADLE_EXIT_CODE"; then
-    
-    echo "✅ Tests Passed"
-    exit 0
-else
-    echo "❌ Tests Failed"
-    exit 1
-fi
+    echo '--- Debug: listing test results ---'; \
+    ls -la ./build/ 2>/dev/null | head -20; \
