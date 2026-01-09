@@ -1,39 +1,38 @@
 #!/bin/bash
-# This script compiles HBase code using pre-built Docker image
+# This script compiles HBase code using pre-built Docker image (Maven project)
 set -e # Exit on error
 
-echo "--- Building code for ${COMMIT_SHA:0:7} ---"
+echo "--- Building HBase for commit ${COMMIT_SHA:0:7} ---"
 
-# Create persistent Maven cache volume
+echo "--- Changing directory to ${PROJECT_DIR} ---"
+cd "${PROJECT_DIR}"
+
+echo "--- Checking out commit... ---"
+git checkout -f ${COMMIT_SHA}
+
+# Create persistent Maven cache volume (reuse across builds)
 docker volume create maven-cache-hbase 2>/dev/null || true
 
-echo "--- Preparing build directory... ---"
-# Clean and prepare build directory
-rm -rf "${BUILD_DIR}"
-mkdir -p "${BUILD_DIR}"
-# Copy source code to BUILD_DIR
-cp -r "${PROJECT_DIR}/." "${BUILD_DIR}/"
+echo "--- Running Maven build (compile only, no tests) ---"
 
-echo "--- Compiling... ---"
 # Build without tests, skip documentation and code quality checks
-BUILD_COMMAND="git checkout -f ${COMMIT_SHA} && \
-  mvn clean install -DskipTests \
-    -Dmaven.javadoc.skip=true \
-    -Dcheckstyle.skip=true \
-    -Dfindbugs.skip=true \
-    -Dspotbugs.skip=true \
-    -Denforcer.skip=true"
+BUILD_COMMAND="mvn clean install -DskipTests \
+  -Dmaven.javadoc.skip=true \
+  -Dcheckstyle.skip=true \
+  -Dfindbugs.skip=true \
+  -Dspotbugs.skip=true \
+  -Denforcer.skip=true"
 
 if docker run --rm \
     --dns=8.8.8.8 \
-    -v "${BUILD_DIR}:/repo" \
+    -v "${PROJECT_DIR}:/repo" \
     -v "maven-cache-hbase:/root/.m2" \
     -w /repo \
     ${BUILDER_IMAGE_TAG} \
     bash -c "rm -rf /root/.m2/repository/org/apache/hbase && ${BUILD_COMMAND}"; then
-    echo "Success" > $BUILD_STATUS_FILE
+    echo "Success" > "${BUILD_STATUS_FILE}"
 else
-    echo "Fail" > $BUILD_STATUS_FILE
+    echo "Fail" > "${BUILD_STATUS_FILE}"
 fi
 
 echo "--- Build complete for ${COMMIT_SHA:0:7} ---"
