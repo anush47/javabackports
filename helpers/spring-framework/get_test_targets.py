@@ -88,7 +88,9 @@ def main():
         is_test_file = (
             "/src/test/" in filepath and 
             (filepath.endswith(".java") or filepath.endswith(".kotlin") or filepath.endswith(".scala") or filepath.endswith(".groovy")) and
-            (filename.startswith("Test") or filename.endswith("Test.java") or filename.endswith("Tests.java"))
+            (filename.startswith("Test") or filename.endswith("Test.java") or 
+             filename.endswith("Tests.java") or filename.endswith("TestCase.java") or
+             filename.endswith("IT.java") or filename.endswith("IntegrationTest.java"))
         )
         
         if not is_test_file:

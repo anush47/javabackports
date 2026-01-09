@@ -335,13 +335,19 @@ def get_smart_test_targets(toolkit_dir, project_dir, commit_sha, project_name):
     try:
         result = subprocess.run(
             f"python3 {resolver_script} --repo {project_dir} --commit {commit_sha}",
-            shell=True, capture_output=True, text=True, check=True
+            shell=True, capture_output=True, text=True, check=False
         )
         if result.stderr:
             print(f"--- Debug get_test_targets stderr: ---\n{result.stderr}\n----------------------------------")
         
+        if result.returncode != 0:
+            print(f"--- WARNING: get_test_targets exited with code {result.returncode} ---")
+            print(f"--- stdout: {result.stdout} ---")
+            return {"modified": [], "added": [], "all_targets": "ALL"}
+        
         output = result.stdout.strip()
         if not output:
+            print(f"--- get_test_targets returned empty output ---")
             return {"modified": [], "added": [], "all_targets": "NONE"}
         
         # Try to parse as JSON (new format)
@@ -349,6 +355,8 @@ def get_smart_test_targets(toolkit_dir, project_dir, commit_sha, project_name):
             data = json.loads(output)
             modified = data.get("modified", [])
             added = data.get("added", [])
+            
+            print(f"--- Test target detection: {len(modified)} modified, {len(added)} added ---")
             
             # Determine all_targets string for backward compatibility
             if not modified and not added:
@@ -361,10 +369,13 @@ def get_smart_test_targets(toolkit_dir, project_dir, commit_sha, project_name):
                 "added": added,
                 "all_targets": all_targets
             }
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
+            print(f"--- ERROR: Failed to parse JSON from get_test_targets: {e} ---")
+            print(f"--- Output was: {output} ---")
             # Fallback for old format (space-separated list)
             return {"modified": [], "added": [], "all_targets": output}
-    except:
+    except Exception as e:
+        print(f"--- ERROR calling get_test_targets: {e} ---")
         return {"modified": [], "added": [], "all_targets": "ALL"}
 
 def collect_test_reports(project_name, project_repo_dir, dest_dir):
