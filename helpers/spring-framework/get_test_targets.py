@@ -19,6 +19,9 @@ def find_gradle_module(repo, filepath):
         build_gradle_path = os.path.join(repo, current_dir, "build.gradle")
         build_gradle_kts_path = os.path.join(repo, current_dir, "build.gradle.kts")
         
+        # DEBUG PRINT
+        print(f"DEBUG: Checking {build_gradle_path} and {build_gradle_kts_path}", file=sys.stderr)
+        
         if os.path.exists(build_gradle_path) or os.path.exists(build_gradle_kts_path):
             # Found it!
             normalized_dir = current_dir.replace("\\", "/")
