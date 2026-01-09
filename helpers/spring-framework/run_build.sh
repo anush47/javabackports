@@ -52,7 +52,8 @@ docker run --rm \
              chown -R 1000:1000 /repo/.git 2>/dev/null || true; \
              mkdir -p /repo/.gradle /repo/build /repo/buildSrc/.gradle; \
              chown -R 1000:1000 /repo/.gradle /repo/build /repo/buildSrc; \
-             chmod -R 755 /repo/build /repo/buildSrc 2>/dev/null || true"
+             chmod -R 755 /repo/build /repo/buildSrc 2>/dev/null || true; \
+             chmod +x /repo/gradlew 2>/dev/null || true"
 
 # Run build in Docker with the source code mounted
 if docker run --rm \
@@ -66,7 +67,6 @@ if docker run --rm \
              git config --global --add safe.directory /repo; \
              git checkout -f ${COMMIT_SHA}; \
              export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true -Dorg.gradle.scan.publish=false'; \
-             chmod +x gradlew; \
              ./gradlew build -x test --no-daemon \
                -Dorg.gradle.jvmargs='-XX:+IgnoreUnrecognizedVMOptions -XX:+UseG1GC -XX:+UseStringDeduplication' \
                --scan-off 2>&1 | grep -v 'build-scan-uri' || true"; then
