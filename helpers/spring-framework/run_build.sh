@@ -49,11 +49,11 @@ docker run --rm \
     ${IMAGE_TAG} \
     bash -c "set -e; \
              rm -rf /repo/build /repo/buildSrc/.gradle 2>/dev/null || true; \
-             chown -R 1000:1000 /repo/.git 2>/dev/null || true; \
+             rm -f /repo/.git/index.lock 2>/dev/null || true; \
+             find /repo -type f -name gradlew -exec chmod +x {} + 2>/dev/null || true; \
+             chown -R 1000:1000 /repo 2>/dev/null || true; \
              mkdir -p /repo/.gradle /repo/build /repo/buildSrc/.gradle; \
-             chown -R 1000:1000 /repo/.gradle /repo/build /repo/buildSrc; \
-             chmod -R 755 /repo/build /repo/buildSrc 2>/dev/null || true; \
-             chmod +x /repo/gradlew 2>/dev/null || true"
+             chmod -R 755 /repo/build /repo/buildSrc 2>/dev/null || true"
 
 # Run build in Docker with the source code mounted
 if docker run --rm \
@@ -65,6 +65,8 @@ if docker run --rm \
     ${IMAGE_TAG} \
     bash -c "set -e; \
              git config --global --add safe.directory /repo; \
+             git reset --hard HEAD; \
+             git clean -fd; \
              git checkout -f ${COMMIT_SHA}; \
              export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true -Dorg.gradle.scan.publish=false'; \
              ./gradlew build -x test --no-daemon \
