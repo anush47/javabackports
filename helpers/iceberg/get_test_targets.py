@@ -9,28 +9,31 @@ import re
 def find_gradle_module(repo, filepath):
     """
     Finds the Gradle module path for Iceberg's specific structure.
-    Iceberg has nested modules like flink/v1.20/flink which map to :iceberg-flink:flink-1.20
+    Based on official Iceberg CI workflows, the pattern is:
+    :iceberg-flink:iceberg-flink-{version} (NOT flattened)
+    Reference: .github/workflows/flink-ci.yml
     """
     # Normalize path
     normalized = filepath.replace("\\", "/")
     
-    # Handle Flink modules: flink/v{version}/flink/ -> :iceberg-flink:flink-{version}
+    # Handle Flink modules: flink/v{version}/flink/ -> :iceberg-flink:iceberg-flink-{version}
+    # flink/v{version}/flink-runtime/ -> :iceberg-flink:iceberg-flink-runtime-{version}
     flink_match = re.match(r"flink/v([\d.]+)/(flink|flink-runtime)/", normalized)
     if flink_match:
         version = flink_match.group(1)
         submodule = flink_match.group(2)
         if submodule == "flink":
-            return f":iceberg-flink:flink-{version}"
+            return f":iceberg-flink:iceberg-flink-{version}"
         else:  # flink-runtime
-            return f":iceberg-flink:flink-runtime-{version}"
+            return f":iceberg-flink:iceberg-flink-runtime-{version}"
     
-    # Handle Spark modules: spark/v{version}/spark/ -> :iceberg-spark:spark-{version}
+    # Handle Spark modules: spark/v{version}/spark/ -> :iceberg-spark:iceberg-spark-{version}_2.13
     spark_match = re.match(r"spark/v([\d.]+)/(spark|spark-extensions|spark-runtime)/", normalized)
     if spark_match:
         version = spark_match.group(1)
         submodule = spark_match.group(2)
-        # Note: Spark uses scala version suffix, but we'll use the simple version for now
-        return f":iceberg-spark:{submodule}-{version}"
+        # Based on settings.gradle, format is :iceberg-spark:iceberg-{submodule}-{version}_2.13
+        return f":iceberg-spark:iceberg-{submodule}-{version}_2.13"
     
     # For other modules, use the standard detection
     # Get the first directory component
