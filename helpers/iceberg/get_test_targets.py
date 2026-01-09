@@ -4,27 +4,63 @@ import subprocess
 import sys
 import os
 import json
+import re
 
 def find_gradle_module(repo, filepath):
     """
-    Finds the Gradle module path (e.g. :iceberg-core) for a given file.
+    Finds the Gradle module path for Iceberg's specific structure.
+    Iceberg has nested modules like flink/v1.20/flink which map to :iceberg-flink:flink-1.20
     """
-    current_dir = os.path.dirname(filepath)
-    while current_dir:
-        build_gradle_path = os.path.join(repo, current_dir, "build.gradle")
-        build_gradle_kts_path = os.path.join(repo, current_dir, "build.gradle.kts")
-        
-        if os.path.exists(build_gradle_path) or os.path.exists(build_gradle_kts_path):
-            normalized_dir = current_dir.replace("\\", "/")
-            return ":" + normalized_dir.replace("/", ":")
-        
-        parent = os.path.dirname(current_dir)
-        if parent == current_dir:
-            break
-        current_dir = parent
-        
-    if os.path.exists(os.path.join(repo, "build.gradle")) or os.path.exists(os.path.join(repo, "build.gradle.kts")):
-        return ":"
+    # Normalize path
+    normalized = filepath.replace("\\", "/")
+    
+    # Handle Flink modules: flink/v{version}/flink/ -> :iceberg-flink:flink-{version}
+    flink_match = re.match(r"flink/v([\d.]+)/(flink|flink-runtime)/", normalized)
+    if flink_match:
+        version = flink_match.group(1)
+        submodule = flink_match.group(2)
+        if submodule == "flink":
+            return f":iceberg-flink:flink-{version}"
+        else:  # flink-runtime
+            return f":iceberg-flink:flink-runtime-{version}"
+    
+    # Handle Spark modules: spark/v{version}/spark/ -> :iceberg-spark:spark-{version}
+    spark_match = re.match(r"spark/v([\d.]+)/(spark|spark-extensions|spark-runtime)/", normalized)
+    if spark_match:
+        version = spark_match.group(1)
+        submodule = spark_match.group(2)
+        # Note: Spark uses scala version suffix, but we'll use the simple version for now
+        return f":iceberg-spark:{submodule}-{version}"
+    
+    # For other modules, use the standard detection
+    # Get the first directory component
+    parts = normalized.split("/")
+    if len(parts) > 0:
+        first_dir = parts[0]
+        # Map to iceberg-{modulename} format
+        module_names = {
+            'api': ':iceberg-api',
+            'common': ':iceberg-common',
+            'core': ':iceberg-core',
+            'data': ':iceberg-data',
+            'aliyun': ':iceberg-aliyun',
+            'aws': ':iceberg-aws',
+            'azure': ':iceberg-azure',
+            'orc': ':iceberg-orc',
+            'arrow': ':iceberg-arrow',
+            'parquet': ':iceberg-parquet',
+            'hive-metastore': ':iceberg-hive-metastore',
+            'nessie': ':iceberg-nessie',
+            'gcp': ':iceberg-gcp',
+            'bigquery': ':iceberg-bigquery',
+            'dell': ':iceberg-dell',
+            'snowflake': ':iceberg-snowflake',
+            'delta-lake': ':iceberg-delta-lake',
+            'mr': ':iceberg-mr'
+        }
+        if first_dir in module_names:
+            return module_names[first_dir]
+    
     return None
 
 def main():
@@ -68,7 +104,6 @@ def main():
             
         module_path = find_gradle_module(args.repo, filepath)
         if not module_path: continue
-        if module_path == ":": module_path = ""
         
         test_target = ""
         try:
