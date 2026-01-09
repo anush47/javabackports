@@ -1,82 +1,64 @@
 #!/bin/bash
-# This script builds the Docker image and compiles the code.
-set -e # Exit on error
+set -e
 
-echo "--- Building code for ${COMMIT_SHA:0:7} ---"
+echo "--- Building Spring Framework for ${COMMIT_SHA:0:7} ---"
 
-echo "--- Changing directory to ${PROJECT_DIR} ---"
 cd "${PROJECT_DIR}"
 
 echo "--- Checking out commit... ---"
 git checkout -f ${COMMIT_SHA}
 git clean -fd
 
-# Create persistent Gradle cache volumes if they don't exist
-# Determine if we need sudo for docker
-DOCKER_CMD="docker"
-if ! docker info > /dev/null 2>&1; then
-    if sudo docker info > /dev/null 2>&1; then
-        echo "Docker requires sudo. Using 'sudo docker'."
-        DOCKER_CMD="sudo docker"
-    else
-        echo "Warning: Docker command failed and sudo check failed. Continuing with 'docker' but expect errors."
-    fi
-fi
+# Create persistent Gradle cache volumes
+docker volume create gradle-cache-spring 2>/dev/null || true
+docker volume create gradle-wrapper-spring 2>/dev/null || true
 
-${DOCKER_CMD} volume create gradle-cache-spring 2>/dev/null || true
-${DOCKER_CMD} volume create gradle-wrapper-spring 2>/dev/null || true
-
-echo "--- Building Docker image... ---"
+echo "--- Building Docker image with adaptive Java version... ---"
 
 # Detect Gradle version and choose appropriate Java version
+JAVA_VERSION=17
 if [ -f "gradle/wrapper/gradle-wrapper.properties" ]; then
-    GRADLE_URL=$(grep "distributionUrl" gradle/wrapper/gradle-wrapper.properties)
-    # Extract version like 8.5, 7.6, etc.
-    GRADLE_VER=$(echo $GRADLE_URL | grep -oE '[0-9]+\.[0-9]+' | head -1)
-    
-    echo "Detected Gradle version: $GRADLE_VER"
-    
-    # Logic for Java version
-    # Gradle 8.5+ support Java 21
-    # Gradle 7.3+ support Java 17
-    # Gradle < 7.3 usually Java 11 or 8
-    
-    MAJOR=$(echo $GRADLE_VER | cut -d. -f1)
-    MINOR=$(echo $GRADLE_VER | cut -d. -f2)
-    
-    if [ "$MAJOR" -ge 9 ]; then
-        JAVA_VERSION=21
-    elif [ "$MAJOR" -eq 8 ]; then
-        # Gradle 8.x supports Java 17+ but works best with 17 for older code (avoids JDK 21+ deprecations)
-        JAVA_VERSION=17
-    elif [ "$MAJOR" -eq 7 ]; then
-        if [ "$MINOR" -ge 3 ]; then
-             JAVA_VERSION=17
+    GRADLE_URL=$(grep "distributionUrl" gradle/wrapper/gradle-wrapper.properties 2>/dev/null || echo "")
+    if [ ! -z "$GRADLE_URL" ]; then
+        GRADLE_VER=$(echo $GRADLE_URL | grep -oE '[0-9]+\.[0-9]+' | head -1)
+        echo "Detected Gradle version: $GRADLE_VER"
+        
+        MAJOR=$(echo $GRADLE_VER | cut -d. -f1)
+        MINOR=$(echo $GRADLE_VER | cut -d. -f2)
+        
+        if [ "$MAJOR" -ge 8 ]; then
+            JAVA_VERSION=17
         else
-             JAVA_VERSION=11
+            JAVA_VERSION=11
         fi
-    else
-        # Gradle 6.x or older
-        JAVA_VERSION=11
     fi
-else
-    echo "No gradle-wrapper.properties found, defaulting to Java 21"
-    JAVA_VERSION=21
 fi
 
-echo "Selected JDK version: $JAVA_VERSION"
+echo "Using Java version: $JAVA_VERSION"
 
-# -f points to the Dockerfile in our toolkit
-# . (the context) is the PROJECT_DIR we just cd'd into
-${DOCKER_CMD} build --build-arg JAVA_VERSION=${JAVA_VERSION} -t ${IMAGE_TAG} -f ${TOOLKIT_DIR}/Dockerfile .
+# Build the Docker image with detected Java version
+docker build --build-arg JAVA_VERSION=${JAVA_VERSION} -t ${IMAGE_TAG} -f ${TOOLKIT_DIR}/Dockerfile ${TOOLKIT_DIR}
 
-echo "--- Setting cache permissions... ---"
-${DOCKER_CMD} run --rm -u root \
+echo "--- Running Gradle build (compile only, no tests) ---"
+
+# Run build in Docker with the source code mounted
+if docker run --rm \
+    -u 1000:1000 \
+    -v "${PROJECT_DIR}:/repo" \
     -v "gradle-cache-spring:/home/gradle/.gradle/caches" \
     -v "gradle-wrapper-spring:/home/gradle/.gradle/wrapper" \
-    -v "${BUILD_DIR}:/repo/build" \
+    -w /repo \
     ${IMAGE_TAG} \
-    chown -R 1000:1000 /home/gradle/.gradle/caches /home/gradle/.gradle/wrapper /repo/build
+    bash -c "set -e; \
+             git config --global --add safe.directory /repo; \
+             git checkout -f ${COMMIT_SHA}; \
+             ./gradlew clean build -x test --no-daemon -Dorg.gradle.jvmargs='-Xmx4g'"; then
+    echo "Success" > "${BUILD_STATUS_FILE}"
+else
+    echo "Fail" > "${BUILD_STATUS_FILE}"
+fi
+
+echo "--- Build complete for ${COMMIT_SHA:0:7} ---"
 
 echo "--- Compiling and preparing for tests... ---"
 # Spring build: classes testClasses

@@ -1,8 +1,8 @@
-ARG JAVA_VERSION=21
+ARG JAVA_VERSION=17
 # Use a standard, trusted Java (JDK) image
 FROM eclipse-temurin:${JAVA_VERSION}-jdk-jammy
 
-# Install basic tools (git, python3) needed for build scripts
+# Install basic tools
 RUN apt-get update && apt-get install -y \
     git \
     python3 \
@@ -14,30 +14,17 @@ RUN groupadd --gid 1000 gradle && \
     useradd --uid 1000 --gid 1000 --shell /bin/bash --create-home gradle
 
 # Create the global .gradle directory
-RUN mkdir -p /home/gradle/.gradle
+RUN mkdir -p /home/gradle/.gradle && \
+    chown -R gradle:gradle /home/gradle/.gradle
 
-# Create our global gradle.properties file with optimization settings
+# Create gradle.properties with optimization settings
 RUN echo "org.gradle.daemon=true" >> /home/gradle/.gradle/gradle.properties && \
     echo "org.gradle.parallel=true" >> /home/gradle/.gradle/gradle.properties && \
-    echo "org.gradle.caching=true" >> /home/gradle/.gradle/gradle.properties
+    echo "org.gradle.caching=true" >> /home/gradle/.gradle/gradle.properties && \
+    echo "org.gradle.jvmargs=-Xmx4g" >> /home/gradle/.gradle/gradle.properties
 
-# Set ownership for the .gradle dir
-RUN chown -R gradle:gradle /home/gradle/.gradle
-
-# Create the /repo dir and give the gradle user ownership
-RUN mkdir /repo
-RUN chown gradle:gradle /repo
-
-# Set up a working directory inside the container
+# Set up working directory
+RUN mkdir -p /repo && chown gradle:gradle /repo
 WORKDIR /repo
 
-# Copy files *AS* the gradle user
-COPY --chown=gradle:gradle gradlew .
-COPY --chown=gradle:gradle gradle gradle
-
-# Download the dependencies.
-# Spring Framework acts weird if we just run version, so try to download dependencies
-RUN ./gradlew --version || true
-
-# Copy all files *AS* the gradle user.
-COPY --chown=gradle:gradle . .
+# Build will be done by mounting the repo volume
