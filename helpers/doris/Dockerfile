@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     git-lfs \
     maven \
+    thrift-compiler \
+    protobuf-compiler \
     && rm -rf /var/lib/apt/lists/*
 
 # ---- Boot JDK setup -------------------------------------------------

@@ -800,7 +800,7 @@ def main():
                         "test_targets": {
                             "modified": modified_tests,
                             "added": added_tests,
-                            "modified_files": modified_test_files
+                            "modified_files": modified_test_files if 'modified_test_files' in locals() else [],
                         }
                     }
                     full_results_data.append(result_entry)
@@ -848,7 +848,7 @@ def main():
             "test_targets": {
                 "modified": modified_tests,
                 "added": added_tests,
-                "modified_files": modified_test_files,
+                "modified_files": modified_test_files if 'modified_test_files' in locals() else [],
                 "all": all_targets
             },
             "build_status_after": after_res["build"],
