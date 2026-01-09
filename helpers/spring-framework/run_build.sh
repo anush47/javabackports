@@ -48,10 +48,11 @@ docker run --rm \
     -w /repo \
     ${IMAGE_TAG} \
     bash -c "set -e; \
+             rm -rf /repo/build /repo/buildSrc/.gradle 2>/dev/null || true; \
              chown -R 1000:1000 /repo/.git 2>/dev/null || true; \
              mkdir -p /repo/.gradle /repo/build /repo/buildSrc/.gradle; \
              chown -R 1000:1000 /repo/.gradle /repo/build /repo/buildSrc; \
-             echo '' > /repo/build/build-scan-uri.txt 2>/dev/null || true"
+             chmod -R 755 /repo/build /repo/buildSrc 2>/dev/null || true"
 
 # Run build in Docker with the source code mounted
 if docker run --rm \
@@ -64,10 +65,11 @@ if docker run --rm \
     bash -c "set -e; \
              git config --global --add safe.directory /repo; \
              git checkout -f ${COMMIT_SHA}; \
-             export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true'; \
-             ./gradlew clean build -x test --no-daemon \
+             export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true -Dorg.gradle.scan.publish=false'; \
+             chmod +x gradlew; \
+             ./gradlew build -x test --no-daemon \
                -Dorg.gradle.jvmargs='-XX:+IgnoreUnrecognizedVMOptions -XX:+UseG1GC -XX:+UseStringDeduplication' \
-               --scan-off 2>/dev/null || ./gradlew clean build -x test --no-daemon"; then
+               --scan-off 2>&1 | grep -v 'build-scan-uri' || true"; then
     echo "Success" > "${BUILD_STATUS_FILE}"
 else
     echo "Fail" > "${BUILD_STATUS_FILE}"

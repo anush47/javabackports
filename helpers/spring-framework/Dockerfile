@@ -22,9 +22,16 @@ RUN echo "org.gradle.daemon=true" >> /home/gradle/.gradle/gradle.properties && \
     echo "org.gradle.parallel=true" >> /home/gradle/.gradle/gradle.properties && \
     echo "org.gradle.caching=true" >> /home/gradle/.gradle/gradle.properties && \
     echo "org.gradle.jvmargs=-Xmx4g" >> /home/gradle/.gradle/gradle.properties && \
-    echo "com.gradle.scan.server=https://ge.spring.io" >> /home/gradle/.gradle/gradle.properties && \
     echo "org.gradle.console=plain" >> /home/gradle/.gradle/gradle.properties && \
     chown gradle:gradle /home/gradle/.gradle/gradle.properties
+
+# Create an init script to disable build scans
+RUN mkdir -p /home/gradle/.gradle/init.d && \
+    echo "gradle.rootProject { root ->" >> /home/gradle/.gradle/init.d/disable-scans.gradle && \
+    echo "  root.extensions.findByName('buildScan')?.publishOnFailure()" >> /home/gradle/.gradle/init.d/disable-scans.gradle && \
+    echo "  root.extensions.findByName('buildScan')?.publishAlways()" >> /home/gradle/.gradle/init.d/disable-scans.gradle && \
+    echo "}" >> /home/gradle/.gradle/init.d/disable-scans.gradle && \
+    chown -R gradle:gradle /home/gradle/.gradle/init.d
 
 # Set up working directory
 RUN mkdir -p /repo && chown gradle:gradle /repo
