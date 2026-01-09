@@ -91,6 +91,12 @@ PROJECT_CONFIG = {
         "report_pattern": "**/build/test-results/**/*.xml",
         "builder_tag": "spring-builder:latest",
         "build_system": "self-building"
+    },
+    "doris": {
+        "repo_dir": "doris",
+        "report_pattern": "**/target/surefire-reports/*.xml",
+        "builder_tag": "doris-builder:latest",
+        "build_system": "maven"
     }
 }
 
