@@ -408,9 +408,14 @@ def collect_test_reports(project_name, project_repo_dir, dest_dir):
                 print(f"Failed to copy {full_src_path}: {e}")
     else:
         # For self-building projects (like ES), source_dir is already the build directory
-        # We aggregated all results into 'all-test-results' in run_tests.sh
+        # Check if a custom report_pattern is configured
         if PROJECT_CONFIG[project_name]['build_system'] == 'self-building':
-             full_pattern = os.path.join(project_repo_dir, "all-test-results", "*.xml")
+            if 'report_pattern' in PROJECT_CONFIG[project_name] and PROJECT_CONFIG[project_name]['report_pattern']:
+                # Use configured pattern (e.g., for Iceberg: **/build/test-results/**/*.xml)
+                full_pattern = os.path.join(project_repo_dir, PROJECT_CONFIG[project_name]["report_pattern"])
+            else:
+                # Default fallback for projects that aggregate to all-test-results
+                full_pattern = os.path.join(project_repo_dir, "all-test-results", "*.xml")
         else:
              full_pattern = os.path.join(project_repo_dir, PROJECT_CONFIG[project_name]["report_pattern"])
         
