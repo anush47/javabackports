@@ -1,5 +1,6 @@
-# Use a standard, trusted Java 21 (JDK) image
-FROM eclipse-temurin:21-jdk-jammy
+ARG JAVA_VERSION=21
+# Use a standard, trusted Java (JDK) image
+FROM eclipse-temurin:${JAVA_VERSION}-jdk-jammy
 
 # Install basic tools (git, python3) needed for build scripts
 RUN apt-get update && apt-get install -y \
