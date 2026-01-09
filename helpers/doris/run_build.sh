@@ -37,9 +37,14 @@ echo "=== Running standard Maven build ==="
         -e DORIS_HOME=/repo \
         ${BUILDER_IMAGE_TAG} \
         bash -c "
+            ls -la;
             if [ -f generated-source.sh ]; then 
+                echo 'Found generated-source.sh';
+                thrift --version || echo 'Thrift not found';
                 echo 'Running generated-source.sh...'; 
-                bash generated-source.sh noclean || echo 'Warning: generated-source.sh failed, proceeding with Maven...'; 
+                bash generated-source.sh noclean; 
+            else
+                echo 'generated-source.sh NOT found';
             fi;
             if [ -f fe/pom.xml ]; then 
                 mvn -f fe/pom.xml clean install -DskipTests -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dpmd.skip=true -Dforbiddenapis.skip=true -Denforcer.skip=true -Drat.skip=true -T 1C; 
