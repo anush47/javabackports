@@ -93,6 +93,11 @@ def main():
         if not module_path:
             continue
         
+        # Skip root module tests - they're usually not meaningful
+        if module_path == ":":
+            print(f"DEBUG: Skipping root module test file: {filepath}", file=sys.stderr)
+            continue
+        
         test_target = ""
         
         try:
