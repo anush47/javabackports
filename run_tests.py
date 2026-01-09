@@ -678,6 +678,9 @@ def main():
             print(f"--- Skipping {commit_sha} (No relevant test targets found) ---")
             continue
         
+        # Determine modified test files (for applying changes to buggy version)
+        modified_test_files = get_modified_test_files(project_repo_dir, commit_sha)
+        
         # Determine if we need to test buggy version
         skip_buggy = (len(modified_tests) == 0 and len(added_tests) > 0)
         
