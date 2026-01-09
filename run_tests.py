@@ -97,6 +97,12 @@ PROJECT_CONFIG = {
         "report_pattern": "**/target/surefire-reports/*.xml",
         "builder_tag": "doris-builder:latest",
         "build_system": "maven"
+    },
+    "hbase": {
+        "repo_dir": "hbase",
+        "report_pattern": "**/target/surefire-reports/*.xml",
+        "builder_tag": "hbase-builder:latest",
+        "build_system": "maven"
     }
 }
 
