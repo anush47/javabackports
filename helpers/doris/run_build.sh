@@ -38,6 +38,13 @@ echo "=== Running standard Maven build ==="
         ${BUILDER_IMAGE_TAG} \
         bash -c "
             ls -la;
+            # Load Doris build environment (matches official build.sh)
+            if [ -f env.sh ]; then 
+                echo 'Sourcing env.sh...'; 
+                . ./env.sh; 
+            else 
+                echo 'env.sh NOT found'; 
+            fi;
             if [ -f generated-source.sh ]; then 
                 echo 'Found generated-source.sh';
                 thrift --version || echo 'Thrift not found';

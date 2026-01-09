@@ -12,6 +12,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     protobuf-compiler \
     && rm -rf /var/lib/apt/lists/*
 
+# Ensure a `thrift` binary is available, as Doris scripts expect this name
+RUN if [ -x /usr/bin/thrift-compiler ] && [ ! -x /usr/bin/thrift ]; then \
+            ln -s /usr/bin/thrift-compiler /usr/bin/thrift; \
+        fi
+
 # ---- Boot JDK setup -------------------------------------------------
 ENV BOOT_JDK=/opt/java/openjdk
 RUN echo "Boot JDK is at ${BOOT_JDK}" && ${BOOT_JDK}/bin/java -version
