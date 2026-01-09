@@ -7,35 +7,41 @@ import json
 
 def find_gradle_module(repo, filepath):
     """
-    Finds the Gradle module path (e.g. :core or :spring-context) for a given file.
-    Walks up the directory tree looking for build.gradle.
+    Finds the Gradle module path (e.g. :spring-web or :spring-context) for a given file.
+    For Spring Framework and similar projects, extracts module from path structure.
     """
-    # filepath is relative to repo root, e.g. "spring-core/src/test/java/..."
+    # filepath is relative to repo root, e.g. "spring-web/src/test/java/..."
     
+    # Spring Framework pattern: module-name/src/test/...
+    # Extract the first directory component before /src/
+    if "/src/" in filepath or "\\src\\" in filepath:
+        normalized_path = filepath.replace("\\", "/")
+        parts = normalized_path.split("/src/")
+        if len(parts) >= 2:
+            # The module is the directory before /src/
+            module_dir = parts[0]
+            if module_dir and "/" not in module_dir:
+                # Single-level module like "spring-web"
+                return ":" + module_dir
+            elif module_dir and "/" in module_dir:
+                # Multi-level module like "integration-tests/spring-web"
+                return ":" + module_dir.replace("/", ":")
+    
+    # Fallback: walk up directory tree looking for build.gradle
     current_dir = os.path.dirname(filepath)
     
     while current_dir:
-        # Check if build.gradle or build.gradle.kts exists in this directory
         build_gradle_path = os.path.join(repo, current_dir, "build.gradle")
         build_gradle_kts_path = os.path.join(repo, current_dir, "build.gradle.kts")
         
-        # DEBUG PRINT
-        print(f"DEBUG: Checking {build_gradle_path} and {build_gradle_kts_path}", file=sys.stderr)
-        
         if os.path.exists(build_gradle_path) or os.path.exists(build_gradle_kts_path):
-            # Found it!
             normalized_dir = current_dir.replace("\\", "/")
             return ":" + normalized_dir.replace("/", ":")
             
-        # Move up one level
         parent = os.path.dirname(current_dir)
-        if parent == current_dir: # Safety check
+        if parent == current_dir:
             break
         current_dir = parent
-        
-    # Check root
-    if os.path.exists(os.path.join(repo, "build.gradle")):
-        return ":"
         
     return None
 
@@ -91,11 +97,7 @@ def main():
         # Find the Gradle module
         module_path = find_gradle_module(args.repo, filepath)
         if not module_path:
-            continue
-        
-        # Skip root module tests - they're usually not meaningful
-        if module_path == ":":
-            print(f"DEBUG: Skipping root module test file: {filepath}", file=sys.stderr)
+            print(f"DEBUG: Could not determine module for: {filepath}", file=sys.stderr)
             continue
         
         test_target = ""
