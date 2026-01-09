@@ -594,7 +594,7 @@ def main():
             # Check file count
             res_files = subprocess.run(f"git diff-tree --no-commit-id --name-only -r {commit_sha}", shell=True, cwd=project_repo_dir, capture_output=True, text=True)
             changed_files = res_files.stdout.strip().splitlines()
-            if len(changed_files) > 10:
+            if len(changed_files) > 50:
                 print(f"--- Skipping {commit_sha} (Too many changed files: {len(changed_files)}) ---")
                 continue
 
