@@ -85,6 +85,12 @@ PROJECT_CONFIG = {
         "report_pattern": "**/build/test-results/**/*.xml",
         "builder_tag": "logstash-builder:latest",
         "build_system": "self-building"
+    },
+    "spring-framework": {
+        "repo_dir": "spring-framework",
+        "report_pattern": "**/build/test-results/**/*.xml",
+        "builder_tag": "spring-builder:latest",
+        "build_system": "self-building"
     }
 }
 
@@ -575,6 +581,12 @@ def main():
             changed_files = res_files.stdout.strip().splitlines()
             if len(changed_files) > 10:
                 print(f"--- Skipping {commit_sha} (Too many changed files: {len(changed_files)}) ---")
+                continue
+
+            # Check if any Java files are modified
+            has_java_changes = any(f.endswith(".java") for f in changed_files)
+            if not has_java_changes:
+                print(f"--- Skipping {commit_sha} (No Java files changed) ---")
                 continue
         except:
             print("Error finding parent commit or checking file count.")
