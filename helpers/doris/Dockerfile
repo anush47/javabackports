@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         git-lfs \
         maven \
         python3 \
+        flex \
         thrift-compiler \
         protobuf-compiler \
         && rm -rf /var/lib/apt/lists/*
