@@ -233,6 +233,11 @@ def compile_and_check_imports(project_dir, test_files, project_name):
     # This is a simplified approach - may need project-specific adjustments
     compile_errors = []
     import_errors = []
+
+    # Check for javac
+    if not shutil.which("javac"):
+        print("  ⚠️  javac not found on system path. Skipping import checks.")
+        return True, "Skipped (javac not found)", []
     
     for test_file in test_files:
         file_path = os.path.join(project_dir, test_file)
@@ -298,6 +303,9 @@ def get_smart_test_targets(toolkit_dir, project_dir, commit_sha, project_name):
             f"python3 {resolver_script} --repo {project_dir} --commit {commit_sha}",
             shell=True, capture_output=True, text=True, check=True
         )
+        if result.stderr:
+            print(f"--- Debug get_test_targets stderr: ---\n{result.stderr}\n----------------------------------")
+        
         output = result.stdout.strip()
         if not output:
             return {"modified": [], "added": [], "all_targets": "NONE"}
