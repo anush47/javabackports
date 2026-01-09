@@ -8,6 +8,9 @@ echo "--- Building code for ${COMMIT_SHA:0:7} ---"
 docker volume create maven-cache-hbase 2>/dev/null || true
 
 echo "--- Preparing build directory... ---"
+# Clean and prepare build directory
+rm -rf "${BUILD_DIR}"
+mkdir -p "${BUILD_DIR}"
 # Copy source code to BUILD_DIR
 cp -r "${PROJECT_DIR}/." "${BUILD_DIR}/"
 
