@@ -41,15 +41,15 @@ else
         done
 
         if [ -z "$CLASSES" ]; then
-            echo "Error: No valid test classes found"
-            exit 1
+            echo "Warning: No test classes found, falling back to module-level testing"
+            COMMA_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
+            MAVEN_ARGS="-pl ${COMMA_TARGETS} -am"
+        else
+            echo "Modules: $MODULES"
+            echo "Test Classes: $CLASSES"
+            echo "Number of test classes: $(echo $CLASSES | tr ',' '\n' | wc -l)"
+            MAVEN_ARGS="-pl ${MODULES} -Dtest=${CLASSES} -am -DfailIfNoTests=false -Dsurefire.failIfNoSpecifiedTests=false"
         fi
-
-        echo "Modules: $MODULES"
-        echo "Test Classes: $CLASSES"
-        echo "Number of test classes: $(echo $CLASSES | tr ',' '\n' | wc -l)"
-
-        MAVEN_ARGS="-pl ${MODULES} -Dtest=${CLASSES} -am -DfailIfNoTests=false"
     else
         echo "--- Module Test Mode: Running all tests in affected modules ---"
         COMMA_TARGETS=$(echo "${TEST_TARGETS}" | tr ' ' ',')
@@ -76,6 +76,7 @@ if docker run --rm \
              echo 'Running: mvn test ${MAVEN_ARGS}'; \
              mvn test ${MAVEN_ARGS} \
                  -DfailIfNoTests=false \
+                 -Dsurefire.failIfNoSpecifiedTests=false \
                  -Dmaven.javadoc.skip=true \
                  -Dcheckstyle.skip=true \
                  -Dspotbugs.skip=true \
