@@ -9,8 +9,9 @@ IMAGE_TAG="${IMAGE_TAG:-iceberg-${BUILD_TYPE}-${COMMIT_SHA:0:7}}"
 echo "--- Using Docker Image: ${IMAGE_TAG} ---"
 
 # Configure Test Command
+# Use -DallModules to enable all Flink/Spark/Kafka versions in settings.gradle
 if [ "${TEST_TARGETS}" == "ALL" ]; then
-    GRADLE_CMD="./gradlew test"
+    GRADLE_CMD="./gradlew -DallModules test"
 elif [ "${TEST_TARGETS}" == "NONE" ]; then
     echo "No relevant source code changes found. Skipping tests."
     exit 0
@@ -18,7 +19,7 @@ else
     # Gradle test filters
     # TEST_TARGETS is space separated "module:test --tests ClassName"
     # We simply pass it through as it's already formatted by get_test_targets.py
-    GRADLE_CMD="./gradlew ${TEST_TARGETS}"
+    GRADLE_CMD="./gradlew -DallModules ${TEST_TARGETS}"
 fi
 
 DOCKER_CMD="docker"

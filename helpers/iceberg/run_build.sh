@@ -39,6 +39,7 @@ ${DOCKER_CMD} run --rm -u root \
 echo "--- Compiling and preparing for tests... ---"
 # Iceberg build: build -x test -x integrationTest
 # Skip integration tests as they require Docker
+# Use -DallModules to enable all Flink/Spark/Kafka versions
 if ${DOCKER_CMD} run --rm \
     --dns=8.8.8.8 \
     -u 1000:1000 \
@@ -46,7 +47,7 @@ if ${DOCKER_CMD} run --rm \
     -v "gradle-wrapper-iceberg:/home/gradle/.gradle/wrapper" \
     -v "${BUILD_DIR}:/repo/build" \
     ${IMAGE_TAG} \
-    ./gradlew build -x test -x integrationTest --continue; then
+    ./gradlew -DallModules build -x test -x integrationTest --continue; then
     echo "Success" > $BUILD_STATUS_FILE
 else
     echo "Fail" > $BUILD_STATUS_FILE
