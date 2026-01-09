@@ -66,8 +66,8 @@ if ${DOCKER_CMD} run --rm \
     "${IMAGE_TAG}" \
     bash -c "set -e; \
     export GRADLE_OPTS='-Dorg.gradle.internal.publish.checksums.insecure=true -Dorg.gradle.scan.publish=false'; \
-    ${GRADLE_CMD} --scan-off 2>&1 | grep -v 'build-scan-uri' | grep -v 'build listener' || true; \
-    GRADLE_EXIT_CODE=\${PIPESTATUS[0]}; \
+    ${GRADLE_CMD}; \
+    GRADLE_EXIT_CODE=\$?; \
     echo '--- Debug: finding test-results dirs ---'; \
     find . -type d -name 'test-results' 2>/dev/null; \
     echo '--- Debug: finding XML files in test-results ---'; \
