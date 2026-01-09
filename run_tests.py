@@ -103,6 +103,12 @@ PROJECT_CONFIG = {
         "report_pattern": "**/target/surefire-reports/*.xml",
         "builder_tag": "hbase-builder:latest",
         "build_system": "maven"
+    },
+    "flink": {
+        "repo_dir": "flink",
+        "report_pattern": "**/target/surefire-reports/*.xml",
+        "builder_tag": "flink-builder:latest",
+        "build_system": "maven"
     }
 }
 
