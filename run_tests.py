@@ -233,6 +233,26 @@ def get_modified_test_files(project_dir, commit_sha):
     except:
         return []
 
+def get_added_test_files(project_dir, commit_sha):
+    """Get list of newly added test files from commit."""
+    try:
+        # Get added files
+        result = subprocess.run(
+            f"git diff-tree --no-commit-id --name-only --diff-filter=A -r {commit_sha}",
+            shell=True, cwd=project_dir, capture_output=True, text=True, check=True
+        )
+        all_added = [f.strip() for f in result.stdout.strip().splitlines() if f.strip()]
+        
+        # Filter for test files
+        test_files = []
+        for f in all_added:
+            if any(indicator in f.lower() for indicator in ['test', 'spec']) and f.endswith('.java'):
+                test_files.append(f)
+        
+        return test_files
+    except:
+        return []
+
 def apply_test_changes(project_dir, commit_sha, test_files):
     """Apply changes to specific test files from commit_sha to current state."""
     if not test_files:
@@ -754,8 +774,10 @@ def main():
                 print(f"--- Skipping {commit_sha} (No relevant test targets found) ---")
                 continue
         
-        # Determine modified test files (for applying changes to buggy version)
+        # Determine modified and added test files (for applying changes to buggy version)
         modified_test_files = get_modified_test_files(project_repo_dir, commit_sha)
+        added_test_files = get_added_test_files(project_repo_dir, commit_sha)
+        all_test_files = modified_test_files + added_test_files
         
         # Determine if we need to test buggy version
         skip_buggy = (len(modified_tests) == 0 and len(added_tests) > 0)
@@ -886,24 +908,20 @@ def main():
             # Only run buggy tests if we haven't already determined to skip
             if 'before_res' not in locals():
                 # Determine test targets and whether to apply test changes
-                buggy_test_targets = all_targets  # Default to all targets
-                apply_test_changes = False
+                # ALWAYS apply test changes (both modified AND added test files) to buggy version
+                buggy_test_targets = " ".join(modified_tests + added_tests) if (modified_tests or added_tests) else all_targets
+                apply_test_changes = len(all_test_files) > 0
                 
-                if len(modified_test_files) > 0:
-                    # Has modified test files - apply changes and check for import errors
-                    buggy_test_targets = " ".join(modified_tests) if modified_tests else all_targets
-                    apply_test_changes = True
-                    print(f"--- Running buggy version with modified test changes applied ---")
+                if apply_test_changes:
+                    print(f"--- Running buggy version with test changes applied ({len(modified_test_files)} modified, {len(added_test_files)} added) ---")
                 else:
-                    # Only new test files - run all tests without applying changes for baseline
-                    buggy_test_targets = all_targets
-                    print(f"--- Running buggy version without test changes (only new tests added) - establishing baseline ---")
+                    print(f"--- Running buggy version without test changes ---")
                 
                 before_res = execute_lifecycle(
                     project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, 
                     buggy_test_targets,
                     apply_test_changes_from=commit_sha if apply_test_changes else None,
-                    modified_test_files=modified_test_files if apply_test_changes else None
+                    modified_test_files=all_test_files if apply_test_changes else None
                 )
                 
                 # Check if we hit import errors (invalid backport)
