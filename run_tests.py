@@ -722,6 +722,11 @@ def main():
         except:
             print("Error finding parent commit or checking file count.")
             continue
+            
+        # Clear loop variables from previous iteration
+        if 'before_res' in locals(): del before_res
+        if 'after_res' in locals(): del after_res
+        if 'old_result' in locals(): del old_result
 
         # Early check: if old results show build_after failed, reuse immediately
         if commit_sha in old_results_map:
