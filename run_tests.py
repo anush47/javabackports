@@ -278,9 +278,9 @@ def apply_test_changes(project_dir, commit_sha, test_files):
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.write(file_content)
         
-        return True, f"Applied changes to {len(test_files)} test files"
+        return True, f"Applied changes to {len(test_files)} test files", []
     except Exception as e:
-        return False, f"Error applying test changes: {e}"
+        return False, f"Error applying test changes: {e}", []
 
 def compile_and_check_imports(project_dir, test_files, project_name):
     """Compile test files and check specifically for import errors."""
