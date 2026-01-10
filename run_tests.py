@@ -853,34 +853,35 @@ def main():
             run_command(f"git checkout {parent_sha}", cwd=project_repo_dir, capture_output=True)
             
             # Validate that test targets exist in buggy version (for Gradle multi-module projects)
-            config = PROJECT_CONFIG[project_name]
-            if config.get('build_system') in ['self-building'] and (modified_tests or added_tests):
-                print(f"--- Validating test targets exist in buggy version ---")
-                # For Gradle projects, check if modules exist
-                test_targets_to_validate = modified_tests + added_tests
-                invalid_targets = []
-                for target in test_targets_to_validate:
-                    # Extract module from target like ":spring-web:test --tests ..."
-                    if ':' in target:
-                        module = target.split(':test')[0]
-                        if module and module != ':':
-                            # Check if module directory exists
-                            module_dir = module.strip(':').replace(':', '/')
-                            module_path = os.path.join(project_repo_dir, module_dir)
-                            if not os.path.exists(module_path):
-                                print(f"--- Module {module} does not exist in buggy version ---")
-                                invalid_targets.append(target)
-                
-                if invalid_targets:
-                    # Remove invalid targets
-                    modified_tests = [t for t in modified_tests if t not in invalid_targets]
-                    added_tests = [t for t in added_tests if t not in invalid_targets]
-                    
-                    if not modified_tests and not added_tests:
-                        print(f"--- All test targets invalid in buggy version. Treating as new module addition. ---")
-                        before_res = {"build": "Skipped", "test": "Skipped (New Module)", "passed": set(), "failed": set()}
-                        # Reset to patched version
-                        run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, capture_output=True)
+            # DISABLED: Always attempt to run buggy version to get build/test status
+            # config = PROJECT_CONFIG[project_name]
+            # if config.get('build_system') in ['self-building'] and (modified_tests or added_tests):
+            #     print(f"--- Validating test targets exist in buggy version ---")
+            #     # For Gradle projects, check if modules exist
+            #     test_targets_to_validate = modified_tests + added_tests
+            #     invalid_targets = []
+            #     for target in test_targets_to_validate:
+            #         # Extract module from target like ":spring-web:test --tests ..."
+            #         if ':' in target:
+            #             module = target.split(':test')[0]
+            #             if module and module != ':':
+            #                 # Check if module directory exists
+            #                 module_dir = module.strip(':').replace(':', '/')
+            #                 module_path = os.path.join(project_repo_dir, module_dir)
+            #                 if not os.path.exists(module_path):
+            #                     print(f"--- Module {module} does not exist in buggy version ---")
+            #                     invalid_targets.append(target)
+            #     
+            #     if invalid_targets:
+            #         # Remove invalid targets
+            #         modified_tests = [t for t in modified_tests if t not in invalid_targets]
+            #         added_tests = [t for t in added_tests if t not in invalid_targets]
+            #         
+            #         if not modified_tests and not added_tests:
+            #             print(f"--- All test targets invalid in buggy version. Treating as new module addition. ---")
+            #             before_res = {"build": "Skipped", "test": "Skipped (New Module)", "passed": set(), "failed": set()}
+            #             # Reset to patched version
+            #             run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, capture_output=True)
             
             # Only run buggy tests if we haven't already determined to skip
             if 'before_res' not in locals():
