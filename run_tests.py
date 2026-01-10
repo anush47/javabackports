@@ -253,6 +253,42 @@ def get_added_test_files(project_dir, commit_sha):
     except:
         return []
 
+def get_new_test_methods(project_dir, commit_sha, modified_files):
+    """Parse git diff to find newly added test methods in modified files."""
+    new_methods = set()
+    if not modified_files:
+        return new_methods
+        
+    try:
+        for file_path in modified_files:
+            # excessive git calls, but necessary for accuracy
+            # Diff with 0 context to see added lines clearly
+            cmd = f"git diff -U0 {commit_sha}^ {commit_sha} -- {file_path}"
+            result = subprocess.run(cmd, shell=True, cwd=project_dir, capture_output=True, text=True)
+            
+            if result.returncode != 0:
+                continue
+                
+            # Naive heuristic: look for added lines with @Test or @ParameterizedTest
+            # followed by a method definition
+            lines = result.stdout.splitlines()
+            for i, line in enumerate(lines):
+                if line.startswith('+') and ('@Test' in line or '@ParameterizedTest' in line or '@RepeatedTest' in line):
+                    # Look ahead for method name
+                    # Typically within next few lines
+                    for j in range(i+1, min(i+5, len(lines))):
+                        next_line = lines[j]
+                        if next_line.startswith('+') and 'void' in next_line:
+                            # Extract method name:  void methodName() or void methodName (
+                            match = re.search(r'void\s+([a-zA-Z0-9_]+)\s*[\(\{]', next_line)
+                            if match:
+                                new_methods.add(match.group(1))
+                                break
+    except Exception as e:
+        print(f"Warning: Failed to parse new test methods: {e}")
+        
+    return new_methods
+
 def apply_test_changes(project_dir, commit_sha, test_files):
     """Apply changes to specific test files from commit_sha to current state."""
     if not test_files:
@@ -904,39 +940,8 @@ def main():
                     run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, capture_output=True)
             
             # Step 2: Validate that modules exist (after applying test changes)
-            if 'before_res' not in locals():
-                config = PROJECT_CONFIG[project_name]
-                if config.get('build_system') in ['self-building'] and (modified_tests or added_tests):
-                    print(f"--- Validating test targets exist in buggy version (after applying changes) ---")
-                    # For Gradle projects, check if modules exist
-                    test_targets_to_validate = modified_tests + added_tests
-                    invalid_targets = []
-                    for target in test_targets_to_validate:
-                        # Extract module from target like ":spring-web:test --tests ..."
-                        if ':' in target:
-                            module = target.split(':test')[0]
-                            if module and module != ':':
-                                # Check if module directory exists
-                                module_dir = module.strip(':').replace(':', '/')
-                                module_path = os.path.join(project_repo_dir, module_dir)
-                                if not os.path.exists(module_path):
-                                    print(f"--- Module {module} does not exist in buggy version ---")
-                                    invalid_targets.append(target)
-                    
-                    if invalid_targets:
-                        # Remove invalid targets
-                        valid_modified = [t for t in modified_tests if t not in invalid_targets]
-                        valid_added = [t for t in added_tests if t not in invalid_targets]
-                        
-                        if not valid_modified and not valid_added:
-                            print(f"--- All test targets invalid in buggy version. Treating as new module addition. ---")
-                            before_res = {"build": "Skipped", "test": "Skipped (New Module)", "passed": set(), "failed": set()}
-                            # Reset to patched version
-                            run_command(f"git checkout -f {commit_sha}", cwd=project_repo_dir, capture_output=True)
-                        else:
-                            # Update targets to only valid ones
-                            buggy_test_targets = " ".join(valid_modified + valid_added)
-                            print(f"--- Removed {len(invalid_targets)} invalid targets, proceeding with {len(valid_modified + valid_added)} valid targets ---")
+            # SKIPPED: Naive directory checking fails for custom Gradle structures (like Iceberg).
+            # We will let Gradle fail naturally if the module doesn't exist.
             
             # Step 3: Run tests if not already determined to skip
             if 'before_res' not in locals():
@@ -980,9 +985,10 @@ def main():
         # Calculate new_passes more accurately:
         # If buggy version was skipped (new module), only count tests from ADDED test files as new
         # Otherwise, count all tests that passed in fixed but didn't run in buggy
-        if before_res.get("test") in ["Skipped (New Module)", "Skipped"]:
-            # For new modules or skipped buggy: extract test names from added_tests list
-            # added_tests contains targets like ":module:test --tests ClassName"
+        if before_res.get("test") in ["Skipped (New Module)", "Skipped", "Skipped (Build Failed)"]:
+            # For new modules/skipped/failed buggy: count tests from added files + new methods in modified files
+            
+            # 1. Tests from added files
             added_test_names = set()
             for target in added_tests:
                 if '--tests' in target:
@@ -991,8 +997,23 @@ def main():
                     if len(parts) > 1:
                         test_name = parts[1].strip().strip('"')
                         added_test_names.add(test_name)
-            # Only count passes that match added test names
-            new_passes = [t for t in after_res["passed"] if any(added in t for added in added_test_names)] if added_test_names else []
+            
+            # 2. New test methods from modified files
+            new_methods = get_new_test_methods(project_repo_dir, commit_sha, modified_test_files)
+            
+            # Count if matches added class OR added method name
+            new_passes = []
+            for t in after_res["passed"]:
+                # t is usually "ClassName.methodName"
+                # Check 1: Is in added test file (matches class name)
+                if any(added in t for added in added_test_names):
+                    new_passes.append(t)
+                    continue
+                # Check 2: Is a new method in modified file (matches method name)
+                # t.split('.')[-1] gets methodName
+                method_name = t.split('.')[-1] if '.' in t else t
+                if method_name in new_methods:
+                    new_passes.append(t)
         else:
             # Normal case: count tests that passed in fixed but weren't in buggy
             new_passes = list(after_res["passed"].difference(all_tests_before))
