@@ -932,7 +932,7 @@ def main():
                             print(f"--- All test targets invalid in buggy version. Treating as new module addition. ---")
                             before_res = {"build": "Skipped", "test": "Skipped (New Module)", "passed": set(), "failed": set()}
                             # Reset to patched version
-                            run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, capture_output=True)
+                            run_command(f"git checkout -f {commit_sha}", cwd=project_repo_dir, capture_output=True)
                         else:
                             # Update targets to only valid ones
                             buggy_test_targets = " ".join(valid_modified + valid_added)
