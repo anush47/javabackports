@@ -27,13 +27,14 @@ def find_gradle_module(repo, filepath):
         else:  # flink-runtime
             return f":iceberg-flink:iceberg-flink-runtime-{version}"
     
-    # Handle Spark modules: spark/v{version}/spark/ -> :iceberg-spark:iceberg-spark-{version}_2.13
+    # Handle Spark modules: spark/v{version}/spark/ -> :iceberg-spark:iceberg-spark-{version}_2.1X
     spark_match = re.match(r"spark/v([\d.]+)/(spark|spark-extensions|spark-runtime)/", normalized)
     if spark_match:
         version = spark_match.group(1)
         submodule = spark_match.group(2)
-        # Based on settings.gradle, format is :iceberg-spark:iceberg-{submodule}-{version}_2.13
-        return f":iceberg-spark:iceberg-{submodule}-{version}_2.13"
+        # Scala version mapping: 3.x uses 2.12, 4.x uses 2.13
+        scala_version = "2.12" if version.startswith("3.") else "2.13"
+        return f":iceberg-spark:iceberg-{submodule}-{version}_{scala_version}"
     
     # For other modules, use the standard detection
     # Get the first directory component

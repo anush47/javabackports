@@ -874,54 +874,78 @@ def main():
             # Checkout parent commit
             run_command(f"git checkout {parent_sha}", cwd=project_repo_dir, capture_output=True)
             
-            # Validate that test targets exist in buggy version (for Gradle multi-module projects)
-            # DISABLED: Always attempt to run buggy version to get build/test status
-            # config = PROJECT_CONFIG[project_name]
-            # if config.get('build_system') in ['self-building'] and (modified_tests or added_tests):
-            #     print(f"--- Validating test targets exist in buggy version ---")
-            #     # For Gradle projects, check if modules exist
-            #     test_targets_to_validate = modified_tests + added_tests
-            #     invalid_targets = []
-            #     for target in test_targets_to_validate:
-            #         # Extract module from target like ":spring-web:test --tests ..."
-            #         if ':' in target:
-            #             module = target.split(':test')[0]
-            #             if module and module != ':':
-            #                 # Check if module directory exists
-            #                 module_dir = module.strip(':').replace(':', '/')
-            #                 module_path = os.path.join(project_repo_dir, module_dir)
-            #                 if not os.path.exists(module_path):
-            #                     print(f"--- Module {module} does not exist in buggy version ---")
-            #                     invalid_targets.append(target)
-            #     
-            #     if invalid_targets:
-            #         # Remove invalid targets
-            #         modified_tests = [t for t in modified_tests if t not in invalid_targets]
-            #         added_tests = [t for t in added_tests if t not in invalid_targets]
-            #         
-            #         if not modified_tests and not added_tests:
-            #             print(f"--- All test targets invalid in buggy version. Treating as new module addition. ---")
-            #             before_res = {"build": "Skipped", "test": "Skipped (New Module)", "passed": set(), "failed": set()}
-            #             # Reset to patched version
-            #             run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, capture_output=True)
+            # Determine test targets and whether to apply test changes
+            # ALWAYS apply test changes (both modified AND added test files) to buggy version FIRST
+            buggy_test_targets = " ".join(modified_tests + added_tests) if (modified_tests or added_tests) else all_targets
+            apply_test_changes = len(all_test_files) > 0
             
-            # Only run buggy tests if we haven't already determined to skip
+            # Step 1: Apply test changes if any
+            if apply_test_changes:
+                print(f"--- Applying test changes to buggy version ({len(modified_test_files)} modified, {len(added_test_files)} added) ---")
+                success, msg, import_errors = apply_test_changes(project_repo_dir, commit_sha, all_test_files)
+                
+                if not success:
+                    print(f"--- Failed to apply test changes: {msg} ---")
+                    # If we can't apply changes, skip buggy version
+                    before_res = {"build": "Skipped", "test": "Skipped", "passed": set(), "failed": set()}
+                    run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, capture_output=True)
+                elif import_errors:
+                    print(f"--- ❌ INVALID BACKPORT: Import errors detected when applying test changes to buggy version ---")
+                    # Handle import errors (invalid backport case)
+                    before_res = {
+                        "build": "Skipped",
+                        "test": "Skipped",
+                        "passed": set(),
+                        "failed": set(),
+                        "error_type": "import_error",
+                        "error_msg": msg,
+                        "import_errors": import_errors
+                    }
+                    run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, capture_output=True)
+            
+            # Step 2: Validate that modules exist (after applying test changes)
             if 'before_res' not in locals():
-                # Determine test targets and whether to apply test changes
-                # ALWAYS apply test changes (both modified AND added test files) to buggy version
-                buggy_test_targets = " ".join(modified_tests + added_tests) if (modified_tests or added_tests) else all_targets
-                apply_test_changes = len(all_test_files) > 0
-                
-                if apply_test_changes:
-                    print(f"--- Running buggy version with test changes applied ({len(modified_test_files)} modified, {len(added_test_files)} added) ---")
-                else:
-                    print(f"--- Running buggy version without test changes ---")
-                
+                config = PROJECT_CONFIG[project_name]
+                if config.get('build_system') in ['self-building'] and (modified_tests or added_tests):
+                    print(f"--- Validating test targets exist in buggy version (after applying changes) ---")
+                    # For Gradle projects, check if modules exist
+                    test_targets_to_validate = modified_tests + added_tests
+                    invalid_targets = []
+                    for target in test_targets_to_validate:
+                        # Extract module from target like ":spring-web:test --tests ..."
+                        if ':' in target:
+                            module = target.split(':test')[0]
+                            if module and module != ':':
+                                # Check if module directory exists
+                                module_dir = module.strip(':').replace(':', '/')
+                                module_path = os.path.join(project_repo_dir, module_dir)
+                                if not os.path.exists(module_path):
+                                    print(f"--- Module {module} does not exist in buggy version ---")
+                                    invalid_targets.append(target)
+                    
+                    if invalid_targets:
+                        # Remove invalid targets
+                        valid_modified = [t for t in modified_tests if t not in invalid_targets]
+                        valid_added = [t for t in added_tests if t not in invalid_targets]
+                        
+                        if not valid_modified and not valid_added:
+                            print(f"--- All test targets invalid in buggy version. Treating as new module addition. ---")
+                            before_res = {"build": "Skipped", "test": "Skipped (New Module)", "passed": set(), "failed": set()}
+                            # Reset to patched version
+                            run_command(f"git checkout {commit_sha}", cwd=project_repo_dir, capture_output=True)
+                        else:
+                            # Update targets to only valid ones
+                            buggy_test_targets = " ".join(valid_modified + valid_added)
+                            print(f"--- Removed {len(invalid_targets)} invalid targets, proceeding with {len(valid_modified + valid_added)} valid targets ---")
+            
+            # Step 3: Run tests if not already determined to skip
+            if 'before_res' not in locals():
+                print(f"--- Running buggy version tests ---")
                 before_res = execute_lifecycle(
                     project_name, parent_sha, "buggy", toolkit_dir, project_repo_dir, work_dir, 
                     buggy_test_targets,
-                    apply_test_changes_from=commit_sha if apply_test_changes else None,
-                    modified_test_files=all_test_files if apply_test_changes else None
+                    apply_test_changes_from=None,  # Already applied above
+                    modified_test_files=None  # Already applied above
                 )
                 
                 # Check if we hit import errors (invalid backport)
@@ -952,7 +976,27 @@ def main():
         regressions = list(before_res["passed"].intersection(after_res["failed"]))
         persistent = list(before_res["failed"].intersection(after_res["failed"]))
         all_tests_before = before_res["passed"].union(before_res["failed"])
-        new_passes = list(after_res["passed"].difference(all_tests_before))
+        
+        # Calculate new_passes more accurately:
+        # If buggy version was skipped (new module), only count tests from ADDED test files as new
+        # Otherwise, count all tests that passed in fixed but didn't run in buggy
+        if before_res.get("test") in ["Skipped (New Module)", "Skipped"]:
+            # For new modules or skipped buggy: extract test names from added_tests list
+            # added_tests contains targets like ":module:test --tests ClassName"
+            added_test_names = set()
+            for target in added_tests:
+                if '--tests' in target:
+                    # Extract class name from "--tests ClassName" format
+                    parts = target.split('--tests')
+                    if len(parts) > 1:
+                        test_name = parts[1].strip().strip('"')
+                        added_test_names.add(test_name)
+            # Only count passes that match added test names
+            new_passes = [t for t in after_res["passed"] if any(added in t for added in added_test_names)] if added_test_names else []
+        else:
+            # Normal case: count tests that passed in fixed but weren't in buggy
+            new_passes = list(after_res["passed"].difference(all_tests_before))
+
 
         # Determine validation status
         validation_status = "VALID_BACKPORT"
