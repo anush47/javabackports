@@ -877,10 +877,10 @@ def main():
             # Determine test targets and whether to apply test changes
             # ALWAYS apply test changes (both modified AND added test files) to buggy version FIRST
             buggy_test_targets = " ".join(modified_tests + added_tests) if (modified_tests or added_tests) else all_targets
-            apply_test_changes = len(all_test_files) > 0
+            should_apply_changes = len(all_test_files) > 0
             
             # Step 1: Apply test changes if any
-            if apply_test_changes:
+            if should_apply_changes:
                 print(f"--- Applying test changes to buggy version ({len(modified_test_files)} modified, {len(added_test_files)} added) ---")
                 success, msg, import_errors = apply_test_changes(project_repo_dir, commit_sha, all_test_files)
                 
