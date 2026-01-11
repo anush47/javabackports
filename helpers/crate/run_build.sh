@@ -3,11 +3,18 @@ set -e
 
 echo "=== Building CrateDB with Maven ==="
 
-# Ensure Maven wrapper is executable
-chmod +x mvnw
+# Determine which Maven command to use
+if [ -f "mvnw" ]; then
+    chmod +x mvnw
+    MVN_CMD="./mvnw"
+else
+    MVN_CMD="mvn"
+fi
+
+echo "Using Maven command: $MVN_CMD"
 
 # Clean and build, skipping tests
-./mvnw clean install -DskipTests -T 1C
+$MVN_CMD clean install -DskipTests -T 1C
 
 echo "--- Build complete ---"
 

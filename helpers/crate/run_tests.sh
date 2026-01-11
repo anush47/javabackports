@@ -6,8 +6,15 @@ TEST_TARGETS="$@"
 echo "=== Running CrateDB Tests ==="
 echo "Target: $TEST_TARGETS"
 
-# Ensure Maven wrapper is executable
-chmod +x mvnw
+# Determine which Maven command to use
+if [ -f "mvnw" ]; then
+    chmod +x mvnw
+    MVN_CMD="./mvnw"
+else
+    MVN_CMD="mvn"
+fi
+
+echo "Using Maven command: $MVN_CMD"
 
 # Create output directory
 mkdir -p /repo/build_outputs/build
@@ -15,10 +22,10 @@ mkdir -p /repo/build_outputs/build
 # Run tests with specified targets
 if [ -z "$TEST_TARGETS" ]; then
     echo "--- No test targets specified, running all tests ---"
-    ./mvnw test -T 1C
+    $MVN_CMD test -T 1C
 else
-    echo "--- Executing: ./mvnw $TEST_TARGETS ---"
-    ./mvnw $TEST_TARGETS
+    echo "--- Executing: $MVN_CMD $TEST_TARGETS ---"
+    $MVN_CMD $TEST_TARGETS
 fi
 
 TEST_EXIT_CODE=$?
