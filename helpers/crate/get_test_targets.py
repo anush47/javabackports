@@ -48,9 +48,28 @@ def main():
     repo_dir = sys.argv[1]
     test_files = sys.argv[2:]
     
+    # Filter out non-file arguments (e.g., --commit, commit hashes)
+    # Only keep paths that:
+    # 1. Don't start with --
+    # 2. End with .java
+    # 3. Contain 'test' or 'Test' in the path
+    valid_test_files = []
+    for arg in test_files:
+        if arg.startswith('--'):
+            continue
+        if not arg.endswith('.java'):
+            continue
+        if 'test' not in arg.lower():
+            continue
+        valid_test_files.append(arg)
+    
+    if not valid_test_files:
+        # Return empty to indicate no valid test targets
+        sys.exit(0)
+    
     test_targets = []
     
-    for test_file in test_files:
+    for test_file in valid_test_files:
         module = find_module_for_file(test_file, repo_dir)
         test_class = extract_test_class_name(test_file)
         
@@ -65,6 +84,7 @@ def main():
     
     # Print targets space-separated
     print(" ".join(test_targets))
+
 
 
 if __name__ == '__main__':
