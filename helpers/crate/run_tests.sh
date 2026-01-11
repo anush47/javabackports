@@ -1,48 +1,57 @@
 #!/bin/bash
 set -e
 
-TEST_TARGETS="$@"
+echo "=== Running Tests for ${COMMIT_SHA:0:7} ==="
+echo "Target: ${TEST_TARGETS}"
 
-echo "=== Running CrateDB Tests ==="
-echo "Target: $TEST_TARGETS"
+IMAGE_TAG="${IMAGE_TAG:-crate-${BUILD_TYPE}-${COMMIT_SHA:0:7}}"
 
-# Determine which Maven command to use
-if [ -f "mvnw" ]; then
-    chmod +x mvnw
-    MVN_CMD="./mvnw"
+echo "--- Using Docker Image: ${IMAGE_TAG} ---"
+
+# Configure Test Command
+if [ "${TEST_TARGETS}" == "ALL" ]; then
+    MVN_CMD="mvn test -T 1C"
+elif [ "${TEST_TARGETS}" == "NONE" ]; then
+    echo "No relevant source code changes found. Skipping tests."
+    exit 0
 else
-    MVN_CMD="mvn"
+    # Maven test targets from get_test_targets.py
+    MVN_CMD="mvn ${TEST_TARGETS}"
 fi
 
-echo "Using Maven command: $MVN_CMD"
-
-# Create output directory
-mkdir -p /repo/build_outputs/build
-
-# Run tests with specified targets
-if [ -z "$TEST_TARGETS" ]; then
-    echo "--- No test targets specified, running all tests ---"
-    $MVN_CMD test -T 1C
-else
-    echo "--- Executing: $MVN_CMD $TEST_TARGETS ---"
-    $MVN_CMD $TEST_TARGETS
+DOCKER_CMD="docker"
+if ! docker info > /dev/null 2>&1; then
+    if sudo docker info > /dev/null 2>&1; then
+        echo "Docker requires sudo. Using 'sudo docker'."
+        DOCKER_CMD="sudo docker"
+    else
+        echo "Warning: Docker command failed. Continuing with 'docker' but expect errors."
+    fi
 fi
 
-TEST_EXIT_CODE=$?
+${DOCKER_CMD} volume create maven-cache-crate 2>/dev/null || true
 
-# Copy test reports using rsync
-echo "--- Copying test reports with rsync ---"
-rsync -avz --prune-empty-dirs --include='*/' --include='*.xml' --exclude='*' \
-    --include='**/target/surefire-reports/**' \
-    /repo/ /repo/build_outputs/build/
+echo "--- Executing: ${MVN_CMD} ---"
 
-echo "--- Test results copied ---"
-
-# Check if tests passed
-if [ $TEST_EXIT_CODE -eq 0 ]; then
+if ${DOCKER_CMD} run --rm \
+    --dns=8.8.8.8 \
+    -v "maven-cache-crate:/root/.m2" \
+    -v "${BUILD_DIR}:/repo/build_outputs" \
+    -v "${PROJECT_DIR}:/repo" \
+    -w /repo \
+    "${IMAGE_TAG}" \
+    bash -c "${MVN_CMD}; \
+    MVN_EXIT_CODE=\$?; \
+    echo '--- Copying test reports with rsync ---'; \
+    mkdir -p /repo/build_outputs/build; \
+    rsync -a --include='*/' --include='*.xml' --exclude='*' --include='**/target/surefire-reports/**' /repo/ /repo/build_outputs/build/ || echo 'Rsync failed'; \
+    echo '--- Test results copied ---'; \
+    find /repo/build_outputs -name '*.xml' | head -20; \
+    exit \$MVN_EXIT_CODE"; then
+    
     echo "✅ Tests Passed"
+    exit 0
 else
-    echo "❌ Tests Failed (exit code: $TEST_EXIT_CODE)"
+    echo "❌ Tests Failed"
+    exit 1
 fi
-
-exit $TEST_EXIT_CODE
