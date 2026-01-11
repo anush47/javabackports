@@ -44,7 +44,7 @@ if ${DOCKER_CMD} run --rm \
     -v "${PROJECT_DIR}:/repo" \
     -w /repo \
     ${IMAGE_TAG} \
-    bash -c "mvn clean install -DskipTests -T 1C"; then
+    bash -c "git config --global --add safe.directory /repo && mvn clean install -DskipTests -T 1C"; then
     echo "Success" > $BUILD_STATUS_FILE
 else
     echo "Fail" > $BUILD_STATUS_FILE

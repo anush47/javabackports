@@ -40,7 +40,7 @@ if ${DOCKER_CMD} run --rm \
     -v "${PROJECT_DIR}:/repo" \
     -w /repo \
     "${IMAGE_TAG}" \
-    bash -c "${MVN_CMD}; \
+    bash -c "git config --global --add safe.directory /repo && ${MVN_CMD}; \
     MVN_EXIT_CODE=\$?; \
     echo '--- Copying test reports with rsync ---'; \
     mkdir -p /repo/build_outputs/build; \
